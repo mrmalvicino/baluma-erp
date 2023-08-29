@@ -4,13 +4,3 @@
 int main(){
     mainMenu();
 }
-
-/*
-
-RUN ON WINDOWS:
-.\bin\main.exe
-
-RUN ON UNIX:
-./bin/main
-
-*/
