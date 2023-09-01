@@ -26,7 +26,7 @@
 
 - La documentación de las funciones y los métodos debe estar escrita en inglés, en el archivo .h correspondiente, arriba de cada encabezado y usando las etiquetas Doxygen `@brief`, `@param` y `@return` siempre que sea posible.
 
-- Los archivos y las carpetas deben ser nombrados usando nomenclatura `kebab-case`.
+- Las carpetas deben ser nombrados usando nomenclatura `kebab-case`.
 
 - Las clases deben ser definidas usando nomenclatura `PascalCase`.
 
@@ -35,6 +35,10 @@
 - Los atributos de las clases y las variables deben ser declarados usando nomenclatura `snake_case`.
 
 - Los atributos privados deben declararse anteponiendo un guión bajo a su nombre, como por ejemplo: `_attribute_name`.
+
+- Los archivos que no contengan código en texto plano deben ser nombrados usando nomenclatura `kebab-case`, como por ejemplo: `baluma-logo.png`.
+
+- Los archivos que sí contengan código heredan la nomenclatura de su contenido, como por ejemplo `functions.h` o `Class.h`.
 
 ### Creadores
 
