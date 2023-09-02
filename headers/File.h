@@ -4,8 +4,8 @@
 class File{
     public:
         // Construct
-        File::File();
-        File::File(std::string path);
+        File();
+        File(std::string path);
 
         // Public Methods
         void setPath(std::string path);
