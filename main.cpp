@@ -1,10 +1,9 @@
-#include <iostream>
-#include "headers/functions.h"
-#include "headers/File.h"
+#include "headers/Baluma.h"
 
 int main(){
-    //mainMenu();
-
+    Baluma baluma;
+    baluma.run();
+/*
     File inventario;
 
     // Guardar:
@@ -16,10 +15,10 @@ int main(){
     inventario.write(producto_2);
     inventario.write(producto_3);
     inventario.write(producto_4);
-    
+
     // Cargar:
     Register producto_i;
-    
+
     int cantidad_de_productos = inventario.getAmountOfRegisters();
 
     for (int i = 0; i < cantidad_de_productos; i ++) {
@@ -32,6 +31,7 @@ int main(){
     int prod_index;
     prod_index = inventario.getIndex(id_buscado);
     producto_i = inventario.read(prod_index);
-    
+
     std::cout << producto_i.getId() << "\t" << producto_i.getDescription() << "\n";
+*/
 }

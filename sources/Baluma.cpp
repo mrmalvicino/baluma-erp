@@ -1,44 +1,6 @@
-#include "../headers/functions.h"
+#include "../headers/Baluma.h"
 
-void terminalClear(){
-    #ifdef _WIN64
-        system("cls");
-    #endif
-
-    #ifdef __linux__
-        system("clear");
-    #endif
-
-    #ifdef __APPLE__
-        system("clear");
-    #endif
-}
-
-void terminalPause(){
-    #ifdef _WIN64
-        system("pause");
-    #endif
-
-    #ifdef __linux__
-        int aux = 1;
-
-        do{
-            std::cout << "Ingresar 0 para continuar.\n";
-            std::cin >> aux;
-        } while(aux != 0);
-    #endif
-
-    #ifdef __APPLE__
-        int aux = 1;
-
-        do{
-            std::cout << "\nIngresar 0 para continuar.\n";
-            std::cin >> aux;
-        } while(aux != 0);
-    #endif
-}
-
-void mainMenu(){
+void Baluma::run() {
     int selection = 1;
 
     do{
@@ -84,14 +46,14 @@ void mainMenu(){
         }
     } while(selection != 0);
     
-    terminalClear();
+    terminal.clear();
 }
 
-void about(){
-    terminalClear();
+void Baluma::about(){
+    terminal.clear();
     
     std::cout << "Baluma ERP es un software de gestión empresarial libre y gratuito, distribuido bajo la licencia GNU General Public License. Para más información, visitar https://github.com/mrmalvicino/baluma-erp\n";
 
-    terminalPause();
-    terminalClear();
+    terminal.pause();
+    terminal.clear();
 }
