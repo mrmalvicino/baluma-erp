@@ -6,7 +6,7 @@ int main(){
     //mainMenu();
 
     File inventario;
-    
+
     // Guardar:
     Register producto_1(101, "alta yanta");
     Register producto_2(102, "te verde de java");
@@ -26,4 +26,12 @@ int main(){
         producto_i = inventario.read(i);
         std::cout << producto_i.getId() << "\t" << producto_i.getDescription() << "\n";
     }
+
+    // Buscar:
+    int id_buscado = 102;
+    int prod_index;
+    prod_index = inventario.getIndex(id_buscado);
+    producto_i = inventario.read(prod_index);
+    
+    std::cout << producto_i.getId() << "\t" << producto_i.getDescription() << "\n";
 }
