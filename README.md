@@ -26,8 +26,6 @@
 
 - Functions and methods documentation should be written in English, in the corresponding .h file, above each header and using the Doxygen tags `@brief`, `@param` and `@return` whenever possible.
 
-- Folders must be named using `kebab-case` nomenclature.
-
 - Classes must be defined using `PascalCase` nomenclature.
 
 - Methods of classes and functions must be defined using `camelCase` nomenclature.
@@ -35,6 +33,8 @@
 - Class attributes and variables must be declared using `snake_case` nomenclature.
 
 - Private attributes must be declared by preceding their name with an underscore, such as: `_attribute_name`.
+
+- Folders must be named using `kebab-case` nomenclature.
 
 - Files that do not contain plain text code must be named using the `kebab-case` nomenclature, such as: `baluma-logo.png`.
 
