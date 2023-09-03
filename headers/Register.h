@@ -5,7 +5,6 @@ class Register {
     public:
         Register();
         Register(int id, std::string description);
-
         void setId(int id);
         void setDescription(std::string description);
         int getId();

@@ -5,7 +5,6 @@ class File {
     public:
         File();
         File(std::string path);
-
         void setPath(std::string path);
         std::string getPath();
         bool write(Register & reg_write);
