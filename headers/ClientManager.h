@@ -12,6 +12,7 @@ class ClientManager {
         //Client searchClient();
         void listClients();
         // Agregar métodos de escritura por parámetro
+        // Corregir tipo de dato legal_id de clientes y proevdores
 
     private:
         Terminal _terminal;

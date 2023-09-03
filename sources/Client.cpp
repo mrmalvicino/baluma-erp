@@ -1,17 +1,17 @@
 #include "../headers/Client.h"
 
 Client::Client() : BusinessPartner() {
-    setState(true);
+    setStatus(true);
 }
 
-Client::Client(int id, std::string description, int legal_id, Adress adress, int phone, std::string email, bool state) : BusinessPartner(id, description, legal_id, adress, phone, email) {
-    setState(state);
+Client::Client(int id, std::string description, int legal_id, Adress adress, int phone, std::string email, bool status) : BusinessPartner(id, description, legal_id, adress, phone, email) {
+    setStatus(status);
 }
 
-void Client::setState(bool state) {
-    _state = state;
+void Client::setStatus(bool status) {
+    _status = status;
 }
 
-bool Client::getState() {
-    return _state;
+bool Client::getStatus() {
+    return _status;
 }

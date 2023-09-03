@@ -1,6 +1,6 @@
 #include "headers/Baluma.h"
 
-int main(){
+int main() {
     Baluma baluma;
     baluma.run();
 }

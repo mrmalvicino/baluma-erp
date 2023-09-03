@@ -8,7 +8,7 @@ BusinessPartner::BusinessPartner() {
     setEmail("N/A");
 }
 
-BusinessPartner::BusinessPartner(int id, std::string description, int legal_id, Adress adress, int phone, std::string email) {
+BusinessPartner::BusinessPartner(int id, std::string description, long long int legal_id, Adress adress, int phone, std::string email) {
     setId(id);
     setDescription(description);
     setLegalId(legal_id);
@@ -25,7 +25,7 @@ void BusinessPartner::setDescription(std::string description) {
     strcpy(_description, description.c_str());
 }
 
-void BusinessPartner::setLegalId(int legal_id) {
+void BusinessPartner::setLegalId(long long int legal_id) {
     _legal_id = legal_id;
 }
 
@@ -49,7 +49,7 @@ std::string BusinessPartner::getDescription() {
     return _description;
 }
 
-int BusinessPartner::getLegalId() {
+long long int BusinessPartner::getLegalId() {
     return _legal_id;
 }
 

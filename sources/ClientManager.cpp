@@ -18,7 +18,6 @@ void ClientManager::openClientMenu() {
 
         switch (selection) {
             case 1:
-                _terminal.clear();
                 addClient();
                 break;
             case 2:
@@ -28,7 +27,6 @@ void ClientManager::openClientMenu() {
                 //searchClient();
                 break;
             case 4:
-                _terminal.clear();
                 listClients();
                 break;
         }
@@ -38,6 +36,8 @@ void ClientManager::openClientMenu() {
 }
 
 bool ClientManager::addClient() {
+    _terminal.clear();
+
     int id;
 
     std::cout << "Ingresar id:\n";
@@ -49,14 +49,50 @@ bool ClientManager::addClient() {
     std::cin.ignore();
     getline(std::cin, description);
     
-    int legalId;
+    long long int legal_id;
 
     std::cout << "Ingresar CUIL o CUIT:\n";
-    std::cin >> legalId;
+    std::cin >> legal_id;
 
     Adress adress;
 
-    // pedir los datos para los setters
+    std::string country;
+    std::string state;
+    std::string city;
+    std::string street;
+    int number;
+    int floor;
+    char letter;
+
+    std::cout << "Ingresar el país del domicilio:\n";
+    std::cin.ignore();
+    getline(std::cin, country);
+
+    std::cout << "Ingresar la provincia del domicilio:\n";
+    getline(std::cin, state);
+
+    std::cout << "Ingresar la ciudad del domicilio:\n";
+    getline(std::cin, city);
+
+    std::cout << "Ingresar la calle del domicilio:\n";
+    getline(std::cin, street);
+
+    std::cout << "Ingresar el número de domicilio:\n";
+    std::cin >> number;
+
+    std::cout << "Ingresar el piso:\n";
+    std::cin >> floor;
+
+    std::cout << "Ingresar el departamento o lote:\n";
+    std::cin >> letter;
+
+    adress.setCountry(country);
+    adress.setState(state);
+    adress.setCity(city);
+    adress.setStreet(street);
+    adress.setNumber(number);
+    adress.setFloor(floor);
+    adress.setLetter(letter);
 
     int phone;
 
@@ -71,12 +107,16 @@ bool ClientManager::addClient() {
 
     _client.setId(id);
     _client.setDescription(description);
-    _client.setLegalId(legalId);
+    _client.setLegalId(legal_id);
     _client.setAdress(adress);
     _client.setPhone(phone);
     _client.setEmail(email);
 
-    _client_archive.write(_client);
+    bool successful_write = _client_archive.write(_client);
+
+    _terminal.clear();
+
+    return successful_write;
 }
 
 //bool ClientManager::editClient() {}
@@ -84,10 +124,32 @@ bool ClientManager::addClient() {
 //Client ClientManager::searchClient() {}
 
 void ClientManager::listClients() {
+    _terminal.clear();
+
     int amount_of_clients = _client_archive.getAmountOfRegisters();
+
+    std::cout << "------------------------------\n";
+    std::cout << "     LISTADO DE CLIENTES      \n";
+    std::cout << "------------------------------\n";
 
     for (int i = 0; i < amount_of_clients; i ++) {
         _client = _client_archive.read(i);
-        std::cout << _client.getId() << "\t" << _client.getDescription() << "\n"; // agregar el resto de los datos
+        std::cout << "ID: " << _client.getId() << "\n";
+        std::cout << "Cliente: " << _client.getDescription() << "\n";
+        std::cout << "CUIL/CUIT: " << _client.getLegalId() << "\n";
+        std::cout << "País: " << _client.getAdress().getCountry() << "\n";
+        std::cout << "Provincia: " << _client.getAdress().getState() << "\n";
+        std::cout << "Ciduad: " << _client.getAdress().getCity() << "\n";
+        std::cout << "Calle: " << _client.getAdress().getStreet() << "\n";
+        std::cout << "Número: " << _client.getAdress().getNumber() << "\n";
+        std::cout << "Piso: " << _client.getAdress().getFloor() << "\n";
+        std::cout << "Departamento: " << _client.getAdress().getLetter() << "\n";
+        std::cout << "Teléfono: " << _client.getPhone() << "\n";
+        std::cout << "E-mail: " << _client.getEmail() << "\n";
+        std::cout << "Activo: " << _client.getStatus() << "\n";
+        std::cout << "------------------------------\n";
     }
+
+    _terminal.pause();
+    _terminal.clear();
 }
