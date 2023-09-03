@@ -3,7 +3,7 @@
 void Baluma::run() {
     int selection = 1;
 
-    do{
+    do {
         std::cout << "(1) PRESUPUSTOS\n";
         std::cout << "(2) VENTAS & CLIENTES\n";
         std::cout << "(3) STOCK & INVENTARIO\n";
@@ -18,7 +18,7 @@ void Baluma::run() {
 
         std::cin >> selection;
 
-        switch(selection){
+        switch (selection) {
             case 1:
                 
                 break;
@@ -44,12 +44,12 @@ void Baluma::run() {
                 about();
                 break;
         }
-    } while(selection != 0);
+    } while (selection != 0);
     
     terminal.clear();
 }
 
-void Baluma::about(){
+void Baluma::about() {
     terminal.clear();
     
     std::cout << "Baluma ERP es un software de gestión empresarial libre y gratuito, distribuido bajo la licencia GNU General Public License. Para más información, visitar https://github.com/mrmalvicino/baluma-erp\n";

@@ -1,6 +1,6 @@
 #include "../headers/Terminal.h"
 
-void Terminal::clear(){
+void Terminal::clear() {
     #ifdef _WIN64
         system("cls");
     #endif
@@ -14,7 +14,7 @@ void Terminal::clear(){
     #endif
 }
 
-void Terminal::pause(){
+void Terminal::pause() {
     #ifdef _WIN64
         system("pause");
     #endif
@@ -25,7 +25,7 @@ void Terminal::pause(){
         do{
             std::cout << "Ingresar 0 para continuar.\n";
             std::cin >> aux;
-        } while(aux != 0);
+        } while (aux != 0);
     #endif
 
     #ifdef __APPLE__
@@ -34,6 +34,6 @@ void Terminal::pause(){
         do{
             std::cout << "\nIngresar 0 para continuar.\n";
             std::cin >> aux;
-        } while(aux != 0);
+        } while (aux != 0);
     #endif
 }

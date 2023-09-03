@@ -1,8 +1,10 @@
 #include "headers/Baluma.h"
+#include "headers/File.h"
 
 int main(){
     Baluma baluma;
     baluma.run();
+
 /*
     File inventario;
 
@@ -27,7 +29,7 @@ int main(){
     }
 
     // Buscar:
-    int id_buscado = 102;
+    int id_buscado = 103;
     int prod_index;
     prod_index = inventario.getIndex(id_buscado);
     producto_i = inventario.read(prod_index);

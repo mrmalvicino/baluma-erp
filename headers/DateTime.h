@@ -1,14 +1,11 @@
 #include "Date.h"
 #include "Time.h"
 
-class DateTime{
+class DateTime {
     public:
-        // Construct
         DateTime();
         DateTime(Date date, Time time);
         DateTime(int day, int month, int year, int second, int minute, int hour);
-
-        // Public Methods
         void setDate(Date date);
         void setTime(Time time);
         void setDate(int day, int month, int year);
@@ -18,7 +15,6 @@ class DateTime{
         std::string toString();
 
     private:
-        // Attributes
         Date _date;
         Time _time;
 };

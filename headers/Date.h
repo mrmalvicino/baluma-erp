@@ -1,13 +1,10 @@
 #include <string>
 #include <ctime>
 
-class Date{
+class Date {
     public:
-        // Construct
         Date();
         Date(int day, int month, int year);
-
-        // Public Methods
         void setDay(int day);
         void setMonth(int month);
         void setYear(int year);
@@ -19,12 +16,9 @@ class Date{
         std::string toString();
 
     private:
-        // Attributes
         int _day;
         int _month;
         int _year;
-
-        // Private Methods
         void increaseDay();
         void decreaseDay();
 };

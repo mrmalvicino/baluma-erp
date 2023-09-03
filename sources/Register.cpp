@@ -1,31 +1,27 @@
 #include "../headers/Register.h"
 
-// Construct
-
-Register::Register(){
+Register::Register() {
     setId(0);
     setDescription("N/A");
 }
 
-Register::Register(int id, std::string description){
+Register::Register(int id, std::string description) {
     setId(id);
     setDescription(description);
 }
 
-// Public Methods
-
-void Register::setId(int id){
+void Register::setId(int id) {
     _id = id;
 }
 
-void Register::setDescription(std::string description){
+void Register::setDescription(std::string description) {
     strcpy(_description, description.c_str());
 }
 
-int Register::getId(){
+int Register::getId() {
     return _id;
 }
 
-std::string Register::getDescription(){
+std::string Register::getDescription() {
     return _description;
 }

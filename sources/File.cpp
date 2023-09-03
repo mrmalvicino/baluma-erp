@@ -1,8 +1,6 @@
 #include <iostream>
 #include "../headers/File.h"
 
-// Construct
-
 File::File() {
     setPath("registers/registers.dat");
 }
@@ -10,8 +8,6 @@ File::File() {
 File::File(std::string path) {
     setPath(path);
 }
-
-// Public Methods
 
 void File::setPath(std::string path) {
     _path = path;

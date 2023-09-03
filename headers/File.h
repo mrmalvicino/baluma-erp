@@ -1,13 +1,11 @@
 #include <cstdio>
 #include "Register.h"
 
-class File{
+class File {
     public:
-        // Construct
         File();
         File(std::string path);
 
-        // Public Methods
         void setPath(std::string path);
         std::string getPath();
         bool write(Register & reg_write);
