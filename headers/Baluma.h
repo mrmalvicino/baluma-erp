@@ -1,4 +1,6 @@
+#pragma once
 #include "Terminal.h"
+#include "ClientManager.h"
 
 class Baluma {
     public:
@@ -6,5 +8,6 @@ class Baluma {
         void about();
     
     private:
-        Terminal terminal;
+        Terminal _terminal;
+        ClientManager _client_manager;
 };

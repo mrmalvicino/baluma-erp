@@ -1,3 +1,4 @@
+#pragma once
 #include "BusinessPartner.h"
 
 class Client : public BusinessPartner {
