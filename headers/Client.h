@@ -4,7 +4,7 @@
 class Client : public BusinessPartner {
     public:
         Client();
-        Client(int id, std::string description, int legal_id, Adress adress, int phone, std::string email, bool state);
+        Client(int id, std::string description, long long int legal_id, Adress adress, int phone, std::string email, bool state);
         void setStatus(bool state);
         bool getStatus();
 

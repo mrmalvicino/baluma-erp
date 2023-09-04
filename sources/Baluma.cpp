@@ -4,9 +4,10 @@ void Baluma::run() {
     int selection = 1;
 
     do {
-        std::cout << "--------------------------\n";
-        std::cout << "        BALUMA ERP        \n";
-        std::cout << "--------------------------\n";
+        _terminal.clear();
+        _terminal.printLine();
+        _terminal.centerAndPrint("BALUMA ERP");
+        _terminal.printLine();
         std::cout << "(1) PRESUPUSTOS\n";
         std::cout << "(2) VENTAS\n";
         std::cout << "(3) CLIENTES\n";
@@ -15,8 +16,9 @@ void Baluma::run() {
         std::cout << "(6) PROVEEDORES\n";
         std::cout << "(7) CONTABILIDAD\n";
         std::cout << "(8) RECURSOS HUMANOS\n";
-        std::cout << "--------------------------\n";
+        _terminal.printLine();
         std::cout << "(9) ACERCA DE BALUMA ERP\n";
+        _terminal.printLine();
         std::cout << "(0) SALIR\n";
 
         std::cin >> selection;
@@ -29,8 +31,7 @@ void Baluma::run() {
                 
                 break;
             case 3:
-                _terminal.clear();
-                _client_manager.openClientMenu();
+                _client_manager.displayMenu();
                 break;
             case 4:
                 
@@ -52,15 +53,11 @@ void Baluma::run() {
                 break;
         }
     } while (selection != 0);
-    
-    _terminal.clear();
 }
 
 void Baluma::about() {
     _terminal.clear();
-    
     std::cout << "Baluma ERP es un software de gestión empresarial libre y gratuito, distribuido bajo la licencia GNU General Public License. Para más información, visitar https://github.com/mrmalvicino/baluma-erp\n";
-
     _terminal.pause();
     _terminal.clear();
 }

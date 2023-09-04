@@ -25,7 +25,7 @@ bool ClientArchive::write(Client & reg) {
     return successful_write;
 }
 
-bool ClientArchive::write(Client & reg, int index) {
+bool ClientArchive::overWrite(Client & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
     fseek(file_pointer, sizeof(Client) * index, 0);
     bool successful_write = fwrite(& reg, sizeof(Client), 1, file_pointer);
@@ -50,6 +50,19 @@ int ClientArchive::getIndex(int id) {
     reg = read(i);
 
     while (reg.getId() != id && i < getAmountOfRegisters()) {
+        i ++;
+        reg = read(i);
+    }
+
+    return i;
+}
+
+int ClientArchive::getIndex(std::string description) {
+    int i = 0;
+    Client reg;
+    reg = read(i);
+
+    while (reg.getDescription() != description && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
     }

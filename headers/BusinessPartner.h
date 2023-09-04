@@ -21,7 +21,7 @@ class BusinessPartner {
     private:
         int _id;
         char _description[30];
-        int _legal_id;
+        long long int _legal_id;
         Adress _adress;
         int _phone;
         char _email[30];

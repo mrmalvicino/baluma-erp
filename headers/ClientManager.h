@@ -6,13 +6,18 @@
 
 class ClientManager {
     public:
-        void openClientMenu();
+        void displayMenu();
         bool addClient();
-        //bool editClient();
-        //Client searchClient();
+        bool editClient();
+        void deleteClient();
+        void searchClient();
         void listClients();
-        // Agregar métodos de escritura por parámetro
-        // Corregir tipo de dato legal_id de clientes y proevdores
+        void printClient(int index);
+        void getUserInputForDescription(Client & client);
+        void getUserInputForLegalId(Client & client);
+        void getUserInputForAdress(Client & client);
+        void getUserInputForPhone(Client & client);
+        void getUserInputForEmail(Client & client);
 
     private:
         Terminal _terminal;
