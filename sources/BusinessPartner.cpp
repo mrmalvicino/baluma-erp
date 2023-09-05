@@ -1,7 +1,7 @@
 #include "../headers/BusinessPartner.h"
 
 BusinessPartner::BusinessPartner() {
-    setId(0);
+    setId(1);
     setDescription("N/A");
     setLegalId(0);
     setPhone(0);

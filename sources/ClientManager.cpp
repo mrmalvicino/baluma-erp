@@ -12,7 +12,7 @@ void ClientManager::displayMenu() {
         std::cout << "(4) VER LISTADO\n";
         _terminal.displayMenuFooter();
 
-        std::cin >> selection;
+        selection = _terminal.validateInt(0, 4);
 
         switch (selection) {
             case 1:
@@ -64,6 +64,8 @@ bool ClientManager::editClient() {
     do {
         _terminal.clear();
         _terminal.displayMenuHeader("EDITAR CLIENTE");
+        _terminal.centerAndPrint(_client.getDescription());
+        std::cout << "\n";
         std::cout << "(1) EDITAR NOMBRE\n";
         std::cout << "(2) EDITAR CUIL/CUIT\n";
         std::cout << "(3) EDITAR DOMICILIO\n";
@@ -72,7 +74,7 @@ bool ClientManager::editClient() {
         std::cout << "(6) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
-        std::cin >> selection;
+        selection = _terminal.validateInt(0, 6);
 
         switch (selection) {
             case 1:
@@ -117,7 +119,8 @@ void ClientManager::searchClient() {
     std::cout << "(2) BUSCAR POR NOMBRE\n";
     _terminal.displayMenuFooter();
 
-    std::cin >> selection;
+    selection = _terminal.validateInt(0, 2);
+
     int index;
 
     switch (selection) {
@@ -127,9 +130,11 @@ void ClientManager::searchClient() {
 
         case 1:
             int id;
+            int max_id;
+            max_id = generateId() - 1;
 
             std::cout << "Ingresar ID:\n";
-            std::cin >> id;
+            id = _terminal.validateInt(1, max_id);
 
             index = _client_archive.getIndex(id);
 
@@ -200,7 +205,7 @@ void ClientManager::getUserInputForDescription(Client & client) {
 void ClientManager::getUserInputForLegalId(Client & client) {
     long long int legal_id;
     std::cout << "Ingresar CUIL o CUIT:\n";
-    std::cin >> legal_id;
+    legal_id = _terminal.validateLongInt(1);
     client.setLegalId(legal_id);
 }
 
@@ -229,13 +234,13 @@ void ClientManager::getUserInputForAdress(Client & client) {
     getline(std::cin, street);
 
     std::cout << "Ingresar el número de domicilio:\n";
-    std::cin >> number;
+    number = _terminal.validateInt(0);
 
     std::cout << "Ingresar el piso:\n";
-    std::cin >> floor;
+    floor = _terminal.validateInt(0);
 
     std::cout << "Ingresar el departamento o lote:\n";
-    std::cin >> letter;
+    letter = _terminal.validateChar();
 
     adress.setCountry(country);
     adress.setState(state);
@@ -251,7 +256,7 @@ void ClientManager::getUserInputForAdress(Client & client) {
 void ClientManager::getUserInputForPhone(Client & client) {
     int phone;
     std::cout << "Ingresar teléfono o celular:\n";
-    std::cin >> phone;
+    phone = _terminal.validateInt(0);
     client.setPhone(phone);
 }
 
@@ -266,8 +271,12 @@ void ClientManager::getUserInputForEmail(Client & client) {
 void ClientManager::getUserInputForIsActive(Client & client) {
     if (client.getIsActive()) {
         client.setIsActive(false);
+        std::cout << "El cliente ha sido dado de baja.\n";
+        _terminal.pause();
     } else {
         client.setIsActive(true);
+        std::cout << "El cliente ha sido reincorporado.\n";
+        _terminal.pause();
     }
 }
 

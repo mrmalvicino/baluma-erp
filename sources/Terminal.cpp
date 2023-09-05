@@ -125,3 +125,108 @@ void Terminal::printBool(bool parameter, std::string text_if_true, std::string t
         std::cout << text_if_false;
     }
 }
+
+int Terminal::validateInt() {
+    int rtn;
+    
+    while (true) {
+        if (std::cin >> rtn) {
+            break;
+        } else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+
+    return rtn;
+}
+
+int Terminal::validateInt(int min) {
+    int rtn;
+    
+    while (true) {
+        if (std::cin >> rtn && min <= rtn) {
+            break;
+        } else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+
+    return rtn;
+}
+
+int Terminal::validateInt(int min, int max) {
+    int rtn;
+    
+    while (true) {
+        if (std::cin >> rtn && min <= rtn && rtn <= max) {
+            break;
+        } else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+
+    return rtn;
+}
+
+long long int Terminal::validateLongInt() {
+    long long int rtn;
+    
+    while (true) {
+        if (std::cin >> rtn) {
+            break;
+        } else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+
+    return rtn;
+}
+
+long long int Terminal::validateLongInt(int min) {
+    long long int rtn;
+    
+    while (true) {
+        if (std::cin >> rtn && min <= rtn) {
+            break;
+        } else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+
+    return rtn;
+}
+
+long long int Terminal::validateLongInt(int min, int max) {
+    long long int rtn;
+    
+    while (true) {
+        if (std::cin >> rtn && min <= rtn && rtn <= max) {
+            break;
+        } else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+
+    return rtn;
+}
+
+char Terminal::validateChar() {
+    char rtn;
+    
+    while (true) {
+        if (std::cin >> rtn) {
+            break;
+        } else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+
+    return rtn;
+}

@@ -40,7 +40,7 @@ void Baluma::run() {
                 
                 break;
             case 6:
-                
+                _supplier_manager.displayMenu();
                 break;
             case 7:
                 
