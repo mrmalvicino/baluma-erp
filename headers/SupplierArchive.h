@@ -9,9 +9,10 @@ class SupplierArchive {
         void setPath(std::string path);
         std::string getPath();
         bool write(Supplier & reg);
-        bool write(Supplier & reg, int index);
+        bool overWrite(Supplier & reg, int index);
         Supplier read(int index);
         int getIndex(int id);
+        int getIndex(std::string description);
         int getAmountOfRegisters();
     
     private:

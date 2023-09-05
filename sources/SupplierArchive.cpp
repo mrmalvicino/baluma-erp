@@ -25,7 +25,7 @@ bool SupplierArchive::write(Supplier & reg) {
     return successful_write;
 }
 
-bool SupplierArchive::write(Supplier & reg, int index) {
+bool SupplierArchive::overWrite(Supplier & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
     fseek(file_pointer, sizeof(Supplier) * index, 0);
     bool successful_write = fwrite(& reg, sizeof(Supplier), 1, file_pointer);
@@ -50,6 +50,19 @@ int SupplierArchive::getIndex(int id) {
     reg = read(i);
 
     while (reg.getId() != id && i < getAmountOfRegisters()) {
+        i ++;
+        reg = read(i);
+    }
+
+    return i;
+}
+
+int SupplierArchive::getIndex(std::string description) {
+    int i = 0;
+    Supplier reg;
+    reg = read(i);
+
+    while (reg.getDescription() != description && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
     }
