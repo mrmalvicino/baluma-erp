@@ -4,7 +4,7 @@ Supplier::Supplier() : BusinessPartner() {
     setBankAccount(0);
 }
 
-Supplier::Supplier(int id, std::string description, int legal_id, Adress adress, int phone, std::string email, int bank_account) : BusinessPartner(id, description, legal_id, adress, phone, email) {
+Supplier::Supplier(int id, std::string description, int legal_id, Adress adress, int phone, std::string email, bool is_active, int bank_account) : BusinessPartner(id, description, legal_id, adress, phone, email, is_active) {
     setBankAccount(bank_account);
 }
 

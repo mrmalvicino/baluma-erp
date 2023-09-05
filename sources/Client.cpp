@@ -1,17 +1,17 @@
 #include "../headers/Client.h"
 
 Client::Client() : BusinessPartner() {
-    setStatus(true);
+    setCategory('C');
 }
 
-Client::Client(int id, std::string description, long long int legal_id, Adress adress, int phone, std::string email, bool status) : BusinessPartner(id, description, legal_id, adress, phone, email) {
-    setStatus(status);
+Client::Client(int id, std::string description, long long int legal_id, Adress adress, int phone, std::string email, bool is_active, char category) : BusinessPartner(id, description, legal_id, adress, phone, email, is_active) {
+    setCategory(category);
 }
 
-void Client::setStatus(bool status) {
-    _status = status;
+void Client::setCategory(char category) {
+    _category = category;
 }
 
-bool Client::getStatus() {
-    return _status;
+char Client::getCategory() {
+    return _category;
 }

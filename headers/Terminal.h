@@ -34,6 +34,8 @@ class Terminal {
 
         void displayMenuFooter();
 
+        void printBool(bool parameter, std::string text_if_true, std::string text_if_false);
+
     private:
         int _line_lenght;
         char _back_icon[4];

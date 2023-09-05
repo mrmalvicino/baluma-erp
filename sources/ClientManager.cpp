@@ -8,9 +8,8 @@ void ClientManager::displayMenu() {
         _terminal.displayMenuHeader("CLIENTES");
         std::cout << "(1) AGREGAR NUEVO\n";
         std::cout << "(2) EDITAR EXISTENTE\n";
-        std::cout << "(3) BORRAR CLIENTE\n";
-        std::cout << "(4) BUSCAR CLIENTE\n";
-        std::cout << "(5) VER LISTADO\n";
+        std::cout << "(3) BUSCAR CLIENTE\n";
+        std::cout << "(4) VER LISTADO\n";
         _terminal.displayMenuFooter();
 
         std::cin >> selection;
@@ -25,14 +24,10 @@ void ClientManager::displayMenu() {
                 break;
 
             case 3:
-                deleteClient();
-                break;
-
-            case 4:
                 searchClient();
                 break;
 
-            case 5:
+            case 4:
                 listClients();
                 break;
         }
@@ -43,10 +38,7 @@ bool ClientManager::addClient() {
     _terminal.clear();
     _terminal.displayMenuHeader("AGREGAR CLIENTE");
 
-    int id;
-    std::cout << "Ingresar id:\n";
-    std::cin >> id;
-    _client.setId(id); // asignar id automatico todo
+    _client.setId(generateId());
 
     getUserInputForDescription(_client);
     getUserInputForLegalId(_client);
@@ -77,6 +69,7 @@ bool ClientManager::editClient() {
         std::cout << "(3) EDITAR DOMICILIO\n";
         std::cout << "(4) EDITAR TELÉFONO\n";
         std::cout << "(5) EDITAR E-MAIL\n";
+        std::cout << "(6) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
         std::cin >> selection;
@@ -101,6 +94,10 @@ bool ClientManager::editClient() {
             case 5:
                 getUserInputForEmail(_client);
                 break;
+
+            case 6:
+                getUserInputForIsActive(_client);
+                break;
         }
     } while (selection != 0);
 
@@ -108,10 +105,6 @@ bool ClientManager::editClient() {
     bool successful_write = _client_archive.overWrite(_client, index);
 
     return successful_write;
-}
-
-void ClientManager::deleteClient() {
-    //todo
 }
 
 void ClientManager::searchClient() {
@@ -172,7 +165,6 @@ void ClientManager::listClients() {
 
     for (int i = 0; i < amount_of_clients; i ++) {
         printClient(i);
-        _terminal.printLine();
     }
 
     _terminal.pause();
@@ -181,8 +173,8 @@ void ClientManager::listClients() {
 
 void ClientManager::printClient(int index) {
     _client = _client_archive.read(index);
-    std::cout << "ID: " << _client.getId() << "\n";
-    std::cout << "Cliente: " << _client.getDescription() << "\n";
+    _terminal.displayMenuHeader(_client.getDescription());
+    std::cout << "# ID: " << _client.getId() << "\n";
     std::cout << "CUIL/CUIT: " << _client.getLegalId() << "\n";
     std::cout << "País: " << _client.getAdress().getCountry() << "\n";
     std::cout << "Provincia: " << _client.getAdress().getState() << "\n";
@@ -193,12 +185,13 @@ void ClientManager::printClient(int index) {
     std::cout << "Departamento: " << _client.getAdress().getLetter() << "\n";
     std::cout << "Teléfono: " << _client.getPhone() << "\n";
     std::cout << "E-mail: " << _client.getEmail() << "\n";
-    std::cout << "Activo: " << _client.getStatus() << "\n";
+    std::cout << "Categoría: " << _client.getCategory() << "\n";
+    _terminal.printBool(_client.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
 void ClientManager::getUserInputForDescription(Client & client) {
     std::string description;
-    std::cout << "Ingresar nombre de la organización o del cliente:\n";
+    std::cout << "Ingresar nombre del cliente:\n";
     std::cin.ignore();
     getline(std::cin, description);
     client.setDescription(description);
@@ -268,4 +261,24 @@ void ClientManager::getUserInputForEmail(Client & client) {
     std::cin.ignore();
     getline(std::cin, email);
     client.setEmail(email);
+}
+
+void ClientManager::getUserInputForIsActive(Client & client) {
+    if (client.getIsActive()) {
+        client.setIsActive(false);
+    } else {
+        client.setIsActive(true);
+    }
+}
+
+int ClientManager::generateId() {
+    int id;
+
+    if (_client.getId() != 0) {
+        id = _client_archive.getAmountOfRegisters() + 1;
+    } else {
+        id = 1;
+    }
+
+    return id;
 }

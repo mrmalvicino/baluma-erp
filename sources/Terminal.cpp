@@ -117,3 +117,11 @@ void Terminal::displayMenuFooter() {
     printLine();
     printBackOption();
 }
+
+void Terminal::printBool(bool parameter, std::string text_if_true, std::string text_if_false) {
+    if (parameter == true) {
+        std::cout << text_if_true;
+    } else {
+        std::cout << text_if_false;
+    }
+}

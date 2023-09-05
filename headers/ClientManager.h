@@ -9,7 +9,6 @@ class ClientManager {
         void displayMenu();
         bool addClient();
         bool editClient();
-        void deleteClient();
         void searchClient();
         void listClients();
         void printClient(int index);
@@ -18,6 +17,8 @@ class ClientManager {
         void getUserInputForAdress(Client & client);
         void getUserInputForPhone(Client & client);
         void getUserInputForEmail(Client & client);
+        void getUserInputForIsActive(Client & client);
+        int generateId();
 
     private:
         Terminal _terminal;
