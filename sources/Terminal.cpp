@@ -5,7 +5,7 @@ Terminal::Terminal() {
     setBackCaption("ATRÁS");
     
     #ifdef _WIN64
-        setBackIcon(char(27));
+        setBackIcon("");
     #endif
 
     #ifdef __linux__
