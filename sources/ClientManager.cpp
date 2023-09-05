@@ -7,7 +7,7 @@ void ClientManager::displayMenu() {
         _terminal.clear();
         _terminal.displayMenuHeader("CLIENTES");
         std::cout << "(1) AGREGAR NUEVO\n";
-        std::cout << "(2) EDITAR EXISTENTE\n";
+        std::cout << "(2) EDITAR CLIENTE\n";
         std::cout << "(3) BUSCAR CLIENTE\n";
         std::cout << "(4) VER LISTADO\n";
         _terminal.displayMenuFooter();
@@ -137,17 +137,14 @@ void ClientManager::searchClient() {
         case 1:
             int id;
             int max_id;
-            max_id = generateClientId() - 1;
 
+            max_id = generateClientId() - 1;
             std::cout << "Ingresar ID:\n";
             id = _terminal.validateInt(1, max_id);
 
             index = _client_archive.getIndex(id);
-
             printClient(index);
-
             _terminal.pause();
-
             break;
 
         case 2:
@@ -158,11 +155,8 @@ void ClientManager::searchClient() {
             getline(std::cin, description);
 
             index = _client_archive.getIndex(description);
-
             printClient(index);
-
             _terminal.pause();
-
             break;
     }
 }
@@ -294,13 +288,11 @@ void ClientManager::cinClientCategory(Client & client) {
 }
 
 int ClientManager::generateClientId() {
-    int id;
+    int id = 1;
 
-    if (_client.getId() != 0) {
-        id = _client_archive.getAmountOfRegisters() + 1;
-    } else {
-        id = 1;
+    if (_client.getId() != 1) {
+        id = _client_archive.getAmountOfRegisters();
     }
 
-    return id;
+    return id + 1;
 }

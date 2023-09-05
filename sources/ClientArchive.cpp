@@ -19,6 +19,12 @@ std::string ClientArchive::getPath() {
 
 bool ClientArchive::write(Client & reg) {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
+
+    if (file_pointer == NULL) {
+        std::cerr << "Error: No se pudo abrir el archivo.\n";
+        return 0;
+    }
+
     bool successful_write = fwrite(& reg, sizeof(Client), 1, file_pointer);
     fclose(file_pointer);
 
@@ -27,6 +33,12 @@ bool ClientArchive::write(Client & reg) {
 
 bool ClientArchive::overWrite(Client & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
+
+    if (file_pointer == NULL) {
+        std::cerr << "Error: No se pudo abrir el archivo.\n";
+        return 0;
+    }
+
     fseek(file_pointer, sizeof(Client) * index, 0);
     bool successful_write = fwrite(& reg, sizeof(Client), 1, file_pointer);
     fclose(file_pointer);
@@ -37,6 +49,12 @@ bool ClientArchive::overWrite(Client & reg, int index) {
 Client ClientArchive::read(int index) {
     Client reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
+
+    if (file_pointer == NULL) {
+        std::cerr << "Error: No se pudo abrir el archivo.\n";
+        return reg;
+    }
+
     fseek(file_pointer, sizeof(Client) * index, 0);
     fread(& reg, sizeof(Client), 1, file_pointer);
     fclose(file_pointer);
@@ -72,6 +90,12 @@ int ClientArchive::getIndex(std::string description) {
 
 int ClientArchive::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
+
+    if (file_pointer == NULL) {
+        std::cerr << "Error: No se pudo abrir el archivo.\n";
+        return 1;
+    }
+
     fseek(file_pointer, 0, SEEK_END);
     int bytes = ftell(file_pointer);
     fclose(file_pointer);

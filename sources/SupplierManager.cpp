@@ -7,7 +7,7 @@ void SupplierManager::displayMenu() {
         _terminal.clear();
         _terminal.displayMenuHeader("PROVEEDORES");
         std::cout << "(1) AGREGAR NUEVO\n";
-        std::cout << "(2) EDITAR EXISTENTE\n";
+        std::cout << "(2) EDITAR PROVEEDOR\n";
         std::cout << "(3) BUSCAR PROVEEDOR\n";
         std::cout << "(4) VER LISTADO\n";
         _terminal.displayMenuFooter();
@@ -45,6 +45,7 @@ bool SupplierManager::addSupplier() {
     cinSupplierAdress(_supplier);
     cinSupplierPhone(_supplier);
     cinSupplierEmail(_supplier);
+    cinSupplierBankAccount(_supplier);
 
     bool successful_write = _supplier_archive.write(_supplier);
 
@@ -136,17 +137,14 @@ void SupplierManager::searchSupplier() {
         case 1:
             int id;
             int max_id;
-            max_id = generateSupplierId() - 1;
 
+            max_id = generateSupplierId() - 1;
             std::cout << "Ingresar ID:\n";
             id = _terminal.validateInt(1, max_id);
 
             index = _supplier_archive.getIndex(id);
-
             printSupplier(index);
-
             _terminal.pause();
-
             break;
 
         case 2:
@@ -157,11 +155,8 @@ void SupplierManager::searchSupplier() {
             getline(std::cin, description);
 
             index = _supplier_archive.getIndex(description);
-
             printSupplier(index);
-
             _terminal.pause();
-
             break;
     }
 }
@@ -293,13 +288,11 @@ void SupplierManager::cinSupplierBankAccount(Supplier & supplier) {
 }
 
 int SupplierManager::generateSupplierId() {
-    int id;
+    int id = 1;
 
-    if (_supplier.getId() != 0) {
-        id = _supplier_archive.getAmountOfRegisters() + 1;
-    } else {
-        id = 1;
+    if (_supplier.getId() != 1) {
+        id = _supplier_archive.getAmountOfRegisters();
     }
 
-    return id;
+    return id + 1;
 }
