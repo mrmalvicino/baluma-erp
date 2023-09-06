@@ -20,6 +20,8 @@ class SupplierManager {
         void cinSupplierIsActive(Supplier & supplier);
         void cinSupplierBankAccount(Supplier & supplier);
         int generateSupplierId();
+        void searchSupplierById();
+        void searchSupplierByDescription();
 
     private:
         Terminal _terminal;

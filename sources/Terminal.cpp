@@ -3,18 +3,6 @@
 Terminal::Terminal() {
     setLineLenght(30);
     setBackCaption("ATRÁS");
-    
-    #ifdef _WIN64
-        setBackIcon("");
-    #endif
-
-    #ifdef __linux__
-        setBackIcon("←");
-    #endif
-
-    #ifdef __APPLE__
-        setBackIcon("←");
-    #endif
 }
 
 void Terminal::setLineLenght(int line_lenght) {
@@ -23,14 +11,6 @@ void Terminal::setLineLenght(int line_lenght) {
 
 int Terminal::getLineLenght() {
     return _line_lenght;
-}
-
-void Terminal::setBackIcon(std::string back_icon) {
-    strcpy(_back_icon, back_icon.c_str());
-}
-
-std::string Terminal::getBackIcon() {
-    return _back_icon;
 }
 
 void Terminal::setBackCaption(std::string back_caption) {
@@ -104,7 +84,7 @@ void Terminal::centerAndPrint(std::string text) {
 }
 
 void Terminal::printBackOption() {
-    std::cout << "(0) " << getBackIcon() << " " << getBackCaption() << "\n";
+    std::cout << "(0) " << getBackCaption() << "\n";
 }
 
 void Terminal::displayMenuHeader(std::string title) {
@@ -126,6 +106,29 @@ void Terminal::printBool(bool parameter, std::string text_if_true, std::string t
     }
 }
 
+bool Terminal::validateBool() {
+    char input;
+    bool rtn;
+
+    while (true) {
+        if (std::cin >> input && (input == 'y' || input == 'Y' || input == 's' || input == 'S' || input == 'n' || input == 'N')) {
+            break;
+        } else {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Error de validación: Ingresar 'S' para confirmar o 'N' para denegar.\n";
+        }
+    }
+
+    if (input == 'y' || input == 'Y' || input == 's' || input == 'S') {
+        rtn = true;
+    } else {
+        rtn = false;
+    }
+
+    return rtn;
+}
+
 int Terminal::validateInt() {
     int rtn;
     
@@ -135,6 +138,7 @@ int Terminal::validateInt() {
         } else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Error de validación: Ingrese un número entero.\n";
         }
     }
 
@@ -150,6 +154,7 @@ int Terminal::validateInt(int min) {
         } else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Error de validación: Ingrese un número entero mayor o igual a " << min << ".\n";
         }
     }
 
@@ -165,6 +170,13 @@ int Terminal::validateInt(int min, int max) {
         } else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            if (min < max) {
+                std::cout << "Error de validación: Ingrese un número entero mayor (o igual) a " << min << " y menor (o igual) a " << max << ".\n";
+            } else if (min == max) {
+                std::cout << "Error de validación: El único ingreso válido es " << min << ".\n";
+            } else {
+                std::cout << "Error de validación: Los extremos están definidos de manera que no haya ingresos válidos.\n";
+            }
         }
     }
 
@@ -180,6 +192,7 @@ long long int Terminal::validateLongInt() {
         } else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Error de validación: Ingrese un número entero.\n";
         }
     }
 
@@ -195,6 +208,7 @@ long long int Terminal::validateLongInt(int min) {
         } else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Error de validación: Ingrese un número entero mayor o igual a " << min << ".\n";
         }
     }
 
@@ -210,6 +224,13 @@ long long int Terminal::validateLongInt(int min, int max) {
         } else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            if (min < max) {
+                std::cout << "Error de validación: Ingrese un número entero mayor (o igual) a " << min << " y menor (o igual) a " << max << ".\n";
+            } else if (min == max) {
+                std::cout << "Error de validación: El único ingreso válido es " << min << ".\n";
+            } else {
+                std::cout << "Error de validación: Los extremos están definidos de manera que no haya ingresos válidos.\n";
+            }
         }
     }
 

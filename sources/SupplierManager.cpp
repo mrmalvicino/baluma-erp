@@ -35,6 +35,9 @@ void SupplierManager::displayMenu() {
 }
 
 bool SupplierManager::addSupplier() {
+    bool successful_write;
+    bool user_wants_to_save;
+
     _terminal.clear();
     _terminal.displayMenuHeader("AGREGAR PROVEEDOR");
 
@@ -47,7 +50,20 @@ bool SupplierManager::addSupplier() {
     cinSupplierEmail(_supplier);
     cinSupplierBankAccount(_supplier);
 
-    bool successful_write = _supplier_archive.write(_supplier);
+    std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
+    user_wants_to_save = _terminal.validateBool();
+
+    if (user_wants_to_save == true) {
+        successful_write = _supplier_archive.write(_supplier);
+        if (successful_write == true) {
+            std::cout << "Registro guardado correctamente.\n";
+        } else {
+            std::cout << "Error de escritura.\n";
+        }
+    } else {
+        successful_write = false;
+        std::cout << "Registro descartado por usuario.\n";
+    }
 
     _terminal.pause();
     _terminal.clear();
@@ -127,36 +143,17 @@ void SupplierManager::searchSupplier() {
 
     selection = _terminal.validateInt(0, 2);
 
-    int index;
-
     switch (selection) {
         case 0:
             _terminal.clear();
             break;
 
         case 1:
-            int id;
-            int max_id;
-
-            max_id = generateSupplierId() - 1;
-            std::cout << "Ingresar ID:\n";
-            id = _terminal.validateInt(1, max_id);
-
-            index = _supplier_archive.getIndex(id);
-            printSupplier(index);
-            _terminal.pause();
+            searchSupplierById();
             break;
 
         case 2:
-            std::string description;
-
-            std::cout << "Ingresar nombre:\n";
-            std::cin.ignore();
-            getline(std::cin, description);
-
-            index = _supplier_archive.getIndex(description);
-            printSupplier(index);
-            _terminal.pause();
+            searchSupplierByDescription();
             break;
     }
 }
@@ -295,4 +292,36 @@ int SupplierManager::generateSupplierId() {
     }
 
     return id + 1;
+}
+
+void SupplierManager::searchSupplierById() {
+    int index;
+    int id;
+    int max_id;
+
+    max_id = _supplier_archive.getAmountOfRegisters();
+
+    std::cout << "Ingresar ID:\n";
+    id = _terminal.validateInt(1, max_id);
+
+    index = _supplier_archive.getIndex(id);
+
+    printSupplier(index);
+
+    _terminal.pause();
+}
+
+void SupplierManager::searchSupplierByDescription() {
+    int index;
+    std::string description;
+
+    std::cout << "Ingresar nombre:\n";
+    std::cin.ignore();
+    getline(std::cin, description);
+
+    index = _supplier_archive.getIndex(description);
+
+    printSupplier(index);
+    
+    _terminal.pause();
 }

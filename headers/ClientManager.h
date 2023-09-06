@@ -20,6 +20,8 @@ class ClientManager {
         void cinClientIsActive(Client & client);
         void cinClientCategory(Client & client);
         int generateClientId();
+        void searchClientById();
+        void searchClientByDescription();
 
     private:
         Terminal _terminal;

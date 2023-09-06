@@ -39,6 +39,8 @@ class Terminal {
 
         void printBool(bool parameter, std::string text_if_true, std::string text_if_false);
 
+        bool validateBool();
+
         int validateInt();
 
         int validateInt(int min);
@@ -55,6 +57,5 @@ class Terminal {
 
     private:
         int _line_lenght;
-        char _back_icon[4];
         char _back_caption[30];
 };

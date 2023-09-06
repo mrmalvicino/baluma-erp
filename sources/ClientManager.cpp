@@ -35,6 +35,9 @@ void ClientManager::displayMenu() {
 }
 
 bool ClientManager::addClient() {
+    bool successful_write;
+    bool user_wants_to_save;
+
     _terminal.clear();
     _terminal.displayMenuHeader("AGREGAR CLIENTE");
 
@@ -47,7 +50,20 @@ bool ClientManager::addClient() {
     cinClientEmail(_client);
     cinClientCategory(_client);
 
-    bool successful_write = _client_archive.write(_client);
+    std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
+    user_wants_to_save = _terminal.validateBool();
+
+    if (user_wants_to_save == true) {
+        successful_write = _client_archive.write(_client);
+        if (successful_write == true) {
+            std::cout << "Registro guardado correctamente.\n";
+        } else {
+            std::cout << "Error de escritura.\n";
+        }
+    } else {
+        successful_write = false;
+        std::cout << "Registro descartado por usuario.\n";
+    }
 
     _terminal.pause();
     _terminal.clear();
@@ -127,36 +143,17 @@ void ClientManager::searchClient() {
 
     selection = _terminal.validateInt(0, 2);
 
-    int index;
-
     switch (selection) {
         case 0:
             _terminal.clear();
             break;
 
         case 1:
-            int id;
-            int max_id;
-
-            max_id = generateClientId() - 1;
-            std::cout << "Ingresar ID:\n";
-            id = _terminal.validateInt(1, max_id);
-
-            index = _client_archive.getIndex(id);
-            printClient(index);
-            _terminal.pause();
+            searchClientById();
             break;
 
         case 2:
-            std::string description;
-
-            std::cout << "Ingresar nombre:\n";
-            std::cin.ignore();
-            getline(std::cin, description);
-
-            index = _client_archive.getIndex(description);
-            printClient(index);
-            _terminal.pause();
+            searchClientByDescription();
             break;
     }
 }
@@ -295,4 +292,36 @@ int ClientManager::generateClientId() {
     }
 
     return id + 1;
+}
+
+void ClientManager::searchClientById() {
+    int index;
+    int id;
+    int max_id;
+
+    max_id = _client_archive.getAmountOfRegisters();
+
+    std::cout << "Ingresar ID:\n";
+    id = _terminal.validateInt(1, max_id);
+
+    index = _client_archive.getIndex(id);
+
+    printClient(index);
+
+    _terminal.pause();
+}
+
+void ClientManager::searchClientByDescription() {
+    int index;
+    std::string description;
+
+    std::cout << "Ingresar nombre:\n";
+    std::cin.ignore();
+    getline(std::cin, description);
+
+    index = _client_archive.getIndex(description);
+
+    printClient(index);
+
+    _terminal.pause();
 }
