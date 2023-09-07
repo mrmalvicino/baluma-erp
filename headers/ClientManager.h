@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
-#include <fstream>
 #include "Terminal.h"
 #include "Client.h"
 #include "ClientArchive.h"
+#include "ClientCSV.h"
 
 class ClientManager {
     public:
@@ -34,4 +34,5 @@ class ClientManager {
         Client _client;
         ClientArchive _client_archive;
         ClientArchive _client_archive_backup;
+        ClientCSV _client_csv;
 };
