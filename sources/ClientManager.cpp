@@ -408,108 +408,15 @@ void ClientManager::importClientsBackup() {
 }
 
 void ClientManager::exportClientsCSV() {
-    std::ofstream file("registers/clients.csv");
-
-    if (file.is_open() == false) {
-        std::cerr << "Error: No se pudo abrir el archivo al exportar CSV.\n";
-    } else {
-        int amount_of_clients = _client_archive_backup.getAmountOfRegisters();
-
-        for (int i = 0; i < amount_of_clients; i ++) {
-            //_client = _client_archive.read(i);
-            printClient(i);
-            file << _client.getId() << "," << _client.getDescription() << "," << _client.getLegalId() << "," << _client.getAdress().getCountry() << "," << _client.getAdress().getState() << "," << _client.getAdress().getCity() << "," << _client.getAdress().getStreet() << "," << _client.getAdress().getNumber() << "," << _client.getAdress().getFloor() << "," << _client.getAdress().getLetter() << "," << _client.getPhone() << "," << _client.getEmail() << "," << _client.getIsActive() << "," << _client.getCategory() << "\n";
-        }
-
-        file.close();
-
-        std::cout << "CSV exportado correctamente.\n";
-        _terminal.pause();
-    }
+    _client_csv.writeClientsCSV();
 }
-
+ 
 void ClientManager::importClientsCSV() {
     std::cout << "¿Desea reemplazar los clientes actuales por aquellos que haya en el archivo CSV? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        std::ifstream file("registers/clients.csv");
-
-        if (!file.is_open()) {
-            std::cerr << "Error: No se pudo abrir el archivo al importar CSV.\n";
-        } else {
-            int amount_of_clients = 0;
-
-            std::string client_reg;
-
-            // Contar las líneas del archivo para determinar el número de registros
-            while (std::getline(file, client_reg)) {
-                ++ amount_of_clients;
-            }
-
-            // Volver al inicio del archivo
-            file.clear();
-            file.seekg(0, std::ios::beg);
-
-            // Crear un array dinámico para almacenar los registros
-            Client * clients_array = new Client[amount_of_clients];
-
-            if (clients_array == NULL) {
-                std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al importar CSV.";
-            } else {
-                // Leer registros desde el archivo CSV
-                int index = 0;
-                int errors_detected = 0;
-
-                while (std::getline(file, client_reg)) {
-                    int id, legal_id, number, floor, phone;
-                    char description[30], country[30], state[30], city[30], street[30], email[30], letter, category;
-                    bool is_active;
-                    
-                    if (sscanf(client_reg.c_str(), "%d,%29[^,],%lld,%29[^,],%29[^,],%29[^,],%29[^,],%d,%d,%c,%d,%29[^,],%d,%c",
-                    &id, description, &legal_id, country, state, city, street, &number, &floor, &letter, &phone, email, &is_active, &category) == 14) {
-                        _client.setId(id);
-                        _client.setDescription(description);
-                        _client.setLegalId(legal_id);
-                        Adress adress;
-                        adress.setCountry(country);
-                        adress.setState(state);
-                        adress.setCity(city);
-                        adress.setStreet(street);
-                        adress.setNumber(number);
-                        adress.setFloor(floor);
-                        adress.setLetter(letter);
-                        _client.setAdress(adress);
-                        _client.setCategory(category);
-                        _client.setPhone(phone);
-                        _client.setIsActive(is_active);
-                        _client.setCategory(category);
-                        clients_array[index ++] = _client;
-                    } else {
-                        errors_detected ++;
-                    }
-                }
-
-                if (0 < errors_detected) {
-                    std::cerr << "Se encontraron " << errors_detected << " errores en la estructura del archivo CSV.\n";
-                } else {
-                    // Reemplazar archivo de clientes por uno vacío
-                    _client_archive.createNewEmptyFile();
-
-                    // Escribir el archivo vacío con los datos del array en memoria RAM
-                    for (int i = 0; i < amount_of_clients; i ++) {
-                        _client_archive.write(clients_array[i]);
-                    }
-
-                    file.close();
-
-                    delete [] clients_array;
-
-                    std::cout << "CSV importado correctamente.\n";
-                }
-                _terminal.pause();
-            }
-        }
+        _client_csv.readClientsCSV();
     }
 }
