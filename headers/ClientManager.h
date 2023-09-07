@@ -1,11 +1,13 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include "Terminal.h"
 #include "Client.h"
 #include "ClientArchive.h"
 
 class ClientManager {
     public:
+        ClientManager();
         void displayMenu();
         bool addClient();
         bool editClient();
@@ -22,9 +24,14 @@ class ClientManager {
         int generateClientId();
         void searchClientById();
         void searchClientByDescription();
+        void exportClientsBackup();
+        void importClientsBackup();
+        void exportClientsCSV();
+        void importClientsCSV();
 
     private:
         Terminal _terminal;
         Client _client;
         ClientArchive _client_archive;
+        ClientArchive _client_archive_backup;
 };
