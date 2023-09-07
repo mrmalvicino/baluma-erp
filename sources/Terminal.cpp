@@ -51,11 +51,17 @@ void Terminal::pause() {
 
     #ifdef __APPLE__
         int aux = 1;
+        std::cout << "\nIngresar 0 para continuar.\n";
 
-        do{
-            std::cout << "\nIngresar 0 para continuar.\n";
-            std::cin >> aux;
-        } while (aux != 0);
+        while (true) {
+            if (std::cin >> aux && aux == 0) {
+                break;
+            } else {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Ingresar 0 para continuar.\n";
+            }
+        }
     #endif
 }
 
