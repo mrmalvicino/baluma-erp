@@ -1,7 +1,7 @@
 #include "../headers/Terminal.h"
 
 Terminal::Terminal() {
-    setLineLenght(30);
+    setLineLenght(50);
     setBackCaption("ATRÁS");
 }
 

@@ -1,18 +1,14 @@
 #include "../headers/Date.h"
 
 Date::Date() {
-    std::time_t now = std::time(NULL);
-    std::tm * local_time = std::localtime(& now);
-    _day = (* local_time).tm_mday;
-    _month = (* local_time).tm_mon + 1;
-    _year = (* local_time).tm_year + 1900;
+    setCurrentDate();
 }
 
 Date::Date(int day, int month, int year) {
     if (0 < day && day <= getDaysInMonth(month, year) && 0 < month && month <= 12 && 0 < year) {
-        _day = day;
-        _month = month;
-        _year = year;
+        setDay(day);
+        setMonth(month);
+        setYear(year);
     }
 }
 
@@ -22,24 +18,24 @@ void Date::setDay(int day) {
     }
 }
 
+int Date::getDay() {
+    return _day;
+}
+
 void Date::setMonth(int month) {
     if (0 < month && month <= 12) {
         _month = month;
     }
 }
 
+int Date::getMonth() {
+    return _month;
+}
+
 void Date::setYear(int year) {
     if (0 < year) {
         _year = year;
     }
-}
-
-int Date::getDay() {
-    return _day;
-}
-
-int Date::getMonth() {
-    return _month;
 }
 
 int Date::getYear() {
@@ -92,6 +88,14 @@ int Date::getDaysInMonth(int month, int year) {
     }
 
     return amount_days;
+}
+
+void Date::setCurrentDate() {
+    std::time_t now = std::time(NULL);
+    std::tm * local_time = std::localtime(& now);
+    setDay((* local_time).tm_mday);
+    setMonth((* local_time).tm_mon + 1);
+    setYear((* local_time).tm_year + 1900);
 }
 
 void Date::increaseDay() {

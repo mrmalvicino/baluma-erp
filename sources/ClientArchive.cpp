@@ -75,7 +75,7 @@ int ClientArchive::getIndex(int id) {
     return i;
 }
 
-int ClientArchive::getIndex(std::string description) {
+int ClientArchive::getIndex(std::string & description) {
     int i = 0;
     Client reg;
     reg = read(i);

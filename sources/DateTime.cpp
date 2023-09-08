@@ -3,8 +3,8 @@
 DateTime::DateTime() {}
 
 DateTime::DateTime(Date date, Time time) {
-    _date = date;
-    _time = time;
+    setDate(date);
+    setTime(time);
 }
 
 DateTime::DateTime(int day, int month, int year, int second, int minute, int hour) {
@@ -16,8 +16,16 @@ void DateTime::setDate(Date date) {
     _date = date;
 }
 
+Date DateTime::getDate() {
+    return _date;
+}
+
 void DateTime::setTime(Time time) {
     _time = time;
+}
+
+Time DateTime::getTime() {
+    return _time;
 }
 
 void DateTime::setDate(int day, int month, int year) {
@@ -34,14 +42,6 @@ void DateTime::setTime(int second, int minute, int hour) {
         _time.setMinute(minute);
         _time.setHour(hour);
     }
-}
-
-Date DateTime::getDate() {
-    return _date;
-}
-
-Time DateTime::getTime() {
-    return _time;
 }
 
 std::string DateTime::toString() {

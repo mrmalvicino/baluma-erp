@@ -12,7 +12,7 @@ class SupplierArchive {
         bool overWrite(Supplier & reg, int index);
         Supplier read(int index);
         int getIndex(int id);
-        int getIndex(std::string description);
+        int getIndex(std::string & description);
         int getAmountOfRegisters();
         void createEmptySupplierArchive();
     

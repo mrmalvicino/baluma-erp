@@ -75,7 +75,7 @@ int SupplierArchive::getIndex(int id) {
     return i;
 }
 
-int SupplierArchive::getIndex(std::string description) {
+int SupplierArchive::getIndex(std::string & description) {
     int i = 0;
     Supplier reg;
     reg = read(i);

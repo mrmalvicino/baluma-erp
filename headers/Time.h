@@ -5,14 +5,14 @@ class Time {
     public:
         Time();
         Time(int second, int minute, int hour);
-
         void setSecond(int second);
-        void setMinute(int minute);
-        void setHour(int hour);
         int getSecond();
+        void setMinute(int minute);
         int getMinute();
+        void setHour(int hour);
         int getHour();
         std::string toString();
+        void setCurrentTime();
 
     private:
         int _second;

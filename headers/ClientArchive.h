@@ -12,7 +12,7 @@ class ClientArchive {
         bool overWrite(Client & reg, int index);
         Client read(int index);
         int getIndex(int id);
-        int getIndex(std::string description);
+        int getIndex(std::string & description);
         int getAmountOfRegisters();
         void createEmptyClientArchive();
 

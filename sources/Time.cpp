@@ -1,18 +1,14 @@
 #include "../headers/Time.h"
 
 Time::Time() {
-    std::time_t now = std::time(NULL);
-    std::tm * local_time = std::localtime(& now);
-    _second = (* local_time).tm_sec; // La siguiente notación es equivalente usando el operador flecha: _second = local_time -> tm_sec;
-    _minute = (* local_time).tm_min;
-    _hour = (* local_time).tm_hour;
+    setCurrentTime();
 }
 
 Time::Time(int second, int minute, int hour) {
     if (0 <= second && second < 60 && 0 <= minute && minute < 60 && 0 <= hour && hour < 24) {
-        _second = second;
-        _minute = minute;
-        _hour = hour;
+        setSecond(second);
+        setMinute(minute);
+        setHour(hour);
     }
 }
 
@@ -22,24 +18,24 @@ void Time::setSecond(int second) {
     }
 }
 
+int Time::getSecond() {
+    return _second;
+}
+
 void Time::setMinute(int minute) {
     if (0 <= minute && minute < 60) {
         _minute = minute;
     }
 }
 
+int Time::getMinute() {
+    return _minute;
+}
+
 void Time::setHour(int hour) {
     if (0 <= hour && hour < 24) {
         _hour = hour;
     }
-}
-
-int Time::getSecond() {
-    return _second;
-}
-
-int Time::getMinute() {
-    return _minute;
 }
 
 int Time::getHour() {
@@ -70,4 +66,12 @@ std::string Time::toString() {
     }
 
     return hh + ":" + mm + ":" + ss;
+}
+
+void Time::setCurrentTime() {
+    std::time_t now = std::time(NULL);
+    std::tm * local_time = std::localtime(& now);
+    setSecond((* local_time).tm_sec); // La siguiente notación es equivalente usando el operador flecha: _second = local_time -> tm_sec;
+    setMinute((* local_time).tm_min);
+    setHour((* local_time).tm_hour);
 }

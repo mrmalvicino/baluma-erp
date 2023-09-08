@@ -18,7 +18,6 @@ void Baluma::run() {
         std::cout << "(8) RECURSOS HUMANOS\n";
         _terminal.printLine();
         std::cout << "(9) ACERCA DE BALUMA ERP\n";
-        _terminal.printLine();
         std::cout << "(0) SALIR\n";
 
         std::cin >> selection;
