@@ -14,7 +14,7 @@ class ClientArchive {
         int getIndex(int id);
         int getIndex(std::string description);
         int getAmountOfRegisters();
-        void createNewEmptyFile();
+        void createEmptyClientArchive();
 
     private:
         std::string _path;

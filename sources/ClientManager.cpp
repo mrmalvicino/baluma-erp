@@ -1,7 +1,7 @@
 #include "../headers/ClientManager.h"
 
 ClientManager::ClientManager() {
-    _client_archive_backup.setPath("registers/clients.bkp");
+    _client_backup.setPath("registers/clients.bkp");
 }
 
 void ClientManager::displayMenu() {
@@ -55,7 +55,6 @@ void ClientManager::displayMenu() {
             case 8:
                 importClientsCSV();
                 break;
-
         }
     } while (selection != 0);
 }
@@ -364,10 +363,10 @@ void ClientManager::exportClientsBackup() {
             clients_array[i] = _client_archive.read(i);
         }
 
-        _client_archive_backup.createNewEmptyFile();
+        _client_backup.createEmptyClientArchive();
 
         for (int i = 0; i < amount_of_clients; i ++) {
-            _client_archive_backup.write(clients_array[i]);
+            _client_backup.write(clients_array[i]);
         }
 
         delete [] clients_array;
@@ -383,7 +382,7 @@ void ClientManager::importClientsBackup() {
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        int amount_of_clients = _client_archive_backup.getAmountOfRegisters();
+        int amount_of_clients = _client_backup.getAmountOfRegisters();
 
         Client * clients_array = new Client[amount_of_clients];
 
@@ -391,10 +390,10 @@ void ClientManager::importClientsBackup() {
             std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al importar backup.";
         } else {
             for (int i = 0; i < amount_of_clients; i ++) {
-                clients_array[i] = _client_archive_backup.read(i);
+                clients_array[i] = _client_backup.read(i);
             }
 
-            _client_archive.createNewEmptyFile();
+            _client_archive.createEmptyClientArchive();
 
             for (int i = 0; i < amount_of_clients; i ++) {
                 _client_archive.write(clients_array[i]);
@@ -408,7 +407,7 @@ void ClientManager::importClientsBackup() {
 }
 
 void ClientManager::exportClientsCSV() {
-    _client_csv.writeClientsCSV();
+    _client_csv.writeClientsCSV(_client, _client_archive);
 }
  
 void ClientManager::importClientsCSV() {
@@ -417,6 +416,6 @@ void ClientManager::importClientsCSV() {
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        _client_csv.readClientsCSV();
+        _client_csv.readClientsCSV(_client, _client_archive);
     }
 }

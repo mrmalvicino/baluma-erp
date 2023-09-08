@@ -3,19 +3,19 @@
 #include <fstream>
 #include <sstream>
 #include "Terminal.h"
-#include "Client.h"
-#include "ClientArchive.h"
+#include "Supplier.h"
+#include "SupplierArchive.h"
 
-class ClientCSV {
+class SupplierCSV {
     public:
-        ClientCSV();
-        ClientCSV(std::string path, char delimiter);
+        SupplierCSV();
+        SupplierCSV(std::string path, char delimiter);
         void setPath(std::string path);
         std::string getPath();
         void setDelimiter(char delimiter);
         char getDelimiter();
-        void writeClientsCSV(Client & client, ClientArchive & client_archive);
-        void readClientsCSV(Client & client, ClientArchive & client_archive);
+        void writeSuppliersCSV(Supplier & supplier, SupplierArchive & supplier_archive);
+        void readSuppliersCSV(Supplier & supplier, SupplierArchive & supplier_archive);
 
     private:
         char _delimiter;

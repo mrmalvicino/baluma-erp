@@ -1,5 +1,9 @@
 #include "../headers/SupplierManager.h"
 
+SupplierManager::SupplierManager() {
+    _supplier_backup.setPath("registers/suppliers.bkp");
+}
+
 void SupplierManager::displayMenu() {
     int selection = 1;
 
@@ -10,9 +14,14 @@ void SupplierManager::displayMenu() {
         std::cout << "(2) EDITAR PROVEEDOR\n";
         std::cout << "(3) BUSCAR PROVEEDOR\n";
         std::cout << "(4) VER LISTADO\n";
+        _terminal.printLine();
+        std::cout << "(5) EXPORTAR BACKUP\n";
+        std::cout << "(6) IMPORTAR BACKUP\n";
+        std::cout << "(7) EXPORTAR CSV\n";
+        std::cout << "(8) IMPORTAR CSV\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 4);
+        selection = _terminal.validateInt(0, 8);
 
         switch (selection) {
             case 1:
@@ -29,6 +38,22 @@ void SupplierManager::displayMenu() {
 
             case 4:
                 listSuppliers();
+                break;
+
+            case 5:
+                exportSuppliersBackup();
+                break;
+
+            case 6:
+                importSuppliersBackup();
+                break;
+
+            case 7:
+                exportSuppliersCSV();
+                break;
+
+            case 8:
+                importSuppliersCSV();
                 break;
         }
     } while (selection != 0);
@@ -324,4 +349,73 @@ void SupplierManager::searchSupplierByDescription() {
     printSupplier(index);
     
     _terminal.pause();
+}
+
+void SupplierManager::exportSuppliersBackup() {
+    int amount_of_suppliers = _supplier_archive.getAmountOfRegisters();
+
+    Supplier * suppliers_array = new Supplier[amount_of_suppliers];
+
+    if (suppliers_array == NULL) {
+        std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al exportar backup.";
+    } else {
+        for (int i = 0; i < amount_of_suppliers; i ++) {
+            suppliers_array[i] = _supplier_archive.read(i);
+        }
+
+        _supplier_backup.createEmptySupplierArchive();
+
+        for (int i = 0; i < amount_of_suppliers; i ++) {
+            _supplier_backup.write(suppliers_array[i]);
+        }
+
+        delete [] suppliers_array;
+
+        std::cout << "Backup exportado correctamente.\n";
+        _terminal.pause();
+    }
+}
+
+void SupplierManager::importSuppliersBackup() {
+    std::cout << "¿Desea reemplazar los supplieres actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
+
+    if (_terminal.validateBool() == false) {
+        std::cout << "Importación abortada por el usuario.\n";
+    } else {
+        int amount_of_suppliers = _supplier_backup.getAmountOfRegisters();
+
+        Supplier * suppliers_array = new Supplier[amount_of_suppliers];
+
+        if (suppliers_array == NULL) {
+            std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al importar backup.";
+        } else {
+            for (int i = 0; i < amount_of_suppliers; i ++) {
+                suppliers_array[i] = _supplier_backup.read(i);
+            }
+
+            _supplier_archive.createEmptySupplierArchive();
+
+            for (int i = 0; i < amount_of_suppliers; i ++) {
+                _supplier_archive.write(suppliers_array[i]);
+            }
+
+            delete [] suppliers_array;
+            std::cout << "Backup importado correctamente.\n";
+            _terminal.pause();
+        }
+    }
+}
+
+void SupplierManager::exportSuppliersCSV() {
+    _supplier_csv.writeSuppliersCSV(_supplier, _supplier_archive);
+}
+ 
+void SupplierManager::importSuppliersCSV() {
+    std::cout << "¿Desea reemplazar los supplieres actuales por aquellos que haya en el archivo CSV? [S/N]\n";
+
+    if (_terminal.validateBool() == false) {
+        std::cout << "Importación abortada por el usuario.\n";
+    } else {
+        _supplier_csv.readSuppliersCSV(_supplier, _supplier_archive);
+    }
 }

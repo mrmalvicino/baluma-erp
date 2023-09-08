@@ -33,6 +33,6 @@ class ClientManager {
         Terminal _terminal;
         Client _client;
         ClientArchive _client_archive;
-        ClientArchive _client_archive_backup;
+        ClientArchive _client_backup;
         ClientCSV _client_csv;
 };

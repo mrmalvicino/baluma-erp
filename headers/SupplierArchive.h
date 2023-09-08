@@ -14,6 +14,7 @@ class SupplierArchive {
         int getIndex(int id);
         int getIndex(std::string description);
         int getAmountOfRegisters();
+        void createEmptySupplierArchive();
     
     private:
         std::string _path;

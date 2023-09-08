@@ -103,3 +103,13 @@ int SupplierArchive::getAmountOfRegisters() {
 
     return total_suppliers;
 }
+
+void SupplierArchive::createEmptySupplierArchive() {
+    FILE * file_pointer = fopen(getPath().c_str(), "wb");
+
+    if (file_pointer == NULL) {
+        std::cerr << "Error: No se pudo abrir el archivo.\n";
+    } else {
+        fclose(file_pointer);
+    }
+}

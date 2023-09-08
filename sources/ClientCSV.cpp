@@ -26,17 +26,17 @@ char ClientCSV::getDelimiter() {
     return _delimiter;
 }
 
-void ClientCSV::writeClientsCSV() {
+void ClientCSV::writeClientsCSV(Client & client, ClientArchive & client_archive) {
     std::ofstream file(getPath());
 
     if (file.is_open() == false) {
         std::cerr << "Error: No se pudo abrir el archivo al exportar CSV.\n";
     } else {
-        int amount_of_clients = _client_archive.getAmountOfRegisters();
+        int amount_ofclients = client_archive.getAmountOfRegisters();
 
-        for (int i = 0; i < amount_of_clients; i ++) {
-            _client = _client_archive.read(i);
-            file << _client.getId() << getDelimiter() << _client.getDescription() << getDelimiter() << _client.getLegalId() << getDelimiter() << _client.getAdress().getCountry() << getDelimiter() << _client.getAdress().getState() << getDelimiter() << _client.getAdress().getCity() << getDelimiter() << _client.getAdress().getStreet() << getDelimiter() << _client.getAdress().getNumber() << getDelimiter() << _client.getAdress().getFloor() << getDelimiter() << _client.getAdress().getLetter() << getDelimiter() << _client.getPhone() << getDelimiter() << _client.getEmail() << getDelimiter() << _client.getIsActive() << getDelimiter() << _client.getCategory() << "\n";
+        for (int i = 0; i < amount_ofclients; i ++) {
+            client = client_archive.read(i);
+            file << client.getId() << getDelimiter() << client.getDescription() << getDelimiter() << client.getLegalId() << getDelimiter() << client.getAdress().getCountry() << getDelimiter() << client.getAdress().getState() << getDelimiter() << client.getAdress().getCity() << getDelimiter() << client.getAdress().getStreet() << getDelimiter() << client.getAdress().getNumber() << getDelimiter() << client.getAdress().getFloor() << getDelimiter() << client.getAdress().getLetter() << getDelimiter() << client.getPhone() << getDelimiter() << client.getEmail() << getDelimiter() << client.getIsActive() << getDelimiter() << client.getCategory() << "\n";
         }
 
         file.close();
@@ -46,7 +46,7 @@ void ClientCSV::writeClientsCSV() {
     }
 }
 
-void ClientCSV::readClientsCSV() {
+void ClientCSV::readClientsCSV(Client & client, ClientArchive & client_archive) {
     std::ifstream file(getPath());
 
     if (!file.is_open()) {
@@ -54,7 +54,7 @@ void ClientCSV::readClientsCSV() {
         return;
     }
 
-    _client_archive.createNewEmptyFile();
+    client_archive.createEmptyClientArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];
@@ -66,9 +66,9 @@ void ClientCSV::readClientsCSV() {
             getline(stream, column[j], getDelimiter());
         }
 
-        _client.setId(std::stoi(column[0]));
-        _client.setDescription(column[1]);
-        _client.setLegalId(std::stoll(column[2]));
+        client.setId(std::stoi(column[0]));
+        client.setDescription(column[1]);
+        client.setLegalId(std::stoll(column[2]));
         Adress adress;
         adress.setCountry(column[3]);
         adress.setState(column[4]);
@@ -77,13 +77,13 @@ void ClientCSV::readClientsCSV() {
         adress.setNumber(std::stoi(column[7]));
         adress.setFloor(std::stoi(column[8]));
         adress.setLetter(column[9][0]);
-        _client.setAdress(adress);
-        _client.setPhone(std::stoi(column[10]));
-        _client.setEmail(column[11]);
-        _client.setIsActive(std::stoi(column[12]));
-        _client.setCategory(column[13][0]);
+        client.setAdress(adress);
+        client.setPhone(std::stoi(column[10]));
+        client.setEmail(column[11]);
+        client.setIsActive(std::stoi(column[12]));
+        client.setCategory(column[13][0]);
 
-        _client_archive.write(_client);
+        client_archive.write(client);
     }
 
     file.close();
