@@ -10,6 +10,13 @@
 
 ## Examples
 
+## Documentation
+
+In the following link you will find all the information necessary to either use the compiled software or contribute developing Baluma ERP.
+
+[https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html](https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html)
+
+
 ## License
 
 &nbsp; Baluma ERP is an open source software developed under the GNU General Public License.
