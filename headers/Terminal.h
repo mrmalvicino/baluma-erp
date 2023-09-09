@@ -33,13 +33,13 @@ class Terminal {
 
     /**
      * @brief Sets the Back Caption object.
-     * @param back_caption (string) Text that is going to be printed in the option of the menus which the user may choose to go to the previous menu.
+     * @param back_caption (std::string) Text that is going to be printed in the option of the menus which the user may choose to go to the previous menu.
      */
     void setBackCaption(std::string back_caption);
 
     /**
      * @brief Gets the Back Caption object.
-     * @return (string) Text that is going to be printed in the option of the menus which the user may choose to go to the previous menu.
+     * @return (std::string) Text that is going to be printed in the option of the menus which the user may choose to go to the previous menu.
      */
     std::string getBackCaption();
 
@@ -60,7 +60,7 @@ class Terminal {
 
     /**
      * @brief Aligns a given text within the terminal window by calculating the number of leading spaces required to center the text in order to print the text surrounded by the necessary spaces.
-     * @param text (string) The text to be center-aligned and printed.
+     * @param text (std::string) The text to be center-aligned and printed.
      */
     void centerAndPrint(std::string text);
 
@@ -71,7 +71,7 @@ class Terminal {
 
     /**
      * @brief Creates a visual header for a menu in a text-based user interface.
-     * @param title (string) The title to be displayed as the menu header.
+     * @param title (std::string) The title to be displayed as the menu header.
      */
     void displayMenuHeader(std::string title);
 
@@ -83,8 +83,8 @@ class Terminal {
     /**
      * @brief Prints text based on the value of a boolean parameter. Prints one of two possible strings depending on whether the boolean parameter is true or false.
      * @param parameter (bool) Boolean condition whose value determines the output message.
-     * @param text_if_true (string) Text to be printed if the parameter is true.
-     * @param text_if_false (string) Text to be printed if the parameter is false.
+     * @param text_if_true (std::string) Text to be printed if the parameter is true.
+     * @param text_if_false (std::string) Text to be printed if the parameter is false.
      */
     void printBool(bool parameter, std::string text_if_true, std::string text_if_false);
 

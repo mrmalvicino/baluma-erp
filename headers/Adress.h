@@ -19,10 +19,10 @@ class Adress {
 
     /**
      * @brief Constructs a new Adress object.
-     * @param country (string) The country of the address.
-     * @param state (string) The state or region of the address.
-     * @param city (string) The city of the address.
-     * @param street (string) The street name of the address.
+     * @param country (std::string) The country of the address.
+     * @param state (std::string) The state or region of the address.
+     * @param city (std::string) The city of the address.
+     * @param street (std::string) The street name of the address.
      * @param number (int) The street number of the address.
      * @param floor (int) The floor number (if applicable) of the address.
      * @param letter (char) The letter (if applicable) of the address.
@@ -31,49 +31,49 @@ class Adress {
 
     /**
      * @brief Sets the Country object.
-     * @param country (string) The country of the address.
+     * @param country (std::string) The country of the address.
      */
     void setCountry(std::string country);
 
     /**
      * @brief Gets the Country object.
-     * @return (string) The country of the address.
+     * @return (std::string) The country of the address.
      */
     std::string getCountry();
 
     /**
      * @brief Sets the State object.
-     * @param state (string) The state or region of the address.
+     * @param state (std::string) The state or region of the address.
      */
     void setState(std::string state);
 
     /**
      * @brief Gets the State object.
-     * @return (string) The state or region of the address.
+     * @return (std::string) The state or region of the address.
      */
     std::string getState();
 
     /**
      * @brief Sets the City object.
-     * @param city (string) The city of the address.
+     * @param city (std::string) The city of the address.
      */
     void setCity(std::string city);
 
     /**
      * @brief Gets the City object.
-     * @return (string) The city of the address.
+     * @return (std::string) The city of the address.
      */
     std::string getCity();
 
     /**
      * @brief Sets the Street Name object.
-     * @param street (string) The street name of the address.
+     * @param street (std::string) The street name of the address.
      */
     void setStreet(std::string street);
 
     /**
      * @brief Gets the Street Name object.
-     * @return (string) The street name of the address.
+     * @return (std::string) The street name of the address.
      */
     std::string getStreet();
 

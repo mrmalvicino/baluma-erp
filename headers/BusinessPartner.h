@@ -29,85 +29,85 @@ class BusinessPartner {
     BusinessPartner(int id, std::string description, long long int legal_id, Adress adress, int phone, std::string email, bool is_active);
 
     /**
-     * @brief Set the Id object.
+     * @brief Sets the Id object.
      * @param id (int) Register number.
      */
     void setId(int id);
 
     /**
-     * @brief Get the Id object.
+     * @brief Gets the Id object.
      * @return (int) Register number.
      */
     int getId();
 
     /**
-     * @brief Set the Description object.
+     * @brief Sets the Description object.
      * @param description (std::string) Name of the business partner.
      */
     void setDescription(std::string description);
 
     /**
-     * @brief Get the Description object.
+     * @brief Gets the Description object.
      * @return (std::string) Name of the business partner.
      */
     std::string getDescription();
 
     /**
-     * @brief Set the Legal Id object.
+     * @brief Sets the Legal Id object.
      * @param legal_id (long long int) Number of ID card (DNI, CUIL, CUIT in Argentina).
      */
     void setLegalId(long long int legal_id);
 
     /**
-     * @brief Get the Legal Id object.
+     * @brief Gets the Legal Id object.
      * @return (long long int) Number of ID card (DNI, CUIL, CUIT in Argentina).
      */
     long long int getLegalId();
 
     /**
-     * @brief Set the Adress object.
+     * @brief Sets the Adress object.
      * @param adress (Adress) Adress of the business partner.
      */
     void setAdress(Adress adress);
 
     /**
-     * @brief Get the Adress object.
+     * @brief Gets the Adress object.
      * @return (Adress) Adress of the business partner.
      */
     Adress getAdress();
 
     /**
-     * @brief Set the Phone object.
+     * @brief Sets the Phone object.
      * @param phone (int) Telephone or cellphone of the business partner.
      */
     void setPhone(int phone);
 
     /**
-     * @brief Get the Phone object.
+     * @brief Gets the Phone object.
      * @return (int) Telephone or cellphone of the business partner.
      */
     int getPhone();
 
     /**
-     * @brief Set the Email object.
+     * @brief Sets the Email object.
      * @param email (std::string) E-mail of the business partner.
      */
     void setEmail(std::string email);
 
     /**
-     * @brief Get the Email object.
+     * @brief Gets the Email object.
      * @return (std::string) E-mail of the business partner.
      */
     std::string getEmail();
 
     /**
-     * @brief Set the Is Active object.
+     * @brief Sets the Is Active object.
      * @param is_active (bool) Status of the business partner.
      */
     void setIsActive(bool is_active);
 
     /**
-     * @brief Get the Is Active object.
+     * @brief Gets the Is Active object.
      * @return true if the business partner is active.
      * @return false if the business partner is not active.
      */
