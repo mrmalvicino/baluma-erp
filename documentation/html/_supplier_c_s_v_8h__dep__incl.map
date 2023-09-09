@@ -1,0 +1,15 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/SupplierCSV.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/SupplierCSV.h">
+<area shape="rect" id="Node000001" title="Manages a supplier archive file, allowing storage and retrieval of supplier records in a CSV file." alt="" coords="312,5,493,61"/>
+<area shape="rect" id="Node000002" href="$_supplier_manager_8h.html" title="Manages the supplier module." alt="" coords="189,109,393,165"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="364,73,323,110,319,106,360,69"/>
+<area shape="rect" id="Node000007" href="$_supplier_c_s_v_8cpp.html" title=" " alt="" coords="417,109,612,165"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="445,69,486,106,483,110,441,73"/>
+<area shape="rect" id="Node000003" href="$_baluma_8h.html" title="Generic enterprise resource planning software." alt="" coords="100,213,265,268"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,177,214,214,210,210,249,173"/>
+<area shape="rect" id="Node000006" href="$_supplier_manager_8cpp.html" title=" " alt="" coords="290,213,508,268"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="332,173,371,210,368,214,328,177"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title=" " alt="" coords="5,316,171,372"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="149,281,115,318,111,314,145,278"/>
+<area shape="rect" id="Node000005" href="$_baluma_8cpp.html" title=" " alt="" coords="194,316,361,372"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="220,278,254,314,250,318,216,281"/>
+</map>

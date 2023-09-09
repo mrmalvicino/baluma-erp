@@ -1,0 +1,9 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/BusinessPartner.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/BusinessPartner.h">
+<area shape="rect" id="Node000001" title="Represents a business partner of an organization." alt="" coords="5,5,209,61"/>
+<area shape="rect" id="Node000002" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="70,109,144,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,61,110,94,104,94,104,61"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="40,183,94,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,136,83,171,79,168,98,134"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="118,183,179,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="116,134,136,168,132,171,112,136"/>
+</map>

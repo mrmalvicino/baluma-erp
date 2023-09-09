@@ -1,0 +1,35 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/SupplierCSV.cpp" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/SupplierCSV.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="111,5,307,61"/>
+<area shape="rect" id="Node000002" href="$_supplier_c_s_v_8h.html" title="Manages a supplier archive file, allowing storage and retrieval of supplier records in a CSV file." alt="" coords="125,109,293,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,61,212,94,206,94,206,61"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,256,77,282"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="126,131,98,138,70,149,46,164,26,184,20,198,20,213,29,243,24,244,14,213,15,197,21,181,42,160,68,144,96,133,124,126"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="36,183,102,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="186,138,107,178,105,173,184,133"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="126,183,194,208"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="203,136,178,172,174,169,199,133"/>
+<area shape="rect" id="Node000006" href="$_terminal_8h.html" title="Utility class designed to facilitate common text&#45;based interactions in a terminal or console environm..." alt="" coords="218,183,299,208"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="219,133,244,169,240,172,215,136"/>
+<area shape="rect" id="Node000010" href="$_supplier_8h.html" title="Represents a supplier of an organization." alt="" coords="350,256,428,282"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="235,133,273,154,312,181,345,212,373,243,369,246,342,216,309,185,270,158,233,138"/>
+<area shape="rect" id="Node000015" href="$_supplier_archive_8h.html" title="Manages a supplier archive, allowing storage and retrieval of supplier records in a binary file." alt="" coords="374,183,497,208"/>
+<area shape="poly" id="edge15_Node000002_Node000015" title=" " alt="" coords="248,133,384,175,382,180,247,138"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="222,211,92,254,90,249,221,206"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="100,256,161,282"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="238,211,166,251,163,246,235,207"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="185,256,249,282"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="254,210,234,245,229,242,249,207"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="274,256,326,282"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="267,207,288,242,283,245,263,210"/>
+<area shape="rect" id="Node000011" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="325,330,453,356"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="392,282,392,315,386,315,386,282"/>
+<area shape="rect" id="Node000012" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="352,404,426,429"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="392,356,392,389,386,389,386,356"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="322,477,376,503"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="385,431,365,466,361,463,380,428"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="400,477,461,503"/>
+<area shape="poly" id="edge14_Node000012_Node000014" title=" " alt="" coords="398,428,418,463,414,466,394,431"/>
+<area shape="poly" id="edge17_Node000015_Node000010" title=" " alt="" coords="430,210,407,245,403,242,426,207"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="453,256,509,282"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="445,207,468,242,463,245,441,210"/>
+</map>

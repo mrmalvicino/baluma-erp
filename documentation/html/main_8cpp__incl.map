@@ -1,0 +1,63 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/main.cpp" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/main.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="224,5,389,61"/>
+<area shape="rect" id="Node000002" href="$_baluma_8h.html" title="Generic enterprise resource planning software." alt="" coords="243,109,370,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,61,309,94,304,94,304,61"/>
+<area shape="rect" id="Node000003" href="$_terminal_8h.html" title="Utility class designed to facilitate common text&#45;based interactions in a terminal or console environm..." alt="" coords="221,330,302,356"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="282,138,255,157,233,184,224,218,227,254,237,287,250,316,245,318,232,289,222,255,219,217,228,181,251,153,279,133"/>
+<area shape="rect" id="Node000008" href="$_client_manager_8h.html" title="Manages the client module." alt="" coords="633,183,748,208"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="370,132,619,178,618,183,369,138"/>
+<area shape="rect" id="Node000019" href="$_supplier_manager_8h.html" title="Manages the supplier module." alt="" coords="242,183,371,208"/>
+<area shape="poly" id="edge25_Node000002_Node000019" title=" " alt="" coords="309,135,309,168,304,168,304,135"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="538,404,609,429"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="303,351,524,401,523,406,301,356"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="147,404,207,429"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="249,358,204,396,200,392,245,354"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="232,404,296,429"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="264,356,266,389,260,389,259,356"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="320,404,373,429"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="277,354,323,392,320,396,274,358"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="656,211,312,327,310,322,654,206"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="717,207,762,233,808,269,826,290,838,312,839,335,828,358,800,371,747,385,624,409,623,404,746,380,798,366,825,354,834,334,832,313,822,293,805,273,759,237,714,211"/>
+<area shape="rect" id="Node000009" href="$_client_8h.html" title="Represents a client of an organization." alt="" coords="657,404,724,429"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="749,196,783,201,819,211,852,229,879,255,894,281,899,306,894,331,879,357,850,385,813,403,775,413,739,417,738,412,774,408,812,398,847,380,875,354,889,329,894,306,889,283,875,258,849,233,817,216,782,206,748,201"/>
+<area shape="rect" id="Node000014" href="$_client_archive_8h.html" title="Manages a client archive, allowing storage and retrieval of client records in a binary file." alt="" coords="661,330,771,356"/>
+<area shape="poly" id="edge15_Node000008_Node000014" title=" " alt="" coords="695,208,714,315,709,316,690,209"/>
+<area shape="rect" id="Node000016" href="$_client_c_s_v_8h.html" title="Manages a client archive file, allowing storage and retrieval of client records in a CSV file." alt="" coords="527,256,619,282"/>
+<area shape="poly" id="edge18_Node000008_Node000016" title=" " alt="" coords="672,211,607,251,604,246,669,207"/>
+<area shape="rect" id="Node000010" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="311,477,438,503"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="657,428,443,476,442,471,656,423"/>
+<area shape="rect" id="Node000011" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="338,551,411,577"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="377,503,377,536,372,536,372,503"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="308,625,361,650"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="370,578,351,613,346,610,366,576"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="386,625,446,650"/>
+<area shape="poly" id="edge14_Node000011_Node000013" title=" " alt="" coords="384,576,404,610,399,613,379,578"/>
+<area shape="poly" id="edge17_Node000014_Node000009" title=" " alt="" coords="714,357,702,390,697,389,709,355"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="428,404,484,429"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="672,359,499,406,498,401,671,354"/>
+<area shape="poly" id="edge22_Node000016_Node000003" title=" " alt="" coords="527,284,317,332,316,326,526,279"/>
+<area shape="poly" id="edge19_Node000016_Node000004" title=" " alt="" coords="576,282,576,389,571,389,571,282"/>
+<area shape="poly" id="edge23_Node000016_Node000009" title=" " alt="" coords="585,281,674,390,670,394,581,284"/>
+<area shape="poly" id="edge24_Node000016_Node000014" title=" " alt="" coords="599,280,680,321,677,325,596,285"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="470,330,535,356"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="563,284,527,321,523,317,560,280"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="378,330,446,356"/>
+<area shape="poly" id="edge21_Node000016_Node000018" title=" " alt="" coords="547,285,454,326,451,321,545,280"/>
+<area shape="poly" id="edge27_Node000019_Node000003" title=" " alt="" coords="303,210,284,257,269,316,264,315,279,255,298,208"/>
+<area shape="poly" id="edge26_Node000019_Node000004" title=" " alt="" coords="372,202,480,218,606,244,666,261,718,281,759,303,785,329,790,343,785,357,763,369,722,382,624,407,623,402,721,377,761,364,781,354,785,343,780,331,756,307,716,285,664,266,605,249,479,223,371,207"/>
+<area shape="rect" id="Node000020" href="$_supplier_8h.html" title="Represents a supplier of an organization." alt="" coords="45,404,123,429"/>
+<area shape="poly" id="edge28_Node000019_Node000020" title=" " alt="" coords="243,208,184,222,120,246,89,262,60,281,34,304,13,331,9,348,16,364,31,380,49,394,46,398,27,384,11,367,3,348,8,329,30,301,57,277,86,257,118,241,182,217,241,203"/>
+<area shape="rect" id="Node000021" href="$_supplier_archive_8h.html" title="Manages a supplier archive, allowing storage and retrieval of supplier records in a binary file." alt="" coords="22,330,146,356"/>
+<area shape="poly" id="edge30_Node000019_Node000021" title=" " alt="" coords="289,211,116,324,113,319,286,207"/>
+<area shape="rect" id="Node000022" href="$_supplier_c_s_v_8h.html" title="Manages a supplier archive file, allowing storage and retrieval of supplier records in a CSV file." alt="" coords="294,256,399,282"/>
+<area shape="poly" id="edge33_Node000019_Node000022" title=" " alt="" coords="315,207,335,242,330,245,311,210"/>
+<area shape="poly" id="edge29_Node000020_Node000010" title=" " alt="" coords="124,425,312,471,310,476,123,430"/>
+<area shape="poly" id="edge31_Node000021_Node000015" title=" " alt="" coords="147,353,413,404,412,410,146,359"/>
+<area shape="poly" id="edge32_Node000021_Node000020" title=" " alt="" coords="87,356,87,389,81,389,81,356"/>
+<area shape="poly" id="edge37_Node000022_Node000003" title=" " alt="" coords="334,285,288,323,285,318,330,280"/>
+<area shape="poly" id="edge34_Node000022_Node000004" title=" " alt="" coords="348,282,351,318,356,337,367,354,392,369,432,383,523,404,522,409,431,389,390,374,363,358,352,339,345,319,343,282"/>
+<area shape="poly" id="edge35_Node000022_Node000017" title=" " alt="" coords="374,280,464,321,462,326,372,285"/>
+<area shape="poly" id="edge36_Node000022_Node000018" title=" " alt="" coords="359,280,393,317,389,321,355,284"/>
+<area shape="poly" id="edge38_Node000022_Node000020" title=" " alt="" coords="315,285,264,306,209,332,157,365,112,397,109,392,154,360,207,328,262,301,313,280"/>
+<area shape="poly" id="edge39_Node000022_Node000021" title=" " alt="" coords="303,285,143,328,142,323,301,280"/>
+</map>
