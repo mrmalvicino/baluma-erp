@@ -1,7 +1,7 @@
 /**
  * @file Terminal.h
  * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
- * @brief Utility class designed to facilitate common text-based interactions in a terminal or console environment. It provides methods for formatting output, validating user input, and creating user-friendly text-based menus.
+ * @brief Utility class designed to facilitate common text-based interactions in a terminal or console environment. Provides methods for formatting output, validating user input, and creating user-friendly text-based menus.
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  */
 
@@ -144,13 +144,6 @@ class Terminal {
 
     private:
 
-    /**
-     * @brief Amount of characters that the class will use to print lines or align headers.
-     */
-    int _line_lenght;
-
-    /**
-     * @brief Text that is going to be printed in the option of the menus which the user may choose to go to the previous menu.
-     */
-    char _back_caption[30];
+    int _line_lenght; // Amount of characters that the class will use to print lines or align headers.
+    char _back_caption[30]; // Text that is going to be printed in the option of the menus which the user may choose to go to the previous menu.
 };

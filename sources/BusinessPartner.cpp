@@ -23,52 +23,52 @@ void BusinessPartner::setId(int id) {
     _id = id;
 }
 
-void BusinessPartner::setDescription(std::string description) {
-    strcpy(_description, description.c_str());
-}
-
-void BusinessPartner::setLegalId(long long int legal_id) {
-    _legal_id = legal_id;
-}
-
-void BusinessPartner::setAdress(Adress adress) {
-    _adress = adress;
-}
-
-void BusinessPartner::setPhone(int phone) {
-    _phone = phone;
-}
-
-void BusinessPartner::setEmail(std::string email) {
-    strcpy(_email, email.c_str());
-}
-
-void BusinessPartner::setIsActive(bool is_active) {
-    _is_active = is_active;
-}
-
 int BusinessPartner::getId() {
     return _id;
+}
+
+void BusinessPartner::setDescription(std::string description) {
+    strcpy(_description, description.c_str());
 }
 
 std::string BusinessPartner::getDescription() {
     return _description;
 }
 
+void BusinessPartner::setLegalId(long long int legal_id) {
+    _legal_id = legal_id;
+}
+
 long long int BusinessPartner::getLegalId() {
     return _legal_id;
+}
+
+void BusinessPartner::setAdress(Adress adress) {
+    _adress = adress;
 }
 
 Adress BusinessPartner::getAdress() {
     return _adress;
 }
 
+void BusinessPartner::setPhone(int phone) {
+    _phone = phone;
+}
+
 int BusinessPartner::getPhone() {
     return _phone;
 }
 
+void BusinessPartner::setEmail(std::string email) {
+    strcpy(_email, email.c_str());
+}
+
 std::string BusinessPartner::getEmail() {
     return _email;
+}
+
+void BusinessPartner::setIsActive(bool is_active) {
+    _is_active = is_active;
 }
 
 bool BusinessPartner::getIsActive() {

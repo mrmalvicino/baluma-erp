@@ -1,3 +1,10 @@
+/**
+ * @file Baluma.h
+ * @authors Franco Baez, Lucio Luque, Maximiliano Raúl Malvicino
+ * @brief Generic enterprise resource planning software.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include "Terminal.h"
 #include "ClientManager.h"
@@ -5,11 +12,20 @@
 
 class Baluma {
     public:
-        void run();
-        void about();
+
+    /**
+     * @brief Displays the main menu of the program.
+     */
+    void run();
+
+    /**
+     * @brief Prints information about the software.
+     */
+    void about();
     
     private:
-        Terminal _terminal;
-        ClientManager _client_manager;
-        SupplierManager _supplier_manager;
+
+    Terminal _terminal; // Terminal object with default settings.
+    ClientManager _client_manager; // Client Manager object with default settings.
+    SupplierManager _supplier_manager; // Supplier Manager object with default settings.
 };
