@@ -1,3 +1,10 @@
+/**
+ * @file ClientArchive.h
+ * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
+ * @brief Manages a client archive, allowing storage and retrieval of client records in a binary file.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include <cstdio>
 #include "Client.h"
