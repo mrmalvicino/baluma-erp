@@ -1,5 +1,7 @@
 #include <string>
+#include <cstring>
 #include "Date.h"
+
 
 class Person {
     public:
