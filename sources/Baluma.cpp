@@ -1,6 +1,8 @@
 #include "../headers/Baluma.h"
 
 void Baluma::run() {
+    _terminal.configureUTF8();
+
     int selection = 1;
 
     do {

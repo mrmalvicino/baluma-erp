@@ -142,6 +142,11 @@ class Terminal {
      */
     char validateChar();
 
+    /**
+     * @brief Configures terminal encoding to UTF-8.
+     */
+    void configureUTF8();
+
     private:
 
     int _line_lenght; // Amount of characters that the class will use to print lines or align headers.

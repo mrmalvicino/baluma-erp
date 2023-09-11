@@ -10,7 +10,6 @@
 #include "Supplier.h"
 
 class SupplierArchive {
-
     public:
 
     /**
