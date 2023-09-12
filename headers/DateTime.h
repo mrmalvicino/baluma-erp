@@ -21,7 +21,7 @@ class DateTime {
      * @param date (Date) The date component of the DateTime.
      * @param time (Time) The time component of the DateTime.
      */
-    DateTime(Date date, Time time);
+    DateTime(const Date & date, const Time & time);
 
     /**
      * @brief Constructs a DateTime object with specific date and time values.
@@ -38,7 +38,7 @@ class DateTime {
      * @brief Sets the date component of the DateTime.
      * @param date (Date) The new date to set.
      */
-    void setDate(Date date);
+    void setDate(const Date & date);
 
     /**
      * @brief Gets the date component of the DateTime.
@@ -50,7 +50,7 @@ class DateTime {
      * @brief Sets the time component of the DateTime.
      * @param time (Time) The new time to set.
      */
-    void setTime(Time time);
+    void setTime(const Time & time);
 
     /**
      * @brief Gets the time component of the DateTime.

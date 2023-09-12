@@ -101,6 +101,10 @@ bool SupplierManager::editSupplier() {
 
     searchSupplier();
 
+    if (_supplier.getId() == -1) {
+        return false;
+    }
+
     int selection = 1;
 
     do {
@@ -117,7 +121,7 @@ bool SupplierManager::editSupplier() {
         std::cout << "(7) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 6);
+        selection = _terminal.validateInt(0, 7);
 
         switch (selection) {
             case 1:
@@ -346,8 +350,24 @@ void SupplierManager::searchSupplierByDescription() {
 
     index = _supplier_archive.getIndex(description);
 
-    printSupplier(index);
-    
+    while (index == -1) {
+        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, description);
+
+        if (description == "0") {
+            index = -2;
+        } else {
+            index = _supplier_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+        }
+    }
+
+    if (0 < index) {
+        printSupplier(index);
+    } else {
+        _supplier.setId(-1);
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
     _terminal.pause();
 }
 

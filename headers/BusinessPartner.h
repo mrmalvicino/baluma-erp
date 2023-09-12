@@ -26,7 +26,7 @@ class BusinessPartner {
      * @param email (std::string) E-mail of the business partner.
      * @param is_active (bool) Status of the business partner.
      */
-    BusinessPartner(int id, std::string description, long long int legal_id, Adress adress, int phone, std::string email, bool is_active);
+    BusinessPartner(int id, const std::string & description, long long int legal_id, const Adress & adress, int phone, const std::string & email, bool is_active);
 
     /**
      * @brief Sets the Id object.
@@ -44,7 +44,7 @@ class BusinessPartner {
      * @brief Sets the Description object.
      * @param description (std::string) Name of the business partner.
      */
-    void setDescription(std::string description);
+    void setDescription(const std::string & description);
 
     /**
      * @brief Gets the Description object.
@@ -68,7 +68,7 @@ class BusinessPartner {
      * @brief Sets the Adress object.
      * @param adress (Adress) Adress of the business partner.
      */
-    void setAdress(Adress adress);
+    void setAdress(const Adress & adress);
 
     /**
      * @brief Gets the Adress object.
@@ -92,7 +92,7 @@ class BusinessPartner {
      * @brief Sets the Email object.
      * @param email (std::string) E-mail of the business partner.
      */
-    void setEmail(std::string email);
+    void setEmail(const std::string & email);
 
     /**
      * @brief Gets the Email object.

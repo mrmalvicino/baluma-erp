@@ -70,7 +70,7 @@ class SupplierArchive {
     /**
      * @brief Finds the index of a supplier record with a given description.
      * @param description (std::string) The description of the supplier record to search for.
-     * @return (int) The index of the matching supplier record.
+     * @return (int) The index of the matching supplier record or -1 in case the input does not match any record.
      */
     int getIndex(std::string & description);
 

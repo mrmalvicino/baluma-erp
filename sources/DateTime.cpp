@@ -2,7 +2,7 @@
 
 DateTime::DateTime() {}
 
-DateTime::DateTime(Date date, Time time) {
+DateTime::DateTime(const Date & date, const Time & time) {
     setDate(date);
     setTime(time);
 }
@@ -12,7 +12,7 @@ DateTime::DateTime(int day, int month, int year, int second, int minute, int hou
     setTime(second, minute, hour);
 }
 
-void DateTime::setDate(Date date) {
+void DateTime::setDate(const Date & date) {
     _date = date;
 }
 
@@ -20,7 +20,7 @@ Date DateTime::getDate() {
     return _date;
 }
 
-void DateTime::setTime(Time time) {
+void DateTime::setTime(const Time & time) {
     _time = time;
 }
 

@@ -72,6 +72,10 @@ int ClientArchive::getIndex(int id) {
         reg = read(i);
     }
 
+    if (i == getAmountOfRegisters()) {
+        i = -1;
+    }
+
     return i;
 }
 

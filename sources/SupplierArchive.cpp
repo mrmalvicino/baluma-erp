@@ -85,6 +85,10 @@ int SupplierArchive::getIndex(std::string & description) {
         reg = read(i);
     }
 
+    if (i == getAmountOfRegisters()) {
+        i = -1;
+    }
+
     return i;
 }
 

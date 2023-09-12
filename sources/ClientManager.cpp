@@ -101,6 +101,10 @@ bool ClientManager::editClient() {
 
     searchClient();
 
+    if (_client.getId() == -1) {
+        return false;
+    }
+
     int selection = 1;
 
     do {
@@ -346,7 +350,23 @@ void ClientManager::searchClientByDescription() {
 
     index = _client_archive.getIndex(description);
 
-    printClient(index);
+    while (index == -1) {
+        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, description);
+
+        if (description == "0") {
+            index = -2;
+        } else {
+            index = _client_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+        }
+    }
+
+    if (0 < index) {
+        printClient(index);
+    } else {
+        _client.setId(-1);
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
 
     _terminal.pause();
 }

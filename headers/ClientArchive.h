@@ -70,7 +70,7 @@ class ClientArchive {
     /**
      * @brief Finds the index of a client record with a given description.
      * @param description (std::string) The description of the client record to search for.
-     * @return (int) The index of the matching client record.
+     * @return (int) The index of the matching client record or -1 in case the input does not match any record.
      */
     int getIndex(std::string & description);
 
