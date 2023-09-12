@@ -72,10 +72,6 @@ int ClientArchive::getIndex(int id) {
         reg = read(i);
     }
 
-    if (i == getAmountOfRegisters()) {
-        i = -1;
-    }
-
     return i;
 }
 
@@ -87,6 +83,10 @@ int ClientArchive::getIndex(std::string & description) {
     while (reg.getDescription() != description && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
+    }
+
+    if (i == getAmountOfRegisters()) {
+        i = -1;
     }
 
     return i;

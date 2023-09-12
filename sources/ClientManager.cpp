@@ -365,7 +365,7 @@ void ClientManager::searchClientByDescription() {
         }
     }
 
-    if (0 < index) {
+    if (0 <= index) {
         printClient(index);
     } else {
         _client.setId(-1);

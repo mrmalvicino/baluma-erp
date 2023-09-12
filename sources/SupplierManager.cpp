@@ -365,7 +365,7 @@ void SupplierManager::searchSupplierByDescription() {
         }
     }
 
-    if (0 < index) {
+    if (0 <= index) {
         printSupplier(index);
     } else {
         _supplier.setId(-1);
