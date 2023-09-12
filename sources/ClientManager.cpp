@@ -330,12 +330,16 @@ void ClientManager::searchClientById() {
 
     max_id = _client_archive.getAmountOfRegisters();
 
-    std::cout << "Ingresar ID:\n";
-    id = _terminal.validateInt(1, max_id);
+    std::cout << "Ingresar ID o 0 para cancelar:\n";
+    id = _terminal.validateInt(0, max_id);
 
-    index = _client_archive.getIndex(id);
-
-    printClient(index);
+    if (0 < id) {
+        index = _client_archive.getIndex(id);
+        printClient(index);
+    } else {
+        _client.setId(-1);
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
 
     _terminal.pause();
 }
