@@ -38,7 +38,7 @@ class ItemManager
 
         void exportItemBackup();
 
-        void importItemBackuo();
+        void importItemBackup();
 
     private:
         Terminal _terminal;

@@ -1,7 +1,17 @@
 #include "../headers/Item.h"
 
-Item::Item() : _id(0), _name(""), _description(""), _brand(""), _model(""), _price(0), _is_active(false)
-{}
+Item::Item() 
+{
+    setId(1);
+    setName(" ");
+    setDescription(" ");
+    setBrand(" ");
+    setModel(" ");
+    setPrice(0);
+    setStock(0);
+    setIsActive(true);
+
+}
 
 Item::Item(int id, const std::string &name, const std::string &description, const std::string &brand, const std::string &model, double price, int stock, bool is_active)
 {

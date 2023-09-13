@@ -35,6 +35,7 @@ void Baluma::run() {
                 _client_manager.displayMenu();
                 break;
             case 4:
+                _item_manager.displayMenu();
                 
                 break;
             case 5:

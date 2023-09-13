@@ -43,7 +43,7 @@ void ItemManager::displayMenu()
                 break;
 
             case 5:
-                importItemBackuo();
+                importItemBackup();
                 break;
 
             case 6:
@@ -241,7 +241,6 @@ void ItemManager::cinItemDescription(Item &item)
     std::string description;
 
     std::cout << "Ingrese descripcion:\n";
-    std::cin.ignore();
     getline(std::cin, description);
 
     item.setDescription(description);
@@ -252,7 +251,6 @@ void ItemManager::cinItemBrand(Item &item)
     std::string brand;
 
     std::cout << "Ingrese marca:\n";
-    std::cin.ignore();
     getline(std::cin, brand);
 
     item.setBrand(brand);
@@ -263,7 +261,6 @@ void ItemManager::cinItemModel(Item &item)
     std::string model;
 
     std::cout << "Ingrese modelo:\n";
-    std::cin.ignore();
     getline(std::cin, model);
 
     item.setModel(model);
@@ -396,7 +393,7 @@ void ItemManager::exportItemBackup()
     }
 }
 
-void ItemManager::importItemBackuo()
+void ItemManager::importItemBackup()
 {
      std::cout << "¿Desea reemplazar los Items actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
