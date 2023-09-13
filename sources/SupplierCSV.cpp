@@ -32,9 +32,9 @@ void SupplierCSV::writeSuppliersCSV(Supplier & supplier, SupplierArchive & suppl
     if (file.is_open() == false) {
         std::cerr << "Error: No se pudo abrir el archivo al exportar CSV.\n";
     } else {
-        int amount_ofsuppliers = supplier_archive.getAmountOfRegisters();
+        int amount_of_suppliers = supplier_archive.getAmountOfRegisters();
 
-        for (int i = 0; i < amount_ofsuppliers; i ++) {
+        for (int i = 0; i < amount_of_suppliers; i ++) {
             supplier = supplier_archive.read(i);
             file << supplier.getId() << getDelimiter() << supplier.getDescription() << getDelimiter() << supplier.getLegalId() << getDelimiter() << supplier.getAdress().getCountry() << getDelimiter() << supplier.getAdress().getState() << getDelimiter() << supplier.getAdress().getCity() << getDelimiter() << supplier.getAdress().getStreet() << getDelimiter() << supplier.getAdress().getNumber() << getDelimiter() << supplier.getAdress().getFloor() << getDelimiter() << supplier.getAdress().getLetter() << getDelimiter() << supplier.getPhone() << getDelimiter() << supplier.getEmail() << getDelimiter() << supplier.getIsActive() << getDelimiter() << supplier.getBankAccount() << "\n";
         }

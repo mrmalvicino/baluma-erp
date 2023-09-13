@@ -1,3 +1,4 @@
+/*
 #include<cstring>
 using namespace std;
 #include <string>
@@ -19,3 +20,4 @@ public:
     void mostrarInformacion();
 
 };
+*/

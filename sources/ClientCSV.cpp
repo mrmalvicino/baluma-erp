@@ -32,9 +32,9 @@ void ClientCSV::writeClientsCSV(Client & client, ClientArchive & client_archive)
     if (file.is_open() == false) {
         std::cerr << "Error: No se pudo abrir el archivo al exportar CSV.\n";
     } else {
-        int amount_ofclients = client_archive.getAmountOfRegisters();
+        int amount_of_clients = client_archive.getAmountOfRegisters();
 
-        for (int i = 0; i < amount_ofclients; i ++) {
+        for (int i = 0; i < amount_of_clients; i ++) {
             client = client_archive.read(i);
             file << client.getId() << getDelimiter() << client.getDescription() << getDelimiter() << client.getLegalId() << getDelimiter() << client.getAdress().getCountry() << getDelimiter() << client.getAdress().getState() << getDelimiter() << client.getAdress().getCity() << getDelimiter() << client.getAdress().getStreet() << getDelimiter() << client.getAdress().getNumber() << getDelimiter() << client.getAdress().getFloor() << getDelimiter() << client.getAdress().getLetter() << getDelimiter() << client.getPhone() << getDelimiter() << client.getEmail() << getDelimiter() << client.getIsActive() << getDelimiter() << client.getCategory() << "\n";
         }

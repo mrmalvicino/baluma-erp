@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../headers/ClientArchive.h"
 
 ClientArchive::ClientArchive() {

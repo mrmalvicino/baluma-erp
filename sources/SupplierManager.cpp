@@ -127,27 +127,21 @@ bool SupplierManager::editSupplier() {
             case 1:
                 cinSupplierDescription(_supplier);
                 break;
-
             case 2:
                 cinSupplierLegalId(_supplier);
                 break;
-
             case 3:
                 cinSupplierAdress(_supplier);
                 break;
-
             case 4:
                 cinSupplierPhone(_supplier);
                 break;
-
             case 5:
                 cinSupplierEmail(_supplier);
                 break;
-
             case 6:
                 cinSupplierBankAccount(_supplier);
                 break;
-
             case 7:
                 cinSupplierIsActive(_supplier);
                 break;
@@ -176,11 +170,9 @@ void SupplierManager::searchSupplier() {
         case 0:
             _terminal.clear();
             break;
-
         case 1:
             searchSupplierById();
             break;
-
         case 2:
             searchSupplierByDescription();
             break;
@@ -314,9 +306,9 @@ void SupplierManager::cinSupplierBankAccount(Supplier & supplier) {
 }
 
 int SupplierManager::generateSupplierId() {
-    int id = 1;
+    int id = 0;
 
-    if (_supplier.getId() != 1) {
+    if (_supplier.getId() != 1) { // Si el registro no es el primero
         id = _supplier_archive.getAmountOfRegisters();
     }
 

@@ -1,3 +1,4 @@
+/*
 #include<iostream>
 #include<cstdlib>
 
@@ -22,3 +23,4 @@ void LibroDiario::mostrarLibroDiario() {
     }
     cout<<"El saldo total correspondiente a los asientos: $"<<saldoTotal<<endl;
 }
+*/

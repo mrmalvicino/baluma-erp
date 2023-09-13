@@ -1,12 +1,10 @@
 #include "../headers/ItemManager.h"
 
-ItemManager::ItemManager()
-{
-    _item_backup.setPath("registers/inventory.bkp");
+ItemManager::ItemManager() {
+    _item_backup.setPath("registers/products.bkp");
 }
 
-void ItemManager::displayMenu()
-{
+void ItemManager::displayMenu() {
     int selection = 1;
 
     do {
@@ -43,32 +41,30 @@ void ItemManager::displayMenu()
                 break;
 
             case 5:
-                importItemBackup();
+                exportItemsBackup();
                 break;
 
             case 6:
-                exportItemBackup();
+                importItemsBackup();
                 break;
 
             case 7:
-                _item_archive.createEmptyItemArchive();
+                exportItemsCSV();
                 break;
 
             case 8:
-                
+                importItemsCSV();
                 break;
         }
     } while (selection != 0);
-
 }
 
-bool ItemManager::addItem()
-{
+bool ItemManager::addItem() {
     bool successful_write;
     bool user_wants_to_save;
 
     _terminal.clear();
-    _terminal.displayMenuHeader("AGREGAR PROVEEDOR");
+    _terminal.displayMenuHeader("AGREGAR PRODUCTO");
 
     _item.setId(generateItemId());
 
@@ -101,11 +97,14 @@ bool ItemManager::addItem()
     return successful_write;
 }
 
-bool ItemManager::editSupplier()
-{
+bool ItemManager::editSupplier() {
     _terminal.clear();
 
     searchItem();
+
+    if (_item.getId() == -1) {
+        return false;
+    }
 
     int selection = 1;
 
@@ -130,27 +129,21 @@ bool ItemManager::editSupplier()
             case 1:
                 cinItemName(_item);
                 break;
-
             case 2:
                 cinItemDescription(_item);
                 break;
-
             case 3:
                 cinItemBrand(_item);
                 break;
-
             case 4:
                 cinItemModel(_item);
                 break;
-
             case 5:
                 cinItemStock(_item);
                 break;
-
             case 6:
                 cinItemPrice(_item);
                 break;
-
             case 7:
                 cinItemIncome(_item);
                 break;
@@ -166,13 +159,12 @@ bool ItemManager::editSupplier()
     return successful_write;
 }
 
-void ItemManager::searchItem()
-{
+void ItemManager::searchItem() {
     _terminal.clear();
 
     int selection = 1;
 
-    _terminal.displayMenuHeader("BUSCAR PROVEEDOR");
+    _terminal.displayMenuHeader("BUSCAR PRODUCTO");
     std::cout << "(1) BUSCAR POR ID\n";
     std::cout << "(2) BUSCAR POR NOMBRE\n";
     _terminal.displayMenuFooter();
@@ -183,11 +175,9 @@ void ItemManager::searchItem()
         case 0:
             _terminal.clear();
             break;
-
         case 1:
             searchItemById();
             break;
-
         case 2:
             searchItemByDescription();
             break;
@@ -195,13 +185,12 @@ void ItemManager::searchItem()
     
 }
 
-void ItemManager::listItems()
-{
+void ItemManager::listItems() {
     _terminal.clear();
 
     int amount_of_items = _item_archive.getAmountOfRegisters();
 
-    _terminal.displayMenuHeader("LISTADO DE PROVEEDORES");
+    _terminal.displayMenuHeader("LISTADO DE PRODUCTOS");
 
     for (int i = 0; i < amount_of_items; i ++) {
         printItem(i);
@@ -211,8 +200,7 @@ void ItemManager::listItems()
     _terminal.clear();
 }
 
-void ItemManager::printItem(int index)
-{
+void ItemManager::printItem(int index) {
     _item = _item_archive.read(index);
     _terminal.displayMenuHeader(_item.getName());
     std::cout << "# ID: " << _item.getId() << "\n";
@@ -225,8 +213,7 @@ void ItemManager::printItem(int index)
     _terminal.printBool(_item.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
-void ItemManager::cinItemName(Item &item)
-{
+void ItemManager::cinItemName(Item & item) {
     std::string name;
 
     std::cout << "Ingrese nombre del producto:\n";
@@ -236,8 +223,7 @@ void ItemManager::cinItemName(Item &item)
     item.setName(name);
 }
 
-void ItemManager::cinItemDescription(Item &item)
-{
+void ItemManager::cinItemDescription(Item & item) {
     std::string description;
 
     std::cout << "Ingrese descripcion:\n";
@@ -246,8 +232,7 @@ void ItemManager::cinItemDescription(Item &item)
     item.setDescription(description);
 }
 
-void ItemManager::cinItemBrand(Item &item)
-{
+void ItemManager::cinItemBrand(Item & item) {
     std::string brand;
 
     std::cout << "Ingrese marca:\n";
@@ -256,8 +241,7 @@ void ItemManager::cinItemBrand(Item &item)
     item.setBrand(brand);
 }
 
-void ItemManager::cinItemModel(Item &item)
-{
+void ItemManager::cinItemModel(Item & item) {
     std::string model;
 
     std::cout << "Ingrese modelo:\n";
@@ -266,8 +250,7 @@ void ItemManager::cinItemModel(Item &item)
     item.setModel(model);
 }
 
-void ItemManager::cinItemPrice(Item &item)
-{
+void ItemManager::cinItemPrice(Item & item) {
     double price;
 
     std::cout << "Ingrese valor unitario:\n";
@@ -276,8 +259,7 @@ void ItemManager::cinItemPrice(Item &item)
     item.setPrice(price);
 }
 
-void ItemManager::cinItemStock(Item &item)
-{
+void ItemManager::cinItemStock(Item & item) {
     int stock;
 
     std::cout << "Ingrese el stock:\n";
@@ -286,73 +268,70 @@ void ItemManager::cinItemStock(Item &item)
     item.setStock(stock);
 }
 
-void ItemManager::cinItemIncome(Item &item)
-{
+void ItemManager::cinItemIncome(Item & item) {
     Date date;
-    int d, m, a;
+    int day, month, year;
 
-    std::cout << "Ingrese fecha de ingreso:\n\n";
-    std::cout << "Ingrese dia:\n";
-    d = _terminal.validateInt(1, 31);
+    std::cout << "Ingrese dia de ingreso:\n";
+    day = _terminal.validateInt(1, 31);
 
-    std::cout << "Ingrese mes:\n";
-    m = _terminal.validateInt(1,12);
+    std::cout << "Ingrese mes de ingreso:\n";
+    month = _terminal.validateInt(1,12);
 
-    std::cout << "Ingrese anio:\n";
-    a = _terminal.validateInt(1900,2023);
+    std::cout << "Ingrese año de ingreso:\n";
+    year = _terminal.validateInt(1900,2023);
 
-    date.setDay(d);
-    date.setMonth(m);
-    date.setYear(a);
+    date.setDay(day);
+    date.setMonth(month);
+    date.setYear(year);
 
     item.setIncome(date);
-
 }
 
-void ItemManager::cinItemIsActive(Item &item)
-{
+void ItemManager::cinItemIsActive(Item & item) {
     if (item.getIsActive()) {
         item.setIsActive(false);
-        std::cout << "El proveedor ha sido dado de baja.\n";
+        std::cout << "El producto ha sido dado de baja.\n";
         _terminal.pause();
     } else {
         item.setIsActive(true);
-        std::cout << "El proveedor ha sido reincorporado.\n";
+        std::cout << "El producto ha sido reincorporado.\n";
         _terminal.pause();
     }
 }
 
-int ItemManager::generateItemId()
-{
-    int id = 1;
+int ItemManager::generateItemId() {
+    int id = 0;
 
-    if (_item.getId() != 1) {
+    if (_item.getId() != 1) { // Si el registro no es el primero
         id = _item_archive.getAmountOfRegisters();
     }
 
     return id + 1;
 }
 
-void ItemManager::searchItemById()
-{
+void ItemManager::searchItemById() {
     int index;
     int id;
     int max_id;
 
     max_id = _item_archive.getAmountOfRegisters();
 
-    std::cout << "Ingresar ID:\n";
-    id = _terminal.validateInt(1, max_id);
+    std::cout << "Ingresar ID o 0 para cancelar:\n";
+    id = _terminal.validateInt(0, max_id);
 
-    index = _item_archive.getIndex(id);
-
-    printItem(index);
+    if (0 < id) {
+        index = _item_archive.getIndex(id);
+        printItem(index);
+    } else {
+        _item.setId(-1);
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
 
     _terminal.pause();
 }
 
-void ItemManager::searchItemByDescription()
-{
+void ItemManager::searchItemByDescription() {
     int index;
     std::string description;
 
@@ -362,13 +341,28 @@ void ItemManager::searchItemByDescription()
 
     index = _item_archive.getIndex(description);
 
-    printItem(index);
+    while (index == -1) {
+        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, description);
+
+        if (description == "0") {
+            index = -2;
+        } else {
+            index = _item_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+        }
+    }
+
+    if (0 <= index) {
+        printItem(index);
+    } else {
+        _item.setId(-1);
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
     
     _terminal.pause();
 }
 
-void ItemManager::exportItemBackup()
-{
+void ItemManager::exportItemsBackup() {
      int amount_of_items = _item_archive.getAmountOfRegisters();
 
     Item * items_array = new Item[amount_of_items];
@@ -393,8 +387,7 @@ void ItemManager::exportItemBackup()
     }
 }
 
-void ItemManager::importItemBackup()
-{
+void ItemManager::importItemsBackup() {
      std::cout << "¿Desea reemplazar los Items actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
@@ -421,5 +414,19 @@ void ItemManager::importItemBackup()
             std::cout << "Backup importado correctamente.\n";
             _terminal.pause();
         }
+    }
+}
+
+void ItemManager::exportItemsCSV() {
+    _item_csv.writeItemsCSV(_item, _item_archive);
+}
+
+void ItemManager::importItemsCSV() {
+    std::cout << "¿Desea reemplazar los itemes actuales por aquellos que haya en el archivo CSV? [S/N]\n";
+
+    if (_terminal.validateBool() == false) {
+        std::cout << "Importación abortada por el usuario.\n";
+    } else {
+        _item_csv.readItemsCSV(_item, _item_archive);
     }
 }

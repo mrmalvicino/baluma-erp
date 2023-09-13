@@ -1,3 +1,4 @@
+/*
 #include<iostream>
 #include<cstdlib>
 
@@ -33,3 +34,4 @@ void cuentaContable::mostrarCuenta(){
     cout<<"Saldo de cuenta: $"<<saldo<<endl;
 
 }
+*/

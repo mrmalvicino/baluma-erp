@@ -1,3 +1,4 @@
+/*
 #include<cstring>
 using namespace std;
 #include <string>
@@ -21,5 +22,4 @@ public:
     void obtenerSaldo();
     void mostrarCuenta();
 };
-
-
+*/

@@ -1,3 +1,4 @@
+/*
 #include<cstring>
 using namespace std;
 #include <string>
@@ -15,3 +16,4 @@ public:
     void agregarAsiento(AsientoContable& asiento);
     void mostrarLibroDiario();
 };
+*/

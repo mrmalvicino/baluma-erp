@@ -1,45 +1,39 @@
 #include "../headers/ItemArchive.h"
-#include <iostream>
 
-ItemArchive::ItemArchive() : _path("registers/inventory.dat")
-{}
+ItemArchive::ItemArchive() {
+    setPath("registers/products.dat");
+}
 
-ItemArchive::ItemArchive(const std::string &path)
-{
+ItemArchive::ItemArchive(const std::string & path) {
     setPath(path);
 }
 
-void ItemArchive::setPath(const std::string &path)
-{
+void ItemArchive::setPath(const std::string & path) {
     _path = path;
 }
 
-std::string ItemArchive::getPath()
-{
+std::string ItemArchive::getPath() {
     return _path;
 }
 
-bool ItemArchive::write(Item &reg)
-{
+bool ItemArchive::write(Item & reg) {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
 
-    if(file_pointer == NULL)
-    {
+    if (file_pointer == NULL) {
         std::cerr << "Error: No se pudo abrir el archivo.\n";
         return 0;
     }
+
     bool successful_write = fwrite(& reg, sizeof(Item), 1, file_pointer);
     fclose(file_pointer);
 
     return successful_write;
 }
 
-bool ItemArchive::overWrite(Item &reg, int index)
-{
+bool ItemArchive::overWrite(Item & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
 
-    if(file_pointer == NULL)
-    {
+    if (file_pointer == NULL) {
         std::cerr << "Error: No se pudo abrir el archivo.\n";
         return 0;
     }
@@ -51,36 +45,7 @@ bool ItemArchive::overWrite(Item &reg, int index)
     return successful_write;
 }
 
-int ItemArchive::getIndex(int id)
-{
-     int i = 0;
-    Item reg;
-    reg = read(i);
-
-    while (reg.getId() != id && i < getAmountOfRegisters()) {
-        i ++;
-        reg = read(i);
-    }
-
-    return i;
-}
-
-int ItemArchive::getIndex(std::string &description)
-{
-    int i = 0;
-    Item reg;
-    reg = read(i);
-
-    while (reg.getDescription() != description && i < getAmountOfRegisters()) {
-        i ++;
-        reg = read(i);
-    }
-
-    return i;
-}
-
-Item ItemArchive::read(int index)
-{
+Item ItemArchive::read(int index) {
     Item reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
@@ -95,8 +60,38 @@ Item ItemArchive::read(int index)
 
     return reg;
 }
-int ItemArchive::getAmountOfRegisters()
-{
+
+int ItemArchive::getIndex(int id) {
+     int i = 0;
+    Item reg;
+    reg = read(i);
+
+    while (reg.getId() != id && i < getAmountOfRegisters()) {
+        i ++;
+        reg = read(i);
+    }
+
+    return i;
+}
+
+int ItemArchive::getIndex(std::string & description) {
+    int i = 0;
+    Item reg;
+    reg = read(i);
+
+    while (reg.getDescription() != description && i < getAmountOfRegisters()) {
+        i ++;
+        reg = read(i);
+    }
+
+    if (i == getAmountOfRegisters()) {
+        i = -1;
+    }
+
+    return i;
+}
+
+int ItemArchive::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
@@ -107,13 +102,12 @@ int ItemArchive::getAmountOfRegisters()
     fseek(file_pointer, 0, SEEK_END);
     int bytes = ftell(file_pointer);
     fclose(file_pointer);
-    int total_clients = bytes / sizeof(Item);
+    int total_items = bytes / sizeof(Item);
 
-    return total_clients;
+    return total_items;
 }
 
-void ItemArchive::createEmptyItemArchive()
-{
+void ItemArchive::createEmptyItemArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {

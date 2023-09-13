@@ -1,3 +1,4 @@
+/*
 #include<iostream>
 #include<cstdlib>
 
@@ -30,3 +31,4 @@ void AsientoContable::mostrarInformacion(){
         }
         std::cout << "Total del asiento: $" << calcularTotal() << std::endl;
     }
+*/

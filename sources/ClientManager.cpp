@@ -127,27 +127,21 @@ bool ClientManager::editClient() {
             case 1:
                 cinClientDescription(_client);
                 break;
-
             case 2:
                 cinClientLegalId(_client);
                 break;
-
             case 3:
                 cinClientAdress(_client);
                 break;
-
             case 4:
                 cinClientPhone(_client);
                 break;
-
             case 5:
                 cinClientEmail(_client);
                 break;
-
             case 6:
                 cinClientCategory(_client);
                 break;
-
             case 7:
                 cinClientIsActive(_client);
                 break;
@@ -176,11 +170,9 @@ void ClientManager::searchClient() {
         case 0:
             _terminal.clear();
             break;
-
         case 1:
             searchClientById();
             break;
-
         case 2:
             searchClientByDescription();
             break;
@@ -314,9 +306,9 @@ void ClientManager::cinClientCategory(Client & client) {
 }
 
 int ClientManager::generateClientId() {
-    int id = 1;
+    int id = 0;
 
-    if (_client.getId() != 1) {
+    if (_client.getId() != 1) { // Si el registro no es el primero
         id = _client_archive.getAmountOfRegisters();
     }
 
