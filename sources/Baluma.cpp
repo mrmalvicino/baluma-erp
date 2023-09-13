@@ -26,7 +26,7 @@ void Baluma::run() {
 
         switch (selection) {
             case 1:
-                
+                _budget_manager.displayMenu();
                 break;
             case 2:
                 
