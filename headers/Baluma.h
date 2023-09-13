@@ -9,6 +9,7 @@
 #include "Terminal.h"
 #include "ClientManager.h"
 #include "SupplierManager.h"
+#include "BudgetManager.h"
 #include "ItemManager.h"
 
 class Baluma {
@@ -29,5 +30,4 @@ class Baluma {
     Terminal _terminal; // Terminal object with default settings.
     ClientManager _client_manager; // Client Manager object with default settings.
     SupplierManager _supplier_manager; // Supplier Manager object with default settings.
-    ItemManager _item_manager; //inventory / Item Manager object with default settings.
 };
