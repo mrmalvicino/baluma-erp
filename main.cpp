@@ -6,3 +6,8 @@ int main() {
 
     return 0;
 }
+
+/*
+
+.\bin\main.exe
+*/
