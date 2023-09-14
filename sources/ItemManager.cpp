@@ -303,9 +303,11 @@ void ItemManager::cinItemIsActive(Item & item) {
 int ItemManager::generateItemId() {
     int id = 0;
 
-    if (_item.getId() != 1) { // Si el registro no es el primero
+    if(_item_archive.getAmountOfRegisters())
+    {
         id = _item_archive.getAmountOfRegisters();
-    }
+    } else { return id + 1; }
+
 
     return id + 1;
 }
