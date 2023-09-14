@@ -8,6 +8,9 @@ int main() {
 }
 
 /*
-
+EJECUTAR EN WINDOWS
 .\bin\main.exe
+
+EJECUTAR EN UNIX
+./bin/main
 */

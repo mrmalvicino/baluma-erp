@@ -306,13 +306,13 @@ void ClientManager::cinClientCategory(Client & client) {
 }
 
 int ClientManager::generateClientId() {
-    int id = 0;
+    int id = 1;
 
-    if (_client.getId() != 1) { // Si el registro no es el primero
-        id = _client_archive.getAmountOfRegisters();
+    if(_client_archive.getAmountOfRegisters() != 0) {
+        id = _client_archive.getAmountOfRegisters() + 1;
     }
 
-    return id + 1;
+    return id;
 }
 
 void ClientManager::searchClientById() {

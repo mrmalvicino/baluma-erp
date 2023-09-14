@@ -306,13 +306,13 @@ void SupplierManager::cinSupplierBankAccount(Supplier & supplier) {
 }
 
 int SupplierManager::generateSupplierId() {
-    int id = 0;
+    int id = 1;
 
-    if (_supplier.getId() != 1) { // Si el registro no es el primero
-        id = _supplier_archive.getAmountOfRegisters();
+    if(_supplier_archive.getAmountOfRegisters() != 0) {
+        id = _supplier_archive.getAmountOfRegisters() + 1;
     }
 
-    return id + 1;
+    return id;
 }
 
 void SupplierManager::searchSupplierById() {

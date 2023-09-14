@@ -301,16 +301,13 @@ void ItemManager::cinItemIsActive(Item & item) {
 }
 
 int ItemManager::generateItemId() {
-    int id = 0;
+    int id = 1;
 
-    if(_item_archive.getAmountOfRegisters() != 0)
-    {
-        id = _item_archive.getAmountOfRegisters();
+    if(_item_archive.getAmountOfRegisters() != 0) {
+        id = _item_archive.getAmountOfRegisters() + 1;
+    }
 
-    } 
-
-
-    return id + 1;
+    return id;
 }
 
 void ItemManager::searchItemById() {
