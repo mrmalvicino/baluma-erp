@@ -10,7 +10,7 @@
 
 &nbsp; Baluma ERP está compuesto por 8 módulos. Los módulos Clientes y Proveedores se encargan de administrar los datos de los socios de negocios. El módulo Inventario se encarga de gestionar los datos de los productos y los depósitos en donde se encuentran. El módulo Contabilidad se encarga de registrar las transacciones en cuentas contables. Los módulos Compras y Ventas sirven para generar las transacciones. Desde el módulo Presupuesto se pueden realizar y exportar cotizaciones. El módulo Recursos Humanos sirve para gestionar los roles de usuario de los empleados. La siguiente es una captura de pantalla del menú principal.
 
-![Baluma ERP](/images/screenshot-menu-baluma.png?raw=true "Baluma ERP")
+![Baluma ERP](/images/screenshot-menu.png?raw=true "Baluma ERP")
 
 ## Licencia
 

@@ -16,7 +16,7 @@ void Baluma::run() {
         std::cout << "(4) CONTABILIDAD\n";
         std::cout << "(5) VENTAS\n";
         std::cout << "(6) COMPRAS\n";
-        std::cout << "(7) PRESUPUSTOS\n";
+        std::cout << "(7) PRESUPUESTOS\n";
         std::cout << "(8) RECURSOS HUMANOS\n";
         _terminal.printLine();
         std::cout << "(9) ACERCA DE BALUMA ERP\n";

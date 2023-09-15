@@ -10,7 +10,7 @@
 
 &nbsp; Baluma ERP is made up of 8 modules. The Customers and Suppliers modules are responsible for managing business partner data. The Inventory module is responsible for managing the data of the products and the warehouses where they are located. The Accounting module is responsible of recording transactions in accounting accounts. The Purchases and Sales modules are used to generate transactions. From the Budget module you can make and export quotations. The Human Resources module is used to manage employee user roles. The following is a screenshot of the main menu.
 
-![Baluma ERP](/images/screenshot-menu-baluma.png?raw=true "Baluma ERP")
+![Baluma ERP](/images/screenshot-menu.png?raw=true "Baluma ERP")
 
 ## License
 
