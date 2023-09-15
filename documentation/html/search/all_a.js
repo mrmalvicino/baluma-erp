@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['mostrarcuenta_2',['mostrarCuenta',['../classcuenta_contable.html#a7235f163f403f2f6781fbe461aa9bcfa',1,'cuentaContable']]],
-  ['mostrarinformacion_3',['mostrarInformacion',['../class_asiento_contable.html#a4fc8c132d4c9330528f7d2463f5b9d2b',1,'AsientoContable']]],
-  ['mostrarlibrodiario_4',['mostrarLibroDiario',['../class_libro_diario.html#af46e5c6c5da4a1df2ab312affa0cfcaa',1,'LibroDiario']]]
+  ['licencia_0',['Licencia',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html#autotoc_md2',1,'']]],
+  ['license_1',['License',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html#autotoc_md9',1,'']]],
+  ['listclients_2',['listClients',['../class_client_manager.html#a818e32d0c5571fc8fd7a59329539b727',1,'ClientManager']]],
+  ['listitems_3',['listItems',['../class_item_manager.html#aef9a3763213cb0cb3f59154d32ba5031',1,'ItemManager']]],
+  ['listsuppliers_4',['listSuppliers',['../class_supplier_manager.html#aa0f85bc8457bd0e14d8c81a808f279f1',1,'SupplierManager']]]
 ];

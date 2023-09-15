@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nombredecuenta_0',['nombreDeCuenta',['../classcuenta_contable.html#a80046d235b98678ea9480d71faec64c1',1,'cuentaContable']]],
-  ['numerodecuenta_1',['numeroDeCuenta',['../classcuenta_contable.html#a885904beff66ab6a49e264354c233ab2',1,'cuentaContable']]]
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]]
 ];

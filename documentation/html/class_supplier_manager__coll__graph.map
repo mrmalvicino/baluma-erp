@@ -1,0 +1,16 @@
+<map id="SupplierManager" name="SupplierManager">
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,286,242,312"/>
+<area shape="rect" id="Node000002" href="$class_terminal.html" title=" " alt="" coords="27,94,98,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="40,132,25,149,13,168,8,188,13,207,36,234,66,256,98,272,130,283,128,288,96,277,63,260,33,238,8,210,3,188,8,166,21,146,36,128"/>
+<area shape="rect" id="Node000007" href="$class_supplier_c_s_v.html" title=" " alt="" coords="80,183,176,208"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="82,130,121,181,117,184,78,133"/>
+<area shape="rect" id="Node000003" href="$class_supplier.html" title=" " alt="" coords="204,183,273,208"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,224,213,264,195,288,191,284,208,261,227,221"/>
+<area shape="rect" id="Node000004" href="$class_business_partner.html" title=" " alt="" coords="180,94,297,120"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="241,134,241,182,236,182,236,134"/>
+<area shape="rect" id="Node000005" href="$class_adress.html" title=" " alt="" coords="207,5,270,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="241,46,241,94,236,94,236,46"/>
+<area shape="rect" id="Node000006" href="$class_supplier_archive.html" title=" " alt="" coords="297,183,409,208"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="337,221,315,244,288,265,261,278,234,288,232,283,259,273,285,260,311,240,333,218"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="124,223,124,243,129,261,140,274,154,284,151,288,136,278,124,264,118,243,119,223"/>
+</map>

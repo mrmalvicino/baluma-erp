@@ -1,0 +1,5 @@
+<map id="ItemCSV" name="ItemCSV">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,94,81,120"/>
+<area shape="rect" id="Node000002" href="$class_terminal.html" title=" " alt="" coords="8,5,78,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="46,46,46,94,40,94,40,46"/>
+</map>

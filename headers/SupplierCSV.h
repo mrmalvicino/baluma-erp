@@ -68,7 +68,18 @@ class SupplierCSV {
 
     private:
 
-    char _delimiter; // Path where the file will be saved
-    std::string _path; // Character that is used to delimit columns
-    Terminal _terminal; // Terminal object with default settings.
+    /**
+     * @brief Path where the file will be saved.
+     */
+    char _delimiter;
+
+    /**
+     * @brief Character that is used to delimit columns.
+     */
+    std::string _path;
+
+    /**
+     * @brief Terminal object with default settings.
+     */
+    Terminal _terminal;
 };

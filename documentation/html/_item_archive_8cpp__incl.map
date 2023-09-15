@@ -1,0 +1,20 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/ItemArchive.cpp" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/ItemArchive.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="33,5,225,61"/>
+<area shape="rect" id="Node000002" href="$_item_archive_8h.html" title=" " alt="" coords="47,109,211,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,183,77,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="116,137,69,175,65,171,112,133"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="101,183,157,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="132,135,132,168,126,168,126,135"/>
+<area shape="rect" id="Node000005" href="$_item_8h.html" title=" " alt="" coords="181,183,240,208"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="145,133,188,171,184,175,141,137"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="153,330,206,356"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="200,210,184,231,170,257,167,287,173,315,168,316,162,287,165,256,179,228,196,207"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="180,256,241,282"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="213,209,213,241,208,241,208,209"/>
+<area shape="rect" id="Node000008" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="264,256,325,282"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="226,207,271,245,268,249,223,211"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="276,285,213,324,210,319,273,280"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="268,330,321,356"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="297,282,297,315,292,315,292,282"/>
+</map>

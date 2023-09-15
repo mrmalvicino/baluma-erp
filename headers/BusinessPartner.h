@@ -114,12 +114,39 @@ class BusinessPartner {
     bool getIsActive();
 
     private:
-  
-    int _id; // Register number
-    char _description[30]; // Name of the business partner
-    long long int _legal_id; // Number of ID card (DNI, CUIL, CUIT in Argentina)
-    Adress _adress; // Adress of the business partner
-    int _phone; // Telephone or cellphone of the business partner
-    char _email[30]; // E-mail of the business partner
-    bool _is_active; // Status of the business partner
+
+    /**
+     * @brief Register number.
+     */
+    int _id;
+
+    /**
+     * @brief Name of the business partner.
+     */
+    char _description[30];
+
+    /**
+     * @brief Number of ID card (DNI, CUIL, CUIT in Argentina).
+     */
+    long long int _legal_id;
+
+    /**
+     * @brief Adress of the business partner.
+     */
+    Adress _adress;
+
+    /**
+     * @brief Telephone or cellphone of the business partner.
+     */
+    int _phone;
+
+    /**
+     * @brief E-mail of the business partner.
+     */
+    char _email[30];
+
+    /**
+     * @brief Status of the business partner.
+     */
+    bool _is_active;
 };

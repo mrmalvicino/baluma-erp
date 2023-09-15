@@ -115,11 +115,38 @@ class Adress {
 
     private:
 
-    char _country[30]; // Country name
-    char _state[30]; // State or region name
-    char _city[30]; // City name
-    char _street[30]; // Street name
-    int _number; // Street number
-    int _floor; // Floor number (if applicable)
-    char _letter; // Letter of apartment (if applicable)
+    /**
+     * @brief Country name.
+     */
+    char _country[30];
+
+    /**
+     * @brief State or region name.
+     */
+    char _state[30];
+
+    /**
+     * @brief City name.
+     */
+    char _city[30];
+
+    /**
+     * @brief Street name.
+     */
+    char _street[30];
+
+    /**
+     * @brief Street number.
+     */
+    int _number;
+
+    /**
+     * @brief Floor number (if applicable).
+     */
+    int _floor;
+
+    /**
+     * @brief Letter of apartment (if applicable).
+     */
+    char _letter;
 };

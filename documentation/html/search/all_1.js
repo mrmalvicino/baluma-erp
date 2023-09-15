@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['baluma_0',['Baluma',['../class_baluma.html',1,'']]],
-  ['baluma_20erp_1',['baluma erp',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html',1,'Baluma ERP'],['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html',1,'Baluma ERP']]],
-  ['baluma_2ecpp_2',['Baluma.cpp',['../_baluma_8cpp.html',1,'']]],
-  ['baluma_2eh_3',['Baluma.h',['../_baluma_8h.html',1,'']]],
-  ['businesspartner_4',['businesspartner',['../class_business_partner.html',1,'BusinessPartner'],['../class_business_partner.html#a795e7114219e2afc8c26503af56827cf',1,'BusinessPartner::BusinessPartner()'],['../class_business_partner.html#abbc9147c5c8facd4a59592e85018c012',1,'BusinessPartner::BusinessPartner(int id, std::string description, long long int legal_id, Adress adress, int phone, std::string email, bool is_active)']]],
-  ['businesspartner_2ecpp_5',['BusinessPartner.cpp',['../_business_partner_8cpp.html',1,'']]],
-  ['businesspartner_2eh_6',['BusinessPartner.h',['../_business_partner_8h.html',1,'']]]
+  ['about_0',['about',['../class_baluma.html#ae6fbee0a3b5fdd332ef651e29970b173',1,'Baluma']]],
+  ['accountingaccount_2ecpp_1',['AccountingAccount.cpp',['../_accounting_account_8cpp.html',1,'']]],
+  ['accountingaccount_2eh_2',['AccountingAccount.h',['../_accounting_account_8h.html',1,'']]],
+  ['addclient_3',['addClient',['../class_client_manager.html#afbe5dc6b606065f3f7b69545919dcd43',1,'ClientManager']]],
+  ['adddays_4',['addDays',['../class_date.html#a8b7de6f7e4dab3698d3f565651c3d134',1,'Date']]],
+  ['additem_5',['addItem',['../class_item_manager.html#aaca8ad3e1e1e76c70a9b8f9e79392937',1,'ItemManager']]],
+  ['addsupplier_6',['addSupplier',['../class_supplier_manager.html#a4305aa254f3895733bc426a7e51560f3',1,'SupplierManager']]],
+  ['adress_7',['adress',['../class_adress.html',1,'Adress'],['../class_adress.html#a1d057514339282f3fb4e53a63bb87f81',1,'Adress::Adress()'],['../class_adress.html#a546e6c8545373fa93ce069e929b43a21',1,'Adress::Adress(std::string country, std::string state, std::string city, std::string street, int number, int floor, char letter)']]],
+  ['adress_2ecpp_8',['Adress.cpp',['../_adress_8cpp.html',1,'']]],
+  ['adress_2eh_9',['Adress.h',['../_adress_8h.html',1,'']]]
 ];

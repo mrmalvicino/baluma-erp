@@ -10,13 +10,13 @@ void Baluma::run() {
         _terminal.printLine();
         _terminal.centerAndPrint("BALUMA ERP");
         _terminal.printLine();
-        std::cout << "(1) PRESUPUSTOS\n";
-        std::cout << "(2) VENTAS\n";
-        std::cout << "(3) CLIENTES\n";
-        std::cout << "(4) INVENTARIO\n";
-        std::cout << "(5) COMPRAS\n";
-        std::cout << "(6) PROVEEDORES\n";
-        std::cout << "(7) CONTABILIDAD\n";
+        std::cout << "(1) CLIENTES\n";
+        std::cout << "(2) PROVEEDORES\n";
+        std::cout << "(3) INVENTARIO\n";
+        std::cout << "(4) CONTABILIDAD\n";
+        std::cout << "(5) VENTAS\n";
+        std::cout << "(6) COMPRAS\n";
+        std::cout << "(7) PRESUPUSTOS\n";
         std::cout << "(8) RECURSOS HUMANOS\n";
         _terminal.printLine();
         std::cout << "(9) ACERCA DE BALUMA ERP\n";
@@ -26,22 +26,22 @@ void Baluma::run() {
 
         switch (selection) {
             case 1:
-                _budget_manager.displayMenu();
-                break;
-            case 2:
-                
-                break;
-            case 3:
                 _client_manager.displayMenu();
                 break;
-            case 4:
+            case 2:
+                _supplier_manager.displayMenu();
+                break;
+            case 3:
                 _item_manager.displayMenu();
+                break;
+            case 4:
+                
                 break;
             case 5:
                 
                 break;
             case 6:
-                _supplier_manager.displayMenu();
+
                 break;
             case 7:
                 

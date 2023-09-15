@@ -73,6 +73,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_date-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Date Class Reference</div></div>
 </div><!--header-->
@@ -118,6 +120,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ada293ae20419963c246a7831096f6091" id="r_ada293ae20419963c246a7831096f6091"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date.html#ada293ae20419963c246a7831096f6091">setCurrentDate</a> ()</td></tr>
 <tr class="memdesc:ada293ae20419963c246a7831096f6091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the date to the current date.  <br /></td></tr>
 <tr class="separator:ada293ae20419963c246a7831096f6091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab80501a7460e3e13c86fa5934fccd39d" id="r_ab80501a7460e3e13c86fa5934fccd39d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date.html#ab80501a7460e3e13c86fa5934fccd39d">increaseDay</a> ()</td></tr>
+<tr class="memdesc:ab80501a7460e3e13c86fa5934fccd39d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases the day component of the date by one.  <br /></td></tr>
+<tr class="separator:ab80501a7460e3e13c86fa5934fccd39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e27fa6eca851ac668fd9a45012445c7" id="r_a2e27fa6eca851ac668fd9a45012445c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date.html#a2e27fa6eca851ac668fd9a45012445c7">decreaseDay</a> ()</td></tr>
+<tr class="memdesc:a2e27fa6eca851ac668fd9a45012445c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases the day component of the date by one.  <br /></td></tr>
+<tr class="separator:a2e27fa6eca851ac668fd9a45012445c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae931aa92f2eec5458b6f829b06ec3095" id="r_ae931aa92f2eec5458b6f829b06ec3095"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date.html#ae931aa92f2eec5458b6f829b06ec3095">_day</a></td></tr>
+<tr class="memdesc:ae931aa92f2eec5458b6f829b06ec3095"><td class="mdescLeft">&#160;</td><td class="mdescRight">The day component of the date.  <br /></td></tr>
+<tr class="separator:ae931aa92f2eec5458b6f829b06ec3095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5171c16bdbb7bef26b87c5d41882f1f3" id="r_a5171c16bdbb7bef26b87c5d41882f1f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date.html#a5171c16bdbb7bef26b87c5d41882f1f3">_month</a></td></tr>
+<tr class="memdesc:a5171c16bdbb7bef26b87c5d41882f1f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The month component of the date.  <br /></td></tr>
+<tr class="separator:a5171c16bdbb7bef26b87c5d41882f1f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81e55798ced33125bb7cb0b07b185419" id="r_a81e55798ced33125bb7cb0b07b185419"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date.html#a81e55798ced33125bb7cb0b07b185419">_year</a></td></tr>
+<tr class="memdesc:a81e55798ced33125bb7cb0b07b185419"><td class="mdescLeft">&#160;</td><td class="mdescRight">The year component of the date.  <br /></td></tr>
+<tr class="separator:a81e55798ced33125bb7cb0b07b185419"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4e59ed4ba66eec61c27460c5d09fa1bd" name="a4e59ed4ba66eec61c27460c5d09fa1bd"></a>
@@ -207,6 +230,33 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a2e27fa6eca851ac668fd9a45012445c7" name="a2e27fa6eca851ac668fd9a45012445c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e27fa6eca851ac668fd9a45012445c7">&#9670;&#160;</a></span>decreaseDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Date::decreaseDay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decreases the day component of the date by one. </p>
 
 </div>
 </div>
@@ -305,6 +355,33 @@ Public Member Functions</h2></td></tr>
 
 <p>Retrieves the year component of the date. </p>
 <dl class="section return"><dt>Returns</dt><dd>(int) The year component of the date. </dd></dl>
+
+</div>
+</div>
+<a id="ab80501a7460e3e13c86fa5934fccd39d" name="ab80501a7460e3e13c86fa5934fccd39d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab80501a7460e3e13c86fa5934fccd39d">&#9670;&#160;</a></span>increaseDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Date::increaseDay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Increases the day component of the date by one. </p>
 
 </div>
 </div>
@@ -422,6 +499,79 @@ Public Member Functions</h2></td></tr>
 
 <p>Converts the date into a string representation in the format "DD/MM/YYYY". </p>
 <dl class="section return"><dt>Returns</dt><dd>(std::string) The date as a formatted string. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae931aa92f2eec5458b6f829b06ec3095" name="ae931aa92f2eec5458b6f829b06ec3095"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae931aa92f2eec5458b6f829b06ec3095">&#9670;&#160;</a></span>_day</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Date::_day</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The day component of the date. </p>
+
+</div>
+</div>
+<a id="a5171c16bdbb7bef26b87c5d41882f1f3" name="a5171c16bdbb7bef26b87c5d41882f1f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5171c16bdbb7bef26b87c5d41882f1f3">&#9670;&#160;</a></span>_month</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Date::_month</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The month component of the date. </p>
+
+</div>
+</div>
+<a id="a81e55798ced33125bb7cb0b07b185419" name="a81e55798ced33125bb7cb0b07b185419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81e55798ced33125bb7cb0b07b185419">&#9670;&#160;</a></span>_year</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Date::_year</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The year component of the date. </p>
 
 </div>
 </div>

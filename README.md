@@ -8,24 +8,25 @@
 
 ## Features
 
-## Examples
+&nbsp; Baluma ERP is made up of 8 modules. The Customers and Suppliers modules are responsible for managing business partner data. The Inventory module is responsible for managing the data of the products and the warehouses where they are located. The Accounting module is responsible of recording transactions in accounting accounts. The Purchases and Sales modules are used to generate transactions. From the Budget module you can make and export quotations. The Human Resources module is used to manage employee user roles. The following is a screenshot of the main menu.
 
-## Documentation
-
-In the following link you will find all the information necessary to either use the compiled software or contribute developing Baluma ERP.
-
-[https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html](https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html)
-
+![Baluma ERP](/images/screenshot-menu-baluma.png?raw=true "Baluma ERP")
 
 ## License
 
-&nbsp; Baluma ERP is an open source software developed under the GNU General Public License.
+&nbsp; Baluma ERP is an open source software developed under the GNU General Public License. The code is hosted in the following [GitHub repository](https://github.com/mrmalvicino/baluma-erp).
 
-&nbsp; The main distribution is free and the latest compiled version can be downloaded from [https://github.com/mrmalvicino/baluma-erp](https://github.com/mrmalvicino/baluma-erp)
+[https://github.com/mrmalvicino/baluma-erp](https://github.com/mrmalvicino/baluma-erp)
+
+## Documentation
+
+&nbsp; In the following link you will find the [documentation](https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html) necessary to either use the compiled software or contribute developing Baluma ERP.
+
+[https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html](https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html)
 
 ## Contibution policies
 
-&nbsp; All contributions that use the following conventions are welcome:
+&nbsp; All contributions that use the following conventions are welcome.
 
 - The code must be written in English.
 
@@ -47,7 +48,13 @@ In the following link you will find all the information necessary to either use 
 
 - Files that do contain code inherit the naming convention of their content, such as `functions.h` or `Class.h`.
 
-### Creators
+## Download
+
+&nbsp; The main distribution is free and the [latest compiled version](https://github.com/mrmalvicino/baluma-erp/releases) can be downloaded from the following link.
+
+[https://github.com/mrmalvicino/baluma-erp/releases](https://github.com/mrmalvicino/baluma-erp/releases)
+
+## Creators
 
 &nbsp; This program was created through a private repository as a final project for the subject Computer Laboratory 2 of the University Technician Programmer degree dictated by the National Technological University of Argentina.
 

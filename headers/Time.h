@@ -73,7 +73,18 @@ class Time {
 
     private:
 
-    int _second; // The second component of the time.
-    int _minute; // The minute component of the time.
-    int _hour; // The hour component of the time.
+    /**
+     * @brief The second component of the time.
+     */
+    int _second;
+
+    /**
+     * @brief The minute component of the time.
+     */
+    int _minute;
+
+    /**
+     * @brief The hour component of the time.
+     */
+    int _hour;
 };

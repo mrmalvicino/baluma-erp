@@ -87,9 +87,20 @@ class Date {
 
     private:
 
-    int _day; // The day component of the date.
-    int _month; // The month component of the date.
-    int _year; // The year component of the date.
+    /**
+     * @brief The day component of the date.
+     */
+    int _day;
+
+    /**
+     * @brief The month component of the date.
+     */
+    int _month;
+
+    /**
+     * @brief The year component of the date.
+     */
+    int _year;
 
     /**
      * @brief Increases the day component of the date by one.

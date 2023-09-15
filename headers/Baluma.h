@@ -24,12 +24,31 @@ class Baluma {
      * @brief Prints information about the software.
      */
     void about();
-    
+
     private:
 
-    Terminal _terminal; // Terminal object with default settings.
-    ClientManager _client_manager; // Client Manager object with default settings.
-    SupplierManager _supplier_manager; // Supplier Manager object with default settings.
-    BudgetManager _budget_manager; // Budget Manager object with default settings.
-    ItemManager _item_manager; // Item Manager object with default settings.
+    /**
+     * @brief Terminal object with default settings.
+     */
+    Terminal _terminal;
+
+    /**
+     * @brief Client Manager object with default settings.
+     */
+    ClientManager _client_manager;
+
+    /**
+     * @brief Supplier Manager object with default settings.
+     */
+    SupplierManager _supplier_manager;
+
+    /**
+     * @brief Budget Manager object with default settings.
+     */
+    BudgetManager _budget_manager;
+
+    /**
+     * @brief Item Manager object with default settings.
+     */
+    ItemManager _item_manager;
 };

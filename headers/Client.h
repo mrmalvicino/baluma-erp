@@ -43,5 +43,8 @@ class Client : public BusinessPartner {
 
     private:
 
-    char _category; // Category of the client
+    /**
+     * @brief Category of the client.
+     */
+    char _category;
 };

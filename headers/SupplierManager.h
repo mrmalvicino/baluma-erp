@@ -133,9 +133,28 @@ class SupplierManager {
 
     private:
 
-    Terminal _terminal; // Terminal object with default settings.
-    Supplier _supplier; // Supplier object with default settings.
-    SupplierArchive _supplier_archive; // Supplier Archive object with default path.
-    SupplierArchive _supplier_backup; // Supplier Archive object with custom path.
-    SupplierCSV _supplier_csv; // Supplier CSV object with default settings.
+    /**
+     * @brief Terminal object with default settings.
+     */
+    Terminal _terminal;
+
+    /**
+     * @brief Supplier object with default settings.
+     */
+    Supplier _supplier;
+
+    /**
+     * @brief Supplier Archive object with default path.
+     */
+    SupplierArchive _supplier_archive;
+
+    /**
+     * @brief Supplier Archive object with custom path.
+     */
+    SupplierArchive _supplier_backup;
+
+    /**
+     * @brief Supplier CSV object with default settings.
+     */
+    SupplierCSV _supplier_csv;
 };

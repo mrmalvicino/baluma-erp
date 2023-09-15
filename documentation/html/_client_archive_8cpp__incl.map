@@ -1,19 +1,19 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/ClientArchive.cpp" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/ClientArchive.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="13,5,213,61"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,109,77,135"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,63,62,99,58,96,89,60"/>
-<area shape="rect" id="Node000003" href="$_client_archive_8h.html" title="Manages a client archive, allowing storage and retrieval of client records in a binary file." alt="" coords="100,109,273,135"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,60,169,96,165,99,134,63"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="116,183,172,208"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="182,136,161,171,156,169,177,134"/>
-<area shape="rect" id="Node000005" href="$_client_8h.html" title="Represents a client of an organization." alt="" coords="196,183,262,208"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="196,134,217,169,212,171,191,136"/>
-<area shape="rect" id="Node000006" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="165,256,293,282"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="232,209,232,241,226,241,226,209"/>
-<area shape="rect" id="Node000007" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="192,330,266,356"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="232,282,232,315,226,315,226,282"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="162,404,216,429"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="225,357,205,392,201,389,220,355"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="240,404,301,429"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="238,355,258,389,254,392,234,357"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="29,5,229,61"/>
+<area shape="rect" id="Node000002" href="$_client_archive_8h.html" title="Manages a client archive, allowing storage and retrieval of client records in a binary file." alt="" coords="43,109,215,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,183,77,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="116,137,69,175,65,171,112,133"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="101,183,157,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="132,135,132,168,126,168,126,135"/>
+<area shape="rect" id="Node000005" href="$_client_8h.html" title="Represents a client of an organization." alt="" coords="181,183,248,208"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="145,133,191,171,187,175,142,137"/>
+<area shape="rect" id="Node000006" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="151,256,278,282"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="217,209,217,241,212,241,212,209"/>
+<area shape="rect" id="Node000007" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="178,330,251,356"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="217,282,217,315,212,315,212,282"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="148,404,201,429"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="210,357,191,392,186,389,205,355"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="226,404,286,429"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="223,355,244,389,239,392,219,357"/>
 </map>

@@ -5,6 +5,7 @@ var searchData=
   ['printbackoption_2',['printBackOption',['../class_terminal.html#abeeebf43abf3c172ed49811b6b871321',1,'Terminal']]],
   ['printbool_3',['printBool',['../class_terminal.html#a85d2ffab1f2121808d62f123cbe885eb',1,'Terminal']]],
   ['printclient_4',['printClient',['../class_client_manager.html#abcf2ccb963ec19a98e290238293a4d43',1,'ClientManager']]],
-  ['printline_5',['printLine',['../class_terminal.html#abad54d5652e12b220aee4c649fb9af82',1,'Terminal']]],
-  ['printsupplier_6',['printSupplier',['../class_supplier_manager.html#aec7dcd1408621c3562386bef50ca9d3e',1,'SupplierManager']]]
+  ['printitem_5',['printItem',['../class_item_manager.html#a59dc61b2b33d060711f8964585298bba',1,'ItemManager']]],
+  ['printline_6',['printLine',['../class_terminal.html#abad54d5652e12b220aee4c649fb9af82',1,'Terminal']]],
+  ['printsupplier_7',['printSupplier',['../class_supplier_manager.html#aec7dcd1408621c3562386bef50ca9d3e',1,'SupplierManager']]]
 ];

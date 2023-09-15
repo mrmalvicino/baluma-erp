@@ -149,6 +149,13 @@ class Terminal {
 
     private:
 
-    int _line_lenght; // Amount of characters that the class will use to print lines or align headers.
-    char _back_caption[30]; // Text that is going to be printed in the option of the menus which the user may choose to go to the previous menu.
+    /**
+     * @brief Amount of characters that the class will use to print lines or align headers.
+     */
+    int _line_lenght;
+
+    /**
+     * @brief Text that is going to be printed in the option of the menus which the user may choose to go to the previous menu.
+     */
+    char _back_caption[30];
 };

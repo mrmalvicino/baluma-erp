@@ -8,23 +8,25 @@
 
 ## Características
 
-## Ejemplos
+&nbsp; Baluma ERP está compuesto por 8 módulos. Los módulos Clientes y Proveedores se encargan de administrar los datos de los socios de negocios. El módulo Inventario se encarga de gestionar los datos de los productos y los depósitos en donde se encuentran. El módulo Contabilidad se encarga de registrar las transacciones en cuentas contables. Los módulos Compras y Ventas sirven para generar las transacciones. Desde el módulo Presupuesto se pueden realizar y exportar cotizaciones. El módulo Recursos Humanos sirve para gestionar los roles de usuario de los empleados. La siguiente es una captura de pantalla del menú principal.
 
-## Documentación
-
-En el siguiente enlace se encuentra toda la información necesaria para utilizar el software ya compilado o bien para contribuir al desarrollo de Baluma ERP.
-
-[https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html](https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html)
+![Baluma ERP](/images/screenshot-menu-baluma.png?raw=true "Baluma ERP")
 
 ## Licencia
 
-&nbsp; Baluma ERP es un software de código abierto desarrollado bajo la licencia GNU General Public License.
+&nbsp; Baluma ERP es un software de código abierto desarrollado bajo la licencia GNU General Public License. El código está alojado en el siguiente [repositorio de GitHub](https://github.com/mrmalvicino/baluma-erp).
 
-&nbsp; La distribución principal es gratis y la última versión compilada puede ser descargada de [https://github.com/mrmalvicino/baluma-erp](https://github.com/mrmalvicino/baluma-erp)
+[https://github.com/mrmalvicino/baluma-erp](https://github.com/mrmalvicino/baluma-erp)
+
+## Documentación
+
+&nbsp; En el siguiente enlace se encuentra la [documentación](https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html) necesaria para utilizar el software ya compilado o bien para contribuir al desarrollo de Baluma ERP.
+
+[https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html](https://mrmalvicino.github.io/baluma-erp/documentation/html/index.html)
 
 ## Políticas de contribución
 
-&nbsp; Todos los aportes que respeten las siguientes convenciones son bienvenidos:
+&nbsp; Todos los aportes que respeten las siguientes convenciones son bienvenidos.
 
 - El código debe estar escrito en inglés.
 
@@ -46,7 +48,13 @@ En el siguiente enlace se encuentra toda la información necesaria para utilizar
 
 - Los archivos que sí contengan código heredan la nomenclatura de su contenido, como por ejemplo `functions.h` o `Class.h`.
 
-### Creadores
+## Descarga
+
+&nbsp; La distribución principal es gratis y la [última versión compilada](https://github.com/mrmalvicino/baluma-erp/releases) puede ser descargada del siguiente enlace.
+
+[https://github.com/mrmalvicino/baluma-erp/releases](https://github.com/mrmalvicino/baluma-erp/releases)
+
+## Creadores
 
 &nbsp; Este programa fue creado mediante un repositorio privado como proyecto final de la materia Laboratorio de Computación 2 perteneciente a la Tecnicatura Universitaria en Programación dictada por la Universidad Tecnológica Nacional.
 

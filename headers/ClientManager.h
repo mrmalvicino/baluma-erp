@@ -133,9 +133,28 @@ class ClientManager {
 
     private:
 
-    Terminal _terminal; // Terminal object with default settings.
-    Client _client; // Client object with default settings.
-    ClientArchive _client_archive; // Client Archive object with default path.
-    ClientArchive _client_backup; // Client Archive object with custom path.
-    ClientCSV _client_csv; // Client CSV object with default settings.
+    /**
+     * @brief Terminal object with default settings.
+     */
+    Terminal _terminal;
+
+    /**
+     * @brief Client object with default settings.
+     */
+    Client _client;
+
+    /**
+     * @brief Client Archive object with default path.
+     */
+    ClientArchive _client_archive;
+
+    /**
+     * @brief Client Archive object with custom path.
+     */
+    ClientArchive _client_backup;
+
+    /**
+     * @brief Client CSV object with default settings.
+     */
+    ClientCSV _client_csv;
 };

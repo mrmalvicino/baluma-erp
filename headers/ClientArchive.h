@@ -90,5 +90,8 @@ class ClientArchive {
 
     private:
 
-    std::string _path; // Path where the file will be saved
+    /**
+     * @brief Path where the file will be saved.
+     */
+    std::string _path;
 };

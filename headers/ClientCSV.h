@@ -68,7 +68,18 @@ class ClientCSV {
 
     private:
 
-    std::string _path; // Path where the file will be saved
-    char _delimiter; // Character that is used to delimit columns
-    Terminal _terminal; // Terminal object with default settings.
+    /**
+     * @brief Path where the file will be saved.
+     */
+    std::string _path;
+
+    /**
+     * @brief Character that is used to delimit columns.
+     */
+    char _delimiter;
+
+    /**
+     * @brief Terminal object with default settings.
+     */
+    Terminal _terminal;
 };

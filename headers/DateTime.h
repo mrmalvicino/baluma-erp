@@ -82,6 +82,13 @@ class DateTime {
 
     private:
 
-    Date _date; // The date component of the DateTime
-    Time _time; // The time component of the DateTime
+    /**
+     * @brief The date component of the DateTime.
+     */
+    Date _date;
+
+    /**
+     * @brief The time component of the DateTime.
+     */
+    Time _time;
 };

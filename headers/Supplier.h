@@ -43,5 +43,8 @@ class Supplier : public BusinessPartner {
 
     private:
 
-    int _bank_account; // Bank account of the supplier
+    /**
+     * @brief Bank account of the supplier.
+     */
+    int _bank_account;
 };
