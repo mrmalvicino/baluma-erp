@@ -33,22 +33,22 @@ class Baluma {
     Terminal _terminal;
 
     /**
-     * @brief Client Manager object with default settings.
+     * @brief ClientManager object with default settings.
      */
     ClientManager _client_manager;
 
     /**
-     * @brief Supplier Manager object with default settings.
+     * @brief SupplierManager object with default settings.
      */
     SupplierManager _supplier_manager;
 
     /**
-     * @brief Budget Manager object with default settings.
+     * @brief BudgetManager object with default settings.
      */
     BudgetManager _budget_manager;
 
     /**
-     * @brief Item Manager object with default settings.
+     * @brief ItemManager object with default settings.
      */
     ItemManager _item_manager;
 };

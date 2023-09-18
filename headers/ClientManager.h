@@ -144,17 +144,17 @@ class ClientManager {
     Client _client;
 
     /**
-     * @brief Client Archive object with default path.
+     * @brief ClientArchive object with default path.
      */
     ClientArchive _client_archive;
 
     /**
-     * @brief Client Archive object with custom path.
+     * @brief ClientArchive object with custom path.
      */
     ClientArchive _client_backup;
 
     /**
-     * @brief Client CSV object with default settings.
+     * @brief ClientCSV object with default settings.
      */
     ClientCSV _client_csv;
 };

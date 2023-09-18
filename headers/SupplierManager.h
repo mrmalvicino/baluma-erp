@@ -144,17 +144,17 @@ class SupplierManager {
     Supplier _supplier;
 
     /**
-     * @brief Supplier Archive object with default path.
+     * @brief SupplierArchive object with default path.
      */
     SupplierArchive _supplier_archive;
 
     /**
-     * @brief Supplier Archive object with custom path.
+     * @brief SupplierArchive object with custom path.
      */
     SupplierArchive _supplier_backup;
 
     /**
-     * @brief Supplier CSV object with default settings.
+     * @brief SupplierCSV object with default settings.
      */
     SupplierCSV _supplier_csv;
 };
