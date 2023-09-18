@@ -16,7 +16,7 @@ class ClientManager {
     public:
 
     /**
-     * @brief Constructs a new Client Manager object with default settings.
+     * @brief Constructs a new ClientManager object with default settings.
      */
     ClientManager();
 

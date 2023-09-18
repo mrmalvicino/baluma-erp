@@ -14,12 +14,12 @@ class ClientArchive {
     public:
 
     /**
-     * @brief Constructs a new Client Archive object with default path.
+     * @brief Constructs a new ClientArchive object with default path.
      */
     ClientArchive();
 
     /**
-     * @brief Constructs a new Client Archive object.
+     * @brief Constructs a new ClientArchive object.
      * @param path (std::string) Path where the file will be saved.
      */
     ClientArchive(std::string path);

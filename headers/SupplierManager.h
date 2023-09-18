@@ -16,7 +16,7 @@ class SupplierManager {
     public:
 
     /**
-     * @brief Constructs a new Supplier Manager object with default settings.
+     * @brief Constructs a new SupplierManager object with default settings.
      */
     SupplierManager();
 

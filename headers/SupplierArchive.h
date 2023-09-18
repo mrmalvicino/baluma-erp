@@ -13,12 +13,12 @@ class SupplierArchive {
     public:
 
     /**
-     * @brief Constructs a new Supplier Archive object with default path.
+     * @brief Constructs a new SupplierArchive object with default path.
      */
     SupplierArchive();
 
     /**
-     * @brief Constructs a new Supplier Archive object.
+     * @brief Constructs a new SupplierArchive object.
      * @param path (std::string) Path where the file will be saved.
      */
     SupplierArchive(std::string path);
