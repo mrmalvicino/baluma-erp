@@ -11,6 +11,7 @@
 #include "SupplierManager.h"
 #include "BudgetManager.h"
 #include "ItemManager.h"
+#include "WarehouseManager.h"
 #include "AccountManager.h"
 
 class Baluma {
@@ -52,9 +53,4 @@ class Baluma {
      * @brief ItemManager object with default settings.
      */
     ItemManager _item_manager;
-    
-    /**
-     * @brief AccountManager object with default settings.
-     */
-    AccountManager _account_manager;
 };
