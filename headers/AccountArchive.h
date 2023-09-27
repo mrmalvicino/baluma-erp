@@ -12,8 +12,10 @@ class AccountArchive {
         bool overWrite(Account & reg, int index);
         Account read(int index);
         int getAccountNumber(int number);
-        int getDenomination(std::string denomination);
+        int getIndex(int id);
+        int getIndex(std::string & name);
         int getAmountOfRegisters();
+        void createEmptyAccountArchive();
 
     private:
         std::string _path;

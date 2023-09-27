@@ -1,16 +1,32 @@
+#include "../headers/Account.h"
 #include<iostream>
 #include<cstdlib>
 using namespace std;
-#include "../headers/Account.h"
 
 Account::Account() {
+    setId(1);
     setAccountNumber(0);
-    setDenomination("N/A");
     setConcept("N/A");
     setAccountName("N/A");
     setBalance(0);
     setPassive(0);
     setActive(0);
+    setIsActive(true);
+}
+
+Account::Account(int id,int accountNumber,const std::string & concept,const std::string & accountName, double balance, double passive, double active, bool isActive){
+    setId(id);
+    setAccountNumber(accountNumber);
+    setConcept(concept);
+    setAccountName(accountName);
+    setBalance(balance);
+    setPassive(passive);
+    setActive(active);
+    setIsActive(isActive);
+}
+
+void Account::setId(int _id) {
+    id = _id;
 }
 
 void Account::setActive(double _active){
@@ -27,15 +43,22 @@ void Account::setAccountNumber(int _accountNumber){
     accountNumber =_accountNumber ;
 }
 
-void Account::setAccountName(std::string _accountName){
-    accountName=_accountName;
+void Account::setAccountName(const std::string &_accountName){
+    strcpy(accountName, _accountName.c_str());
 }
-void Account::setDenomination(std::string _denomination){
-    denomination=_denomination;
+
+void Account::setConcept(const std::string &_concept){
+    strcpy(concept, _concept.c_str());
 }
-void Account::setConcept(std::string _concept){
-    concept=_concept;
+
+void Account::setIsActive(bool _isActive){
+    isActive=_isActive;
 }
+
+int Account::getId() {
+    return id;
+}
+
 double Account::getActive(){
     return active; 
 }
@@ -44,15 +67,12 @@ double Account::getPassive(){
 }
 
 double Account::getBalance(){
+    balance=active-passive;
     return balance;
 }
 
 std::string Account::getAccountName(){
     return accountName;
-}
-
-std::string Account::getDenomination(){
-    return denomination;
 }
 
 std::string Account::getConcept(){
@@ -61,6 +81,10 @@ std::string Account::getConcept(){
 
 int Account::getAccountNumber(){
     return accountNumber;
+}
+
+bool Account::getIsActive(){
+    return isActive;
 }
 
 void Account::deposit(double amount){

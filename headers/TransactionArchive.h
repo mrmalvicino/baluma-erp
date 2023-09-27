@@ -8,10 +8,15 @@ class TransactionArchive {
         TransactionArchive(std::string path);
         void setPath(std::string path);
         std::string getPath();
-        int write(Transaction & reg, FILE *file);
-        int read(Transaction & reg,FILE *file);
-        Transaction readS(Transaction & reg,FILE *file,int index);
-    
+        bool write(Transaction & reg);
+        bool overWrite(Transaction & reg, int index);
+        Transaction read(int index);
+        int getAccountNumber(int number);
+        int getIndex(int id);
+        int getIndex(std::string & description);
+        int getAmountOfRegisters();
+        void createEmptyTransactionArchive();
+
     private:
         std::string _path;
 };

@@ -35,7 +35,7 @@ void Baluma::run() {
                 _item_manager.displayMenu();
                 break;
             case 4:
-                
+                _account_manager.displayMenu();
                 break;
             case 5:
                 

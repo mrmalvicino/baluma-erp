@@ -72,19 +72,6 @@
             return i;
         }
 
-        int AccountArchive::getDenomination(std::string denomination){
-            int i = 0;
-            Account reg;
-            reg = read(i);
-
-            while (reg.getDenomination() != denomination && i < getAmountOfRegisters()) {
-            i ++;
-            reg = read(i);
-            }
-
-            return i;
-        }
-
         int AccountArchive::getAmountOfRegisters(){
              FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
@@ -100,3 +87,43 @@
 
             return total_accounts;
         }
+
+    int AccountArchive::getIndex(int id) {
+    int i = 0;
+    Account reg;
+    reg = read(i);
+
+    while (reg.getId() != id && i < getAmountOfRegisters()) {
+        i ++;
+        reg = read(i);
+    }
+
+    return i;
+        }
+
+    int AccountArchive::getIndex(std::string & name) {
+    int i = 0;
+    Account reg;
+    reg = read(i);
+
+    while (reg.getAccountName() != name && i < getAmountOfRegisters()) {
+        i ++;
+        reg = read(i);
+    }
+
+    /*if (i == getAmountOfRegisters()) {
+        i = -1;
+    }*/
+
+    return i;
+    }
+
+void AccountArchive::createEmptyAccountArchive() {
+    FILE * file_pointer = fopen(getPath().c_str(), "wb");
+
+    if (file_pointer == NULL) {
+        std::cerr << "Error: No se pudo abrir el archivo.\n";
+    } else {
+        fclose(file_pointer);
+    }
+}
