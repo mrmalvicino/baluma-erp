@@ -58,7 +58,7 @@ void Terminal::pause() {
                 break;
             } else {
                 std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cleanBuffer();
                 std::cout << "Ingresar 0 para continuar.\n";
             }
         }
@@ -121,7 +121,7 @@ bool Terminal::validateBool() {
             break;
         } else {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cleanBuffer();
             std::cout << "Error de validación: Ingresar 'S' para confirmar o 'N' para denegar.\n";
         }
     }
@@ -143,7 +143,7 @@ int Terminal::validateInt() {
             break;
         } else {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cleanBuffer();
             std::cout << "Error de validación: Ingrese un número entero.\n";
         }
     }
@@ -159,7 +159,7 @@ int Terminal::validateInt(int min) {
             break;
         } else {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cleanBuffer();
             std::cout << "Error de validación: Ingrese un número entero mayor o igual a " << min << ".\n";
         }
     }
@@ -175,7 +175,7 @@ int Terminal::validateInt(int min, int max) {
             break;
         } else {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cleanBuffer();
             if (min < max) {
                 std::cout << "Error de validación: Ingrese un número entero mayor (o igual) a " << min << " y menor (o igual) a " << max << ".\n";
             } else if (min == max) {
@@ -197,7 +197,7 @@ long long int Terminal::validateLongInt() {
             break;
         } else {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cleanBuffer();
             std::cout << "Error de validación: Ingrese un número entero.\n";
         }
     }
@@ -213,7 +213,7 @@ long long int Terminal::validateLongInt(int min) {
             break;
         } else {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cleanBuffer();
             std::cout << "Error de validación: Ingrese un número entero mayor o igual a " << min << ".\n";
         }
     }
@@ -229,7 +229,7 @@ long long int Terminal::validateLongInt(int min, int max) {
             break;
         } else {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cleanBuffer();
             if (min < max) {
                 std::cout << "Error de validación: Ingrese un número entero mayor (o igual) a " << min << " y menor (o igual) a " << max << ".\n";
             } else if (min == max) {
@@ -251,7 +251,7 @@ char Terminal::validateChar() {
             break;
         } else {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cleanBuffer();
         }
     }
 
@@ -262,4 +262,9 @@ void Terminal::configureUTF8() {
     #ifdef _WIN64
         system("chcp 65001");
     #endif
+}
+
+void Terminal::cleanBuffer() {
+    int aux;
+    while ((aux = std::cin.get()) != '\n' && aux != EOF) {}
 }

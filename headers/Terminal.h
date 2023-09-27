@@ -9,7 +9,6 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
-#include <limits>
 
 class Terminal {
     public:
@@ -146,6 +145,11 @@ class Terminal {
      * @brief Configures terminal encoding to UTF-8.
      */
     void configureUTF8();
+
+    /**
+     * Clears the input buffer by discarding characters until a newline ('\n') character is encountered or the buffer is empty.
+     */
+    void cleanBuffer();
 
     private:
 
