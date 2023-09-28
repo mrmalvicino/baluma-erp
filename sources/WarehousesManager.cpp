@@ -252,7 +252,7 @@ void WarehousesManager::cinWarehouseIsActive(Warehouse & warehouse) {
 
 void WarehousesManager::generateWarehousePath(Warehouse & warehouse) {
     std::string path;
-    path = "registers/deposito-" + _terminal.lowerCase(warehouse.getName()) + ".dat";
+    path = "registers/warehouse-" + _terminal.lowerCase(warehouse.getName()) + ".dat";
     warehouse.setPath(path);
 }
 

@@ -10,7 +10,7 @@ WarehousesArchive::WarehousesArchive(const std::string & path) {
 }
 
 void WarehousesArchive::setPath(const std::string & path) {
-    setPath(path);
+    _path = path;
 }
 
 std::string WarehousesArchive::getPath() const {

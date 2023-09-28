@@ -27,7 +27,7 @@ class Item {
     void setIsActive(bool is_active);
     bool getIsActive() const;
 
-    protected:
+    private:
 
     int _id;
     char _name[30];
