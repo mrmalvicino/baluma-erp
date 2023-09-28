@@ -1,6 +1,4 @@
 #include "../headers/WarehouseManager.h"
-#include "WarehouseManager.h"
-
 
 WarehouseManager::WarehouseManager()
 {
@@ -36,7 +34,7 @@ void WarehouseManager::displayMenu()
                 break;
 
             case 3:
-                searchIWarehouseById();
+                searchWarehouse();
                 break;
 
             case 4:
@@ -78,7 +76,7 @@ bool WarehouseManager::addWarehouse()
     if(user_wants_to_save == true)
     {
         successful_write = _warehouse_archive.write(_warehouse);
-        if(successful_write = true)
+        if(successful_write == true)
         {
             std::cout << "Registro guardado correctamente.\n";
         }else 
@@ -155,7 +153,7 @@ void WarehouseManager::searchWarehouse()
             _terminal.clear();
             break;
         case 1:
-            searchIWarehouseById();
+            searchWarehouseById();
             break;
         case 2:
             searchWarehouseByName();
@@ -268,7 +266,7 @@ void WarehouseManager::cinWarehousePath(Warehouse & warehouse)
 {
     std::string path;
 
-    path = "registers/" + warehouse.getName() + ".dat";
+    path = "registers/deposito-" + warehouse.getName() + ".dat";
 
     warehouse.setPath(path);
 }
@@ -286,7 +284,7 @@ void WarehouseManager::cinWarehouseIsActive(Warehouse &warehouse)
     }
 }
 
-void WarehouseManager::searchIWarehouseById()
+void WarehouseManager::searchWarehouseById()
 {
     int index;
     int id;
@@ -398,7 +396,11 @@ void WarehouseManager::importWarehouseBackup()
         }
     }
 }
-void WarehouseManager::enterWarehouse()
-{
-    
+
+std::string WarehouseManager::getItemsPath() {
+    return _warehouse.getPath();
+}
+
+void WarehouseManager::setItemsPath(std::string path) {
+    _warehouse.setPath(path);
 }

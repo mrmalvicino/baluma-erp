@@ -5,9 +5,11 @@ class WarehouseArchive
 {
     public:
         WarehouseArchive();
+
         WarehouseArchive(const std::string &path);
 
         void setPath(const std::string &path);
+
         std::string getPath() const;
 
         bool write(Warehouse &reg);

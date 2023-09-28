@@ -25,9 +25,6 @@ class Warehouse
         void setIsActive(bool is_active);
         bool getIsActive();
 
-
-
-
     private:
 
         int _id;

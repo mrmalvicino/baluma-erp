@@ -19,17 +19,16 @@ class WarehouseManager
         void cinWarehouseAdress(Warehouse & warehouse);
         void cinWarehousePath(Warehouse & warehouse);
         void cinWarehouseIsActive(Warehouse & warehouse);
-        void searchIWarehouseById();
+        void searchWarehouseById();
         void searchWarehouseByName();
         void exportWarehouseBackup();
         void importWarehouseBackup();
-        void enterWarehouse();
-        std::string getPath();
+        void setItemsPath(std::string);
+        std::string getItemsPath();
 
     private:
         Warehouse _warehouse;
         WarehouseArchive _warehouse_archive;
         WarehouseArchive _warehouse_backup;
         Terminal _terminal;
-
 };

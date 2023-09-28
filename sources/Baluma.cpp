@@ -32,10 +32,10 @@ void Baluma::run() {
                 _supplier_manager.displayMenu();
                 break;
             case 3:
-                _item_manager.displayMenu();
+                _item_manager.displayMainMenu();
                 break;
             case 4:
-                _account_manager.displayMenu();
+                
                 break;
             case 5:
                 

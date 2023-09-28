@@ -4,14 +4,16 @@
 #include "Item.h"
 #include "ItemArchive.h"
 #include "ItemCSV.h"
+#include "WarehouseManager.h"
 
 class ItemManager {
     public:
 
     ItemManager();
-    void displayMenu();
+    void displayMainMenu();
+    void displayProductsMenu();
     bool addItem();
-    bool editSupplier();
+    bool editItem();
     void searchItem();
     void listItems();
     void printItem(int index);
@@ -38,4 +40,5 @@ class ItemManager {
     ItemArchive _item_archive;
     ItemArchive _item_backup;
     ItemCSV _item_csv;
+    WarehouseManager _warehouse_manager;
 };

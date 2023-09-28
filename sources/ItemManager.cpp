@@ -4,7 +4,44 @@ ItemManager::ItemManager() {
     _item_backup.setPath("registers/products.bkp");
 }
 
-void ItemManager::displayMenu() {
+void ItemManager::displayMainMenu() {
+    int selection = 1;
+
+    do {
+        _terminal.clear();
+        _terminal.displayMenuHeader("INVENTARIO");
+        std::cout << "(1) ADMINISTRAR DEPÓSITOS\n";
+        std::cout << "(2) ADMINISTRAR MERCADERÍA\n";
+        _terminal.printLine();
+        std::cout << "(3) LISTADO DE PRODUCTOS\n";
+        std::cout << "(4) EXPORTAR LISTADO A CSV\n";
+        _terminal.displayMenuFooter();
+
+        selection = _terminal.validateInt(0, 8);
+
+        switch (selection) {
+            case 1:
+                _warehouse_manager.displayMenu();
+                break;
+
+            case 2:
+                _warehouse_manager.searchWarehouse();
+                _item_archive.setPath(_warehouse_manager.getItemsPath());
+                displayProductsMenu();
+                break;
+
+            case 3:
+                
+                break;
+
+            case 4:
+                
+                break;
+        }
+    } while (selection != 0);
+}
+
+void ItemManager::displayProductsMenu() {
     int selection = 1;
 
     do {
@@ -29,7 +66,7 @@ void ItemManager::displayMenu() {
                 break;
 
             case 2:
-                editSupplier();
+                editItem();
                 break;
 
             case 3:
@@ -66,8 +103,6 @@ bool ItemManager::addItem() {
     _terminal.clear();
     _terminal.displayMenuHeader("AGREGAR PRODUCTO");
 
-    _item.setId(generateItemId());
-
     cinItemName(_item);
     cinItemDescription(_item);
     cinItemBrand(_item);
@@ -80,7 +115,9 @@ bool ItemManager::addItem() {
     user_wants_to_save = _terminal.validateBool();
 
     if (user_wants_to_save == true) {
-        successful_write = _item_archive.write(_item);
+        // successful_write = _items_list_archive.write(_item);
+        _item.setId(generateItemId()); // Se va a usar otra función
+        successful_write = _item_archive.write(_item); // Antes lo guarda en _listado_de_productos
         if (successful_write == true) {
             std::cout << "Registro guardado correctamente.\n";
         } else {
@@ -97,7 +134,7 @@ bool ItemManager::addItem() {
     return successful_write;
 }
 
-bool ItemManager::editSupplier() {
+bool ItemManager::editItem() {
     _terminal.clear();
 
     searchItem();
