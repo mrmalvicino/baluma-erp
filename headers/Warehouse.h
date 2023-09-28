@@ -3,7 +3,6 @@
 #include <string>
 #include "Adress.h"
 
-
 class Warehouse {
     public:
 
