@@ -3,11 +3,11 @@
 #include <cstdio>
 #include "Item.h"
 
-class ItemArchive {
+class ItemsArchive {
     public:
 
-    ItemArchive();
-    ItemArchive(const std::string & path);
+    ItemsArchive();
+    ItemsArchive(const std::string & path);
     void setPath(const std::string & path);
     std::string getPath();
     bool write(Item & reg);
@@ -16,7 +16,7 @@ class ItemArchive {
     int getIndex(int id);
     int getIndex(std::string & description);
     int getAmountOfRegisters();
-    void createEmptyItemArchive();
+    void createEmptyItemsArchive();
 
     private:
 

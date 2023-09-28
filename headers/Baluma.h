@@ -7,12 +7,12 @@
 
 #pragma once
 #include "Terminal.h"
-#include "ClientManager.h"
-#include "SupplierManager.h"
-#include "BudgetManager.h"
-#include "ItemManager.h"
-#include "WarehouseManager.h"
-#include "AccountManager.h"
+#include "ClientsManager.h"
+#include "SuppliersManager.h"
+#include "BudgetsManager.h"
+#include "ItemsManager.h"
+#include "WarehousesManager.h"
+#include "AccountsManager.h"
 
 class Baluma {
     public:
@@ -35,22 +35,22 @@ class Baluma {
     Terminal _terminal;
 
     /**
-     * @brief ClientManager object with default settings.
+     * @brief ClientsManager object with default settings.
      */
-    ClientManager _client_manager;
+    ClientsManager _clients_manager;
 
     /**
-     * @brief SupplierManager object with default settings.
+     * @brief SuppliersManager object with default settings.
      */
-    SupplierManager _supplier_manager;
+    SuppliersManager _suppliers_manager;
 
     /**
      * @brief BudgetManager object with default settings.
      */
-    BudgetManager _budget_manager;
+    BudgetManager _budgets_manager;
 
     /**
-     * @brief ItemManager object with default settings.
+     * @brief ItemsManager object with default settings.
      */
-    ItemManager _item_manager;
+    ItemsManager _items_manager;
 };

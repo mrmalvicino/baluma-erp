@@ -4,19 +4,19 @@
 #include <sstream>
 #include "Terminal.h"
 #include "Item.h"
-#include "ItemArchive.h"
+#include "ItemsArchive.h"
 
-class ItemCSV {
+class ItemsCSV {
     public:
 
-    ItemCSV();
-    ItemCSV(std::string path, char delimiter);
+    ItemsCSV();
+    ItemsCSV(std::string path, char delimiter);
     void setPath(std::string path);
     std::string getPath() const;
     void setDelimiter(char delimiter);
     char getDelimiter();
-    void writeItemsCSV(Item & item, ItemArchive & item_archive);
-    void readItemsCSV(Item & item, ItemArchive & item_archive);
+    void writeItemsCSV(Item & item, ItemsArchive & item_archive);
+    void readItemsCSV(Item & item, ItemsArchive & item_archive);
 
     private:
 

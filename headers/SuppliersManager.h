@@ -1,5 +1,5 @@
 /**
- * @file SupplierManager.h
+ * @file SuppliersManager.h
  * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
  * @brief Manages the supplier module.
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -9,16 +9,16 @@
 #include <iostream>
 #include "Terminal.h"
 #include "Supplier.h"
-#include "SupplierArchive.h"
-#include "SupplierCSV.h"
+#include "SuppliersArchive.h"
+#include "SuppliersCSV.h"
 
-class SupplierManager {
+class SuppliersManager {
     public:
 
     /**
-     * @brief Constructs a new SupplierManager object with default settings.
+     * @brief Constructs a new SuppliersManager object with default settings.
      */
-    SupplierManager();
+    SuppliersManager();
 
     /**
      * @brief Displays the suppliers menu.
@@ -144,17 +144,17 @@ class SupplierManager {
     Supplier _supplier;
 
     /**
-     * @brief SupplierArchive object with default path.
+     * @brief SuppliersArchive object with default path.
      */
-    SupplierArchive _supplier_archive;
+    SuppliersArchive _suppliers_archive;
 
     /**
-     * @brief SupplierArchive object with custom path.
+     * @brief SuppliersArchive object with custom path.
      */
-    SupplierArchive _supplier_backup;
+    SuppliersArchive _suppliers_backup;
 
     /**
-     * @brief SupplierCSV object with default settings.
+     * @brief SuppliersCSV object with default settings.
      */
-    SupplierCSV _supplier_csv;
+    SuppliersCSV _suppliers_csv;
 };

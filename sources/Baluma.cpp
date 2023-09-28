@@ -26,13 +26,13 @@ void Baluma::run() {
 
         switch (selection) {
             case 1:
-                _client_manager.displayMenu();
+                _clients_manager.displayMenu();
                 break;
             case 2:
-                _supplier_manager.displayMenu();
+                _suppliers_manager.displayMenu();
                 break;
             case 3:
-                _item_manager.displayMainMenu();
+                _items_manager.displayMainMenu();
                 break;
             case 4:
                 

@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Terminal.h"
 #include "Transaction.h"
-#include "TransactionArchive.h"
+#include "TransactionsArchive.h"
 
 class TransactionManager {
     public:
@@ -32,7 +32,7 @@ class TransactionManager {
 
     Terminal _terminal;
     Transaction _Transaction;
-    TransactionArchive _Transaction_archive;
-    TransactionArchive _Transaction_backup;
-   // TransactionCSV _Transaction_csv;
+    TransactionsArchive _Transaction_archive;
+    TransactionsArchive _Transaction_backup;
+    // TransactionCSV _Transaction_csv;
 };

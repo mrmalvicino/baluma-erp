@@ -1,23 +1,23 @@
 #include <iostream>
-#include "../headers/TransactionArchive.h"
+#include "../headers/TransactionsArchive.h"
 
-TransactionArchive::TransactionArchive() {
+TransactionsArchive::TransactionsArchive() {
     setPath("registers/transaction.dat");
 }
 
-TransactionArchive::TransactionArchive(std::string path) {
+TransactionsArchive::TransactionsArchive(std::string path) {
     setPath(path);
 }
 
-void TransactionArchive::setPath(std::string path) {
+void TransactionsArchive::setPath(std::string path) {
     _path = path;
 }
 
-std::string TransactionArchive::getPath() {
+std::string TransactionsArchive::getPath() {
     return _path;
 }
 
-bool TransactionArchive::write(Transaction & reg){
+bool TransactionsArchive::write(Transaction & reg){
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
      if (file_pointer == NULL) {
         std::cerr << "Error: No se pudo abrir el archivo.\n";
@@ -28,7 +28,7 @@ bool TransactionArchive::write(Transaction & reg){
         return successful_write;
 }
 
-bool TransactionArchive::overWrite(Transaction & reg, int index){
+bool TransactionsArchive::overWrite(Transaction & reg, int index){
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
      if (file_pointer == NULL) {
         std::cerr << "Error: No se pudo abrir el archivo.\n";
@@ -40,7 +40,7 @@ bool TransactionArchive::overWrite(Transaction & reg, int index){
         return successful_write;
 }
 
-Transaction TransactionArchive::read(int index){
+Transaction TransactionsArchive::read(int index){
     Transaction reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
      if (file_pointer == NULL) {
@@ -53,7 +53,7 @@ Transaction TransactionArchive::read(int index){
         return reg;
 }
 
-int TransactionArchive::getAccountNumber(int id){
+int TransactionsArchive::getAccountNumber(int id){
     int i = 0;
     Transaction reg;
     reg = read(i);
@@ -64,7 +64,7 @@ int TransactionArchive::getAccountNumber(int id){
             return i;
 }
 
-int TransactionArchive::getAmountOfRegisters(){
+int TransactionsArchive::getAmountOfRegisters(){
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
         if (file_pointer == NULL) {
             std::cerr << "Error: No se pudo abrir el archivo.\n";
@@ -77,7 +77,7 @@ int TransactionArchive::getAmountOfRegisters(){
             return total_transactions;
 }
 
-int TransactionArchive::getIndex(int id) {
+int TransactionsArchive::getIndex(int id) {
     int i = 0;
     Transaction reg;
         reg = read(i);
@@ -88,7 +88,7 @@ int TransactionArchive::getIndex(int id) {
             return i;
 }
 
-int TransactionArchive::getIndex(std::string & description) {
+int TransactionsArchive::getIndex(std::string & description) {
     int i = 0;
     Transaction reg;
         reg = read(i);
@@ -102,7 +102,7 @@ int TransactionArchive::getIndex(std::string & description) {
             return i;
 }
 
-void TransactionArchive::createEmptyTransactionArchive() {
+void TransactionsArchive::createEmptyTransactionsArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
         if (file_pointer == NULL) {
                 std::cerr << "Error: No se pudo abrir el archivo.\n";

@@ -1,32 +1,32 @@
-#include "../headers/SupplierCSV.h"
+#include "../headers/SuppliersCSV.h"
 
-SupplierCSV::SupplierCSV() {
+SuppliersCSV::SuppliersCSV() {
     setPath("registers/suppliers.csv");
     setDelimiter(',');
 }
 
-SupplierCSV::SupplierCSV(std::string path, char delimiter) {
+SuppliersCSV::SuppliersCSV(std::string path, char delimiter) {
     setPath(path);
     setDelimiter(delimiter);
 }
 
-void SupplierCSV::setPath(std::string path) {
+void SuppliersCSV::setPath(std::string path) {
     _path = path;
 }
 
-std::string SupplierCSV::getPath() {
+std::string SuppliersCSV::getPath() {
     return _path;
 }
 
-void SupplierCSV::setDelimiter(char delimiter) {
+void SuppliersCSV::setDelimiter(char delimiter) {
     _delimiter = delimiter;
 }
 
-char SupplierCSV::getDelimiter() {
+char SuppliersCSV::getDelimiter() {
     return _delimiter;
 }
 
-void SupplierCSV::writeSuppliersCSV(Supplier & supplier, SupplierArchive & supplier_archive) {
+void SuppliersCSV::writeSuppliersCSV(Supplier & supplier, SuppliersArchive & supplier_archive) {
     std::ofstream file(getPath());
 
     if (file.is_open() == false) {
@@ -46,7 +46,7 @@ void SupplierCSV::writeSuppliersCSV(Supplier & supplier, SupplierArchive & suppl
     }
 }
 
-void SupplierCSV::readSuppliersCSV(Supplier & supplier, SupplierArchive & supplier_archive) {
+void SuppliersCSV::readSuppliersCSV(Supplier & supplier, SuppliersArchive & supplier_archive) {
     std::ifstream file(getPath());
 
     if (!file.is_open()) {
@@ -54,7 +54,7 @@ void SupplierCSV::readSuppliersCSV(Supplier & supplier, SupplierArchive & suppli
         return;
     }
 
-    supplier_archive.createEmptySupplierArchive();
+    supplier_archive.createEmptySuppliersArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];

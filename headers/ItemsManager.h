@@ -2,14 +2,14 @@
 #include <iostream>
 #include "Terminal.h"
 #include "Item.h"
-#include "ItemArchive.h"
-#include "ItemCSV.h"
-#include "WarehouseManager.h"
+#include "ItemsArchive.h"
+#include "ItemsCSV.h"
+#include "WarehousesManager.h"
 
-class ItemManager {
+class ItemsManager {
     public:
 
-    ItemManager();
+    ItemsManager();
     void displayMainMenu();
     void displayProductsMenu();
     bool addItem();
@@ -37,8 +37,8 @@ class ItemManager {
 
     Terminal _terminal;
     Item _item;
-    ItemArchive _item_archive;
-    ItemArchive _item_backup;
-    ItemCSV _item_csv;
-    WarehouseManager _warehouse_manager;
+    ItemsArchive _items_archive;
+    ItemsArchive _items_backup;
+    ItemsCSV _items_csv;
+    WarehousesManager _warehouses_manager;
 };

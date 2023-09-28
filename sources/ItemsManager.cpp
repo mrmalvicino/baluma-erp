@@ -1,10 +1,10 @@
-#include "../headers/ItemManager.h"
+#include "../headers/ItemsManager.h"
 
-ItemManager::ItemManager() {
-    _item_backup.setPath("registers/products.bkp");
+ItemsManager::ItemsManager() {
+    _items_backup.setPath("registers/products.bkp");
 }
 
-void ItemManager::displayMainMenu() {
+void ItemsManager::displayMainMenu() {
     int selection = 1;
 
     do {
@@ -21,12 +21,12 @@ void ItemManager::displayMainMenu() {
 
         switch (selection) {
             case 1:
-                _warehouse_manager.displayMenu();
+                _warehouses_manager.displayMenu();
                 break;
 
             case 2:
-                _warehouse_manager.searchWarehouse();
-                _item_archive.setPath(_warehouse_manager.getItemsPath());
+                _warehouses_manager.searchWarehouse();
+                _items_archive.setPath(_warehouses_manager.getItemsPath());
                 displayProductsMenu();
                 break;
 
@@ -41,7 +41,7 @@ void ItemManager::displayMainMenu() {
     } while (selection != 0);
 }
 
-void ItemManager::displayProductsMenu() {
+void ItemsManager::displayProductsMenu() {
     int selection = 1;
 
     do {
@@ -96,7 +96,7 @@ void ItemManager::displayProductsMenu() {
     } while (selection != 0);
 }
 
-bool ItemManager::addItem() {
+bool ItemsManager::addItem() {
     bool successful_write;
     bool user_wants_to_save;
 
@@ -117,7 +117,7 @@ bool ItemManager::addItem() {
     if (user_wants_to_save == true) {
         // successful_write = _items_list_archive.write(_item);
         _item.setId(generateItemId()); // Se va a usar otra función
-        successful_write = _item_archive.write(_item); // Antes lo guarda en _listado_de_productos
+        successful_write = _items_archive.write(_item); // Antes lo guarda en _listado_de_productos
         if (successful_write == true) {
             std::cout << "Registro guardado correctamente.\n";
         } else {
@@ -134,7 +134,7 @@ bool ItemManager::addItem() {
     return successful_write;
 }
 
-bool ItemManager::editItem() {
+bool ItemsManager::editItem() {
     _terminal.clear();
 
     searchItem();
@@ -190,13 +190,13 @@ bool ItemManager::editItem() {
         }
     } while (selection != 0);
 
-    int index = _item_archive.getIndex(_item.getId());
-    bool successful_write = _item_archive.overWrite(_item, index);
+    int index = _items_archive.getIndex(_item.getId());
+    bool successful_write = _items_archive.overWrite(_item, index);
 
     return successful_write;
 }
 
-void ItemManager::searchItem() {
+void ItemsManager::searchItem() {
     _terminal.clear();
 
     int selection = 1;
@@ -222,10 +222,10 @@ void ItemManager::searchItem() {
     
 }
 
-void ItemManager::listItems() {
+void ItemsManager::listItems() {
     _terminal.clear();
 
-    int amount_of_items = _item_archive.getAmountOfRegisters();
+    int amount_of_items = _items_archive.getAmountOfRegisters();
 
     _terminal.displayMenuHeader("LISTADO DE PRODUCTOS");
 
@@ -237,8 +237,8 @@ void ItemManager::listItems() {
     _terminal.clear();
 }
 
-void ItemManager::printItem(int index) {
-    _item = _item_archive.read(index);
+void ItemsManager::printItem(int index) {
+    _item = _items_archive.read(index);
     _terminal.displayMenuHeader(_item.getName());
     std::cout << "# ID: " << _item.getId() << "\n";
     std::cout << "Descripcion: " << _item.getDescription() << "\n";
@@ -250,7 +250,7 @@ void ItemManager::printItem(int index) {
     _terminal.printBool(_item.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
-void ItemManager::cinItemName(Item & item) {
+void ItemsManager::cinItemName(Item & item) {
     std::string name;
 
     std::cout << "Ingrese nombre del producto:\n";
@@ -260,7 +260,7 @@ void ItemManager::cinItemName(Item & item) {
     item.setName(name);
 }
 
-void ItemManager::cinItemDescription(Item & item) {
+void ItemsManager::cinItemDescription(Item & item) {
     std::string description;
 
     std::cout << "Ingrese descripcion:\n";
@@ -269,7 +269,7 @@ void ItemManager::cinItemDescription(Item & item) {
     item.setDescription(description);
 }
 
-void ItemManager::cinItemBrand(Item & item) {
+void ItemsManager::cinItemBrand(Item & item) {
     std::string brand;
 
     std::cout << "Ingrese marca:\n";
@@ -278,7 +278,7 @@ void ItemManager::cinItemBrand(Item & item) {
     item.setBrand(brand);
 }
 
-void ItemManager::cinItemModel(Item & item) {
+void ItemsManager::cinItemModel(Item & item) {
     std::string model;
 
     std::cout << "Ingrese modelo:\n";
@@ -287,7 +287,7 @@ void ItemManager::cinItemModel(Item & item) {
     item.setModel(model);
 }
 
-void ItemManager::cinItemPrice(Item & item) {
+void ItemsManager::cinItemPrice(Item & item) {
     double price;
 
     std::cout << "Ingrese valor unitario:\n";
@@ -296,7 +296,7 @@ void ItemManager::cinItemPrice(Item & item) {
     item.setPrice(price);
 }
 
-void ItemManager::cinItemStock(Item & item) {
+void ItemsManager::cinItemStock(Item & item) {
     int stock;
 
     std::cout << "Ingrese el stock:\n";
@@ -305,7 +305,7 @@ void ItemManager::cinItemStock(Item & item) {
     item.setStock(stock);
 }
 
-void ItemManager::cinItemIncome(Item & item) {
+void ItemsManager::cinItemIncome(Item & item) {
     Date date;
     int day, month, year;
 
@@ -325,7 +325,7 @@ void ItemManager::cinItemIncome(Item & item) {
     item.setIncome(date);
 }
 
-void ItemManager::cinItemIsActive(Item & item) {
+void ItemsManager::cinItemIsActive(Item & item) {
     if (item.getIsActive()) {
         item.setIsActive(false);
         std::cout << "El producto ha sido dado de baja.\n";
@@ -337,28 +337,28 @@ void ItemManager::cinItemIsActive(Item & item) {
     }
 }
 
-int ItemManager::generateItemId() {
+int ItemsManager::generateItemId() {
     int id = 1;
 
-    if(_item_archive.getAmountOfRegisters() != 0) {
-        id = _item_archive.getAmountOfRegisters() + 1;
+    if(_items_archive.getAmountOfRegisters() != 0) {
+        id = _items_archive.getAmountOfRegisters() + 1;
     }
 
     return id;
 }
 
-void ItemManager::searchItemById() {
+void ItemsManager::searchItemById() {
     int index;
     int id;
     int max_id;
 
-    max_id = _item_archive.getAmountOfRegisters();
+    max_id = _items_archive.getAmountOfRegisters();
 
     std::cout << "Ingresar ID o 0 para cancelar:\n";
     id = _terminal.validateInt(0, max_id);
 
     if (0 < id) {
-        index = _item_archive.getIndex(id);
+        index = _items_archive.getIndex(id);
         printItem(index);
     } else {
         _item.setId(-1);
@@ -368,7 +368,7 @@ void ItemManager::searchItemById() {
     _terminal.pause();
 }
 
-void ItemManager::searchItemByDescription() {
+void ItemsManager::searchItemByDescription() {
     int index;
     std::string description;
 
@@ -376,7 +376,7 @@ void ItemManager::searchItemByDescription() {
     std::cin.ignore();
     getline(std::cin, description);
 
-    index = _item_archive.getIndex(description);
+    index = _items_archive.getIndex(description);
 
     while (index == -1) {
         std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
@@ -385,7 +385,7 @@ void ItemManager::searchItemByDescription() {
         if (description == "0") {
             index = -2;
         } else {
-            index = _item_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+            index = _items_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
         }
     }
 
@@ -399,8 +399,8 @@ void ItemManager::searchItemByDescription() {
     _terminal.pause();
 }
 
-void ItemManager::exportItemsBackup() {
-     int amount_of_items = _item_archive.getAmountOfRegisters();
+void ItemsManager::exportItemsBackup() {
+     int amount_of_items = _items_archive.getAmountOfRegisters();
 
     Item * items_array = new Item[amount_of_items];
 
@@ -408,13 +408,13 @@ void ItemManager::exportItemsBackup() {
         std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al exportar backup.";
     } else {
         for (int i = 0; i < amount_of_items; i ++) {
-            items_array[i] = _item_archive.read(i);
+            items_array[i] = _items_archive.read(i);
         }
 
-        _item_backup.createEmptyItemArchive();
+        _items_backup.createEmptyItemsArchive();
 
         for (int i = 0; i < amount_of_items; i ++) {
-            _item_backup.write(items_array[i]);
+            _items_backup.write(items_array[i]);
         }
 
         delete [] items_array;
@@ -424,13 +424,13 @@ void ItemManager::exportItemsBackup() {
     }
 }
 
-void ItemManager::importItemsBackup() {
+void ItemsManager::importItemsBackup() {
      std::cout << "¿Desea reemplazar los Items actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        int amount_of_items = _item_backup.getAmountOfRegisters();
+        int amount_of_items = _items_backup.getAmountOfRegisters();
 
         Item * items_array = new Item[amount_of_items];
 
@@ -438,13 +438,13 @@ void ItemManager::importItemsBackup() {
             std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al importar backup.";
         } else {
             for (int i = 0; i < amount_of_items; i ++) {
-                items_array[i] = _item_backup.read(i);
+                items_array[i] = _items_backup.read(i);
             }
 
-            _item_archive.createEmptyItemArchive();
+            _items_archive.createEmptyItemsArchive();
 
             for (int i = 0; i < amount_of_items; i ++) {
-                _item_archive.write(items_array[i]);
+                _items_archive.write(items_array[i]);
             }
 
             delete [] items_array;
@@ -454,16 +454,16 @@ void ItemManager::importItemsBackup() {
     }
 }
 
-void ItemManager::exportItemsCSV() {
-    _item_csv.writeItemsCSV(_item, _item_archive);
+void ItemsManager::exportItemsCSV() {
+    _items_csv.writeItemsCSV(_item, _items_archive);
 }
 
-void ItemManager::importItemsCSV() {
+void ItemsManager::importItemsCSV() {
     std::cout << "¿Desea reemplazar los itemes actuales por aquellos que haya en el archivo CSV? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        _item_csv.readItemsCSV(_item, _item_archive);
+        _items_csv.readItemsCSV(_item, _items_archive);
     }
 }

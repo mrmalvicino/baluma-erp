@@ -1,12 +1,12 @@
 #pragma once
 #include "Warehouse.h"
 
-class WarehouseArchive
+class WarehousesArchive
 {
     public:
-        WarehouseArchive();
+        WarehousesArchive();
 
-        WarehouseArchive(const std::string &path);
+        WarehousesArchive(const std::string &path);
 
         void setPath(const std::string &path);
 
@@ -24,7 +24,7 @@ class WarehouseArchive
 
         int getAmountOfRegisters();
 
-        void createEmptyClientArchive();
+        void createEmptyClientsArchive();
 
     private:
         std::string _path;

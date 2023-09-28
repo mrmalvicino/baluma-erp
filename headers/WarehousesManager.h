@@ -1,13 +1,13 @@
 #pragma once
 #include <iostream>
 #include "Warehouse.h"
-#include "WarehouseArchive.h"
+#include "WarehousesArchive.h"
 #include "Terminal.h"
 
-class WarehouseManager
+class WarehousesManager
 {
     public:
-        WarehouseManager();
+        WarehousesManager();
         void displayMenu();
         bool addWarehouse();
         bool editWarehouse();
@@ -27,8 +27,8 @@ class WarehouseManager
         std::string getItemsPath();
 
     private:
-        Warehouse _warehouse;
-        WarehouseArchive _warehouse_archive;
-        WarehouseArchive _warehouse_backup;
         Terminal _terminal;
+        Warehouse _warehouse;
+        WarehousesArchive _warehouses_archive;
+        WarehousesArchive _warehouses_backup;
 };

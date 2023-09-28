@@ -1,22 +1,22 @@
-#include "../headers/ItemArchive.h"
+#include "../headers/ClientsArchive.h"
 
-ItemArchive::ItemArchive() {
-    setPath("registers/products.dat");
+ClientsArchive::ClientsArchive() {
+    setPath("registers/clients.dat");
 }
 
-ItemArchive::ItemArchive(const std::string & path) {
+ClientsArchive::ClientsArchive(std::string path) {
     setPath(path);
 }
 
-void ItemArchive::setPath(const std::string & path) {
+void ClientsArchive::setPath(std::string path) {
     _path = path;
 }
 
-std::string ItemArchive::getPath() {
+std::string ClientsArchive::getPath() {
     return _path;
 }
 
-bool ItemArchive::write(Item & reg) {
+bool ClientsArchive::write(Client & reg) {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
 
     if (file_pointer == NULL) {
@@ -24,13 +24,13 @@ bool ItemArchive::write(Item & reg) {
         return 0;
     }
 
-    bool successful_write = fwrite(& reg, sizeof(Item), 1, file_pointer);
+    bool successful_write = fwrite(& reg, sizeof(Client), 1, file_pointer);
     fclose(file_pointer);
 
     return successful_write;
 }
 
-bool ItemArchive::overWrite(Item & reg, int index) {
+bool ClientsArchive::overWrite(Client & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
 
     if (file_pointer == NULL) {
@@ -38,15 +38,15 @@ bool ItemArchive::overWrite(Item & reg, int index) {
         return 0;
     }
 
-    fseek(file_pointer, sizeof(Item) * index, 0);
-    bool successful_write = fwrite(& reg, sizeof(Item), 1, file_pointer);
+    fseek(file_pointer, sizeof(Client) * index, 0);
+    bool successful_write = fwrite(& reg, sizeof(Client), 1, file_pointer);
     fclose(file_pointer);
 
     return successful_write;
 }
 
-Item ItemArchive::read(int index) {
-    Item reg;
+Client ClientsArchive::read(int index) {
+    Client reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
@@ -54,16 +54,16 @@ Item ItemArchive::read(int index) {
         return reg;
     }
 
-    fseek(file_pointer, sizeof(Item) * index, 0);
-    fread(& reg, sizeof(Item), 1, file_pointer);
+    fseek(file_pointer, sizeof(Client) * index, 0);
+    fread(& reg, sizeof(Client), 1, file_pointer);
     fclose(file_pointer);
 
     return reg;
 }
 
-int ItemArchive::getIndex(int id) {
-     int i = 0;
-    Item reg;
+int ClientsArchive::getIndex(int id) {
+    int i = 0;
+    Client reg;
     reg = read(i);
 
     while (reg.getId() != id && i < getAmountOfRegisters()) {
@@ -74,9 +74,9 @@ int ItemArchive::getIndex(int id) {
     return i;
 }
 
-int ItemArchive::getIndex(std::string & description) {
+int ClientsArchive::getIndex(std::string & description) {
     int i = 0;
-    Item reg;
+    Client reg;
     reg = read(i);
 
     while (reg.getDescription() != description && i < getAmountOfRegisters()) {
@@ -91,7 +91,7 @@ int ItemArchive::getIndex(std::string & description) {
     return i;
 }
 
-int ItemArchive::getAmountOfRegisters() {
+int ClientsArchive::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
@@ -102,12 +102,12 @@ int ItemArchive::getAmountOfRegisters() {
     fseek(file_pointer, 0, SEEK_END);
     int bytes = ftell(file_pointer);
     fclose(file_pointer);
-    int total_items = bytes / sizeof(Item);
+    int total_clients = bytes / sizeof(Client);
 
-    return total_items;
+    return total_clients;
 }
 
-void ItemArchive::createEmptyItemArchive() {
+void ClientsArchive::createEmptyClientsArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {

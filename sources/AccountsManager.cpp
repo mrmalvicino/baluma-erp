@@ -1,10 +1,10 @@
-#include "../headers/AccountManager.h"
+#include "../headers/AccountsManager.h"
 
-AccountManager::AccountManager() {
+AccountsManager::AccountsManager() {
     _Account_backup.setPath("registers/Accounts.bkp");
 }
 
-void AccountManager::displayMenu() {
+void AccountsManager::displayMenu() {
     int selection = 1;
 
     do {
@@ -36,7 +36,7 @@ void AccountManager::displayMenu() {
     } while (selection != 0);
 }
 
-bool AccountManager::addAccount() {
+bool AccountsManager::addAccount() {
     bool successful_write;
     bool user_wants_to_save;
 
@@ -72,7 +72,7 @@ bool AccountManager::addAccount() {
     return successful_write;
 }
 
-bool AccountManager::editAccount() {
+bool AccountsManager::editAccount() {
     _terminal.clear();
 
     searchAccount();
@@ -126,7 +126,7 @@ bool AccountManager::editAccount() {
     return successful_write;
 }
 
-void AccountManager::searchAccount() {
+void AccountsManager::searchAccount() {
     _terminal.clear();
 
     int selection;
@@ -148,7 +148,7 @@ void AccountManager::searchAccount() {
     }
 }
 
-void AccountManager::listAccounts() {
+void AccountsManager::listAccounts() {
     _terminal.clear();
 
     int amount_of_Accounts = _Account_archive.getAmountOfRegisters();
@@ -163,7 +163,7 @@ void AccountManager::listAccounts() {
     _terminal.clear();
 }
 
-void AccountManager::printAccount(int index) {
+void AccountsManager::printAccount(int index) {
     _Account = _Account_archive.read(index);
     _terminal.displayMenuHeader(_Account.getAccountName());
     std::cout << "NUMERO: " << _Account.getAccountNumber()<<"\n";
@@ -174,21 +174,21 @@ void AccountManager::printAccount(int index) {
     _terminal.printBool(_Account.getIsActive(), "ESTADO: Activa\n\n", "ESTADO: Dada de baja\n\n");
 }
 
-void AccountManager::cinAccountNumber(Account & Account) {
+void AccountsManager::cinAccountNumber(Account & Account) {
     int number;
     std::cout << "Ingresar número de cuenta:\n";
     number = _terminal.validateInt(0);
     Account.setAccountNumber(number);
 }
 
-void AccountManager::cinAccountActive(Account & Account) {
+void AccountsManager::cinAccountActive(Account & Account) {
     double active;
     std::cout << "Ingresar activo:\n";
     active = _terminal.validateInt(0);
     Account.setActive(active);
 }
 
-void AccountManager::cinAccountPassive(Account & Account) {
+void AccountsManager::cinAccountPassive(Account & Account) {
     double passive;
     std::cout << "Ingresar pasivo:\n";
     passive = _terminal.validateInt(0);
@@ -196,7 +196,7 @@ void AccountManager::cinAccountPassive(Account & Account) {
 }
 
 
-void AccountManager::cinAccountName(Account & Account) {
+void AccountsManager::cinAccountName(Account & Account) {
     std::string name;
     std::cin.ignore();
     std::cout << "Ingresar nombre:\n";
@@ -204,7 +204,7 @@ void AccountManager::cinAccountName(Account & Account) {
     Account.setAccountName(name);
 }
 
-void AccountManager::cinAccountIsActive(Account & Account) {
+void AccountsManager::cinAccountIsActive(Account & Account) {
     if (Account.getIsActive()) {
         Account.setIsActive(false);
         std::cout << "La cuenta ha sido dado de baja.\n";
@@ -216,7 +216,7 @@ void AccountManager::cinAccountIsActive(Account & Account) {
     }
 }
 
-void AccountManager::cinAccountConcept(Account & Account) {
+void AccountsManager::cinAccountConcept(Account & Account) {
     std::string concept;
     std::cin.ignore();
     std::cout << "Ingresar concepto:\n";
@@ -224,7 +224,7 @@ void AccountManager::cinAccountConcept(Account & Account) {
     Account.setConcept(concept);
 }
 
-int AccountManager::generateAccountId() {
+int AccountsManager::generateAccountId() {
     int id = 1;
 
     if(_Account_archive.getAmountOfRegisters() != 0) {
@@ -234,7 +234,7 @@ int AccountManager::generateAccountId() {
     return id;
 }
 
-void AccountManager::searchAccountById() {
+void AccountsManager::searchAccountById() {
     int index;
     int id;
     int max_id;
@@ -255,7 +255,7 @@ void AccountManager::searchAccountById() {
     _terminal.pause();
 }
 
-void AccountManager::searchAccountByName() {
+void AccountsManager::searchAccountByName() {
     int index;
     std::string name;
 
@@ -286,7 +286,7 @@ void AccountManager::searchAccountByName() {
     _terminal.pause();
 }
 
-void AccountManager::exportAccountsBackup() {
+void AccountsManager::exportAccountsBackup() {
     int amount_of_Accounts = _Account_archive.getAmountOfRegisters();
 
     Account * Accounts_array = new Account[amount_of_Accounts];
@@ -298,7 +298,7 @@ void AccountManager::exportAccountsBackup() {
             Accounts_array[i] = _Account_archive.read(i);
         }
 
-        _Account_backup.createEmptyAccountArchive();
+        _Account_backup.createEmptyAccountsArchive();
 
         for (int i = 0; i < amount_of_Accounts; i ++) {
             _Account_backup.write(Accounts_array[i]);
@@ -311,7 +311,7 @@ void AccountManager::exportAccountsBackup() {
     }
 }
 
-void AccountManager::importAccountsBackup() {
+void AccountsManager::importAccountsBackup() {
     std::cout << "¿Desea reemplazar las cuentas actuales por aquellas que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
@@ -328,7 +328,7 @@ void AccountManager::importAccountsBackup() {
                 Accounts_array[i] = _Account_backup.read(i);
             }
 
-            _Account_archive.createEmptyAccountArchive();
+            _Account_archive.createEmptyAccountsArchive();
 
             for (int i = 0; i < amount_of_Accounts; i ++) {
                 _Account_archive.write(Accounts_array[i]);
@@ -341,11 +341,11 @@ void AccountManager::importAccountsBackup() {
     }
 }
 /*
-void AccountManager::exportAccountsCSV() {
+void AccountsManager::exportAccountsCSV() {
     _Account_csv.writeAccountsCSV(_Account, _Account_archive);
 }
  
-void AccountManager::importAccountsCSV() {
+void AccountsManager::importAccountsCSV() {
     std::cout << "¿Desea reemplazar los Accountes actuales por aquellos que haya en el archivo CSV? [S/N]\n";
 
     if (_terminal.validateBool() == false) {

@@ -26,6 +26,6 @@ using namespace std;
 int main() {
     Baluma baluma;
     baluma.run();
- 
+
     return 0;
 }

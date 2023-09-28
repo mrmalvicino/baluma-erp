@@ -1,10 +1,10 @@
-#include "../headers/ClientManager.h"
+#include "../headers/ClientsManager.h"
 
-ClientManager::ClientManager() {
-    _client_backup.setPath("registers/clients.bkp");
+ClientsManager::ClientsManager() {
+    _clients_backup.setPath("registers/clients.bkp");
 }
 
-void ClientManager::displayMenu() {
+void ClientsManager::displayMenu() {
     int selection = 1;
 
     do {
@@ -59,7 +59,7 @@ void ClientManager::displayMenu() {
     } while (selection != 0);
 }
 
-bool ClientManager::addClient() {
+bool ClientsManager::addClient() {
     bool successful_write;
     bool user_wants_to_save;
 
@@ -79,7 +79,7 @@ bool ClientManager::addClient() {
     user_wants_to_save = _terminal.validateBool();
 
     if (user_wants_to_save == true) {
-        successful_write = _client_archive.write(_client);
+        successful_write = _clients_archive.write(_client);
         if (successful_write == true) {
             std::cout << "Registro guardado correctamente.\n";
         } else {
@@ -96,7 +96,7 @@ bool ClientManager::addClient() {
     return successful_write;
 }
 
-bool ClientManager::editClient() {
+bool ClientsManager::editClient() {
     _terminal.clear();
 
     searchClient();
@@ -148,13 +148,13 @@ bool ClientManager::editClient() {
         }
     } while (selection != 0);
 
-    int index = _client_archive.getIndex(_client.getId());
-    bool successful_write = _client_archive.overWrite(_client, index);
+    int index = _clients_archive.getIndex(_client.getId());
+    bool successful_write = _clients_archive.overWrite(_client, index);
 
     return successful_write;
 }
 
-void ClientManager::searchClient() {
+void ClientsManager::searchClient() {
     _terminal.clear();
 
     int selection = 1;
@@ -179,10 +179,10 @@ void ClientManager::searchClient() {
     }
 }
 
-void ClientManager::listClients() {
+void ClientsManager::listClients() {
     _terminal.clear();
 
-    int amount_of_clients = _client_archive.getAmountOfRegisters();
+    int amount_of_clients = _clients_archive.getAmountOfRegisters();
 
     _terminal.displayMenuHeader("LISTADO DE CLIENTES");
 
@@ -194,8 +194,8 @@ void ClientManager::listClients() {
     _terminal.clear();
 }
 
-void ClientManager::printClient(int index) {
-    _client = _client_archive.read(index);
+void ClientsManager::printClient(int index) {
+    _client = _clients_archive.read(index);
     _terminal.displayMenuHeader(_client.getDescription());
     std::cout << "# ID: " << _client.getId() << "\n";
     std::cout << "CUIL/CUIT: " << _client.getLegalId() << "\n";
@@ -212,7 +212,7 @@ void ClientManager::printClient(int index) {
     _terminal.printBool(_client.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
-void ClientManager::cinClientDescription(Client & client) {
+void ClientsManager::cinClientDescription(Client & client) {
     std::string description;
     std::cout << "Ingresar nombre del cliente:\n";
     std::cin.ignore();
@@ -220,14 +220,14 @@ void ClientManager::cinClientDescription(Client & client) {
     client.setDescription(description);
 }
 
-void ClientManager::cinClientLegalId(Client & client) {
+void ClientsManager::cinClientLegalId(Client & client) {
     long long int legal_id;
     std::cout << "Ingresar CUIL o CUIT:\n";
     legal_id = _terminal.validateLongInt(1);
     client.setLegalId(legal_id);
 }
 
-void ClientManager::cinClientAdress(Client & client) {
+void ClientsManager::cinClientAdress(Client & client) {
     Adress adress;
 
     std::string country;
@@ -271,14 +271,14 @@ void ClientManager::cinClientAdress(Client & client) {
     client.setAdress(adress);
 }
 
-void ClientManager::cinClientPhone(Client & client) {
+void ClientsManager::cinClientPhone(Client & client) {
     int phone;
     std::cout << "Ingresar teléfono o celular:\n";
     phone = _terminal.validateInt(0);
     client.setPhone(phone);
 }
 
-void ClientManager::cinClientEmail(Client & client) {
+void ClientsManager::cinClientEmail(Client & client) {
     std::string email;
     std::cout << "Ingresar e-mail:\n";
     std::cin.ignore();
@@ -286,7 +286,7 @@ void ClientManager::cinClientEmail(Client & client) {
     client.setEmail(email);
 }
 
-void ClientManager::cinClientIsActive(Client & client) {
+void ClientsManager::cinClientIsActive(Client & client) {
     if (client.getIsActive()) {
         client.setIsActive(false);
         std::cout << "El cliente ha sido dado de baja.\n";
@@ -298,35 +298,35 @@ void ClientManager::cinClientIsActive(Client & client) {
     }
 }
 
-void ClientManager::cinClientCategory(Client & client) {
+void ClientsManager::cinClientCategory(Client & client) {
     char category;
     std::cout << "Ingresar categoría:\n";
     category = _terminal.validateChar();
     client.setCategory(category);
 }
 
-int ClientManager::generateClientId() {
+int ClientsManager::generateClientId() {
     int id = 1;
 
-    if(_client_archive.getAmountOfRegisters() != 0) {
-        id = _client_archive.getAmountOfRegisters() + 1;
+    if(_clients_archive.getAmountOfRegisters() != 0) {
+        id = _clients_archive.getAmountOfRegisters() + 1;
     }
 
     return id;
 }
 
-void ClientManager::searchClientById() {
+void ClientsManager::searchClientById() {
     int index;
     int id;
     int max_id;
 
-    max_id = _client_archive.getAmountOfRegisters();
+    max_id = _clients_archive.getAmountOfRegisters();
 
     std::cout << "Ingresar ID o 0 para cancelar:\n";
     id = _terminal.validateInt(0, max_id);
 
     if (0 < id) {
-        index = _client_archive.getIndex(id);
+        index = _clients_archive.getIndex(id);
         printClient(index);
     } else {
         _client.setId(-1);
@@ -336,7 +336,7 @@ void ClientManager::searchClientById() {
     _terminal.pause();
 }
 
-void ClientManager::searchClientByDescription() {
+void ClientsManager::searchClientByDescription() {
     int index;
     std::string description;
 
@@ -344,7 +344,7 @@ void ClientManager::searchClientByDescription() {
     std::cin.ignore();
     getline(std::cin, description);
 
-    index = _client_archive.getIndex(description);
+    index = _clients_archive.getIndex(description);
 
     while (index == -1) {
         std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
@@ -353,7 +353,7 @@ void ClientManager::searchClientByDescription() {
         if (description == "0") {
             index = -2;
         } else {
-            index = _client_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+            index = _clients_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
         }
     }
 
@@ -367,8 +367,8 @@ void ClientManager::searchClientByDescription() {
     _terminal.pause();
 }
 
-void ClientManager::exportClientsBackup() {
-    int amount_of_clients = _client_archive.getAmountOfRegisters();
+void ClientsManager::exportClientsBackup() {
+    int amount_of_clients = _clients_archive.getAmountOfRegisters();
 
     Client * clients_array = new Client[amount_of_clients];
 
@@ -376,13 +376,13 @@ void ClientManager::exportClientsBackup() {
         std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al exportar backup.";
     } else {
         for (int i = 0; i < amount_of_clients; i ++) {
-            clients_array[i] = _client_archive.read(i);
+            clients_array[i] = _clients_archive.read(i);
         }
 
-        _client_backup.createEmptyClientArchive();
+        _clients_backup.createEmptyClientsArchive();
 
         for (int i = 0; i < amount_of_clients; i ++) {
-            _client_backup.write(clients_array[i]);
+            _clients_backup.write(clients_array[i]);
         }
 
         delete [] clients_array;
@@ -392,13 +392,13 @@ void ClientManager::exportClientsBackup() {
     }
 }
 
-void ClientManager::importClientsBackup() {
+void ClientsManager::importClientsBackup() {
     std::cout << "¿Desea reemplazar los clientes actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        int amount_of_clients = _client_backup.getAmountOfRegisters();
+        int amount_of_clients = _clients_backup.getAmountOfRegisters();
 
         Client * clients_array = new Client[amount_of_clients];
 
@@ -406,13 +406,13 @@ void ClientManager::importClientsBackup() {
             std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al importar backup.";
         } else {
             for (int i = 0; i < amount_of_clients; i ++) {
-                clients_array[i] = _client_backup.read(i);
+                clients_array[i] = _clients_backup.read(i);
             }
 
-            _client_archive.createEmptyClientArchive();
+            _clients_archive.createEmptyClientsArchive();
 
             for (int i = 0; i < amount_of_clients; i ++) {
-                _client_archive.write(clients_array[i]);
+                _clients_archive.write(clients_array[i]);
             }
 
             delete [] clients_array;
@@ -422,16 +422,16 @@ void ClientManager::importClientsBackup() {
     }
 }
 
-void ClientManager::exportClientsCSV() {
-    _client_csv.writeClientsCSV(_client, _client_archive);
+void ClientsManager::exportClientsCSV() {
+    _clients_csv.writeClientsCSV(_client, _clients_archive);
 }
  
-void ClientManager::importClientsCSV() {
+void ClientsManager::importClientsCSV() {
     std::cout << "¿Desea reemplazar los clientes actuales por aquellos que haya en el archivo CSV? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        _client_csv.readClientsCSV(_client, _client_archive);
+        _clients_csv.readClientsCSV(_client, _clients_archive);
     }
 }

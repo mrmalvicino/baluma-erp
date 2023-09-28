@@ -2,12 +2,12 @@
 #include <iostream>
 #include "Terminal.h"
 #include "Account.h"
-#include "AccountArchive.h"
+#include "AccountsArchive.h"
 
-class AccountManager {
+class AccountsManager {
     public:
 
-    AccountManager();
+    AccountsManager();
     void displayMenu(); 
     bool addAccount();
     bool editAccount();
@@ -32,7 +32,7 @@ class AccountManager {
 
     Terminal _terminal;
     Account _Account;
-    AccountArchive _Account_archive;
-    AccountArchive _Account_backup;
+    AccountsArchive _Account_archive;
+    AccountsArchive _Account_backup;
    // AccountCSV _Account_csv;
 };

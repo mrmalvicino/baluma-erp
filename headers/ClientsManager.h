@@ -1,5 +1,5 @@
 /**
- * @file ClientManager.h
+ * @file ClientsManager.h
  * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
  * @brief Manages the client module.
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -9,16 +9,16 @@
 #include <iostream>
 #include "Terminal.h"
 #include "Client.h"
-#include "ClientArchive.h"
-#include "ClientCSV.h"
+#include "ClientsArchive.h"
+#include "ClientsCSV.h"
 
-class ClientManager {
+class ClientsManager {
     public:
 
     /**
-     * @brief Constructs a new ClientManager object with default settings.
+     * @brief Constructs a new ClientsManager object with default settings.
      */
-    ClientManager();
+    ClientsManager();
 
     /**
      * @brief Displays the clients menu.
@@ -144,17 +144,17 @@ class ClientManager {
     Client _client;
 
     /**
-     * @brief ClientArchive object with default path.
+     * @brief ClientsArchive object with default path.
      */
-    ClientArchive _client_archive;
+    ClientsArchive _clients_archive;
 
     /**
-     * @brief ClientArchive object with custom path.
+     * @brief ClientsArchive object with custom path.
      */
-    ClientArchive _client_backup;
+    ClientsArchive _clients_backup;
 
     /**
-     * @brief ClientCSV object with default settings.
+     * @brief ClientsCSV object with default settings.
      */
-    ClientCSV _client_csv;
+    ClientsCSV _clients_csv;
 };

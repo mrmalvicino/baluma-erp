@@ -1,24 +1,24 @@
 #include <iostream>
-#include "../headers/WarehouseArchive.h"
+#include "../headers/WarehousesArchive.h"
 
 
-WarehouseArchive::WarehouseArchive() : _path("registers/Warehouse.dat")
+WarehousesArchive::WarehousesArchive() : _path("registers/Warehouse.dat")
 {}
 
 
-WarehouseArchive::WarehouseArchive(const std::string &path) : _path(path)
+WarehousesArchive::WarehousesArchive(const std::string &path) : _path(path)
 {}
 
-void WarehouseArchive::setPath(const std::string &path)
+void WarehousesArchive::setPath(const std::string &path)
 {
     _path = path;
 }
-std::string WarehouseArchive::getPath() const
+std::string WarehousesArchive::getPath() const
 {
     return _path;
 }
 
-bool WarehouseArchive::write(Warehouse &reg)
+bool WarehousesArchive::write(Warehouse &reg)
 {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
 
@@ -34,7 +34,7 @@ bool WarehouseArchive::write(Warehouse &reg)
     return successful_write;
 }
 
-bool WarehouseArchive::overWrite(Warehouse &reg, int index)
+bool WarehousesArchive::overWrite(Warehouse &reg, int index)
 {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
 
@@ -51,7 +51,7 @@ bool WarehouseArchive::overWrite(Warehouse &reg, int index)
     return successful_write;
 }
 
-Warehouse WarehouseArchive::read(int index)
+Warehouse WarehousesArchive::read(int index)
 {
     Warehouse reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
@@ -70,7 +70,7 @@ Warehouse WarehouseArchive::read(int index)
     return reg;
 }
 
-int WarehouseArchive::getIndex(int id)
+int WarehousesArchive::getIndex(int id)
 {
     int i = 0;
     Warehouse reg;
@@ -85,7 +85,7 @@ int WarehouseArchive::getIndex(int id)
     return i;
 }
 
-int WarehouseArchive::getIndex(std::string &name)
+int WarehousesArchive::getIndex(std::string &name)
 {
     int i = 0;
     Warehouse reg;
@@ -100,7 +100,7 @@ int WarehouseArchive::getIndex(std::string &name)
     return i;
 }
 
-int WarehouseArchive::getAmountOfRegisters()
+int WarehousesArchive::getAmountOfRegisters()
 {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
@@ -119,7 +119,7 @@ int WarehouseArchive::getAmountOfRegisters()
 
 }
 
-void WarehouseArchive::createEmptyClientArchive()
+void WarehousesArchive::createEmptyClientsArchive()
 {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 

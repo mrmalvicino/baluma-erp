@@ -1,5 +1,5 @@
 /**
- * @file SupplierArchive.h
+ * @file SuppliersArchive.h
  * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
  * @brief Manages a supplier archive, allowing storage and retrieval of supplier records in a binary file.
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -9,19 +9,19 @@
 #include <cstdio>
 #include "Supplier.h"
 
-class SupplierArchive {
+class SuppliersArchive {
     public:
 
     /**
-     * @brief Constructs a new SupplierArchive object with default path.
+     * @brief Constructs a new SuppliersArchive object with default path.
      */
-    SupplierArchive();
+    SuppliersArchive();
 
     /**
-     * @brief Constructs a new SupplierArchive object.
+     * @brief Constructs a new SuppliersArchive object.
      * @param path (std::string) Path where the file will be saved.
      */
-    SupplierArchive(std::string path);
+    SuppliersArchive(std::string path);
 
     /**
      * @brief Sets the Path object.
@@ -85,7 +85,7 @@ class SupplierArchive {
      * @brief Creates an empty supplier archive file.
      * @warning The method does not check if the file already exists; it will create a new empty file or overwrite an existing one.
      */
-    void createEmptySupplierArchive();
+    void createEmptySuppliersArchive();
 
     private:
 

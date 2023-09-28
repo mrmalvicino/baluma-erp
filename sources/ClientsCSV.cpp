@@ -1,32 +1,32 @@
-#include "../headers/ClientCSV.h"
+#include "../headers/ClientsCSV.h"
 
-ClientCSV::ClientCSV() {
+ClientsCSV::ClientsCSV() {
     setPath("registers/clients.csv");
     setDelimiter(',');
 }
 
-ClientCSV::ClientCSV(std::string path, char delimiter) {
+ClientsCSV::ClientsCSV(std::string path, char delimiter) {
     setPath(path);
     setDelimiter(delimiter);
 }
 
-void ClientCSV::setPath(std::string path) {
+void ClientsCSV::setPath(std::string path) {
     _path = path;
 }
 
-std::string ClientCSV::getPath() {
+std::string ClientsCSV::getPath() {
     return _path;
 }
 
-void ClientCSV::setDelimiter(char delimiter) {
+void ClientsCSV::setDelimiter(char delimiter) {
     _delimiter = delimiter;
 }
 
-char ClientCSV::getDelimiter() {
+char ClientsCSV::getDelimiter() {
     return _delimiter;
 }
 
-void ClientCSV::writeClientsCSV(Client & client, ClientArchive & client_archive) {
+void ClientsCSV::writeClientsCSV(Client & client, ClientsArchive & client_archive) {
     std::ofstream file(getPath());
 
     if (file.is_open() == false) {
@@ -46,7 +46,7 @@ void ClientCSV::writeClientsCSV(Client & client, ClientArchive & client_archive)
     }
 }
 
-void ClientCSV::readClientsCSV(Client & client, ClientArchive & client_archive) {
+void ClientsCSV::readClientsCSV(Client & client, ClientsArchive & client_archive) {
     std::ifstream file(getPath());
 
     if (!file.is_open()) {
@@ -54,7 +54,7 @@ void ClientCSV::readClientsCSV(Client & client, ClientArchive & client_archive) 
         return;
     }
 
-    client_archive.createEmptyClientArchive();
+    client_archive.createEmptyClientsArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];

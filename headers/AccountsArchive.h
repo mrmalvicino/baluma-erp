@@ -2,10 +2,10 @@
 #include <cstdio>
 #include "Account.h"
 
-class AccountArchive {
+class AccountsArchive {
     public:
-        AccountArchive();
-        AccountArchive(std::string path);
+        AccountsArchive();
+        AccountsArchive(std::string path);
         void setPath(std::string path);
         std::string getPath();
         bool write(Account & reg);
@@ -15,7 +15,7 @@ class AccountArchive {
         int getIndex(int id);
         int getIndex(std::string & name);
         int getAmountOfRegisters();
-        void createEmptyAccountArchive();
+        void createEmptyAccountsArchive();
 
     private:
         std::string _path;

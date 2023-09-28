@@ -1,7 +1,7 @@
 /**
- * @file SupplierCSV.h
+ * @file ClientsCSV.h
  * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
- * @brief Manages a supplier archive file, allowing storage and retrieval of supplier records in a CSV file.
+ * @brief Manages a client archive file, allowing storage and retrieval of client records in a CSV file.
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  */
 
@@ -10,23 +10,23 @@
 #include <fstream>
 #include <sstream>
 #include "Terminal.h"
-#include "Supplier.h"
-#include "SupplierArchive.h"
+#include "Client.h"
+#include "ClientsArchive.h"
 
-class SupplierCSV {
+class ClientsCSV {
     public:
 
     /**
-     * @brief Constructs a new Supplier CSV object with default settings.
+     * @brief Constructs a new ClientsCSV object with default settings.
      */
-    SupplierCSV();
+    ClientsCSV();
 
     /**
-     * @brief Constructs a new Supplier CSV object.
+     * @brief Constructs a new ClientsCSV object.
      * @param path (std::string) Path where the file will be saved.
      * @param delimiter (char) Character that is used to delimit columns.
      */
-    SupplierCSV(std::string path, char delimiter);
+    ClientsCSV(std::string path, char delimiter);
 
     /**
      * @brief Sets the Path object.
@@ -53,30 +53,30 @@ class SupplierCSV {
     char getDelimiter();
 
     /**
-     * @brief Exports supplier records to a CSV file.
-     * @param supplier (Supplier) The supplier object used to write each register.
-     * @param supplier_archive (SupplierArchive) The supplier archive containing the supplier records to export.
+     * @brief Exports client records to a CSV file.
+     * @param client (Client) The client object used to write each register.
+     * @param client_archive (ClientsArchive) The client archive containing the client records to export.
      */
-    void writeSuppliersCSV(Supplier & supplier, SupplierArchive & supplier_archive);
+    void writeClientsCSV(Client & client, ClientsArchive & client_archive);
 
     /**
      * @brief 
-     * @param supplier (Supplier) The supplier object used to read each register.
-     * @param supplier_archive (SupplierArchive) The supplier archive where the supplier records are going to be imported to.
+     * @param client (Client) The client object used to read each register.
+     * @param client_archive (ClientsArchive) The client archive where the client records are going to be imported to.
      */
-    void readSuppliersCSV(Supplier & supplier, SupplierArchive & supplier_archive);
+    void readClientsCSV(Client & client, ClientsArchive & client_archive);
 
     private:
 
     /**
      * @brief Path where the file will be saved.
      */
-    char _delimiter;
+    std::string _path;
 
     /**
      * @brief Character that is used to delimit columns.
      */
-    std::string _path;
+    char _delimiter;
 
     /**
      * @brief Terminal object with default settings.

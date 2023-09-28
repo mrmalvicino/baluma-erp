@@ -1,21 +1,21 @@
 #include <iostream>
-#include "../headers/AccountArchive.h"
+#include "../headers/AccountsArchive.h"
 
-        AccountArchive::AccountArchive(){
+        AccountsArchive::AccountsArchive(){
             setPath("registers/Account.dat");
         }
 
-        AccountArchive::AccountArchive(std::string path){
+        AccountsArchive::AccountsArchive(std::string path){
             setPath(path);
         }
-        void AccountArchive::setPath(std::string path){
+        void AccountsArchive::setPath(std::string path){
             _path=path;
         }
-        std::string AccountArchive::getPath(){
+        std::string AccountsArchive::getPath(){
             return _path;
         }
 
-        bool AccountArchive::write(Account & reg){
+        bool AccountsArchive::write(Account & reg){
              FILE * file_pointer = fopen(getPath().c_str(), "ab");
 
             if (file_pointer == NULL) {
@@ -28,7 +28,7 @@
 
             return successful_write;
             }
-            bool AccountArchive::overWrite(Account & reg, int index){
+            bool AccountsArchive::overWrite(Account & reg, int index){
              FILE * file_pointer = fopen(getPath().c_str(), "rb+");
 
             if (file_pointer == NULL) {
@@ -43,7 +43,7 @@
             return successful_write;
         }
 
-        Account AccountArchive::read(int index){
+        Account AccountsArchive::read(int index){
             Account reg;
             FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
@@ -59,7 +59,7 @@
             return reg;
         }
 
-        int AccountArchive::getAccountNumber(int id){
+        int AccountsArchive::getAccountNumber(int id){
             int i = 0;
             Account reg;
             reg = read(i);
@@ -72,7 +72,7 @@
             return i;
         }
 
-        int AccountArchive::getAmountOfRegisters(){
+        int AccountsArchive::getAmountOfRegisters(){
              FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
             if (file_pointer == NULL) {
@@ -88,7 +88,7 @@
             return total_accounts;
         }
 
-    int AccountArchive::getIndex(int id) {
+    int AccountsArchive::getIndex(int id) {
     int i = 0;
     Account reg;
     reg = read(i);
@@ -101,7 +101,7 @@
     return i;
         }
 
-    int AccountArchive::getIndex(std::string & name) {
+    int AccountsArchive::getIndex(std::string & name) {
     int i = 0;
     Account reg;
     reg = read(i);
@@ -118,7 +118,7 @@
     return i;
     }
 
-void AccountArchive::createEmptyAccountArchive() {
+void AccountsArchive::createEmptyAccountsArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {

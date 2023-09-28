@@ -1,10 +1,10 @@
-#include "../headers/SupplierManager.h"
+#include "../headers/SuppliersManager.h"
 
-SupplierManager::SupplierManager() {
-    _supplier_backup.setPath("registers/suppliers.bkp");
+SuppliersManager::SuppliersManager() {
+    _suppliers_backup.setPath("registers/suppliers.bkp");
 }
 
-void SupplierManager::displayMenu() {
+void SuppliersManager::displayMenu() {
     int selection = 1;
 
     do {
@@ -59,7 +59,7 @@ void SupplierManager::displayMenu() {
     } while (selection != 0);
 }
 
-bool SupplierManager::addSupplier() {
+bool SuppliersManager::addSupplier() {
     bool successful_write;
     bool user_wants_to_save;
 
@@ -79,7 +79,7 @@ bool SupplierManager::addSupplier() {
     user_wants_to_save = _terminal.validateBool();
 
     if (user_wants_to_save == true) {
-        successful_write = _supplier_archive.write(_supplier);
+        successful_write = _suppliers_archive.write(_supplier);
         if (successful_write == true) {
             std::cout << "Registro guardado correctamente.\n";
         } else {
@@ -96,7 +96,7 @@ bool SupplierManager::addSupplier() {
     return successful_write;
 }
 
-bool SupplierManager::editSupplier() {
+bool SuppliersManager::editSupplier() {
     _terminal.clear();
 
     searchSupplier();
@@ -148,13 +148,13 @@ bool SupplierManager::editSupplier() {
         }
     } while (selection != 0);
 
-    int index = _supplier_archive.getIndex(_supplier.getId());
-    bool successful_write = _supplier_archive.overWrite(_supplier, index);
+    int index = _suppliers_archive.getIndex(_supplier.getId());
+    bool successful_write = _suppliers_archive.overWrite(_supplier, index);
 
     return successful_write;
 }
 
-void SupplierManager::searchSupplier() {
+void SuppliersManager::searchSupplier() {
     _terminal.clear();
 
     int selection = 1;
@@ -179,10 +179,10 @@ void SupplierManager::searchSupplier() {
     }
 }
 
-void SupplierManager::listSuppliers() {
+void SuppliersManager::listSuppliers() {
     _terminal.clear();
 
-    int amount_of_suppliers = _supplier_archive.getAmountOfRegisters();
+    int amount_of_suppliers = _suppliers_archive.getAmountOfRegisters();
 
     _terminal.displayMenuHeader("LISTADO DE PROVEEDORES");
 
@@ -194,8 +194,8 @@ void SupplierManager::listSuppliers() {
     _terminal.clear();
 }
 
-void SupplierManager::printSupplier(int index) {
-    _supplier = _supplier_archive.read(index);
+void SuppliersManager::printSupplier(int index) {
+    _supplier = _suppliers_archive.read(index);
     _terminal.displayMenuHeader(_supplier.getDescription());
     std::cout << "# ID: " << _supplier.getId() << "\n";
     std::cout << "CUIL/CUIT: " << _supplier.getLegalId() << "\n";
@@ -212,7 +212,7 @@ void SupplierManager::printSupplier(int index) {
     _terminal.printBool(_supplier.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
-void SupplierManager::cinSupplierDescription(Supplier & supplier) {
+void SuppliersManager::cinSupplierDescription(Supplier & supplier) {
     std::string description;
     std::cout << "Ingresar nombre del proveedor:\n";
     std::cin.ignore();
@@ -220,14 +220,14 @@ void SupplierManager::cinSupplierDescription(Supplier & supplier) {
     supplier.setDescription(description);
 }
 
-void SupplierManager::cinSupplierLegalId(Supplier & supplier) {
+void SuppliersManager::cinSupplierLegalId(Supplier & supplier) {
     long long int legal_id;
     std::cout << "Ingresar CUIL o CUIT:\n";
     legal_id = _terminal.validateLongInt(1);
     supplier.setLegalId(legal_id);
 }
 
-void SupplierManager::cinSupplierAdress(Supplier & supplier) {
+void SuppliersManager::cinSupplierAdress(Supplier & supplier) {
     Adress adress;
 
     std::string country;
@@ -271,14 +271,14 @@ void SupplierManager::cinSupplierAdress(Supplier & supplier) {
     supplier.setAdress(adress);
 }
 
-void SupplierManager::cinSupplierPhone(Supplier & supplier) {
+void SuppliersManager::cinSupplierPhone(Supplier & supplier) {
     int phone;
     std::cout << "Ingresar teléfono o celular:\n";
     phone = _terminal.validateInt(0);
     supplier.setPhone(phone);
 }
 
-void SupplierManager::cinSupplierEmail(Supplier & supplier) {
+void SuppliersManager::cinSupplierEmail(Supplier & supplier) {
     std::string email;
     std::cout << "Ingresar e-mail:\n";
     std::cin.ignore();
@@ -286,7 +286,7 @@ void SupplierManager::cinSupplierEmail(Supplier & supplier) {
     supplier.setEmail(email);
 }
 
-void SupplierManager::cinSupplierIsActive(Supplier & supplier) {
+void SuppliersManager::cinSupplierIsActive(Supplier & supplier) {
     if (supplier.getIsActive()) {
         supplier.setIsActive(false);
         std::cout << "El proveedor ha sido dado de baja.\n";
@@ -298,35 +298,35 @@ void SupplierManager::cinSupplierIsActive(Supplier & supplier) {
     }
 }
 
-void SupplierManager::cinSupplierBankAccount(Supplier & supplier) {
+void SuppliersManager::cinSupplierBankAccount(Supplier & supplier) {
     int bank_account;
     std::cout << "Ingresar cuenta bancaria:\n";
     bank_account = _terminal.validateInt(0);
     supplier.setBankAccount(bank_account);
 }
 
-int SupplierManager::generateSupplierId() {
+int SuppliersManager::generateSupplierId() {
     int id = 1;
 
-    if(_supplier_archive.getAmountOfRegisters() != 0) {
-        id = _supplier_archive.getAmountOfRegisters() + 1;
+    if(_suppliers_archive.getAmountOfRegisters() != 0) {
+        id = _suppliers_archive.getAmountOfRegisters() + 1;
     }
 
     return id;
 }
 
-void SupplierManager::searchSupplierById() {
+void SuppliersManager::searchSupplierById() {
     int index;
     int id;
     int max_id;
 
-    max_id = _supplier_archive.getAmountOfRegisters();
+    max_id = _suppliers_archive.getAmountOfRegisters();
 
     std::cout << "Ingresar ID o 0 para cancelar:\n";
     id = _terminal.validateInt(0, max_id);
 
     if (0 < id) {
-        index = _supplier_archive.getIndex(id);
+        index = _suppliers_archive.getIndex(id);
         printSupplier(index);
     } else {
         _supplier.setId(-1);
@@ -336,7 +336,7 @@ void SupplierManager::searchSupplierById() {
     _terminal.pause();
 }
 
-void SupplierManager::searchSupplierByDescription() {
+void SuppliersManager::searchSupplierByDescription() {
     int index;
     std::string description;
 
@@ -344,7 +344,7 @@ void SupplierManager::searchSupplierByDescription() {
     std::cin.ignore();
     getline(std::cin, description);
 
-    index = _supplier_archive.getIndex(description);
+    index = _suppliers_archive.getIndex(description);
 
     while (index == -1) {
         std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
@@ -353,7 +353,7 @@ void SupplierManager::searchSupplierByDescription() {
         if (description == "0") {
             index = -2;
         } else {
-            index = _supplier_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+            index = _suppliers_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
         }
     }
 
@@ -367,8 +367,8 @@ void SupplierManager::searchSupplierByDescription() {
     _terminal.pause();
 }
 
-void SupplierManager::exportSuppliersBackup() {
-    int amount_of_suppliers = _supplier_archive.getAmountOfRegisters();
+void SuppliersManager::exportSuppliersBackup() {
+    int amount_of_suppliers = _suppliers_archive.getAmountOfRegisters();
 
     Supplier * suppliers_array = new Supplier[amount_of_suppliers];
 
@@ -376,13 +376,13 @@ void SupplierManager::exportSuppliersBackup() {
         std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al exportar backup.";
     } else {
         for (int i = 0; i < amount_of_suppliers; i ++) {
-            suppliers_array[i] = _supplier_archive.read(i);
+            suppliers_array[i] = _suppliers_archive.read(i);
         }
 
-        _supplier_backup.createEmptySupplierArchive();
+        _suppliers_backup.createEmptySuppliersArchive();
 
         for (int i = 0; i < amount_of_suppliers; i ++) {
-            _supplier_backup.write(suppliers_array[i]);
+            _suppliers_backup.write(suppliers_array[i]);
         }
 
         delete [] suppliers_array;
@@ -392,13 +392,13 @@ void SupplierManager::exportSuppliersBackup() {
     }
 }
 
-void SupplierManager::importSuppliersBackup() {
+void SuppliersManager::importSuppliersBackup() {
     std::cout << "¿Desea reemplazar los supplieres actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        int amount_of_suppliers = _supplier_backup.getAmountOfRegisters();
+        int amount_of_suppliers = _suppliers_backup.getAmountOfRegisters();
 
         Supplier * suppliers_array = new Supplier[amount_of_suppliers];
 
@@ -406,13 +406,13 @@ void SupplierManager::importSuppliersBackup() {
             std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al importar backup.";
         } else {
             for (int i = 0; i < amount_of_suppliers; i ++) {
-                suppliers_array[i] = _supplier_backup.read(i);
+                suppliers_array[i] = _suppliers_backup.read(i);
             }
 
-            _supplier_archive.createEmptySupplierArchive();
+            _suppliers_archive.createEmptySuppliersArchive();
 
             for (int i = 0; i < amount_of_suppliers; i ++) {
-                _supplier_archive.write(suppliers_array[i]);
+                _suppliers_archive.write(suppliers_array[i]);
             }
 
             delete [] suppliers_array;
@@ -422,16 +422,16 @@ void SupplierManager::importSuppliersBackup() {
     }
 }
 
-void SupplierManager::exportSuppliersCSV() {
-    _supplier_csv.writeSuppliersCSV(_supplier, _supplier_archive);
+void SuppliersManager::exportSuppliersCSV() {
+    _suppliers_csv.writeSuppliersCSV(_supplier, _suppliers_archive);
 }
  
-void SupplierManager::importSuppliersCSV() {
+void SuppliersManager::importSuppliersCSV() {
     std::cout << "¿Desea reemplazar los supplieres actuales por aquellos que haya en el archivo CSV? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        _supplier_csv.readSuppliersCSV(_supplier, _supplier_archive);
+        _suppliers_csv.readSuppliersCSV(_supplier, _suppliers_archive);
     }
 }

@@ -1,32 +1,32 @@
-#include "../headers/ItemCSV.h"
+#include "../headers/ItemsCSV.h"
 
-ItemCSV::ItemCSV() : _path("registers/Items.csv"), _delimiter(',') {
+ItemsCSV::ItemsCSV() : _path("registers/Items.csv"), _delimiter(',') {
     setPath("registers/products.csv");
     setDelimiter(',');
 }
 
-ItemCSV::ItemCSV(std::string path, char delimiter) : _path(path), _delimiter(delimiter) {
+ItemsCSV::ItemsCSV(std::string path, char delimiter) : _path(path), _delimiter(delimiter) {
     setPath(path);
     setDelimiter(delimiter);
 }
 
-void ItemCSV::setPath(std::string path) {
+void ItemsCSV::setPath(std::string path) {
     _path = path;
 }
 
-std::string ItemCSV::getPath() const {
+std::string ItemsCSV::getPath() const {
     return _path;
 }
 
-void ItemCSV::setDelimiter(char delimiter) {
+void ItemsCSV::setDelimiter(char delimiter) {
     _delimiter = delimiter;
 }
 
-char ItemCSV::getDelimiter() {
+char ItemsCSV::getDelimiter() {
     return _delimiter;
 }
 
-void ItemCSV::writeItemsCSV(Item & item, ItemArchive & item_archive) {
+void ItemsCSV::writeItemsCSV(Item & item, ItemsArchive & item_archive) {
       std::ofstream file(getPath());
 
     if (file.is_open() == false) {
@@ -46,7 +46,7 @@ void ItemCSV::writeItemsCSV(Item & item, ItemArchive & item_archive) {
     }
 }
 
-void ItemCSV::readItemsCSV(Item & item, ItemArchive & item_archive) {
+void ItemsCSV::readItemsCSV(Item & item, ItemsArchive & item_archive) {
     std::ifstream file(getPath());
 
     if (!file.is_open()) {
@@ -54,7 +54,7 @@ void ItemCSV::readItemsCSV(Item & item, ItemArchive & item_archive) {
         return;
     }
 
-    item_archive.createEmptyItemArchive();
+    item_archive.createEmptyItemsArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];

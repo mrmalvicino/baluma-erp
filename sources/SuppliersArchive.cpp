@@ -1,23 +1,23 @@
 #include <iostream>
-#include "../headers/SupplierArchive.h"
+#include "../headers/SuppliersArchive.h"
 
-SupplierArchive::SupplierArchive() {
+SuppliersArchive::SuppliersArchive() {
     setPath("registers/suppliers.dat");
 }
 
-SupplierArchive::SupplierArchive(std::string path) {
+SuppliersArchive::SuppliersArchive(std::string path) {
     setPath(path);
 }
 
-void SupplierArchive::setPath(std::string path) {
+void SuppliersArchive::setPath(std::string path) {
     _path = path;
 }
 
-std::string SupplierArchive::getPath() {
+std::string SuppliersArchive::getPath() {
     return _path;
 }
 
-bool SupplierArchive::write(Supplier & reg) {
+bool SuppliersArchive::write(Supplier & reg) {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
 
     if (file_pointer == NULL) {
@@ -31,7 +31,7 @@ bool SupplierArchive::write(Supplier & reg) {
     return successful_write;
 }
 
-bool SupplierArchive::overWrite(Supplier & reg, int index) {
+bool SuppliersArchive::overWrite(Supplier & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
 
     if (file_pointer == NULL) {
@@ -46,7 +46,7 @@ bool SupplierArchive::overWrite(Supplier & reg, int index) {
     return successful_write;
 }
 
-Supplier SupplierArchive::read(int index) {
+Supplier SuppliersArchive::read(int index) {
     Supplier reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
@@ -62,7 +62,7 @@ Supplier SupplierArchive::read(int index) {
     return reg;
 }
 
-int SupplierArchive::getIndex(int id) {
+int SuppliersArchive::getIndex(int id) {
     int i = 0;
     Supplier reg;
     reg = read(i);
@@ -75,7 +75,7 @@ int SupplierArchive::getIndex(int id) {
     return i;
 }
 
-int SupplierArchive::getIndex(std::string & description) {
+int SuppliersArchive::getIndex(std::string & description) {
     int i = 0;
     Supplier reg;
     reg = read(i);
@@ -92,7 +92,7 @@ int SupplierArchive::getIndex(std::string & description) {
     return i;
 }
 
-int SupplierArchive::getAmountOfRegisters() {
+int SuppliersArchive::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
@@ -108,7 +108,7 @@ int SupplierArchive::getAmountOfRegisters() {
     return total_suppliers;
 }
 
-void SupplierArchive::createEmptySupplierArchive() {
+void SuppliersArchive::createEmptySuppliersArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {
