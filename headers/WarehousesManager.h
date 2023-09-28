@@ -16,8 +16,8 @@ class WarehousesManager {
     void printWarehouse(int index);
     void cinWarehouseName(Warehouse & warehouse);
     void cinWarehouseAdress(Warehouse & warehouse);
-    void cinWarehousePath(Warehouse & warehouse);
     void cinWarehouseIsActive(Warehouse & warehouse);
+    void generateWarehousePath(Warehouse & warehouse);
     int generateWarehouseId();
     void searchWarehouseById();
     void searchWarehouseByName();

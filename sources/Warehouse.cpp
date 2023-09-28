@@ -14,20 +14,20 @@ int Warehouse::getId() const {
     return _id;
 }
 
-void Warehouse::setAdress(const Adress & adress) {
-    _adress = adress;
-}
-
-Adress Warehouse::getAdress() const {
-    return _adress;
-}
-
 void Warehouse::setName(std::string & name) {
     strcpy(_name, name.c_str());
 }
 
 std::string Warehouse::getName() const {
     return _name;
+}
+
+void Warehouse::setAdress(const Adress & adress) {
+    _adress = adress;
+}
+
+Adress Warehouse::getAdress() const {
+    return _adress;
 }
 
 void Warehouse::setPath(const std::string & path) {

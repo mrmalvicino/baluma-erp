@@ -66,8 +66,9 @@ bool WarehousesManager::addWarehouse() {
 
     cinWarehouseName(_warehouse);
     cinWarehouseAdress(_warehouse);
-    cinWarehousePath(_warehouse);
-    
+
+    generateWarehousePath(_warehouse);
+
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
 
@@ -115,7 +116,6 @@ bool WarehousesManager::editWarehouse() {
         switch (selection) {
             case 1:
                 cinWarehouseName(_warehouse);
-                cinWarehousePath(_warehouse);
                 break;
             case 2:
                 cinWarehouseAdress(_warehouse);
@@ -238,12 +238,6 @@ void WarehousesManager::cinWarehouseAdress(Warehouse & warehouse) {
     warehouse.setAdress(adress);
 }
 
-void WarehousesManager::cinWarehousePath(Warehouse & warehouse) {
-    std::string path;
-    path = "registers/deposito-" + _terminal.lowerCase(warehouse.getName()) + ".dat";
-    warehouse.setPath(path);
-}
-
 void WarehousesManager::cinWarehouseIsActive(Warehouse & warehouse) {
     if (warehouse.getIsActive()) {
         warehouse.setIsActive(false);
@@ -254,6 +248,12 @@ void WarehousesManager::cinWarehouseIsActive(Warehouse & warehouse) {
         std::cout << "El cliente ha sido reincorporado.\n";
         _terminal.pause();
     }
+}
+
+void WarehousesManager::generateWarehousePath(Warehouse & warehouse) {
+    std::string path;
+    path = "registers/deposito-" + _terminal.lowerCase(warehouse.getName()) + ".dat";
+    warehouse.setPath(path);
 }
 
 int WarehousesManager::generateWarehouseId() {
