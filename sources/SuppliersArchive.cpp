@@ -108,7 +108,7 @@ int SuppliersArchive::getAmountOfRegisters() {
     return total_suppliers;
 }
 
-void SuppliersArchive::createEmptySuppliersArchive() {
+void SuppliersArchive::createEmptyArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {

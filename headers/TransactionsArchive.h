@@ -15,7 +15,7 @@ class TransactionsArchive {
         int getIndex(int id);
         int getIndex(std::string & description);
         int getAmountOfRegisters();
-        void createEmptyTransactionsArchive();
+        void createEmptyArchive();
 
     private:
         std::string _path;

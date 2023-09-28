@@ -86,7 +86,7 @@ class ClientsArchive {
      * @brief Creates an empty client archive file.
      * @warning The method does not check if the file already exists; it will create a new empty file or overwrite an existing one.
      */
-    void createEmptyClientsArchive();
+    void createEmptyArchive();
 
     private:
 

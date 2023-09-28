@@ -151,6 +151,13 @@ class Terminal {
      */
     void cleanBuffer();
 
+    /**
+     * @brief Takes an input string and returns a new string where all characters have been converted to lowercase.
+     * @param input (std::string) The input string to be converted to lowercase.
+     * @return (std::string) A new string with all characters converted to lowercase.
+     */
+    std::string lowerCase(const std::string & input);
+
     private:
 
     /**

@@ -54,7 +54,7 @@ void ClientsCSV::readClientsCSV(Client & client, ClientsArchive & client_archive
         return;
     }
 
-    client_archive.createEmptyClientsArchive();
+    client_archive.createEmptyArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];

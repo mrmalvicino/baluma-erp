@@ -85,7 +85,7 @@ class SuppliersArchive {
      * @brief Creates an empty supplier archive file.
      * @warning The method does not check if the file already exists; it will create a new empty file or overwrite an existing one.
      */
-    void createEmptySuppliersArchive();
+    void createEmptyArchive();
 
     private:
 

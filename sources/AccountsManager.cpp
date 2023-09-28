@@ -298,7 +298,7 @@ void AccountsManager::exportAccountsBackup() {
             Accounts_array[i] = _Account_archive.read(i);
         }
 
-        _Account_backup.createEmptyAccountsArchive();
+        _Account_backup.createEmptyArchive();
 
         for (int i = 0; i < amount_of_Accounts; i ++) {
             _Account_backup.write(Accounts_array[i]);
@@ -328,7 +328,7 @@ void AccountsManager::importAccountsBackup() {
                 Accounts_array[i] = _Account_backup.read(i);
             }
 
-            _Account_archive.createEmptyAccountsArchive();
+            _Account_archive.createEmptyArchive();
 
             for (int i = 0; i < amount_of_Accounts; i ++) {
                 _Account_archive.write(Accounts_array[i]);

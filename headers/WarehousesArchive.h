@@ -4,29 +4,30 @@
 class WarehousesArchive
 {
     public:
-        WarehousesArchive();
 
-        WarehousesArchive(const std::string &path);
+    WarehousesArchive();
 
-        void setPath(const std::string &path);
+    WarehousesArchive(const std::string &path);
 
-        std::string getPath() const;
+    void setPath(const std::string &path);
 
-        bool write(Warehouse &reg);
+    std::string getPath() const;
 
-        bool overWrite(Warehouse &reg, int index);
+    bool write(Warehouse &reg);
 
-        Warehouse read(int index);
+    bool overWrite(Warehouse &reg, int index);
 
-        int getIndex(int id);
+    Warehouse read(int index);
 
-        int getIndex(std::string &name);
+    int getIndex(int id);
 
-        int getAmountOfRegisters();
+    int getIndex(std::string &name);
 
-        void createEmptyClientsArchive();
+    int getAmountOfRegisters();
+
+    void createEmptyArchive();
 
     private:
-        std::string _path;
 
+    std::string _path;
 };

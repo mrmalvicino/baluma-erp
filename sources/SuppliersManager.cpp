@@ -379,7 +379,7 @@ void SuppliersManager::exportSuppliersBackup() {
             suppliers_array[i] = _suppliers_archive.read(i);
         }
 
-        _suppliers_backup.createEmptySuppliersArchive();
+        _suppliers_backup.createEmptyArchive();
 
         for (int i = 0; i < amount_of_suppliers; i ++) {
             _suppliers_backup.write(suppliers_array[i]);
@@ -409,7 +409,7 @@ void SuppliersManager::importSuppliersBackup() {
                 suppliers_array[i] = _suppliers_backup.read(i);
             }
 
-            _suppliers_archive.createEmptySuppliersArchive();
+            _suppliers_archive.createEmptyArchive();
 
             for (int i = 0; i < amount_of_suppliers; i ++) {
                 _suppliers_archive.write(suppliers_array[i]);

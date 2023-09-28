@@ -411,7 +411,7 @@ void ItemsManager::exportItemsBackup() {
             items_array[i] = _items_archive.read(i);
         }
 
-        _items_backup.createEmptyItemsArchive();
+        _items_backup.createEmptyArchive();
 
         for (int i = 0; i < amount_of_items; i ++) {
             _items_backup.write(items_array[i]);
@@ -441,7 +441,7 @@ void ItemsManager::importItemsBackup() {
                 items_array[i] = _items_backup.read(i);
             }
 
-            _items_archive.createEmptyItemsArchive();
+            _items_archive.createEmptyArchive();
 
             for (int i = 0; i < amount_of_items; i ++) {
                 _items_archive.write(items_array[i]);

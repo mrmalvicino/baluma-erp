@@ -102,7 +102,7 @@ int TransactionsArchive::getIndex(std::string & description) {
             return i;
 }
 
-void TransactionsArchive::createEmptyTransactionsArchive() {
+void TransactionsArchive::createEmptyArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
         if (file_pointer == NULL) {
                 std::cerr << "Error: No se pudo abrir el archivo.\n";

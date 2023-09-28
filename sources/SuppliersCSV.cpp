@@ -54,7 +54,7 @@ void SuppliersCSV::readSuppliersCSV(Supplier & supplier, SuppliersArchive & supp
         return;
     }
 
-    supplier_archive.createEmptySuppliersArchive();
+    supplier_archive.createEmptyArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];

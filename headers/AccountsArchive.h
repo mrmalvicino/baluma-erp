@@ -15,7 +15,7 @@ class AccountsArchive {
         int getIndex(int id);
         int getIndex(std::string & name);
         int getAmountOfRegisters();
-        void createEmptyAccountsArchive();
+        void createEmptyArchive();
 
     private:
         std::string _path;

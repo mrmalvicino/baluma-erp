@@ -379,7 +379,7 @@ void ClientsManager::exportClientsBackup() {
             clients_array[i] = _clients_archive.read(i);
         }
 
-        _clients_backup.createEmptyClientsArchive();
+        _clients_backup.createEmptyArchive();
 
         for (int i = 0; i < amount_of_clients; i ++) {
             _clients_backup.write(clients_array[i]);
@@ -409,7 +409,7 @@ void ClientsManager::importClientsBackup() {
                 clients_array[i] = _clients_backup.read(i);
             }
 
-            _clients_archive.createEmptyClientsArchive();
+            _clients_archive.createEmptyArchive();
 
             for (int i = 0; i < amount_of_clients; i ++) {
                 _clients_archive.write(clients_array[i]);

@@ -1,11 +1,10 @@
 #include "../headers/WarehousesManager.h"
 
-WarehousesManager::WarehousesManager()
-{
+WarehousesManager::WarehousesManager() {
     _warehouses_archive.setPath("registers/warehouse.dat");
 }
-void WarehousesManager::displayMenu()
-{
+
+void WarehousesManager::displayMenu() {
     int selection = 1;
 
     do {
@@ -56,8 +55,7 @@ void WarehousesManager::displayMenu()
     } while (selection != 0);
 }
 
-bool WarehousesManager::addWarehouse()
-{
+bool WarehousesManager::addWarehouse() {
     bool successful_write;
     bool user_wants_to_save;
 
@@ -73,18 +71,15 @@ bool WarehousesManager::addWarehouse()
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
 
-    if(user_wants_to_save == true)
-    {
+    if (user_wants_to_save == true) {
         successful_write = _warehouses_archive.write(_warehouse);
-        if(successful_write == true)
-        {
+
+        if(successful_write == true) {
             std::cout << "Registro guardado correctamente.\n";
-        }else 
-        {
+        } else {
             std::cout << "Error de escritura.\n";
         }
-    } else
-    {
+    } else {
         successful_write = false;
         std::cout << "Registro descartado por usuario.\n";
     }
@@ -95,8 +90,7 @@ bool WarehousesManager::addWarehouse()
     return successful_write;
 }
 
-bool WarehousesManager::editWarehouse()
-{
+bool WarehousesManager::editWarehouse() {
      _terminal.clear();
 
     searchWarehouse();
@@ -135,9 +129,8 @@ bool WarehousesManager::editWarehouse()
     return successful_write;
 }
 
-void WarehousesManager::searchWarehouse()
-{
-        _terminal.clear();
+void WarehousesManager::searchWarehouse() {
+    _terminal.clear();
 
     int selection = 1;
 
@@ -159,11 +152,9 @@ void WarehousesManager::searchWarehouse()
             searchWarehouseByName();
             break;
     }
-
 }
 
-void WarehousesManager::listWarehouse()
-{
+void WarehousesManager::listWarehouse() {
      _terminal.clear();
 
     int amount_of_clients = _warehouses_archive.getAmountOfRegisters();
@@ -178,8 +169,7 @@ void WarehousesManager::listWarehouse()
     _terminal.clear();
 }
 
-void WarehousesManager::printWarehouse(int index)
-{
+void WarehousesManager::printWarehouse(int index) {
     _warehouse = _warehouses_archive.read(index);
     _terminal.displayMenuHeader(_warehouse.getName());
 
@@ -195,20 +185,7 @@ void WarehousesManager::printWarehouse(int index)
     _terminal.printBool(_warehouse.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
-int WarehousesManager::generateWarehouseId()
-{
-    int id = 1;
-
-    if(_warehouses_archive.getAmountOfRegisters() != 0)
-    {
-        id = _warehouses_archive.getAmountOfRegisters() + 1;
-    }
-
-    return id;
-}
-
-void WarehousesManager::cinWarehouseName(Warehouse & warehouse)
-{
+void WarehousesManager::cinWarehouseName(Warehouse & warehouse) {
     std::string name;
     
     std::cout << "Ingrese nombre del deposito:\n";
@@ -218,8 +195,7 @@ void WarehousesManager::cinWarehouseName(Warehouse & warehouse)
     warehouse.setName(name);
 }
 
-void WarehousesManager::cinWarehouseAdress(Warehouse & warehouse)
-{
+void WarehousesManager::cinWarehouseAdress(Warehouse & warehouse) {
      Adress adress;
 
     std::string country;
@@ -262,17 +238,13 @@ void WarehousesManager::cinWarehouseAdress(Warehouse & warehouse)
     warehouse.setAdress(adress);
 }
 
-void WarehousesManager::cinWarehousePath(Warehouse & warehouse)
-{
+void WarehousesManager::cinWarehousePath(Warehouse & warehouse) {
     std::string path;
-
-    path = "registers/deposito-" + warehouse.getName() + ".dat";
-
+    path = "registers/deposito-" + _terminal.lowerCase(warehouse.getName()) + ".dat";
     warehouse.setPath(path);
 }
 
-void WarehousesManager::cinWarehouseIsActive(Warehouse &warehouse)
-{
+void WarehousesManager::cinWarehouseIsActive(Warehouse & warehouse) {
     if (warehouse.getIsActive()) {
         warehouse.setIsActive(false);
         std::cout << "El cliente ha sido dado de baja.\n";
@@ -284,8 +256,17 @@ void WarehousesManager::cinWarehouseIsActive(Warehouse &warehouse)
     }
 }
 
-void WarehousesManager::searchWarehouseById()
-{
+int WarehousesManager::generateWarehouseId() {
+    int id = 1;
+
+    if (_warehouses_archive.getAmountOfRegisters() != 0) {
+        id = _warehouses_archive.getAmountOfRegisters() + 1;
+    }
+
+    return id;
+}
+
+void WarehousesManager::searchWarehouseById() {
     int index;
     int id;
     int max_id;
@@ -295,12 +276,10 @@ void WarehousesManager::searchWarehouseById()
     std::cout << "Ingresar ID o 0 para cancelar:\n";
     id = _terminal.validateInt(0, max_id);
 
-    if(0 < id)
-    {
+    if (0 < id) {
         index = _warehouses_archive.getIndex(id);
         printWarehouse(index);
-    }else 
-    {
+    } else {
         _warehouse.setId(-1);
         std::cout << "Búsqueda abordata por el usuario.\n";
     }
@@ -308,8 +287,7 @@ void WarehousesManager::searchWarehouseById()
     _terminal.pause();
 }
 
-void WarehousesManager::searchWarehouseByName()
-{
+void WarehousesManager::searchWarehouseByName() {
     int index;
     std::string name;
 
@@ -340,8 +318,7 @@ void WarehousesManager::searchWarehouseByName()
     _terminal.pause();
 }
 
-void WarehousesManager::exportWarehouseBackup()
-{
+void WarehousesManager::exportWarehouseBackup() {
     int amount_of_warehouse = _warehouses_archive.getAmountOfRegisters();
 
     Warehouse * warehouse_array = new Warehouse[amount_of_warehouse];
@@ -353,7 +330,7 @@ void WarehousesManager::exportWarehouseBackup()
             warehouse_array[i] = _warehouses_archive.read(i);
         }
 
-        _warehouses_backup.createEmptyClientsArchive();
+        _warehouses_backup.createEmptyArchive();
 
         for (int i = 0; i < amount_of_warehouse; i ++) {
             _warehouses_backup.write(warehouse_array[i]);
@@ -366,8 +343,7 @@ void WarehousesManager::exportWarehouseBackup()
     }
 }
 
-void WarehousesManager::importWarehouseBackup()
-{
+void WarehousesManager::importWarehouseBackup() {
     std::cout << "¿Desea reemplazar los clientes actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
@@ -384,7 +360,7 @@ void WarehousesManager::importWarehouseBackup()
                 warehouse_array[i] = _warehouses_backup.read(i);
             }
 
-            _warehouses_archive.createEmptyClientsArchive();
+            _warehouses_archive.createEmptyArchive();
 
             for (int i = 0; i < amount_of_clients; i ++) {
                 _warehouses_archive.write(warehouse_array[i]);

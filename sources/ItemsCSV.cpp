@@ -54,7 +54,7 @@ void ItemsCSV::readItemsCSV(Item & item, ItemsArchive & item_archive) {
         return;
     }
 
-    item_archive.createEmptyItemsArchive();
+    item_archive.createEmptyArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];

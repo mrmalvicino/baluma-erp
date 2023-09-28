@@ -107,7 +107,7 @@ int ItemsArchive::getAmountOfRegisters() {
     return total_items;
 }
 
-void ItemsArchive::createEmptyItemsArchive() {
+void ItemsArchive::createEmptyArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {

@@ -118,7 +118,7 @@
     return i;
     }
 
-void AccountsArchive::createEmptyAccountsArchive() {
+void AccountsArchive::createEmptyArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {

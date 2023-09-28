@@ -107,7 +107,7 @@ int ClientsArchive::getAmountOfRegisters() {
     return total_clients;
 }
 
-void ClientsArchive::createEmptyClientsArchive() {
+void ClientsArchive::createEmptyArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {
