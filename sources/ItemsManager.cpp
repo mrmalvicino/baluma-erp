@@ -131,7 +131,7 @@ bool ItemsManager::addItem() {
     user_wants_to_save = _terminal.validateBool();
 
     if (user_wants_to_save == true) {
-        _item.setId(generateItemId(_item));
+        _item.setId(generateItemId());
 
         successful_write = _items_archive.write(_item);
 
@@ -353,21 +353,19 @@ void ItemsManager::cinItemIsActive(Item & item) {
     }
 }
 
-int ItemsManager::generateItemId(Item & item) {
-    // busca si el item existe en lista de producto y en tal caso devuelve el id. caso contrario genera id nuevo.
+int ItemsManager::generateItemId() {
+    // PROBLEMA ACA busca si el item existe en lista de producto y en tal caso devuelve el id. caso contrario genera id nuevo.
     int id = 1;
 
-    if (productIndex(item) != -1) {
-        _product = _products_list.read(productIndex(item));
+    if (productIndex(_item) != -1) {
+        _product = _products_list.read(productIndex(_item));
         id = _product.getId();
     } else {
         if(_products_list.getAmountOfRegisters() != 0) {
             id = _products_list.getAmountOfRegisters() + 1;
         }
 
-        _product = item;
-
-        bool successful_write = _products_list.write(_product);
+        bool successful_write = _products_list.write(_item);
 
         if (successful_write == true) {
             std::cout << "Creando registro...\n";

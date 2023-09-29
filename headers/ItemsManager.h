@@ -27,7 +27,7 @@ class ItemsManager {
     void cinItemStock(Item & item);
     void cinItemIncome(Item & item);
     void cinItemIsActive(Item & item);
-    int generateItemId(Item & item);
+    int generateItemId();
     void searchItemById();
     void searchItemByDescription();
     void exportItemsBackup();
