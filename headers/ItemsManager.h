@@ -35,6 +35,9 @@ class ItemsManager {
     void exportItemsCSV();
     void importItemsCSV();
     int productIndex(Item & item);
+    void listProducts();
+    void printProduct(int index);
+    void exportProductsCSV();
 
     private:
 

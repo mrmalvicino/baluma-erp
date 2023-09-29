@@ -82,8 +82,12 @@ int WarehousesArchive::getIndex(std::string & name) {
     reg = read(i);
 
     while (reg.getName() != name && i < getAmountOfRegisters()) {
-        i++;
+        i ++;
         reg = read(i);
+    }
+
+    if (i == getAmountOfRegisters()) {
+        i = -1;
     }
 
     return i;

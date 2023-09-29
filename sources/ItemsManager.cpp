@@ -27,11 +27,11 @@ void ItemsManager::displayMainMenu() {
                 selectWarehouse();
                 break;
             case 3:
-                
+                listProducts();
                 break;
 
             case 4:
-                
+                exportProductsCSV();
                 break;
         }
     } while (selection != 0);
@@ -41,9 +41,9 @@ void ItemsManager::selectWarehouse() {
     _warehouses_manager.searchWarehouse();
 
     if (_warehouses_manager.getWarehouse().getName() != "N/A") {
-        std::string dat_path = std::to_string(_warehouses_manager.getWarehouse().getId()) + ".dat";
-        std::string bkp_path = std::to_string(_warehouses_manager.getWarehouse().getId()) + ".bkp";
-        std::string csv_path = std::to_string(_warehouses_manager.getWarehouse().getId()) + ".csv";
+        std::string dat_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".dat";
+        std::string bkp_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".bkp";
+        std::string csv_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".csv";
         _items_archive.setPath(dat_path);
         _items_backup.setPath(bkp_path);
         _items_csv.setPath(csv_path);
@@ -243,7 +243,7 @@ void ItemsManager::listItems() {
 
     int amount_of_items = _items_archive.getAmountOfRegisters();
 
-    _terminal.displayMenuHeader("LISTADO DE PRODUCTOS");
+    _terminal.displayMenuHeader("PRODUCTOS EN DEPÓSITO");
 
     for (int i = 0; i < amount_of_items; i ++) {
         printItem(i);
@@ -515,4 +515,32 @@ int ItemsManager::productIndex(Item & item) {
     }
 
     return index;
+}
+
+void ItemsManager::listProducts() {
+    _terminal.clear();
+
+    int amount_of_products = _products_list.getAmountOfRegisters();
+
+    _terminal.displayMenuHeader("LISTADO DE PRODUCTOS");
+
+    for (int i = 0; i < amount_of_products; i ++) {
+        printProduct(i);
+    }
+
+    _terminal.pause();
+    _terminal.clear();
+}
+
+void ItemsManager::printProduct(int index) {
+    _product = _products_list.read(index);
+    _terminal.displayMenuHeader(_product.getName());
+    std::cout << "# ID: " << _product.getId() << "\n";
+    std::cout << "Marca: " << _product.getBrand() << "\n";
+    std::cout << "Modelo: " << _product.getModel() << "\n";
+}
+
+void ItemsManager::exportProductsCSV() {
+    std::cout << "paRAhaa..\n"; // TO DO
+    _terminal.pause();
 }

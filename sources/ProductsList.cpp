@@ -50,7 +50,6 @@ Product ProductsList::read(int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
-        std::cerr << "Error: No se pudo abrir el archivo.\n";
         return reg;
     }
 
@@ -69,6 +68,10 @@ int ProductsList::getIndex(int id) {
     while (reg.getId() != id && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
+    }
+
+    if (i == getAmountOfRegisters()) {
+        i = -1;
     }
 
     return i;
@@ -95,7 +98,6 @@ int ProductsList::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
-        std::cerr << "Error: No se pudo abrir el archivo.\n";
         return 0;
     }
 
