@@ -13,6 +13,7 @@ class WarehousesManager {
     bool editWarehouse();
     void searchWarehouse();
     void listWarehouse();
+    void printWarehouse();
     void printWarehouse(int index);
     void cinWarehouseName(Warehouse & warehouse);
     void cinWarehouseAdress(Warehouse & warehouse);

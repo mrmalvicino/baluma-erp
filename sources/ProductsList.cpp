@@ -1,23 +1,22 @@
-#include <iostream>
-#include "../headers/SuppliersArchive.h"
+#include "../headers/ProductsList.h"
 
-SuppliersArchive::SuppliersArchive() {
-    setPath("registers/suppliers.dat");
+ProductsList::ProductsList() {
+    setPath("registers/products.dat");
 }
 
-SuppliersArchive::SuppliersArchive(std::string path) {
+ProductsList::ProductsList(const std::string & path) {
     setPath(path);
 }
 
-void SuppliersArchive::setPath(std::string path) {
+void ProductsList::setPath(const std::string & path) {
     _path = path;
 }
 
-std::string SuppliersArchive::getPath() {
+std::string ProductsList::getPath() {
     return _path;
 }
 
-bool SuppliersArchive::write(Supplier & reg) {
+bool ProductsList::write(Product & reg) {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
 
     if (file_pointer == NULL) {
@@ -25,13 +24,13 @@ bool SuppliersArchive::write(Supplier & reg) {
         return 0;
     }
 
-    bool successful_write = fwrite(& reg, sizeof(Supplier), 1, file_pointer);
+    bool successful_write = fwrite(& reg, sizeof(Product), 1, file_pointer);
     fclose(file_pointer);
 
     return successful_write;
 }
 
-bool SuppliersArchive::overWrite(Supplier & reg, int index) {
+bool ProductsList::overWrite(Product & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
 
     if (file_pointer == NULL) {
@@ -39,15 +38,15 @@ bool SuppliersArchive::overWrite(Supplier & reg, int index) {
         return 0;
     }
 
-    fseek(file_pointer, sizeof(Supplier) * index, 0);
-    bool successful_write = fwrite(& reg, sizeof(Supplier), 1, file_pointer);
+    fseek(file_pointer, sizeof(Product) * index, 0);
+    bool successful_write = fwrite(& reg, sizeof(Product), 1, file_pointer);
     fclose(file_pointer);
 
     return successful_write;
 }
 
-Supplier SuppliersArchive::read(int index) {
-    Supplier reg;
+Product ProductsList::read(int index) {
+    Product reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
@@ -55,16 +54,16 @@ Supplier SuppliersArchive::read(int index) {
         return reg;
     }
 
-    fseek(file_pointer, sizeof(Supplier) * index, 0);
-    fread(& reg, sizeof(Supplier), 1, file_pointer);
+    fseek(file_pointer, sizeof(Product) * index, 0);
+    fread(& reg, sizeof(Product), 1, file_pointer);
     fclose(file_pointer);
 
     return reg;
 }
 
-int SuppliersArchive::getIndex(int id) {
-    int i = 0;
-    Supplier reg;
+int ProductsList::getIndex(int id) {
+     int i = 0;
+    Product reg;
     reg = read(i);
 
     while (reg.getId() != id && i < getAmountOfRegisters()) {
@@ -75,12 +74,12 @@ int SuppliersArchive::getIndex(int id) {
     return i;
 }
 
-int SuppliersArchive::getIndex(std::string & description) {
+int ProductsList::getIndex(std::string & name) {
     int i = 0;
-    Supplier reg;
+    Product reg;
     reg = read(i);
 
-    while (reg.getDescription() != description && i < getAmountOfRegisters()) {
+    while (reg.getName() != name && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
     }
@@ -92,22 +91,23 @@ int SuppliersArchive::getIndex(std::string & description) {
     return i;
 }
 
-int SuppliersArchive::getAmountOfRegisters() {
+int ProductsList::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
+        std::cerr << "Error: No se pudo abrir el archivo.\n";
         return 0;
     }
 
     fseek(file_pointer, 0, SEEK_END);
     int bytes = ftell(file_pointer);
     fclose(file_pointer);
-    int total_suppliers = bytes / sizeof(Supplier);
+    int total_items = bytes / sizeof(Product);
 
-    return total_suppliers;
+    return total_items;
 }
 
-void SuppliersArchive::createEmptyArchive() {
+void ProductsList::createEmptyArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {

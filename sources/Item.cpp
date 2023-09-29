@@ -1,41 +1,17 @@
 #include "../headers/Item.h"
 
 Item::Item() {
-    setId(1);
-    setName("N/A");
     setDescription("N/A");
-    setBrand("N/A");
-    setModel("N/A");
     setPrice(0);
     setStock(0);
     setIsActive(true);
 }
 
-Item::Item(int id, const std::string & name, const std::string & description, const std::string & brand, const std::string & model, double price, int stock, bool is_active) {
-    setId(id);
-    setName(name);
+Item::Item(int id, const std::string & name, const std::string & brand, const std::string & model, const std::string & description, double price, int stock, bool is_active) : Product(id, name, brand, model) {
     setDescription(description);
-    setBrand(brand);
-    setModel(model);
     setPrice(price);
     setStock(stock);
     setIsActive(is_active);
-}
-
-void Item::setId(int id) {
-    _id = id;
-}
-
-int Item::getId() const {
-    return _id;
-}
-
-void Item::setName(const std::string & name) {
-    strcpy(_name, name.c_str());
-}
-
-std::string Item::getName() const {
-    return _name;
 }
 
 void Item::setDescription(const std::string & description) {
@@ -44,22 +20,6 @@ void Item::setDescription(const std::string & description) {
 
 std::string Item::getDescription() const {
     return _description;
-}
-
-void Item::setBrand(const std::string & brand) {
-    strcpy(_brand, brand.c_str());
-}
-
-std::string Item::getBrand() const {
-    return _brand;
-}
-
-void Item::setModel(const std::string & model) {
-    strcpy(_model, model.c_str());
-}
-
-std::string Item::getModel() const {
-    return _model;
 }
 
 void Item::setPrice(double price) {

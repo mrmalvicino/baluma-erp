@@ -5,6 +5,7 @@
 #include "ItemsArchive.h"
 #include "ItemsCSV.h"
 #include "WarehousesManager.h"
+#include "ProductsList.h"
 
 class ItemsManager {
     public:
@@ -25,13 +26,14 @@ class ItemsManager {
     void cinItemStock(Item & item);
     void cinItemIncome(Item & item);
     void cinItemIsActive(Item & item);
-    int generateItemId();
+    int generateItemId(Item & item);
     void searchItemById();
     void searchItemByDescription();
     void exportItemsBackup();
     void importItemsBackup();
     void exportItemsCSV();
     void importItemsCSV();
+    int productIndex(Item & item);
 
     private:
 
@@ -41,4 +43,6 @@ class ItemsManager {
     ItemsArchive _items_backup;
     ItemsCSV _items_csv;
     WarehousesManager _warehouses_manager;
+    Product _product;
+    ProductsList _products_list;
 };

@@ -67,8 +67,7 @@ int TransactionsArchive::getAccountNumber(int id){
 int TransactionsArchive::getAmountOfRegisters(){
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
         if (file_pointer == NULL) {
-            std::cerr << "Error: No se pudo abrir el archivo.\n";
-            return 1;
+            return 0;
             }
         fseek(file_pointer, 0, SEEK_END);
         int bytes = ftell(file_pointer);

@@ -1,23 +1,14 @@
 #pragma once
-#include <string>
-#include <cstring>
+#include "Product.h"
 #include "Date.h"
 
-class Item {
+class Item : public Product {
     public:
 
     Item();
-    Item(int id, const std::string & name, const std::string & description, const std::string & brand, const std::string & model, double price, int stock, bool is_active);
-    void setId(int id);
-    int getId() const;
-    void setName(const std::string & name);
-    std::string getName() const;
+    Item(int id, const std::string & name, const std::string & brand, const std::string & model, const std::string & description, double price, int stock, bool is_active);
     void setDescription(const std::string & description);
     std::string getDescription() const;
-    void setBrand(const std::string & brand);
-    std::string getBrand() const;
-    void setModel(const std::string & model);
-    std::string getModel() const;
     void setPrice(double price);
     double getPrice() const;
     void setStock(int stock);
@@ -29,11 +20,7 @@ class Item {
 
     private:
 
-    int _id;
-    char _name[30];
     char _description[30];
-    char _brand[30];
-    char _model[30];
     double _price;
     int _stock;
     Date _income;

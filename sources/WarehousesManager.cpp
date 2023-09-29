@@ -1,7 +1,7 @@
 #include "../headers/WarehousesManager.h"
 
 WarehousesManager::WarehousesManager() {
-    _warehouses_archive.setPath("registers/warehouse.dat");
+    _warehouses_backup.setPath("registers/warehouses.bkp");
 }
 
 void WarehousesManager::displayMenu() {
@@ -41,9 +41,11 @@ void WarehousesManager::displayMenu() {
                 break;
 
             case 5:
+                exportWarehouseBackup();
                 break;
 
             case 6:
+                importWarehouseBackup();
                 break;
 
             case 7:
@@ -104,14 +106,14 @@ bool WarehousesManager::editWarehouse() {
 
     do {
         _terminal.clear();
-        _terminal.displayMenuHeader("EDITAR CLIENTE");
+        _terminal.displayMenuHeader("EDITAR DEPÓSITO");
         _terminal.centerAndPrint(_warehouse.getName());
         std::cout << "\n";
         std::cout << "(1) EDITAR NOMBRE\n";
         std::cout << "(2) EDITAR DOMICILIO\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 7);
+        selection = _terminal.validateInt(0, 2);
 
         switch (selection) {
             case 1:
@@ -157,11 +159,11 @@ void WarehousesManager::searchWarehouse() {
 void WarehousesManager::listWarehouse() {
      _terminal.clear();
 
-    int amount_of_clients = _warehouses_archive.getAmountOfRegisters();
+    int amount_of_warehouses = _warehouses_archive.getAmountOfRegisters();
 
-    _terminal.displayMenuHeader("LISTADO DE CLIENTES");
+    _terminal.displayMenuHeader("LISTADO DE DEPÓSITOS");
 
-    for (int i = 0; i < amount_of_clients; i ++) {
+    for (int i = 0; i < amount_of_warehouses; i ++) {
         printWarehouse(i);
     }
 
@@ -169,8 +171,7 @@ void WarehousesManager::listWarehouse() {
     _terminal.clear();
 }
 
-void WarehousesManager::printWarehouse(int index) {
-    _warehouse = _warehouses_archive.read(index);
+void WarehousesManager::printWarehouse() {
     _terminal.displayMenuHeader(_warehouse.getName());
 
     std::cout << "# ID: " << _warehouse.getId() << "\n";
@@ -181,8 +182,12 @@ void WarehousesManager::printWarehouse(int index) {
     std::cout << "Número: " <<_warehouse.getAdress().getNumber() << "\n";
     std::cout << "Piso: " << _warehouse.getAdress().getFloor() << "\n";
     std::cout << "Departamento: " << _warehouse.getAdress().getLetter() << "\n";
-    std::cout << "# PATH: " << _warehouse.getPath() << "\n";
     _terminal.printBool(_warehouse.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
+}
+
+void WarehousesManager::printWarehouse(int index) {
+    _warehouse = _warehouses_archive.read(index);
+    printWarehouse();
 }
 
 void WarehousesManager::cinWarehouseName(Warehouse & warehouse) {
@@ -196,7 +201,7 @@ void WarehousesManager::cinWarehouseName(Warehouse & warehouse) {
 }
 
 void WarehousesManager::cinWarehouseAdress(Warehouse & warehouse) {
-     Adress adress;
+    Adress adress;
 
     std::string country;
     std::string state;
@@ -207,6 +212,7 @@ void WarehousesManager::cinWarehouseAdress(Warehouse & warehouse) {
     char letter;
 
     std::cout << "Ingresar el país del domicilio:\n";
+    std::cin.ignore();
     getline(std::cin, country);
 
     std::cout << "Ingresar la provincia del domicilio:\n";
@@ -241,11 +247,11 @@ void WarehousesManager::cinWarehouseAdress(Warehouse & warehouse) {
 void WarehousesManager::cinWarehouseIsActive(Warehouse & warehouse) {
     if (warehouse.getIsActive()) {
         warehouse.setIsActive(false);
-        std::cout << "El cliente ha sido dado de baja.\n";
+        std::cout << "El depósito ha sido dado de baja.\n";
         _terminal.pause();
     } else {
         warehouse.setIsActive(true);
-        std::cout << "El cliente ha sido reincorporado.\n";
+        std::cout << "El depósito ha sido reincorporado.\n";
         _terminal.pause();
     }
 }
@@ -344,25 +350,25 @@ void WarehousesManager::exportWarehouseBackup() {
 }
 
 void WarehousesManager::importWarehouseBackup() {
-    std::cout << "¿Desea reemplazar los clientes actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
+    std::cout << "¿Desea reemplazar los depósitos actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
     } else {
-        int amount_of_clients = _warehouses_backup.getAmountOfRegisters();
+        int amount_of_warehouses = _warehouses_backup.getAmountOfRegisters();
 
-        Warehouse * warehouse_array = new Warehouse[amount_of_clients];
+        Warehouse * warehouse_array = new Warehouse[amount_of_warehouses];
 
         if (warehouse_array == NULL) {
             std::cout << "Error de memoria RAM: No se pudo asignar la memoria requerida al importar backup.";
         } else {
-            for (int i = 0; i < amount_of_clients; i ++) {
+            for (int i = 0; i < amount_of_warehouses; i ++) {
                 warehouse_array[i] = _warehouses_backup.read(i);
             }
 
             _warehouses_archive.createEmptyArchive();
 
-            for (int i = 0; i < amount_of_clients; i ++) {
+            for (int i = 0; i < amount_of_warehouses; i ++) {
                 _warehouses_archive.write(warehouse_array[i]);
             }
 

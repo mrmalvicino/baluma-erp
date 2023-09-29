@@ -93,7 +93,6 @@ int WarehousesArchive::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
-        std::cerr << "Error: No se pudo abrir el archivo.";
         return 0;
     }
 

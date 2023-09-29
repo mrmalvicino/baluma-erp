@@ -46,6 +46,7 @@ void ItemsManager::displayProductsMenu() {
 
     do {
         _terminal.clear();
+        _warehouses_manager.printWarehouse();
         _terminal.displayMenuHeader("PRODUCTOS");
         std::cout << "(1) AGREGAR NUEVO\n";
         std::cout << "(2) EDITAR PRODUCTO\n";
@@ -97,7 +98,7 @@ void ItemsManager::displayProductsMenu() {
 }
 
 bool ItemsManager::addItem() {
-    bool successful_write;
+    bool successful_write = false;
     bool user_wants_to_save;
 
     _terminal.clear();
@@ -115,9 +116,10 @@ bool ItemsManager::addItem() {
     user_wants_to_save = _terminal.validateBool();
 
     if (user_wants_to_save == true) {
-        // successful_write = _items_list_archive.write(_item);
-        _item.setId(generateItemId()); // Se va a usar otra función
-        successful_write = _items_archive.write(_item); // Antes lo guarda en _listado_de_productos
+        _item.setId(generateItemId(_item));
+
+        successful_write = _items_archive.write(_item);
+
         if (successful_write == true) {
             std::cout << "Registro guardado correctamente.\n";
         } else {
@@ -337,11 +339,27 @@ void ItemsManager::cinItemIsActive(Item & item) {
     }
 }
 
-int ItemsManager::generateItemId() {
+int ItemsManager::generateItemId(Item & item) {
+    // busca si el item existe en lista de producto y en tal caso devuelve el id. caso contrario genera id nuevo.
     int id = 1;
 
-    if(_items_archive.getAmountOfRegisters() != 0) {
-        id = _items_archive.getAmountOfRegisters() + 1;
+    if (productIndex(item) != -1) {
+        _product = _products_list.read(productIndex(item));
+        id = _product.getId();
+    } else {
+        if(_products_list.getAmountOfRegisters() != 0) {
+            id = _products_list.getAmountOfRegisters() + 1;
+        }
+
+        _product = item;
+
+        bool successful_write = _products_list.write(_product);
+
+        if (successful_write == true) {
+            std::cout << "Creando registro...\n";
+        } else {
+            std::cout << "Error de escritura.\n";
+        }
     }
 
     return id;
@@ -466,4 +484,21 @@ void ItemsManager::importItemsCSV() {
     } else {
         _items_csv.readItemsCSV(_item, _items_archive);
     }
+}
+
+int ItemsManager::productIndex(Item & item) {
+    // verifica si existe y devuelve el indice de _lista_de_productos en el que esta o -1 si no esta
+    int index = -1;
+
+    int amount_of_products = _products_list.getAmountOfRegisters();
+
+    for (int i = 0; i < amount_of_products; i ++) {
+        _product = _products_list.read(i);
+
+        if (item.getName() == _product.getName() && item.getBrand() == _product.getBrand() && item.getModel() == _product.getModel()) {
+            index = i;
+        }
+    }
+
+    return index;
 }
