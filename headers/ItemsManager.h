@@ -27,14 +27,14 @@ class ItemsManager {
     void cinItemStock(Item & item);
     void cinItemIncome(Item & item);
     void cinItemIsActive(Item & item);
-    int generateItemId();
     void searchItemById();
     void searchItemByDescription();
     void exportItemsBackup();
     void importItemsBackup();
     void exportItemsCSV();
     void importItemsCSV();
-    int productIndex(Item & item);
+    int generateItemId();
+    int productIndex();
     void listProducts();
     void printProduct(int index);
     void exportProductsCSV();

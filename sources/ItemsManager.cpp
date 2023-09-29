@@ -120,19 +120,18 @@ bool ItemsManager::addItem() {
     _terminal.displayMenuHeader("AGREGAR PRODUCTO");
 
     cinItemName(_item);
-    cinItemDescription(_item);
+    //cinItemDescription(_item);
     cinItemBrand(_item);
     cinItemModel(_item);
-    cinItemPrice(_item);
-    cinItemStock(_item);
-    cinItemIncome(_item);
+    //cinItemPrice(_item);
+    //cinItemStock(_item);
+    //cinItemIncome(_item);
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
 
     if (user_wants_to_save == true) {
         _item.setId(generateItemId());
-
         successful_write = _items_archive.write(_item);
 
         if (successful_write == true) {
@@ -353,30 +352,6 @@ void ItemsManager::cinItemIsActive(Item & item) {
     }
 }
 
-int ItemsManager::generateItemId() {
-    // PROBLEMA ACA busca si el item existe en lista de producto y en tal caso devuelve el id. caso contrario genera id nuevo.
-    int id = 1;
-
-    if (productIndex(_item) != -1) {
-        _product = _products_list.read(productIndex(_item));
-        id = _product.getId();
-    } else {
-        if(_products_list.getAmountOfRegisters() != 0) {
-            id = _products_list.getAmountOfRegisters() + 1;
-        }
-
-        bool successful_write = _products_list.write(_item);
-
-        if (successful_write == true) {
-            std::cout << "Creando registro...\n";
-        } else {
-            std::cout << "Error de escritura.\n";
-        }
-    }
-
-    return id;
-}
-
 void ItemsManager::searchItemById() {
     int index;
     int id;
@@ -498,7 +473,31 @@ void ItemsManager::importItemsCSV() {
     }
 }
 
-int ItemsManager::productIndex(Item & item) {
+int ItemsManager::generateItemId() {
+    // busca si el item existe en lista de producto y en tal caso devuelve el id. caso contrario genera id nuevo.
+    int id = 1;
+
+    if (productIndex() != -1) {
+        _product = _products_list.read(productIndex());
+        id = _product.getId();
+    } else {
+        if(_products_list.getAmountOfRegisters() != 0) {
+            id = _products_list.getAmountOfRegisters() + 1;
+        }
+
+        bool successful_write = _products_list.write(_item);
+
+        if (successful_write == true) {
+            std::cout << "Creando registro...\n";
+        } else {
+            std::cout << "Error de escritura.\n";
+        }
+    }
+    std::cout << id << std::endl;//d
+    return id;
+}
+
+int ItemsManager::productIndex() {
     // verifica si existe y devuelve el indice de _lista_de_productos en el que esta o -1 si no esta
     int index = -1;
 
@@ -507,11 +506,11 @@ int ItemsManager::productIndex(Item & item) {
     for (int i = 0; i < amount_of_products; i ++) {
         _product = _products_list.read(i);
 
-        if (item.getName() == _product.getName() && item.getBrand() == _product.getBrand() && item.getModel() == _product.getModel()) {
+        if (_item.getName() == _product.getName() && _item.getBrand() == _product.getBrand() && _item.getModel() == _product.getModel()) {
             index = i;
         }
     }
-
+    std::cout << index << std::endl;//d
     return index;
 }
 
@@ -539,6 +538,5 @@ void ItemsManager::printProduct(int index) {
 }
 
 void ItemsManager::exportProductsCSV() {
-    std::cout << "paRAhaa..\n"; // TO DO
-    _terminal.pause();
+
 }
