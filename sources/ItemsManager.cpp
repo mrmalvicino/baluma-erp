@@ -131,7 +131,7 @@ bool ItemsManager::addItem() {
     user_wants_to_save = _terminal.validateBool();
 
     if (user_wants_to_save == true) {
-        _item.setId(generateItemId());
+        generateItemId();
         successful_write = _items_archive.write(_item);
 
         if (successful_write == true) {
@@ -473,18 +473,25 @@ void ItemsManager::importItemsCSV() {
     }
 }
 
-int ItemsManager::generateItemId() {
+void ItemsManager::generateItemId() {
     // busca si el item existe en lista de producto y en tal caso devuelve el id. caso contrario genera id nuevo.
     int id = 1;
+    int amount_of_products = _products_list.getAmountOfRegisters();
+    int item_index_in_products_list = productIndex();
+    bool add_item_to_products = true;
 
-    if (productIndex() != -1) {
-        _product = _products_list.read(productIndex());
-        id = _product.getId();
-    } else {
-        if(_products_list.getAmountOfRegisters() != 0) {
-            id = _products_list.getAmountOfRegisters() + 1;
+    if(amount_of_products != 0) { // Si la lista no es vacía, determinar si el nuevo item ya existe
+        if (item_index_in_products_list != -1) {
+            id = item_index_in_products_list + 1; // Si existe, el id es la ubicación del item en la lista de productos + 1
+            add_item_to_products = false; // Además, si existe no debe ser agregado nuevamente
+        } else {
+            id = amount_of_products + 1; // Si no existe, agregar item a la lista con nuevo id
         }
+    } // Si la lista es vacía, el nuevo item va a ser el primero en la lista de productos
 
+    _item.setId(id);
+
+    if (add_item_to_products == true) {
         bool successful_write = _products_list.write(_item);
 
         if (successful_write == true) {
@@ -493,12 +500,9 @@ int ItemsManager::generateItemId() {
             std::cout << "Error de escritura.\n";
         }
     }
-    std::cout << id << std::endl;//d
-    return id;
 }
 
 int ItemsManager::productIndex() {
-    // verifica si existe y devuelve el indice de _lista_de_productos en el que esta o -1 si no esta
     int index = -1;
 
     int amount_of_products = _products_list.getAmountOfRegisters();
@@ -510,7 +514,7 @@ int ItemsManager::productIndex() {
             index = i;
         }
     }
-    std::cout << index << std::endl;//d
+
     return index;
 }
 

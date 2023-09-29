@@ -33,8 +33,15 @@ class ItemsManager {
     void importItemsBackup();
     void exportItemsCSV();
     void importItemsCSV();
-    int generateItemId(); //en desarrollo
-    int productIndex(); //en desarrollo
+    void generateItemId();
+
+    /**
+     * @brief Searches for an item in the products list and returns its index.
+     * Iterates through the list of products to find a match for the item's name, brand, and model. If a matching product is found, the method returns the index of that product in the list. If no matching product is found, it returns -1.
+     * @return (int) The index of the found product or -1 if not found.
+     */
+    int productIndex();
+
     void listProducts(); //en desarrollo
     void printProduct(int index); //en desarrollo
     void exportProductsCSV(); //en desarrollo
