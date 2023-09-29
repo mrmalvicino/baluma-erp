@@ -10,28 +10,27 @@ void ItemsManager::displayMainMenu() {
     do {
         _terminal.clear();
         _terminal.displayMenuHeader("INVENTARIO");
-        std::cout << "(1) ADMINISTRAR DEPÓSITOS\n";
-        std::cout << "(2) ADMINISTRAR MERCADERÍA\n";
+        std::cout << "(1) DATOS DE LOS PRODUCTOS\n";
+        std::cout << "(2) DATOS DE LOS DEPÓSITOS\n";
+        std::cout << "(3) ADMINISTRAR MERCADERÍA EN DEPÓSITO\n";
         _terminal.printLine();
-        std::cout << "(3) LISTADO DE PRODUCTOS\n";
-        std::cout << "(4) EXPORTAR LISTADO A CSV\n";
+        std::cout << "(4) EXPORTAR INFORME A CSV\n";
         _terminal.displayMenuFooter();
 
         selection = _terminal.validateInt(0, 4);
 
         switch (selection) {
             case 1:
-                _warehouses_manager.displayMenu();
+                _products_manager.displayMenu();
                 break;
             case 2:
-                selectWarehouse();
+                _warehouses_manager.displayMenu();
                 break;
             case 3:
-                listProducts();
+                selectWarehouse();
                 break;
-
             case 4:
-                exportProductsCSV();
+                exportInventoryCSV();
                 break;
         }
     } while (selection != 0);
@@ -47,7 +46,7 @@ void ItemsManager::selectWarehouse() {
         _items_archive.setPath(dat_path);
         _items_backup.setPath(bkp_path);
         _items_csv.setPath(csv_path);
-        displayProductsMenu();
+        displayItemsMenu();
     } else {
         std::cout << "No se seleccionó ningún depósito para administrar su mercadería.\n";
         _terminal.pause();
@@ -55,17 +54,17 @@ void ItemsManager::selectWarehouse() {
     }
 }
 
-void ItemsManager::displayProductsMenu() {
+void ItemsManager::displayItemsMenu() {
     int selection = 1;
 
     do {
         _terminal.clear();
-        _terminal.displayMenuHeader("PRODUCTOS");
+        _terminal.displayMenuHeader("EXISTENCIAS");
         _terminal.centerAndPrint(_warehouses_manager.getWarehouse().getName());
         std::cout << "\n";
-        std::cout << "(1) AGREGAR NUEVO\n";
-        std::cout << "(2) EDITAR PRODUCTO\n";
-        std::cout << "(3) BUSCAR PRODUCTO\n";
+        std::cout << "(1) AGREGAR EXISTENCIA\n";
+        std::cout << "(2) EDITAR EXISTENCIA\n";
+        std::cout << "(3) BUSCAR EXISTENCIA\n";
         std::cout << "(4) VER LISTADO\n";
         _terminal.printLine();
         std::cout << "(5) EXPORTAR BACKUP\n";
@@ -80,31 +79,24 @@ void ItemsManager::displayProductsMenu() {
             case 1:
                 addItem();
                 break;
-
             case 2:
                 editItem();
                 break;
-
             case 3:
                 searchItem();
                 break;
-
             case 4:
                 listItems();
                 break;
-
             case 5:
                 exportItemsBackup();
                 break;
-
             case 6:
                 importItemsBackup();
                 break;
-
             case 7:
                 exportItemsCSV();
                 break;
-
             case 8:
                 importItemsCSV();
                 break;
@@ -117,15 +109,15 @@ bool ItemsManager::addItem() {
     bool user_wants_to_save;
 
     _terminal.clear();
-    _terminal.displayMenuHeader("AGREGAR PRODUCTO");
+    _terminal.displayMenuHeader("AGREGAR EXISTENCIA");
 
     cinItemName(_item);
-    //cinItemDescription(_item);
+    cinItemDescription(_item);
     cinItemBrand(_item);
     cinItemModel(_item);
-    //cinItemPrice(_item);
-    //cinItemStock(_item);
-    //cinItemIncome(_item);
+    cinItemPrice(_item);
+    cinItemStock(_item);
+    cinItemIncome(_item);
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
@@ -163,44 +155,32 @@ bool ItemsManager::editItem() {
 
     do {
         _terminal.clear();
-        _terminal.displayMenuHeader("EDITAR PRODUCTO");
+        _terminal.displayMenuHeader("EDITAR EXISTENCIA");
         _terminal.centerAndPrint(_item.getName());
         std::cout << "\n";
-        std::cout << "(1) EDITAR NOMBRE\n";
-        std::cout << "(2) EDITAR DESCRIPCION\n";
-        std::cout << "(3) EDITAR MARCA\n";
-        std::cout << "(4) EDITAR MODELO\n";
-        std::cout << "(5) EDITAR STOCK\n";
-        std::cout << "(6) EDITAR PRECIO\n";
-        std::cout << "(7) EDITAR FECHA DE INGRESO\n";
-        std::cout << "(8) DAR DE BAJA O REINCORPORAR\n";
+        std::cout << "(1) EDITAR DESCRIPCION\n";
+        std::cout << "(2) EDITAR STOCK\n";
+        std::cout << "(3) EDITAR PRECIO\n";
+        std::cout << "(4) EDITAR FECHA DE INGRESO\n";
+        std::cout << "(5) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 8);
+        selection = _terminal.validateInt(0, 5);
 
         switch (selection) {
             case 1:
-                cinItemName(_item);
-                break;
-            case 2:
                 cinItemDescription(_item);
                 break;
-            case 3:
-                cinItemBrand(_item);
-                break;
-            case 4:
-                cinItemModel(_item);
-                break;
-            case 5:
+            case 2:
                 cinItemStock(_item);
                 break;
-            case 6:
+            case 3:
                 cinItemPrice(_item);
                 break;
-            case 7:
+            case 4:
                 cinItemIncome(_item);
                 break;
-            case 8:
+            case 5:
                 cinItemIsActive(_item);
                 break;
         }
@@ -217,9 +197,9 @@ void ItemsManager::searchItem() {
 
     int selection = 1;
 
-    _terminal.displayMenuHeader("BUSCAR PRODUCTO");
+    _terminal.displayMenuHeader("BUSCAR EXISTENCIA");
     std::cout << "(1) BUSCAR POR ID\n";
-    std::cout << "(2) BUSCAR POR NOMBRE\n";
+    std::cout << "(2) BUSCAR POR NOMBRE, MARCA Y MODELO\n";
     _terminal.displayMenuFooter();
 
     selection = _terminal.validateInt(0, 2);
@@ -232,7 +212,7 @@ void ItemsManager::searchItem() {
             searchItemById();
             break;
         case 2:
-            searchItemByDescription();
+            searchItemByProduct();
             break;
     }
 }
@@ -242,7 +222,7 @@ void ItemsManager::listItems() {
 
     int amount_of_items = _items_archive.getAmountOfRegisters();
 
-    _terminal.displayMenuHeader("PRODUCTOS EN DEPÓSITO");
+    _terminal.displayMenuHeader("EXISTENCIAS EN DEPÓSITO");
 
     for (int i = 0; i < amount_of_items; i ++) {
         printItem(i);
@@ -275,15 +255,6 @@ void ItemsManager::cinItemName(Item & item) {
     item.setName(name);
 }
 
-void ItemsManager::cinItemDescription(Item & item) {
-    std::string description;
-
-    std::cout << "Ingrese descripcion:\n";
-    getline(std::cin, description);
-
-    item.setDescription(description);
-}
-
 void ItemsManager::cinItemBrand(Item & item) {
     std::string brand;
 
@@ -300,6 +271,27 @@ void ItemsManager::cinItemModel(Item & item) {
     getline(std::cin, model);
 
     item.setModel(model);
+}
+
+void ItemsManager::cinItemIsActive(Item & item) {
+    if (item.getIsActive()) {
+        item.setIsActive(false);
+        std::cout << "El producto ha sido dado de baja.\n";
+        _terminal.pause();
+    } else {
+        item.setIsActive(true);
+        std::cout << "El producto ha sido reincorporado.\n";
+        _terminal.pause();
+    }
+}
+
+void ItemsManager::cinItemDescription(Item & item) {
+    std::string description;
+
+    std::cout << "Ingrese descripcion:\n";
+    getline(std::cin, description);
+
+    item.setDescription(description);
 }
 
 void ItemsManager::cinItemPrice(Item & item) {
@@ -340,18 +332,6 @@ void ItemsManager::cinItemIncome(Item & item) {
     item.setIncome(date);
 }
 
-void ItemsManager::cinItemIsActive(Item & item) {
-    if (item.getIsActive()) {
-        item.setIsActive(false);
-        std::cout << "El producto ha sido dado de baja.\n";
-        _terminal.pause();
-    } else {
-        item.setIsActive(true);
-        std::cout << "El producto ha sido reincorporado.\n";
-        _terminal.pause();
-    }
-}
-
 void ItemsManager::searchItemById() {
     int index;
     int id;
@@ -373,24 +353,54 @@ void ItemsManager::searchItemById() {
     _terminal.pause();
 }
 
-void ItemsManager::searchItemByDescription() {
+void ItemsManager::searchItemByProduct() {
     int index;
-    std::string description;
+    std::string name;
+    std::string brand;
+    std::string model;
 
     std::cout << "Ingresar nombre:\n";
     std::cin.ignore();
-    getline(std::cin, description);
+    getline(std::cin, name);
 
-    index = _items_archive.getIndex(description);
+    std::cout << "Ingresar marca:\n";
+    getline(std::cin, brand);
+
+    std::cout << "Ingresar modelo:\n";
+    getline(std::cin, model);
+
+    _product.setName(name);
+    _product.setBrand(brand);
+    _product.setModel(model);
+
+    index = _items_archive.getIndex(_product);
 
     while (index == -1) {
-        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
-        getline(std::cin, description);
+        std::cout << "No se encontró el registro " << _product.toString() << ".";
+        std::cout << "Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, name);
 
-        if (description == "0") {
+        if (name == "0") {
             index = -2;
         } else {
-            index = _items_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+            std::cout << "Ingrese la marca nuevamente o ingrese 0 para cancelar.\n";
+            getline(std::cin, brand);
+
+            if (brand == "0") {
+                index = -2;
+            } else {
+                std::cout << "Ingrese el modelo nuevamente o ingrese 0 para cancelar.\n";
+                getline(std::cin, model);
+
+                if (model == "0") {
+                    index = -2;
+                } else {
+                    _product.setName(name);
+                    _product.setBrand(brand);
+                    _product.setModel(model);
+                    index = _items_archive.getIndex(_product); // Esta función retorna -1 si no encuentra un registro válido
+                }
+            }
         }
     }
 
@@ -476,13 +486,13 @@ void ItemsManager::importItemsCSV() {
 void ItemsManager::generateItemId() {
     // busca si el item existe en lista de producto y en tal caso devuelve el id. caso contrario genera id nuevo.
     int id = 1;
-    int amount_of_products = _products_list.getAmountOfRegisters();
-    int item_index_in_products_list = productIndex();
+    int amount_of_products = _products_archive.getAmountOfRegisters();
+    int item_index_in_products_archive = productIndex();
     bool add_item_to_products = true;
 
     if(amount_of_products != 0) { // Si la lista no es vacía, determinar si el nuevo item ya existe
-        if (item_index_in_products_list != -1) {
-            id = item_index_in_products_list + 1; // Si existe, el id es la ubicación del item en la lista de productos + 1
+        if (item_index_in_products_archive != -1) {
+            id = item_index_in_products_archive + 1; // Si existe, el id es la ubicación del item en la lista de productos + 1
             add_item_to_products = false; // Además, si existe no debe ser agregado nuevamente
         } else {
             id = amount_of_products + 1; // Si no existe, agregar item a la lista con nuevo id
@@ -492,7 +502,7 @@ void ItemsManager::generateItemId() {
     _item.setId(id);
 
     if (add_item_to_products == true) {
-        bool successful_write = _products_list.write(_item);
+        bool successful_write = _products_archive.write(_item);
 
         if (successful_write == true) {
             std::cout << "Creando registro...\n";
@@ -505,10 +515,10 @@ void ItemsManager::generateItemId() {
 int ItemsManager::productIndex() {
     int index = -1;
 
-    int amount_of_products = _products_list.getAmountOfRegisters();
+    int amount_of_products = _products_archive.getAmountOfRegisters();
 
     for (int i = 0; i < amount_of_products; i ++) {
-        _product = _products_list.read(i);
+        _product = _products_archive.read(i);
 
         if (_item.getName() == _product.getName() && _item.getBrand() == _product.getBrand() && _item.getModel() == _product.getModel()) {
             index = i;
@@ -518,29 +528,6 @@ int ItemsManager::productIndex() {
     return index;
 }
 
-void ItemsManager::listProducts() {
-    _terminal.clear();
-
-    int amount_of_products = _products_list.getAmountOfRegisters();
-
-    _terminal.displayMenuHeader("LISTADO DE PRODUCTOS");
-
-    for (int i = 0; i < amount_of_products; i ++) {
-        printProduct(i);
-    }
-
-    _terminal.pause();
-    _terminal.clear();
-}
-
-void ItemsManager::printProduct(int index) {
-    _product = _products_list.read(index);
-    _terminal.displayMenuHeader(_product.getName());
-    std::cout << "# ID: " << _product.getId() << "\n";
-    std::cout << "Marca: " << _product.getBrand() << "\n";
-    std::cout << "Modelo: " << _product.getModel() << "\n";
-}
-
-void ItemsManager::exportProductsCSV() {
+void ItemsManager::exportInventoryCSV() {
 
 }

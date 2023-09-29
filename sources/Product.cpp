@@ -5,13 +5,15 @@ Product::Product() {
     setName("N/A");
     setBrand("N/A");
     setModel("N/A");
+    setIsActive(true);
 }
 
-Product::Product(int id, const std::string & name, const std::string & brand, const std::string & model) {
+Product::Product(int id, const std::string & name, const std::string & brand, const std::string & model, bool is_active) {
     setId(id);
     setName(name);
     setBrand(brand);
     setModel(model);
+    setIsActive(is_active);
 }
 
 void Product::setId(int id) {
@@ -44,4 +46,20 @@ void Product::setModel(const std::string & model) {
 
 std::string Product::getModel() const {
     return _model;
+}
+
+void Product::setIsActive(bool is_active) {
+    _is_active = is_active;
+}
+
+bool Product::getIsActive() const {
+    return _is_active;
+}
+
+std::string Product::toString() const {
+    std::string name = getName();
+    std::string brand = getBrand();
+    std::string model = getModel();
+
+    return name + " " + brand + " " + model;
 }

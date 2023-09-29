@@ -4,14 +4,12 @@ Item::Item() {
     setDescription("N/A");
     setPrice(0);
     setStock(0);
-    setIsActive(true);
 }
 
-Item::Item(int id, const std::string & name, const std::string & brand, const std::string & model, const std::string & description, double price, int stock, bool is_active) : Product(id, name, brand, model) {
+Item::Item(int id, const std::string & name, const std::string & brand, const std::string & model, bool is_active, const std::string & description, double price, int stock) : Product(id, name, brand, model, is_active) {
     setDescription(description);
     setPrice(price);
     setStock(stock);
-    setIsActive(is_active);
 }
 
 void Item::setDescription(const std::string & description) {
@@ -46,10 +44,10 @@ Date Item::getIncome() const {
     return _income;
 }
 
-void Item::setIsActive(bool is_active) {
-    _is_active = is_active;
-}
+std::string Item::toString() const {
+    std::string name = getName();
+    std::string brand = getBrand();
+    std::string model = getModel();
 
-bool Item::getIsActive() const {
-    return _is_active;
+    return name + " " + brand + " " + model;
 }

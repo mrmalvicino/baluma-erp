@@ -74,12 +74,12 @@ int ItemsArchive::getIndex(int id) {
     return i;
 }
 
-int ItemsArchive::getIndex(std::string & description) {
+int ItemsArchive::getIndex(Product & product) {
     int i = 0;
     Item reg;
     reg = read(i);
 
-    while (reg.getDescription() != description && i < getAmountOfRegisters()) {
+    while (reg.toString() != product.toString() && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
     }

@@ -10,7 +10,7 @@ void SuppliersManager::displayMenu() {
     do {
         _terminal.clear();
         _terminal.displayMenuHeader("PROVEEDORES");
-        std::cout << "(1) AGREGAR NUEVO\n";
+        std::cout << "(1) AGREGAR PROVEEDOR\n";
         std::cout << "(2) EDITAR PROVEEDOR\n";
         std::cout << "(3) BUSCAR PROVEEDOR\n";
         std::cout << "(4) VER LISTADO\n";
@@ -27,31 +27,24 @@ void SuppliersManager::displayMenu() {
             case 1:
                 addSupplier();
                 break;
-
             case 2:
                 editSupplier();
                 break;
-
             case 3:
                 searchSupplier();
                 break;
-
             case 4:
                 listSuppliers();
                 break;
-
             case 5:
                 exportSuppliersBackup();
                 break;
-
             case 6:
                 importSuppliersBackup();
                 break;
-
             case 7:
                 exportSuppliersCSV();
                 break;
-
             case 8:
                 importSuppliersCSV();
                 break;

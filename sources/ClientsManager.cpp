@@ -10,7 +10,7 @@ void ClientsManager::displayMenu() {
     do {
         _terminal.clear();
         _terminal.displayMenuHeader("CLIENTES");
-        std::cout << "(1) AGREGAR NUEVO\n";
+        std::cout << "(1) AGREGAR CLIENTE\n";
         std::cout << "(2) EDITAR CLIENTE\n";
         std::cout << "(3) BUSCAR CLIENTE\n";
         std::cout << "(4) VER LISTADO\n";
@@ -27,31 +27,24 @@ void ClientsManager::displayMenu() {
             case 1:
                 addClient();
                 break;
-
             case 2:
                 editClient();
                 break;
-
             case 3:
                 searchClient();
                 break;
-
             case 4:
                 listClients();
                 break;
-
             case 5:
                 exportClientsBackup();
                 break;
-
             case 6:
                 importClientsBackup();
                 break;
-
             case 7:
                 exportClientsCSV();
                 break;
-
             case 8:
                 importClientsCSV();
                 break;

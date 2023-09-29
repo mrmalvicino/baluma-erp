@@ -10,7 +10,7 @@ void WarehousesManager::displayMenu() {
     do {
         _terminal.clear();
         _terminal.displayMenuHeader("DEPOSITOS");
-        std::cout << "(1) AGREGAR NUEVO\n";
+        std::cout << "(1) AGREGAR DEPOSITO\n";
         std::cout << "(2) EDITAR DEPOSITO\n";
         std::cout << "(3) BUSCAR DEPOSITO\n";
         std::cout << "(4) VER LISTADO\n";
@@ -27,31 +27,24 @@ void WarehousesManager::displayMenu() {
             case 1:
                 addWarehouse();
                 break;
-
             case 2:
                 editWarehouse();
                 break;
-
             case 3:
                 searchWarehouse();
                 break;
-
             case 4:
                 listWarehouse();
                 break;
-
             case 5:
                 exportWarehousesBackup();
                 break;
-
             case 6:
                 importWarehousesBackup();
                 break;
-
             case 7:
                 exportWarehousesCSV();
                 break;
-
             case 8:
                 importWarehousesCSV();
                 break;

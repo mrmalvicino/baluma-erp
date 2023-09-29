@@ -5,7 +5,7 @@
 #include "ItemsArchive.h"
 #include "ItemsCSV.h"
 #include "WarehousesManager.h"
-#include "ProductsList.h"
+#include "ProductsManager.h"
 
 class ItemsManager {
     public:
@@ -13,22 +13,22 @@ class ItemsManager {
     ItemsManager();
     void displayMainMenu();
     void selectWarehouse();
-    void displayProductsMenu();
+    void displayItemsMenu();
     bool addItem();
     bool editItem();
     void searchItem();
     void listItems();
     void printItem(int index);
     void cinItemName(Item & item);
-    void cinItemDescription(Item & item);
     void cinItemBrand(Item & item);
     void cinItemModel(Item & item);
+    void cinItemIsActive(Item & item);
+    void cinItemDescription(Item & item);
     void cinItemPrice(Item & item);
     void cinItemStock(Item & item);
     void cinItemIncome(Item & item);
-    void cinItemIsActive(Item & item);
     void searchItemById();
-    void searchItemByDescription();
+    void searchItemByProduct();
     void exportItemsBackup();
     void importItemsBackup();
     void exportItemsCSV();
@@ -42,9 +42,7 @@ class ItemsManager {
      */
     int productIndex();
 
-    void listProducts(); //en desarrollo
-    void printProduct(int index); //en desarrollo
-    void exportProductsCSV(); //en desarrollo
+    void exportInventoryCSV(); //en desarrollo
 
     private:
 
@@ -53,7 +51,8 @@ class ItemsManager {
     ItemsArchive _items_archive;
     ItemsArchive _items_backup;
     ItemsCSV _items_csv;
-    WarehousesManager _warehouses_manager;
     Product _product;
-    ProductsList _products_list;
+    ProductsArchive _products_archive;
+    ProductsManager _products_manager;
+    WarehousesManager _warehouses_manager;
 };

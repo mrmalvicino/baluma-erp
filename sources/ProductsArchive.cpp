@@ -1,22 +1,22 @@
-#include "../headers/ProductsList.h"
+#include "../headers/ProductsArchive.h"
 
-ProductsList::ProductsList() {
+ProductsArchive::ProductsArchive() {
     setPath("registers/products.dat");
 }
 
-ProductsList::ProductsList(const std::string & path) {
+ProductsArchive::ProductsArchive(const std::string & path) {
     setPath(path);
 }
 
-void ProductsList::setPath(const std::string & path) {
+void ProductsArchive::setPath(const std::string & path) {
     _path = path;
 }
 
-std::string ProductsList::getPath() {
+std::string ProductsArchive::getPath() {
     return _path;
 }
 
-bool ProductsList::write(Product & reg) {
+bool ProductsArchive::write(Product & reg) {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
 
     if (file_pointer == NULL) {
@@ -30,7 +30,7 @@ bool ProductsList::write(Product & reg) {
     return successful_write;
 }
 
-bool ProductsList::overWrite(Product & reg, int index) {
+bool ProductsArchive::overWrite(Product & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
 
     if (file_pointer == NULL) {
@@ -45,7 +45,7 @@ bool ProductsList::overWrite(Product & reg, int index) {
     return successful_write;
 }
 
-Product ProductsList::read(int index) {
+Product ProductsArchive::read(int index) {
     Product reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
@@ -60,7 +60,7 @@ Product ProductsList::read(int index) {
     return reg;
 }
 
-int ProductsList::getIndex(int id) {
+int ProductsArchive::getIndex(int id) {
      int i = 0;
     Product reg;
     reg = read(i);
@@ -77,12 +77,12 @@ int ProductsList::getIndex(int id) {
     return i;
 }
 
-int ProductsList::getIndex(std::string & name) {
+int ProductsArchive::getIndex(Product & product) {
     int i = 0;
     Product reg;
     reg = read(i);
 
-    while (reg.getName() != name && i < getAmountOfRegisters()) {
+    while (reg.toString() != product.toString() && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
     }
@@ -94,7 +94,7 @@ int ProductsList::getIndex(std::string & name) {
     return i;
 }
 
-int ProductsList::getAmountOfRegisters() {
+int ProductsArchive::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
@@ -104,12 +104,12 @@ int ProductsList::getAmountOfRegisters() {
     fseek(file_pointer, 0, SEEK_END);
     int bytes = ftell(file_pointer);
     fclose(file_pointer);
-    int total_items = bytes / sizeof(Product);
+    int total_products = bytes / sizeof(Product);
 
-    return total_items;
+    return total_products;
 }
 
-void ProductsList::createEmptyArchive() {
+void ProductsArchive::createEmptyArchive() {
     FILE * file_pointer = fopen(getPath().c_str(), "wb");
 
     if (file_pointer == NULL) {

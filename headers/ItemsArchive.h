@@ -14,7 +14,7 @@ class ItemsArchive {
     bool overWrite(Item & reg, int index);
     Item read(int index);
     int getIndex(int id);
-    int getIndex(std::string & description);
+    int getIndex(Product & product);
     int getAmountOfRegisters();
     void createEmptyArchive();
 

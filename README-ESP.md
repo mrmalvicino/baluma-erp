@@ -56,7 +56,7 @@
 
 ## Creadores
 
-&nbsp; Este programa fue creado mediante un repositorio privado como proyecto final de la materia Laboratorio de Computación 2 perteneciente a la Tecnicatura Universitaria en Programación dictada por la Universidad Tecnológica Nacional.
+&nbsp; Este programa fue creado como proyecto final de la materia Laboratorio de Computación 2 perteneciente a la Tecnicatura Universitaria en Programación dictada por la Universidad Tecnológica Nacional.
 
 - Baez, Franco [@Franc00Baez](https://github.com/Franc00Baez)
 

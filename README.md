@@ -56,7 +56,7 @@
 
 ## Creators
 
-&nbsp; This program was created through a private repository as a final project for the subject Computer Laboratory 2 of the University Technician Programmer degree dictated by the National Technological University of Argentina.
+&nbsp; This program was created as a final project for the subject Computer Laboratory 2 of the University Technician Programmer degree dictated by the National Technological University of Argentina.
 
 - Baez, Franco [@Franc00Baez](https://github.com/Franc00Baez)
 
