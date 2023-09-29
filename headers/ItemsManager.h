@@ -12,6 +12,7 @@ class ItemsManager {
 
     ItemsManager();
     void displayMainMenu();
+    void selectWarehouse();
     void displayProductsMenu();
     bool addItem();
     bool editItem();

@@ -268,13 +268,3 @@ void Terminal::cleanBuffer() {
     int aux;
     while ((aux = std::cin.get()) != '\n' && aux != EOF) {}
 }
-
-std::string Terminal::lowerCase(const std::string & input) {
-    std::string output = input;
-
-    for (char & c : output) {
-        c = std::tolower(static_cast<unsigned char>(c));
-    }
-
-    return output;
-}

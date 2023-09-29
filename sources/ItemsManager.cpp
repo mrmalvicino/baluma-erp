@@ -17,19 +17,15 @@ void ItemsManager::displayMainMenu() {
         std::cout << "(4) EXPORTAR LISTADO A CSV\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 8);
+        selection = _terminal.validateInt(0, 4);
 
         switch (selection) {
             case 1:
                 _warehouses_manager.displayMenu();
                 break;
-
             case 2:
-                _warehouses_manager.searchWarehouse();
-                _items_archive.setPath(_warehouses_manager.getItemsPath());
-                displayProductsMenu();
+                selectWarehouse();
                 break;
-
             case 3:
                 
                 break;
@@ -41,13 +37,32 @@ void ItemsManager::displayMainMenu() {
     } while (selection != 0);
 }
 
+void ItemsManager::selectWarehouse() {
+    _warehouses_manager.searchWarehouse();
+
+    if (_warehouses_manager.getWarehouse().getName() != "N/A") {
+        std::string dat_path = std::to_string(_warehouses_manager.getWarehouse().getId()) + ".dat";
+        std::string bkp_path = std::to_string(_warehouses_manager.getWarehouse().getId()) + ".bkp";
+        std::string csv_path = std::to_string(_warehouses_manager.getWarehouse().getId()) + ".csv";
+        _items_archive.setPath(dat_path);
+        _items_backup.setPath(bkp_path);
+        _items_csv.setPath(csv_path);
+        displayProductsMenu();
+    } else {
+        std::cout << "No se seleccionó ningún depósito para administrar su mercadería.\n";
+        _terminal.pause();
+        _terminal.clear();
+    }
+}
+
 void ItemsManager::displayProductsMenu() {
     int selection = 1;
 
     do {
         _terminal.clear();
-        _warehouses_manager.printWarehouse();
         _terminal.displayMenuHeader("PRODUCTOS");
+        _terminal.centerAndPrint(_warehouses_manager.getWarehouse().getName());
+        std::cout << "\n";
         std::cout << "(1) AGREGAR NUEVO\n";
         std::cout << "(2) EDITAR PRODUCTO\n";
         std::cout << "(3) BUSCAR PRODUCTO\n";
@@ -221,7 +236,6 @@ void ItemsManager::searchItem() {
             searchItemByDescription();
             break;
     }
-    
 }
 
 void ItemsManager::listItems() {

@@ -18,14 +18,12 @@ class WarehousesManager {
     void cinWarehouseName(Warehouse & warehouse);
     void cinWarehouseAdress(Warehouse & warehouse);
     void cinWarehouseIsActive(Warehouse & warehouse);
-    void generateWarehousePath(Warehouse & warehouse);
     int generateWarehouseId();
     void searchWarehouseById();
     void searchWarehouseByName();
     void exportWarehouseBackup();
     void importWarehouseBackup();
-    void setItemsPath(std::string);
-    std::string getItemsPath();
+    Warehouse getWarehouse();
 
     private:
 

@@ -2,7 +2,7 @@
 
 Warehouse::Warehouse() {
     setId(1);
-    setPath("registers/NULL");
+    setName("N/A");
     setIsActive(true);
 }
 
@@ -14,7 +14,7 @@ int Warehouse::getId() const {
     return _id;
 }
 
-void Warehouse::setName(std::string & name) {
+void Warehouse::setName(const std::string & name) {
     strcpy(_name, name.c_str());
 }
 
@@ -28,14 +28,6 @@ void Warehouse::setAdress(const Adress & adress) {
 
 Adress Warehouse::getAdress() const {
     return _adress;
-}
-
-void Warehouse::setPath(const std::string & path) {
-    strcpy(_path, path.c_str());
-}
-
-std::string Warehouse::getPath() const {
-    return _path;
 }
 
 void Warehouse::setIsActive(bool is_active) {
