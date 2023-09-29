@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
+#include "Terminal.h"
 #include "Warehouse.h"
 #include "WarehousesArchive.h"
-#include "Terminal.h"
+#include "WarehousesCSV.h"
 
 class WarehousesManager {
     public:
@@ -21,8 +22,10 @@ class WarehousesManager {
     int generateWarehouseId();
     void searchWarehouseById();
     void searchWarehouseByName();
-    void exportWarehouseBackup();
-    void importWarehouseBackup();
+    void exportWarehousesBackup();
+    void importWarehousesBackup();
+    void exportWarehousesCSV();
+    void importWarehousesCSV();
     Warehouse getWarehouse();
 
     private:
@@ -31,4 +34,5 @@ class WarehousesManager {
     Warehouse _warehouse;
     WarehousesArchive _warehouses_archive;
     WarehousesArchive _warehouses_backup;
+    WarehousesCSV _warehouses_csv;
 };

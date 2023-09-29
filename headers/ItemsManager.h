@@ -33,11 +33,11 @@ class ItemsManager {
     void importItemsBackup();
     void exportItemsCSV();
     void importItemsCSV();
-    int generateItemId();
-    int productIndex();
-    void listProducts();
-    void printProduct(int index);
-    void exportProductsCSV();
+    int generateItemId(); //en desarrollo
+    int productIndex(); //en desarrollo
+    void listProducts(); //en desarrollo
+    void printProduct(int index); //en desarrollo
+    void exportProductsCSV(); //en desarrollo
 
     private:
 

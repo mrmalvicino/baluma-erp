@@ -41,17 +41,19 @@ void WarehousesManager::displayMenu() {
                 break;
 
             case 5:
-                exportWarehouseBackup();
+                exportWarehousesBackup();
                 break;
 
             case 6:
-                importWarehouseBackup();
+                importWarehousesBackup();
                 break;
 
             case 7:
+                exportWarehousesCSV();
                 break;
 
             case 8:
+                importWarehousesCSV();
                 break;
         }
     } while (selection != 0);
@@ -320,7 +322,7 @@ void WarehousesManager::searchWarehouseByName() {
     _terminal.pause();
 }
 
-void WarehousesManager::exportWarehouseBackup() {
+void WarehousesManager::exportWarehousesBackup() {
     int amount_of_warehouse = _warehouses_archive.getAmountOfRegisters();
 
     Warehouse * warehouse_array = new Warehouse[amount_of_warehouse];
@@ -345,7 +347,7 @@ void WarehousesManager::exportWarehouseBackup() {
     }
 }
 
-void WarehousesManager::importWarehouseBackup() {
+void WarehousesManager::importWarehousesBackup() {
     std::cout << "¿Desea reemplazar los depósitos actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
@@ -372,6 +374,20 @@ void WarehousesManager::importWarehouseBackup() {
             std::cout << "Backup importado correctamente.\n";
             _terminal.pause();
         }
+    }
+}
+
+void WarehousesManager::exportWarehousesCSV() {
+    _warehouses_csv.writeWarehousesCSV(_warehouse, _warehouses_archive);
+}
+
+void WarehousesManager::importWarehousesCSV() {
+    std::cout << "¿Desea reemplazar los warehousees actuales por aquellos que haya en el archivo CSV? [S/N]\n";
+
+    if (_terminal.validateBool() == false) {
+        std::cout << "Importación abortada por el usuario.\n";
+    } else {
+        _warehouses_csv.readWarehousesCSV(_warehouse, _warehouses_archive);
     }
 }
 
