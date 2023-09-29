@@ -112,9 +112,9 @@ bool ItemsManager::addItem() {
     _terminal.displayMenuHeader("AGREGAR EXISTENCIA");
 
     cinItemName(_item);
-    cinItemDescription(_item);
     cinItemBrand(_item);
     cinItemModel(_item);
+    cinItemDescription(_item);
     cinItemPrice(_item);
     cinItemStock(_item);
     cinItemIncome(_item);
@@ -159,8 +159,8 @@ bool ItemsManager::editItem() {
         _terminal.centerAndPrint(_item.getName());
         std::cout << "\n";
         std::cout << "(1) EDITAR DESCRIPCION\n";
-        std::cout << "(2) EDITAR STOCK\n";
-        std::cout << "(3) EDITAR PRECIO\n";
+        std::cout << "(2) EDITAR PRECIO\n";
+        std::cout << "(3) EDITAR STOCK\n";
         std::cout << "(4) EDITAR FECHA DE INGRESO\n";
         std::cout << "(5) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
@@ -172,10 +172,10 @@ bool ItemsManager::editItem() {
                 cinItemDescription(_item);
                 break;
             case 2:
-                cinItemStock(_item);
+                cinItemPrice(_item);
                 break;
             case 3:
-                cinItemPrice(_item);
+                cinItemStock(_item);
                 break;
             case 4:
                 cinItemIncome(_item);
