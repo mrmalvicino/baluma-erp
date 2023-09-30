@@ -268,3 +268,11 @@ void Terminal::cleanBuffer() {
     int aux;
     while ((aux = std::cin.get()) != '\n' && aux != EOF) {}
 }
+
+std::string Terminal::fill(std::string text, unsigned int length) {
+    while (text.length() < length) {
+        text += " ";
+    }
+
+    return text;
+}

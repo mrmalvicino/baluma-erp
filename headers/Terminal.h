@@ -151,6 +151,19 @@ class Terminal {
      */
     void cleanBuffer();
 
+    /**
+     * @brief Fill a string with spaces to a specified length.
+     *
+     * This method takes a string and appends spaces to it until it reaches the
+     * specified length. If the input string is already equal to or longer than
+     * the specified length, it is returned unchanged.
+     *
+     * @param text (std::string) The input string to be filled with spaces.
+     * @param length (unsigned int) The desired length of the resulting string (default is 20).
+     * @return (std::string) A string filled with spaces to the specified length.
+     */
+    std::string fill(std::string text, unsigned int length = 26);
+
     private:
 
     /**

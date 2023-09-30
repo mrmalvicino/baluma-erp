@@ -44,6 +44,7 @@ class ItemsManager {
      */
     int productIndex();
 
+    void showInventory(); //en desarrollo
     void exportInventoryCSV(); //en desarrollo
 
     private:

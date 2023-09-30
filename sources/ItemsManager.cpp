@@ -14,7 +14,8 @@ void ItemsManager::displayMainMenu() {
         std::cout << "(2) DATOS DE LOS DEPÓSITOS\n";
         std::cout << "(3) ADMINISTRAR MERCADERÍA EN DEPÓSITO\n";
         _terminal.printLine();
-        std::cout << "(4) EXPORTAR INFORME A CSV\n";
+        std::cout << "(4) MOSTRAR INFORME\n";
+        std::cout << "(5) EXPORTAR INFORME A CSV\n";
         _terminal.displayMenuFooter();
 
         selection = _terminal.validateInt(0, 4);
@@ -30,6 +31,9 @@ void ItemsManager::displayMainMenu() {
                 loadItemsMenu();
                 break;
             case 4:
+                showInventory();
+                break;
+            case 5:
                 exportInventoryCSV();
                 break;
         }
@@ -488,7 +492,6 @@ void ItemsManager::importItemsCSV() {
 }
 
 void ItemsManager::generateItemId() {
-    // busca si el item existe en lista de producto y en tal caso devuelve el id. caso contrario genera id nuevo.
     int id = 1;
     int amount_of_products = _products_archive.getAmountOfRegisters();
     int item_index_in_products_archive = productIndex();
@@ -532,7 +535,9 @@ int ItemsManager::productIndex() {
     return index;
 }
 
-void ItemsManager::exportInventoryCSV() {
+void ItemsManager::showInventory() {
+    _terminal.clear();
+
     int amount_of_warehouses = _warehouses_manager.getAmountOfWarehouses();
     int amount_of_products = _products_archive.getAmountOfRegisters();
     int amount_of_items;
@@ -556,7 +561,26 @@ void ItemsManager::exportInventoryCSV() {
         }
     }
 
-    _array.printMatrix(quantities_matrix, amount_of_products, amount_of_warehouses);
+    int total_stock = 0;
+
+    for (int i = 0; i < amount_of_products; i ++) {
+        _product = _products_archive.read(i);
+        std::cout << _terminal.fill(_product.toString());
+
+        for (int j = 0; j < amount_of_warehouses; j ++) {
+            _warehouses_manager.setWarehouse(j);
+            std::cout << "\tStock " << _warehouses_manager.getWarehouse().getName() << ": " << quantities_matrix[i][j] << "\t";
+            total_stock += quantities_matrix[i][j];
+        }
+
+        std::cout << "Stock total: " << total_stock << "\n";
+        total_stock = 0;
+    }
+
     _terminal.pause();
     _array.deleteMatrix(quantities_matrix, amount_of_products);
+}
+
+void ItemsManager::exportInventoryCSV() {
+    return; //EN DESARROLLO
 }
