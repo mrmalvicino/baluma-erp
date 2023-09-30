@@ -9,11 +9,14 @@ class WarehousesManager {
     public:
 
     WarehousesManager();
+    int getAmountOfWarehouses();
+    void setWarehouse(int index);
+    Warehouse getWarehouse();
     void displayMenu();
     bool addWarehouse();
     bool editWarehouse();
     void searchWarehouse();
-    void listWarehouse();
+    void listWarehouses();
     void printWarehouse();
     void printWarehouse(int index);
     void cinWarehouseName(Warehouse & warehouse);
@@ -26,10 +29,10 @@ class WarehousesManager {
     void importWarehousesBackup();
     void exportWarehousesCSV();
     void importWarehousesCSV();
-    Warehouse getWarehouse();
 
     private:
 
+    int _amount_of_warehouses;
     Terminal _terminal;
     Warehouse _warehouse;
     WarehousesArchive _warehouses_archive;

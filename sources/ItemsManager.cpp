@@ -27,7 +27,7 @@ void ItemsManager::displayMainMenu() {
                 _warehouses_manager.displayMenu();
                 break;
             case 3:
-                selectWarehouse();
+                loadItemsMenu();
                 break;
             case 4:
                 exportInventoryCSV();
@@ -36,22 +36,26 @@ void ItemsManager::displayMainMenu() {
     } while (selection != 0);
 }
 
-void ItemsManager::selectWarehouse() {
+void ItemsManager::loadItemsMenu() {
     _warehouses_manager.searchWarehouse();
 
     if (_warehouses_manager.getWarehouse().getName() != "N/A") {
-        std::string dat_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".dat";
-        std::string bkp_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".bkp";
-        std::string csv_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".csv";
-        _items_archive.setPath(dat_path);
-        _items_backup.setPath(bkp_path);
-        _items_csv.setPath(csv_path);
+        setWarehousePaths();
         displayItemsMenu();
     } else {
         std::cout << "No se seleccionó ningún depósito para administrar su mercadería.\n";
         _terminal.pause();
         _terminal.clear();
     }
+}
+
+void ItemsManager::setWarehousePaths() {
+        std::string dat_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".dat";
+        std::string bkp_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".bkp";
+        std::string csv_path = "registers/warehouse" + std::to_string(_warehouses_manager.getWarehouse().getId()) + ".csv";
+        _items_archive.setPath(dat_path);
+        _items_backup.setPath(bkp_path);
+        _items_csv.setPath(csv_path);
 }
 
 void ItemsManager::displayItemsMenu() {
@@ -529,5 +533,30 @@ int ItemsManager::productIndex() {
 }
 
 void ItemsManager::exportInventoryCSV() {
+    int amount_of_warehouses = _warehouses_manager.getAmountOfWarehouses();
+    int amount_of_products = _products_archive.getAmountOfRegisters();
+    int amount_of_items;
 
+    int ** quantities_matrix = _array.allocateMatrix(amount_of_products, amount_of_warehouses);
+
+    for (int i = 0; i < amount_of_warehouses; i ++) {
+        _warehouses_manager.setWarehouse(i);
+        setWarehousePaths();
+        amount_of_items = _items_archive.getAmountOfRegisters();
+
+        for (int j = 0; j < amount_of_items; j ++) {
+            for (int k = 0; k < amount_of_products; k ++) {
+                _item = _items_archive.read(j);
+                _product = _products_archive.read(k);
+
+                if (_product.getId() == _item.getId()) {
+                    quantities_matrix[k][i] = _item.getStock();
+                }
+            }
+        }
+    }
+
+    _array.printMatrix(quantities_matrix, amount_of_products, amount_of_warehouses);
+    _terminal.pause();
+    _array.deleteMatrix(quantities_matrix, amount_of_products);
 }

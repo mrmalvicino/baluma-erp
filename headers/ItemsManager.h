@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Array.h"
 #include "Terminal.h"
 #include "Item.h"
 #include "ItemsArchive.h"
@@ -12,7 +13,8 @@ class ItemsManager {
 
     ItemsManager();
     void displayMainMenu();
-    void selectWarehouse();
+    void loadItemsMenu();
+    void setWarehousePaths();
     void displayItemsMenu();
     bool addItem();
     bool editItem();
@@ -46,6 +48,7 @@ class ItemsManager {
 
     private:
 
+    Array _array;
     Terminal _terminal;
     Item _item;
     ItemsArchive _items_archive;
