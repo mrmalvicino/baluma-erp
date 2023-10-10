@@ -24,7 +24,6 @@ class ItemsManager {
     void cinItemName(Item & item);
     void cinItemBrand(Item & item);
     void cinItemModel(Item & item);
-    void cinItemIsActive(Item & item);
     void cinItemDescription(Item & item);
     void cinItemPrice(Item & item);
     void cinItemStock(Item & item);

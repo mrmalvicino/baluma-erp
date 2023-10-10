@@ -170,10 +170,9 @@ bool ItemsManager::editItem() {
         std::cout << "(2) EDITAR PRECIO\n";
         std::cout << "(3) EDITAR STOCK\n";
         std::cout << "(4) EDITAR FECHA DE INGRESO\n";
-        std::cout << "(5) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 5);
+        selection = _terminal.validateInt(0, 4);
 
         switch (selection) {
             case 1:
@@ -187,9 +186,6 @@ bool ItemsManager::editItem() {
                 break;
             case 4:
                 cinItemIncome(_item);
-                break;
-            case 5:
-                cinItemIsActive(_item);
                 break;
         }
     } while (selection != 0);
@@ -279,18 +275,6 @@ void ItemsManager::cinItemModel(Item & item) {
     getline(std::cin, model);
 
     item.setModel(model);
-}
-
-void ItemsManager::cinItemIsActive(Item & item) {
-    if (item.getIsActive()) {
-        item.setIsActive(false);
-        std::cout << "El producto ha sido dado de baja.\n";
-        _terminal.pause();
-    } else {
-        item.setIsActive(true);
-        std::cout << "El producto ha sido reincorporado.\n";
-        _terminal.pause();
-    }
 }
 
 void ItemsManager::cinItemDescription(Item & item) {

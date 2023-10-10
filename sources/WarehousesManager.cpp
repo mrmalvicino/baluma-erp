@@ -22,10 +22,10 @@ void WarehousesManager::displayMenu() {
 
     do {
         _terminal.clear();
-        _terminal.displayMenuHeader("DEPOSITOS");
-        std::cout << "(1) AGREGAR DEPOSITO\n";
-        std::cout << "(2) EDITAR DEPOSITO\n";
-        std::cout << "(3) BUSCAR DEPOSITO\n";
+        _terminal.displayMenuHeader("DEPÓSITOS");
+        std::cout << "(1) AGREGAR DEPÓSITO\n";
+        std::cout << "(2) EDITAR DEPÓSITO\n";
+        std::cout << "(3) BUSCAR DEPÓSITO\n";
         std::cout << "(4) VER LISTADO\n";
         _terminal.printLine();
         std::cout << "(5) EXPORTAR BACKUP\n";
@@ -70,7 +70,7 @@ bool WarehousesManager::addWarehouse() {
     bool user_wants_to_save;
 
     _terminal.clear();
-    _terminal.displayMenuHeader("AGREGAR DEPOSITO");
+    _terminal.displayMenuHeader("AGREGAR DEPÓSITO");
 
     _warehouse.setId(generateWarehouseId());
 
@@ -127,6 +127,7 @@ bool WarehousesManager::editWarehouse() {
                 cinWarehouseName(_warehouse);
                 break;
             case 2:
+                std::cin.ignore();
                 cinWarehouseAdress(_warehouse);
                 break;
             case 3:
@@ -146,7 +147,7 @@ void WarehousesManager::searchWarehouse() {
 
     int selection = 1;
 
-    _terminal.displayMenuHeader("BUSCAR DEPOSITO");
+    _terminal.displayMenuHeader("BUSCAR DEPÓSITO");
     std::cout << "(1) BUSCAR POR ID\n";
     std::cout << "(2) BUSCAR POR NOMBRE\n";
     _terminal.displayMenuFooter();
@@ -201,7 +202,7 @@ void WarehousesManager::printWarehouse(int index) {
 void WarehousesManager::cinWarehouseName(Warehouse & warehouse) {
     std::string name;
     
-    std::cout << "Ingrese nombre del deposito:\n";
+    std::cout << "Ingrese nombre del depósito:\n";
     std::cin.ignore();
     getline(std::cin, name);
 
@@ -220,7 +221,6 @@ void WarehousesManager::cinWarehouseAdress(Warehouse & warehouse) {
     char letter;
 
     std::cout << "Ingresar el país del domicilio:\n";
-    std::cin.ignore();
     getline(std::cin, country);
 
     std::cout << "Ingresar la provincia del domicilio:\n";
