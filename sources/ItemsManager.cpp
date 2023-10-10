@@ -345,7 +345,7 @@ void ItemsManager::searchItemById() {
     int id;
     int max_id;
 
-    max_id = _items_archive.getAmountOfRegisters();
+    max_id = _products_archive.getAmountOfRegisters();
 
     std::cout << "Ingresar ID o 0 para cancelar:\n";
     id = _terminal.validateInt(0, max_id);
