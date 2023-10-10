@@ -6,11 +6,7 @@ class Item : public Product {
     public:
 
     Item();
-    Item(int id, const std::string & name, const std::string & brand, const std::string & model, bool is_active, const std::string & description, double price, int stock);
-    void setDescription(const std::string & description);
-    std::string getDescription() const;
-    void setPrice(double price);
-    double getPrice() const;
+    Item(int id, const std::string & name, const std::string & brand, const std::string & model, const std::string & description, double price, bool is_active, int stock);
     void setStock(int stock);
     int getStock() const;
     void setIncome(const Date & income);
@@ -19,8 +15,6 @@ class Item : public Product {
 
     private:
 
-    char _description[30];
-    double _price;
     int _stock;
     Date _income;
 };

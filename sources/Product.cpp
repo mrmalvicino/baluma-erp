@@ -8,11 +8,13 @@ Product::Product() {
     setIsActive(true);
 }
 
-Product::Product(int id, const std::string & name, const std::string & brand, const std::string & model, bool is_active) {
+Product::Product(int id, const std::string & name, const std::string & brand, const std::string & model, const std::string & description, double price, bool is_active) {
     setId(id);
     setName(name);
     setBrand(brand);
     setModel(model);
+    setDescription(description);
+    setPrice(price);
     setIsActive(is_active);
 }
 
@@ -46,6 +48,22 @@ void Product::setModel(const std::string & model) {
 
 std::string Product::getModel() const {
     return _model;
+}
+
+void Product::setDescription(const std::string & description) {
+    strcpy(_description, description.c_str());
+}
+
+std::string Product::getDescription() const {
+    return _description;
+}
+
+void Product::setPrice(double price) {
+    _price = price;
+}
+
+double Product::getPrice() const {
+    return _price;
 }
 
 void Product::setIsActive(bool is_active) {

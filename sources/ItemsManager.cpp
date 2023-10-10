@@ -18,7 +18,7 @@ void ItemsManager::displayMainMenu() {
         std::cout << "(5) EXPORTAR INFORME A CSV\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 4);
+        selection = _terminal.validateInt(0, 5);
 
         switch (selection) {
             case 1:
@@ -492,8 +492,8 @@ void ItemsManager::generateItemId() {
 
     _item.setId(id);
 
-    if (add_item_to_products == true) {
-        bool successful_write = _products_archive.write(_item);
+    if (add_item_to_products == true) { // Si la existencia aun no fue registrada como producto
+        bool successful_write = _products_archive.write(_item); // Al ser una herencia, el archivo de productos solo toma rubro, marca y modelo del item
 
         if (successful_write == true) {
             std::cout << "Creando registro...\n";
@@ -566,5 +566,5 @@ void ItemsManager::showInventory() {
 }
 
 void ItemsManager::exportInventoryCSV() {
-    return; //EN DESARROLLO
+    return;
 }
