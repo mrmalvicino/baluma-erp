@@ -261,6 +261,7 @@ char Terminal::validateChar() {
 void Terminal::configureUTF8() {
     #ifdef _WIN64
         system("chcp 65001");
+        system("Set-Culture es-ES");
     #endif
 }
 
