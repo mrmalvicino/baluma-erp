@@ -12,7 +12,7 @@ void ItemsManager::displayMainMenu() {
         _terminal.displayMenuHeader("INVENTARIO");
         std::cout << "(1) DATOS DE LOS PRODUCTOS\n";
         std::cout << "(2) DATOS DE LOS DEPÓSITOS\n";
-        std::cout << "(3) ADMINISTRAR MERCADERÍA EN DEPÓSITO\n";
+        std::cout << "(3) ADMINISTRAR EXISTENCIAS\n";
         _terminal.printLine();
         std::cout << "(4) MOSTRAR INFORME\n";
         std::cout << "(5) EXPORTAR INFORME A CSV\n";
