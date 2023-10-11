@@ -98,7 +98,9 @@ bool ProductsManager::editProduct() {
         std::cout << "(1) EDITAR NOMBRE\n";
         std::cout << "(2) EDITAR MARCA\n";
         std::cout << "(3) EDITAR MODELO\n";
-        std::cout << "(4) DAR DE BAJA O REINCORPORAR\n";
+        std::cout << "(4) EDITAR DESCRIPCION\n";
+        std::cout << "(5) EDITAR PRECIO\n";
+        std::cout << "(6) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
         selection = _terminal.validateInt(0, 4);
@@ -114,6 +116,12 @@ bool ProductsManager::editProduct() {
                 cinProductModel(_product);
                 break;
             case 4:
+                cinProductDescription(_product);
+                break;
+            case 5:
+                cinProductPrice(_product);
+                break;
+            case 6:
                 cinProductIsActive(_product);
                 break;
         }
@@ -167,11 +175,13 @@ void ProductsManager::listProducts() {
 
 void ProductsManager::printProduct(int index) {
     _product = _products_archive.read(index);
-    _terminal.displayMenuHeader(_product.getName());
+    _terminal.displayMenuHeader(_product.toString());
     std::cout << "# ID: " << _product.getId() << "\n";
     std::cout << "Nombre: " << _product.getName() << "\n";
     std::cout << "Marca: " << _product.getBrand() << "\n";
     std::cout << "Modelo: " << _product.getModel() << "\n";
+    std::cout << "Descripción: " << _product.getDescription() << "\n";
+    std::cout << "Precio unitario: $" << _product.getPrice() << "\n";
     _terminal.printBool(_product.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
@@ -201,6 +211,24 @@ void ProductsManager::cinProductModel(Product & product) {
     getline(std::cin, model);
 
     product.setModel(model);
+}
+
+void ProductsManager::cinProductDescription(Product & product) {
+    std::string description;
+
+    std::cout << "Ingrese descripcion:\n";
+    getline(std::cin, description);
+
+    product.setDescription(description);
+}
+
+void ProductsManager::cinProductPrice(Product & product) {
+    double price;
+
+    std::cout << "Ingrese valor unitario:\n";
+    std::cin >> price;
+
+    product.setPrice(price);
 }
 
 void ProductsManager::cinProductIsActive(Product & product) {

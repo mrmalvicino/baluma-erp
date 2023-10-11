@@ -71,6 +71,18 @@ class ProductsManager {
     void cinProductModel(Product & product);
 
     /**
+     * @brief Prompts the user to enter the description of a product.
+     * @param product (Product &) A reference to the Product object where the data will be stored.
+     */
+    void cinProductDescription(Product & product);
+
+    /**
+     * @brief Prompts the user to enter the price of a product.
+     * @param product (Product &) A reference to the Product object where the data will be stored.
+     */
+    void cinProductPrice(Product & product);
+
+    /**
      * @brief Prompts the user to enter the status of a product.
      * @param product (Product &) A reference to the Product object where the data will be stored.
      */

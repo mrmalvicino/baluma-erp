@@ -29,12 +29,13 @@ class ItemsManager {
     void cinItemStock(Item & item);
     void cinItemIncome(Item & item);
     void searchItemById();
-    void searchItemByProduct();
+    void searchItemByNBM();
     void exportItemsBackup();
     void importItemsBackup();
     void exportItemsCSV();
     void importItemsCSV();
     void generateItemId();
+    void synchronizeProduct();
 
     /**
      * @brief Searches for an item in the products list and returns its index.

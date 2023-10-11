@@ -132,6 +132,7 @@ bool ItemsManager::addItem() {
 
     if (user_wants_to_save == true) {
         generateItemId();
+        synchronizeProduct();
         successful_write = _items_archive.write(_item);
 
         if (successful_write == true) {
@@ -166,25 +167,17 @@ bool ItemsManager::editItem() {
         _terminal.displayMenuHeader("EDITAR EXISTENCIA");
         _terminal.centerAndPrint(_item.getName());
         std::cout << "\n";
-        std::cout << "(1) EDITAR DESCRIPCION\n";
-        std::cout << "(2) EDITAR PRECIO\n";
-        std::cout << "(3) EDITAR STOCK\n";
-        std::cout << "(4) EDITAR FECHA DE INGRESO\n";
+        std::cout << "(1) EDITAR STOCK\n";
+        std::cout << "(2) EDITAR FECHA DE INGRESO\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 4);
+        selection = _terminal.validateInt(0, 2);
 
         switch (selection) {
             case 1:
-                cinItemDescription(_item);
-                break;
-            case 2:
-                cinItemPrice(_item);
-                break;
-            case 3:
                 cinItemStock(_item);
                 break;
-            case 4:
+            case 2:
                 cinItemIncome(_item);
                 break;
         }
@@ -216,7 +209,7 @@ void ItemsManager::searchItem() {
             searchItemById();
             break;
         case 2:
-            searchItemByProduct();
+            searchItemByNBM();
             break;
     }
 }
@@ -238,13 +231,14 @@ void ItemsManager::listItems() {
 
 void ItemsManager::printItem(int index) {
     _item = _items_archive.read(index);
-    _terminal.displayMenuHeader(_item.getName());
+    _terminal.displayMenuHeader(_item.toString());
     std::cout << "# ID: " << _item.getId() << "\n";
-    std::cout << "Descripcion: " << _item.getDescription() << "\n";
+    std::cout << "Rubro: " << _item.getName() << "\n";
     std::cout << "Marca: " << _item.getBrand() << "\n";
     std::cout << "Modelo: " << _item.getModel() << "\n";
-    std::cout << "Stock: " << _item.getStock() << "\n";
+    std::cout << "Descripcion: " << _item.getDescription() << "\n";
     std::cout << "Precio unitario: " << _item.getPrice() << "\n";
+    std::cout << "Stock: " << _item.getStock() << "\n";
     std::cout << "Fecha de ingreso: " << _item.getIncome().toString() << "\n";
     _terminal.printBool(_item.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
@@ -345,7 +339,7 @@ void ItemsManager::searchItemById() {
     _terminal.pause();
 }
 
-void ItemsManager::searchItemByProduct() {
+void ItemsManager::searchItemByNBM() {
     int index;
     std::string name;
     std::string brand;
@@ -479,27 +473,33 @@ void ItemsManager::generateItemId() {
     int id = 1;
     int amount_of_products = _products_archive.getAmountOfRegisters();
     int item_index_in_products_archive = productIndex();
-    bool add_item_to_products = true;
 
     if(amount_of_products != 0) { // Si la lista no es vacía, determinar si el nuevo item ya existe
         if (item_index_in_products_archive != -1) {
             id = item_index_in_products_archive + 1; // Si existe, el id es la ubicación del item en la lista de productos + 1
-            add_item_to_products = false; // Además, si existe no debe ser agregado nuevamente
         } else {
             id = amount_of_products + 1; // Si no existe, agregar item a la lista con nuevo id
         }
     } // Si la lista es vacía, el nuevo item va a ser el primero en la lista de productos
 
     _item.setId(id);
+}
 
-    if (add_item_to_products == true) { // Si la existencia aun no fue registrada como producto
-        bool successful_write = _products_archive.write(_item); // Al ser una herencia, el archivo de productos solo toma rubro, marca y modelo del item
+void ItemsManager::synchronizeProduct() {
+    int item_index_in_products_archive = productIndex();
+
+    if (item_index_in_products_archive == -1) { // Si la existencia aun no fue registrada como producto
+        bool successful_write = _products_archive.write(_item); // Escribir en el archivo de productos lo compartido por la herencia de item
 
         if (successful_write == true) {
-            std::cout << "Creando registro...\n";
+            std::cout << "La existencia fue registrada como un nuevo producto.\n";
         } else {
             std::cout << "Error de escritura.\n";
         }
+    } else { // Si la existencia ya fue agregada como producto, tomar la descripción y el precio del producto
+        _product = _products_archive.read(item_index_in_products_archive);
+        _item.setDescription(_product.getDescription());
+        _item.setPrice(_product.getPrice());
     }
 }
 
