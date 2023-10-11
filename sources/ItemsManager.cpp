@@ -472,11 +472,11 @@ void ItemsManager::importItemsCSV() {
 void ItemsManager::generateItemId() {
     int id = 1;
     int amount_of_products = _products_archive.getAmountOfRegisters();
-    int item_index_in_products_archive = productIndex();
+    int product_index = productIndex();
 
     if(amount_of_products != 0) { // Si la lista no es vacía, determinar si el nuevo item ya existe
-        if (item_index_in_products_archive != -1) {
-            id = item_index_in_products_archive + 1; // Si existe, el id es la ubicación del item en la lista de productos + 1
+        if (product_index != -1) {
+            id = product_index + 1; // Si existe, el id es la ubicación del item en la lista de productos + 1
         } else {
             id = amount_of_products + 1; // Si no existe, agregar item a la lista con nuevo id
         }
@@ -486,9 +486,9 @@ void ItemsManager::generateItemId() {
 }
 
 void ItemsManager::synchronizeProduct() {
-    int item_index_in_products_archive = productIndex();
+    int product_index = productIndex();
 
-    if (item_index_in_products_archive == -1) { // Si la existencia aun no fue registrada como producto
+    if (product_index == -1) { // Si la existencia aun no fue registrada como producto
         bool successful_write = _products_archive.write(_item); // Escribir en el archivo de productos lo compartido por la herencia de item
 
         if (successful_write == true) {
@@ -497,7 +497,7 @@ void ItemsManager::synchronizeProduct() {
             std::cout << "Error de escritura.\n";
         }
     } else { // Si la existencia ya fue agregada como producto, tomar la descripción y el precio del producto
-        _product = _products_archive.read(item_index_in_products_archive);
+        _product = _products_archive.read(product_index);
         _item.setDescription(_product.getDescription());
         _item.setPrice(_product.getPrice());
     }
