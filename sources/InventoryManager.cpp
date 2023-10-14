@@ -140,7 +140,7 @@ bool InventoryManager::editProduct() {
         std::cout << "(6) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 4);
+        selection = _terminal.validateInt(0, 6);
 
         switch (selection) {
             case 1:
@@ -166,6 +166,35 @@ bool InventoryManager::editProduct() {
 
     int index = _products_archive.getIndex(_product.getId());
     bool successful_write = _products_archive.overWrite(_product, index);
+    successful_write = synchronizeItem();
+
+    return successful_write;
+}
+
+bool InventoryManager::synchronizeItem() {
+    int amount_of_warehouses = _warehouses_manager.getAmountOfWarehouses();
+    int amount_of_items;
+    bool successful_write;
+
+    for (int i = 0; i < amount_of_warehouses; i ++) { // TO DO
+        setWarehousePaths(i + 1);
+        amount_of_items = getAmountOfItems();
+
+        for (int j = 0; j < amount_of_items; j ++) {
+            _item = _items_archive.read(j);
+
+            if (_product.getId() == _item.getId()) {
+                _item.setName(_product.getName());
+                _item.setBrand(_product.getBrand());
+                _item.setModel(_product.getModel());
+                _item.setDescription(_product.getDescription());
+                _item.setPrice(_product.getPrice());
+                _item.setIsActive(_product.getIsActive());
+                int index = _items_archive.getIndex(_item.getId());
+                successful_write = _items_archive.overWrite(_item, index);
+            }
+        }
+    }
 
     return successful_write;
 }
@@ -716,7 +745,6 @@ void InventoryManager::searchItemById() {
     // Borrar estos 3 comentarios cuando este listo
     int index;
     int id;
-    int max_id;
 
     std::cout << "Ingresar ID o 0 para cancelar:\n";
     id = _terminal.validateInt(0);

@@ -37,6 +37,8 @@ class InventoryManager {
      */
     bool editProduct();
 
+    bool synchronizeItem();
+
     /**
      * @brief Allows searching for a product with an interactive menu based on different criteria, including product ID and product name.
      */
