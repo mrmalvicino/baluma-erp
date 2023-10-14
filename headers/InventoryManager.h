@@ -1,28 +1,29 @@
-/**
- * @file ProductsManager.h
- * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
- * @brief Manages the product module.
- * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
- */
-
 #pragma once
 #include <iostream>
 #include "Terminal.h"
+#include "Array.h"
 #include "Product.h"
 #include "ProductsArchive.h"
+#include "Item.h"
+#include "ItemsArchive.h"
+#include "ItemsCSV.h"
+#include "WarehousesManager.h"
 
-class ProductsManager {
+class InventoryManager {
     public:
 
+    void displayMainMenu();
+
     /**
-     * @brief Constructs a new ProductsManager object with default settings.
+     * @brief Gets the amount of registers recorded in the products archive.
+     * @return int 
      */
-    ProductsManager();
+    int getAmountOfProducts();
 
     /**
      * @brief Displays the products menu.
      */
-    void displayMenu();
+    void displayProductsMenu();
 
     /**
      * @brief Adds a new product to the product archive by prompting the user for inputs to collect various details of the product, such as description, legal ID, address, phone, email, and category.
@@ -114,12 +115,86 @@ class ProductsManager {
      */
     void importProductsBackup();
 
+    int getAmountOfItems();
+
+    void setWarehousePaths(int warehouse_id);
+
+    void loadItemsMenu();
+
+    void displayItemsMenu(std::string warehouse_name);
+
+    bool addItem();
+
+    bool editItem();
+
+    void searchItem();
+
+    void listItems();
+
+    void printItem(int index);
+
+    void cinItemName(Item & item);
+
+    void cinItemBrand(Item & item);
+
+    void cinItemModel(Item & item);
+
+    void cinItemDescription(Item & item);
+
+    void cinItemPrice(Item & item);
+
+    void cinItemStock(Item & item);
+
+    void cinItemIncome(Item & item);
+
+    void searchItemById();
+
+    void searchItemByNBM();
+
+    void exportItemsBackup();
+
+    void importItemsBackup();
+
+    void exportItemsCSV();
+
+    void importItemsCSV();
+
+    void generateItemId();
+
+    void synchronizeProduct();
+
+    /**
+     * @brief Searches for an item in the products list and returns its index.
+     * Iterates through the list of products to find a match for the item's name, brand, and model. If a matching product is found, the method returns the index of that product in the list. If no matching product is found, it returns -1.
+     * @return (int) The index of the found product or -1 if not found.
+     */
+    int productIndex();
+
+    void showInventory(); //en desarrollo
+
+    void exportInventoryCSV(); //en desarrollo
+
     private:
+
+    /**
+     * @brief Amount of registers recorded in the products archive.
+     */
+    int _amount_of_products;
+
+    /**
+     * @brief Amount of registers recorded in the current items archive.
+     */
+    int _amount_of_items;
 
     /**
      * @brief Terminal object with default settings.
      */
     Terminal _terminal;
+
+    /**
+     * @brief Array object with default settings.
+     */
+    Array _array;
 
     /**
      * @brief Product object with default settings.
@@ -135,4 +210,17 @@ class ProductsManager {
      * @brief ProductsArchive object with custom path.
      */
     ProductsArchive _products_backup;
+
+    /**
+     * @brief Item object with default settings.
+     */
+    Item _item;
+
+    ItemsArchive _items_archive;
+
+    ItemsArchive _items_backup;
+
+    ItemsCSV _items_csv;
+
+    WarehousesManager _warehouses_manager;
 };

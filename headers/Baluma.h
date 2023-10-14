@@ -10,7 +10,7 @@
 #include "ClientsManager.h"
 #include "SuppliersManager.h"
 #include "BudgetsManager.h"
-#include "ItemsManager.h"
+#include "InventoryManager.h"
 #include "WarehousesManager.h"
 #include "AccountsManager.h"
 
@@ -50,7 +50,7 @@ class Baluma {
     BudgetManager _budgets_manager;
 
     /**
-     * @brief ItemsManager object with default settings.
+     * @brief InventoryManager object with default settings.
      */
-    ItemsManager _items_manager;
+    InventoryManager _inventory_manager;
 };
