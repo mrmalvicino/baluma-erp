@@ -112,22 +112,22 @@ class ClientsManager {
     void searchClientByDescription();
 
     /**
-     * @brief Exports a binary file with a buckup copy of the current archive of clients.
+     * @brief Exports a binary file with a buckup copy of the current _clients_archive.
      */
     void exportClientsBackup();
 
     /**
-     * @brief Imports a buckup copy by overwriting the current archive of clients.
+     * @brief Imports a buckup copy by overwriting the current _clients_archive.
      */
     void importClientsBackup();
 
     /**
-     * @brief Exports a CSV file with the current archive of clients.
+     * @brief Exports a CSV file with the current _clients_archive.
      */
     void exportClientsCSV();
 
     /**
-     * @brief Imports a CSV file by overwriting the current archive of clients.
+     * @brief Imports a CSV file by overwriting the current _clients_archive.
      */
     void importClientsCSV();
 

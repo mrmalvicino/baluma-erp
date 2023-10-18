@@ -9,7 +9,6 @@
 #include "Terminal.h"
 #include "ClientsManager.h"
 #include "SuppliersManager.h"
-#include "BudgetsManager.h"
 #include "InventoryManager.h"
 #include "WarehousesManager.h"
 #include "AccountsManager.h"
@@ -43,11 +42,6 @@ class Baluma {
      * @brief SuppliersManager object with default settings.
      */
     SuppliersManager _suppliers_manager;
-
-    /**
-     * @brief BudgetManager object with default settings.
-     */
-    BudgetManager _budgets_manager;
 
     /**
      * @brief InventoryManager object with default settings.
