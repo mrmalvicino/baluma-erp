@@ -25,13 +25,13 @@ class ClientsArchive {
     ClientsArchive(std::string path);
 
     /**
-     * @brief Sets the Path object.
+     * @brief Sets the _path attribute.
      * @param path (std::string) Path where the file will be saved.
      */
     void setPath(std::string path);
 
     /**
-     * @brief Gets the Path object.
+     * @brief Gets the _path attribute.
      * @return (std::string) Path where the file will be saved.
      */
     std::string getPath();
