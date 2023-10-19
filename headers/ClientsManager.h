@@ -39,8 +39,21 @@ class ClientsManager {
 
     /**
      * @brief Allows searching for a client with an interactive menu based on different criteria, including client ID and client name.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
      */
-    void searchClient();
+    int searchClient();
+
+    /**
+     * @brief Searches for a client by their unique ID and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
+     */
+    int searchClientById();
+
+    /**
+     * @brief Searches for a client by their name and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
+     */
+    int searchClientByDescription();
 
     /**
      * @brief Displays a list of all clients stored in the client archive.
@@ -100,16 +113,6 @@ class ClientsManager {
      * @return (int) The generated unique client ID.
      */
     int generateClientId();
-
-    /**
-     * @brief Searches for a client by their unique ID and displays their details.
-     */
-    void searchClientById();
-
-    /**
-     * @brief Searches for a client by their name and displays their details.
-     */
-    void searchClientByDescription();
 
     /**
      * @brief Exports a binary file with a buckup copy of the current _clients_archive.

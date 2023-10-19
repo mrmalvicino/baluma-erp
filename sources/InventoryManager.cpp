@@ -119,9 +119,9 @@ bool InventoryManager::addProduct() {
 bool InventoryManager::editProduct() {
     _terminal.clear();
 
-    searchProduct();
+    int search_rtn = searchProduct();
 
-    if (_product.getId() == -1) {
+    if (search_rtn == -1) {
         return false;
     }
 
@@ -199,9 +199,10 @@ bool InventoryManager::synchronizeItem() {
     return successful_write;
 }
 
-void InventoryManager::searchProduct() {
+int InventoryManager::searchProduct() {
     _terminal.clear();
 
+    int search_rtn = 0;
     int selection = 1;
 
     _terminal.displayMenuHeader("BUSCAR PRODUCTO");
@@ -213,15 +214,106 @@ void InventoryManager::searchProduct() {
 
     switch (selection) {
         case 0:
+            search_rtn = -1;
             _terminal.clear();
             break;
         case 1:
-            searchProductById();
+            search_rtn = searchProductById();
             break;
         case 2:
-            searchProductByNBM();
+            search_rtn = searchProductByNBM();
             break;
     }
+
+    return search_rtn;
+}
+
+int InventoryManager::searchProductById() {
+    int search_rtn = 0;
+    int index;
+    int id;
+    int max_id;
+
+    max_id = _products_archive.getAmountOfRegisters();
+
+    std::cout << "Ingresar ID o 0 para cancelar:\n";
+    id = _terminal.validateInt(0, max_id);
+
+    if (0 < id) {
+        index = _products_archive.getIndex(id);
+        printProduct(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
+}
+
+int InventoryManager::searchProductByNBM() {
+    int search_rtn = 0;
+    int index;
+    std::string name;
+    std::string brand;
+    std::string model;
+
+    std::cout << "Ingresar nombre:\n";
+    std::cin.ignore();
+    getline(std::cin, name);
+
+    std::cout << "Ingresar marca:\n";
+    getline(std::cin, brand);
+
+    std::cout << "Ingresar modelo:\n";
+    getline(std::cin, model);
+
+    _product.setName(name);
+    _product.setBrand(brand);
+    _product.setModel(model);
+
+    index = _products_archive.getIndex(_product);
+
+    while (index == -1) {
+        std::cout << "No se encontró el registro " << _product.toString() << ".";
+        std::cout << "Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, name);
+
+        if (name == "0") {
+            index = -2;
+        } else {
+            std::cout << "Ingrese la marca nuevamente o ingrese 0 para cancelar.\n";
+            getline(std::cin, brand);
+
+            if (brand == "0") {
+                index = -2;
+            } else {
+                std::cout << "Ingrese el modelo nuevamente o ingrese 0 para cancelar.\n";
+                getline(std::cin, model);
+
+                if (model == "0") {
+                    index = -2;
+                } else {
+                    _product.setName(name);
+                    _product.setBrand(brand);
+                    _product.setModel(model);
+                    index = _products_archive.getIndex(_product); // Esta función retorna -1 si no encuentra un registro válido
+                }
+            }
+        }
+    }
+
+    if (0 <= index) {
+        printProduct(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+    
+    _terminal.pause();
+
+    return search_rtn;
 }
 
 void InventoryManager::listProducts() {
@@ -317,88 +409,6 @@ int InventoryManager::generateProductId() {
     }
 
     return id;
-}
-
-void InventoryManager::searchProductById() {
-    int index;
-    int id;
-    int max_id;
-
-    max_id = _products_archive.getAmountOfRegisters();
-
-    std::cout << "Ingresar ID o 0 para cancelar:\n";
-    id = _terminal.validateInt(0, max_id);
-
-    if (0 < id) {
-        index = _products_archive.getIndex(id);
-        printProduct(index);
-    } else {
-        _product.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-
-    _terminal.pause();
-}
-
-void InventoryManager::searchProductByNBM() {
-    int index;
-    std::string name;
-    std::string brand;
-    std::string model;
-
-    std::cout << "Ingresar nombre:\n";
-    std::cin.ignore();
-    getline(std::cin, name);
-
-    std::cout << "Ingresar marca:\n";
-    getline(std::cin, brand);
-
-    std::cout << "Ingresar modelo:\n";
-    getline(std::cin, model);
-
-    _product.setName(name);
-    _product.setBrand(brand);
-    _product.setModel(model);
-
-    index = _products_archive.getIndex(_product);
-
-    while (index == -1) {
-        std::cout << "No se encontró el registro " << _product.toString() << ".";
-        std::cout << "Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
-        getline(std::cin, name);
-
-        if (name == "0") {
-            index = -2;
-        } else {
-            std::cout << "Ingrese la marca nuevamente o ingrese 0 para cancelar.\n";
-            getline(std::cin, brand);
-
-            if (brand == "0") {
-                index = -2;
-            } else {
-                std::cout << "Ingrese el modelo nuevamente o ingrese 0 para cancelar.\n";
-                getline(std::cin, model);
-
-                if (model == "0") {
-                    index = -2;
-                } else {
-                    _product.setName(name);
-                    _product.setBrand(brand);
-                    _product.setModel(model);
-                    index = _products_archive.getIndex(_product); // Esta función retorna -1 si no encuentra un registro válido
-                }
-            }
-        }
-    }
-
-    if (0 <= index) {
-        printProduct(index);
-    } else {
-        _product.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-    
-    _terminal.pause();
 }
 
 void InventoryManager::exportProductsBackup() {
@@ -571,9 +581,9 @@ bool InventoryManager::addItem() {
 bool InventoryManager::editItem() {
     _terminal.clear();
 
-    searchItem();
+    int search_rtn = searchItem();
 
-    if (_item.getId() == -1) {
+    if (search_rtn == -1) {
         return false;
     }
 
@@ -606,9 +616,10 @@ bool InventoryManager::editItem() {
     return successful_write;
 }
 
-void InventoryManager::searchItem() {
+int InventoryManager::searchItem() {
     _terminal.clear();
 
+    int search_rtn = 0;
     int selection = 1;
 
     _terminal.displayMenuHeader("BUSCAR EXISTENCIA");
@@ -620,15 +631,103 @@ void InventoryManager::searchItem() {
 
     switch (selection) {
         case 0:
+            search_rtn = -1;
             _terminal.clear();
             break;
         case 1:
-            searchItemById();
+            search_rtn = searchItemById();
             break;
         case 2:
-            searchItemByNBM();
+            search_rtn = searchItemByNBM();
             break;
     }
+
+    return search_rtn;
+}
+
+int InventoryManager::searchItemById() {
+    int search_rtn = 0;
+    int index;
+    int id;
+
+    std::cout << "Ingresar ID o 0 para cancelar:\n";
+    id = _terminal.validateInt(0);
+
+    if (0 < id) {
+        index = _items_archive.getIndex(id);
+        printItem(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
+}
+
+int InventoryManager::searchItemByNBM() {
+    int search_rtn = 0;
+    int index;
+    std::string name;
+    std::string brand;
+    std::string model;
+
+    std::cout << "Ingresar nombre:\n";
+    std::cin.ignore();
+    getline(std::cin, name);
+
+    std::cout << "Ingresar marca:\n";
+    getline(std::cin, brand);
+
+    std::cout << "Ingresar modelo:\n";
+    getline(std::cin, model);
+
+    _product.setName(name);
+    _product.setBrand(brand);
+    _product.setModel(model);
+
+    index = _items_archive.getIndex(_product);
+
+    while (index == -1) {
+        std::cout << "No se encontró el registro " << _product.toString() << ".";
+        std::cout << "Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, name);
+
+        if (name == "0") {
+            index = -2;
+        } else {
+            std::cout << "Ingrese la marca nuevamente o ingrese 0 para cancelar.\n";
+            getline(std::cin, brand);
+
+            if (brand == "0") {
+                index = -2;
+            } else {
+                std::cout << "Ingrese el modelo nuevamente o ingrese 0 para cancelar.\n";
+                getline(std::cin, model);
+
+                if (model == "0") {
+                    index = -2;
+                } else {
+                    _product.setName(name);
+                    _product.setBrand(brand);
+                    _product.setModel(model);
+                    index = _items_archive.getIndex(_product); // Esta función retorna -1 si no encuentra un registro válido
+                }
+            }
+        }
+    }
+
+    if (0 <= index) {
+        printItem(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
 }
 
 void InventoryManager::listItems() {
@@ -733,88 +832,6 @@ void InventoryManager::cinItemIncome(Item & item) {
     date.setYear(year);
 
     item.setIncome(date);
-}
-
-void InventoryManager::searchItemById() {
-    // Puede haber 10 productos y por lo tanto 10 ids pero el archivo de existencias _items_archive solo contar con los ids 1,2,3 y ,6 porque el deposito actual solo tiene esos productos.
-    // Habria que agregar una validacion para que si el id ingresado no es uno que hay en el depo que no se rompa todo
-    // Borrar estos 3 comentarios cuando este listo
-    int index;
-    int id;
-
-    std::cout << "Ingresar ID o 0 para cancelar:\n";
-    id = _terminal.validateInt(0);
-
-    if (0 < id) {
-        index = _items_archive.getIndex(id);
-        printItem(index);
-    } else {
-        _item.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-
-    _terminal.pause();
-}
-
-void InventoryManager::searchItemByNBM() {
-    int index;
-    std::string name;
-    std::string brand;
-    std::string model;
-
-    std::cout << "Ingresar nombre:\n";
-    std::cin.ignore();
-    getline(std::cin, name);
-
-    std::cout << "Ingresar marca:\n";
-    getline(std::cin, brand);
-
-    std::cout << "Ingresar modelo:\n";
-    getline(std::cin, model);
-
-    _product.setName(name);
-    _product.setBrand(brand);
-    _product.setModel(model);
-
-    index = _items_archive.getIndex(_product);
-
-    while (index == -1) {
-        std::cout << "No se encontró el registro " << _product.toString() << ".";
-        std::cout << "Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
-        getline(std::cin, name);
-
-        if (name == "0") {
-            index = -2;
-        } else {
-            std::cout << "Ingrese la marca nuevamente o ingrese 0 para cancelar.\n";
-            getline(std::cin, brand);
-
-            if (brand == "0") {
-                index = -2;
-            } else {
-                std::cout << "Ingrese el modelo nuevamente o ingrese 0 para cancelar.\n";
-                getline(std::cin, model);
-
-                if (model == "0") {
-                    index = -2;
-                } else {
-                    _product.setName(name);
-                    _product.setBrand(brand);
-                    _product.setModel(model);
-                    index = _items_archive.getIndex(_product); // Esta función retorna -1 si no encuentra un registro válido
-                }
-            }
-        }
-    }
-
-    if (0 <= index) {
-        printItem(index);
-    } else {
-        _item.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-
-    _terminal.pause();
 }
 
 void InventoryManager::exportItemsBackup() {

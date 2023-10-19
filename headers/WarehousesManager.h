@@ -57,16 +57,19 @@ class WarehousesManager {
 
     /**
      * @brief Allows searching for a warehouse with an interactive menu based on different criteria, including warehouse ID and warehouse name.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
      */
     int searchWarehouse();
 
     /**
      * @brief Searches for a warehouse by their unique ID and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
      */
     int searchWarehouseById();
 
     /**
      * @brief Searches for a warehouse by their name and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
      */
     int searchWarehouseByName();
 

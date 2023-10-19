@@ -39,8 +39,21 @@ class SuppliersManager {
 
     /**
      * @brief Allows searching for a supplier with an interactive menu based on different criteria, including supplier ID and supplier name.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
      */
-    void searchSupplier();
+    int searchSupplier();
+
+    /**
+     * @brief Searches for a supplier by their unique ID and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
+     */
+    int searchSupplierById();
+
+    /**
+     * @brief Searches for a supplier by their name and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
+     */
+    int searchSupplierByDescription();
 
     /**
      * @brief Displays a list of all suppliers stored in the supplier archive.
@@ -100,16 +113,6 @@ class SuppliersManager {
      * @return (int) The generated unique supplier ID.
      */
     int generateSupplierId();
-
-    /**
-     * @brief Searches for a supplier by their unique ID and displays their details.
-     */
-    void searchSupplierById();
-
-    /**
-     * @brief Searches for a supplier by their name and displays their details.
-     */
-    void searchSupplierByDescription();
 
     /**
      * @brief Exports a binary file with a buckup copy of the current archive of suppliers.

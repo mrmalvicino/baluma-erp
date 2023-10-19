@@ -92,9 +92,9 @@ bool SuppliersManager::addSupplier() {
 bool SuppliersManager::editSupplier() {
     _terminal.clear();
 
-    searchSupplier();
+    int search_rtn = searchSupplier();
 
-    if (_supplier.getId() == -1) {
+    if (search_rtn == -1) {
         return false;
     }
 
@@ -147,9 +147,10 @@ bool SuppliersManager::editSupplier() {
     return successful_write;
 }
 
-void SuppliersManager::searchSupplier() {
+int SuppliersManager::searchSupplier() {
     _terminal.clear();
 
+    int search_rtn = 0;
     int selection = 1;
 
     _terminal.displayMenuHeader("BUSCAR PROVEEDOR");
@@ -161,15 +162,76 @@ void SuppliersManager::searchSupplier() {
 
     switch (selection) {
         case 0:
+            search_rtn = -1;
             _terminal.clear();
             break;
         case 1:
-            searchSupplierById();
+            search_rtn = searchSupplierById();
             break;
         case 2:
-            searchSupplierByDescription();
+            search_rtn = searchSupplierByDescription();
             break;
     }
+
+    return search_rtn;
+}
+
+int SuppliersManager::searchSupplierById() {
+    int search_rtn = 0;
+    int index;
+    int id;
+    int max_id;
+
+    max_id = _suppliers_archive.getAmountOfRegisters();
+
+    std::cout << "Ingresar ID o 0 para cancelar:\n";
+    id = _terminal.validateInt(0, max_id);
+
+    if (0 < id) {
+        index = _suppliers_archive.getIndex(id);
+        printSupplier(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
+}
+
+int SuppliersManager::searchSupplierByDescription() {
+    int search_rtn = 0;
+    int index;
+    std::string description;
+
+    std::cout << "Ingresar nombre:\n";
+    std::cin.ignore();
+    getline(std::cin, description);
+
+    index = _suppliers_archive.getIndex(description);
+
+    while (index == -1) {
+        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, description);
+
+        if (description == "0") {
+            index = -2;
+        } else {
+            index = _suppliers_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+        }
+    }
+
+    if (0 <= index) {
+        printSupplier(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
 }
 
 void SuppliersManager::listSuppliers() {
@@ -306,58 +368,6 @@ int SuppliersManager::generateSupplierId() {
     }
 
     return id;
-}
-
-void SuppliersManager::searchSupplierById() {
-    int index;
-    int id;
-    int max_id;
-
-    max_id = _suppliers_archive.getAmountOfRegisters();
-
-    std::cout << "Ingresar ID o 0 para cancelar:\n";
-    id = _terminal.validateInt(0, max_id);
-
-    if (0 < id) {
-        index = _suppliers_archive.getIndex(id);
-        printSupplier(index);
-    } else {
-        _supplier.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-
-    _terminal.pause();
-}
-
-void SuppliersManager::searchSupplierByDescription() {
-    int index;
-    std::string description;
-
-    std::cout << "Ingresar nombre:\n";
-    std::cin.ignore();
-    getline(std::cin, description);
-
-    index = _suppliers_archive.getIndex(description);
-
-    while (index == -1) {
-        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
-        getline(std::cin, description);
-
-        if (description == "0") {
-            index = -2;
-        } else {
-            index = _suppliers_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
-        }
-    }
-
-    if (0 <= index) {
-        printSupplier(index);
-    } else {
-        _supplier.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-
-    _terminal.pause();
 }
 
 void SuppliersManager::exportSuppliersBackup() {

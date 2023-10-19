@@ -92,9 +92,9 @@ bool ClientsManager::addClient() {
 bool ClientsManager::editClient() {
     _terminal.clear();
 
-    searchClient();
+    int search_rtn = searchClient();
 
-    if (_client.getId() == -1) {
+    if (search_rtn == -1) {
         return false;
     }
 
@@ -147,9 +147,10 @@ bool ClientsManager::editClient() {
     return successful_write;
 }
 
-void ClientsManager::searchClient() {
+int ClientsManager::searchClient() {
     _terminal.clear();
 
+    int search_rtn = 0;
     int selection = 1;
 
     _terminal.displayMenuHeader("BUSCAR CLIENTE");
@@ -161,15 +162,76 @@ void ClientsManager::searchClient() {
 
     switch (selection) {
         case 0:
+            search_rtn = -1;
             _terminal.clear();
             break;
         case 1:
-            searchClientById();
+            search_rtn = searchClientById();
             break;
         case 2:
-            searchClientByDescription();
+            search_rtn = searchClientByDescription();
             break;
     }
+
+    return search_rtn;
+}
+
+int ClientsManager::searchClientById() {
+    int search_rtn = 0;
+    int index;
+    int id;
+    int max_id;
+
+    max_id = _clients_archive.getAmountOfRegisters();
+
+    std::cout << "Ingresar ID o 0 para cancelar:\n";
+    id = _terminal.validateInt(0, max_id);
+
+    if (0 < id) {
+        index = _clients_archive.getIndex(id);
+        printClient(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
+}
+
+int ClientsManager::searchClientByDescription() {
+    int search_rtn = 0;
+    int index;
+    std::string description;
+
+    std::cout << "Ingresar nombre:\n";
+    std::cin.ignore();
+    getline(std::cin, description);
+
+    index = _clients_archive.getIndex(description);
+
+    while (index == -1) {
+        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, description);
+
+        if (description == "0") {
+            index = -2;
+        } else {
+            index = _clients_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+        }
+    }
+
+    if (0 <= index) {
+        printClient(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
 }
 
 void ClientsManager::listClients() {
@@ -306,58 +368,6 @@ int ClientsManager::generateClientId() {
     }
 
     return id;
-}
-
-void ClientsManager::searchClientById() {
-    int index;
-    int id;
-    int max_id;
-
-    max_id = _clients_archive.getAmountOfRegisters();
-
-    std::cout << "Ingresar ID o 0 para cancelar:\n";
-    id = _terminal.validateInt(0, max_id);
-
-    if (0 < id) {
-        index = _clients_archive.getIndex(id);
-        printClient(index);
-    } else {
-        _client.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-
-    _terminal.pause();
-}
-
-void ClientsManager::searchClientByDescription() {
-    int index;
-    std::string description;
-
-    std::cout << "Ingresar nombre:\n";
-    std::cin.ignore();
-    getline(std::cin, description);
-
-    index = _clients_archive.getIndex(description);
-
-    while (index == -1) {
-        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
-        getline(std::cin, description);
-
-        if (description == "0") {
-            index = -2;
-        } else {
-            index = _clients_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
-        }
-    }
-
-    if (0 <= index) {
-        printClient(index);
-    } else {
-        _client.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-
-    _terminal.pause();
 }
 
 void ClientsManager::exportClientsBackup() {

@@ -52,8 +52,21 @@ class InventoryManager {
 
     /**
      * @brief Allows searching for a product with an interactive menu based on different criteria, including product ID and product name.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
      */
-    void searchProduct();
+    int searchProduct();
+
+    /**
+     * @brief Searches for a product by their unique ID and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
+     */
+    int searchProductById();
+
+    /**
+     * @brief Searches for a product by their name, brand and model and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
+     */
+    int searchProductByNBM();
 
     /**
      * @brief Displays a list of all products stored in the ProductsArchive object.
@@ -109,16 +122,6 @@ class InventoryManager {
     int generateProductId();
 
     /**
-     * @brief Searches for a product by their unique ID and displays their details.
-     */
-    void searchProductById();
-
-    /**
-     * @brief Searches for a product by their name, brand and model and displays their details.
-     */
-    void searchProductByNBM();
-
-    /**
      * @brief Exports a binary file with a backup copy of the current _products_archive.
      */
     void exportProductsBackup();
@@ -165,8 +168,21 @@ class InventoryManager {
 
     /**
      * @brief Allows searching for an item with an interactive menu based on different criteria, including item ID and item NBM (name-brand-model).
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
      */
-    void searchItem();
+    int searchItem();
+
+    /**
+     * @brief Searches for an item by their unique ID and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
+     */
+    int searchItemById();
+
+    /**
+     * @brief Searches for an item by their name, brand and model and displays their details.
+     * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
+     */
+    int searchItemByNBM();
 
     /**
      * @brief Displays a list of all items stored in the ItemsArchive object.
@@ -192,16 +208,6 @@ class InventoryManager {
     void cinItemStock(Item & item);
 
     void cinItemIncome(Item & item);
-
-    /**
-     * @brief Searches for an item by their unique ID and displays their details.
-     */
-    void searchItemById();
-
-    /**
-     * @brief Searches for an item by their name, brand and model and displays their details.
-     */
-    void searchItemByNBM();
 
     /**
      * @brief Exports a binary file with a backup copy of the current _items_archive.
