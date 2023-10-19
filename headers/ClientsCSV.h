@@ -29,25 +29,25 @@ class ClientsCSV {
     ClientsCSV(std::string path, char delimiter);
 
     /**
-     * @brief Sets the Path object.
+     * @brief Sets the _path attribute.
      * @param path (std::string) Path where the file will be saved.
      */
     void setPath(std::string path);
 
     /**
-     * @brief Gets the Path object.
+     * @brief Gets the _path attribute.
      * @return (std::string) Path where the file will be saved.
      */
     std::string getPath();
 
     /**
-     * @brief Sets the Delimiter object.
+     * @brief Sets the _delimiter attribute.
      * @param delimiter (char) Character that is used to delimit columns.
      */
     void setDelimiter(char delimiter);
 
     /**
-     * @brief Gets the Delimiter object.
+     * @brief Gets the _delimiter attribute.
      * @return (char) Character that is used to delimit columns.
      */
     char getDelimiter();
@@ -55,16 +55,16 @@ class ClientsCSV {
     /**
      * @brief Exports client records to a CSV file.
      * @param client (Client) The client object used to write each register.
-     * @param client_archive (ClientsArchive) The client archive containing the client records to export.
+     * @param clients_archive (ClientsArchive) The _clients_archive containing the client records to export.
      */
-    void writeClientsCSV(Client & client, ClientsArchive & client_archive);
+    void writeClientsCSV(Client & client, ClientsArchive & clients_archive);
 
     /**
-     * @brief 
+     * @brief Imports client records from a CSV file.
      * @param client (Client) The client object used to read each register.
-     * @param client_archive (ClientsArchive) The client archive where the client records are going to be imported to.
+     * @param clients_archive (ClientsArchive) The _clients_archive where the client records are going to be imported to.
      */
-    void readClientsCSV(Client & client, ClientsArchive & client_archive);
+    void readClientsCSV(Client & client, ClientsArchive & clients_archive);
 
     private:
 

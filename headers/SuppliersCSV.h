@@ -29,25 +29,25 @@ class SuppliersCSV {
     SuppliersCSV(std::string path, char delimiter);
 
     /**
-     * @brief Sets the Path object.
+     * @brief Sets the _path attribute.
      * @param path (std::string) Path where the file will be saved.
      */
     void setPath(std::string path);
 
     /**
-     * @brief Gets the Path object.
+     * @brief Gets the _path attribute.
      * @return (std::string) Path where the file will be saved.
      */
     std::string getPath();
 
     /**
-     * @brief Sets the Delimiter object.
+     * @brief Sets the _delimiter attribute.
      * @param delimiter (char) Character that is used to delimit columns.
      */
     void setDelimiter(char delimiter);
 
     /**
-     * @brief Gets the Delimiter object.
+     * @brief Gets the _delimiter attribute.
      * @return (char) Character that is used to delimit columns.
      */
     char getDelimiter();
@@ -55,16 +55,16 @@ class SuppliersCSV {
     /**
      * @brief Exports supplier records to a CSV file.
      * @param supplier (Supplier) The supplier object used to write each register.
-     * @param supplier_archive (SuppliersArchive) The supplier archive containing the supplier records to export.
+     * @param suppliers_archive (SuppliersArchive) The _suppliers_archive containing the supplier records to export.
      */
-    void writeSuppliersCSV(Supplier & supplier, SuppliersArchive & supplier_archive);
+    void writeSuppliersCSV(Supplier & supplier, SuppliersArchive & suppliers_archive);
 
     /**
-     * @brief 
+     * @brief Imports supplier records from a CSV file.
      * @param supplier (Supplier) The supplier object used to read each register.
-     * @param supplier_archive (SuppliersArchive) The supplier archive where the supplier records are going to be imported to.
+     * @param suppliers_archive (SuppliersArchive) The _suppliers_archive where the supplier records are going to be imported to.
      */
-    void readSuppliersCSV(Supplier & supplier, SuppliersArchive & supplier_archive);
+    void readSuppliersCSV(Supplier & supplier, SuppliersArchive & suppliers_archive);
 
     private:
 

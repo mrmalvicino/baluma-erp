@@ -26,16 +26,16 @@ char ItemsCSV::getDelimiter() {
     return _delimiter;
 }
 
-void ItemsCSV::writeItemsCSV(Item & item, ItemsArchive & item_archive) {
+void ItemsCSV::writeItemsCSV(Item & item, ItemsArchive & items_archive) {
       std::ofstream file(getPath());
 
     if (file.is_open() == false) {
         std::cerr << "Error: No se pudo abrir el archivo al exportar CSV.\n";
     } else {
-        int amount_of_items = item_archive.getAmountOfRegisters();
+        int amount_of_items = items_archive.getAmountOfRegisters();
 
         for (int i = 0; i < amount_of_items; i ++) {
-            item = item_archive.read(i);
+            item = items_archive.read(i);
             file << item.getId() << getDelimiter() << item.getName() << getDelimiter() << item.getDescription() << getDelimiter() << item.getBrand() << getDelimiter() << item.getModel() << getDelimiter() << item.getPrice() << getDelimiter() << item.getStock() << getDelimiter() << item.getIncome().getDay() << getDelimiter() << item.getIncome().getMonth() << getDelimiter() << item.getIncome().getYear() << getDelimiter() << item.getIsActive() << "\n";
         }
 
@@ -46,7 +46,7 @@ void ItemsCSV::writeItemsCSV(Item & item, ItemsArchive & item_archive) {
     }
 }
 
-void ItemsCSV::readItemsCSV(Item & item, ItemsArchive & item_archive) {
+void ItemsCSV::readItemsCSV(Item & item, ItemsArchive & items_archive) {
     std::ifstream file(getPath());
 
     if (!file.is_open()) {
@@ -54,7 +54,7 @@ void ItemsCSV::readItemsCSV(Item & item, ItemsArchive & item_archive) {
         return;
     }
 
-    item_archive.createEmptyArchive();
+    items_archive.createEmptyArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];
@@ -80,7 +80,7 @@ void ItemsCSV::readItemsCSV(Item & item, ItemsArchive & item_archive) {
         item.setIncome(income);
         item.setIsActive(std::stoi(column[10]));
 
-        item_archive.write(item);
+        items_archive.write(item);
     }
 
     file.close();

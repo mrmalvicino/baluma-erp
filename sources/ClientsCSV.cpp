@@ -26,16 +26,16 @@ char ClientsCSV::getDelimiter() {
     return _delimiter;
 }
 
-void ClientsCSV::writeClientsCSV(Client & client, ClientsArchive & client_archive) {
+void ClientsCSV::writeClientsCSV(Client & client, ClientsArchive & clients_archive) {
     std::ofstream file(getPath());
 
     if (file.is_open() == false) {
         std::cerr << "Error: No se pudo abrir el archivo al exportar CSV.\n";
     } else {
-        int amount_of_clients = client_archive.getAmountOfRegisters();
+        int amount_of_clients = clients_archive.getAmountOfRegisters();
 
         for (int i = 0; i < amount_of_clients; i ++) {
-            client = client_archive.read(i);
+            client = clients_archive.read(i);
             file << client.getId() << getDelimiter() << client.getDescription() << getDelimiter() << client.getLegalId() << getDelimiter() << client.getAdress().getCountry() << getDelimiter() << client.getAdress().getState() << getDelimiter() << client.getAdress().getCity() << getDelimiter() << client.getAdress().getStreet() << getDelimiter() << client.getAdress().getNumber() << getDelimiter() << client.getAdress().getFloor() << getDelimiter() << client.getAdress().getLetter() << getDelimiter() << client.getPhone() << getDelimiter() << client.getEmail() << getDelimiter() << client.getIsActive() << getDelimiter() << client.getCategory() << "\n";
         }
 
@@ -46,7 +46,7 @@ void ClientsCSV::writeClientsCSV(Client & client, ClientsArchive & client_archiv
     }
 }
 
-void ClientsCSV::readClientsCSV(Client & client, ClientsArchive & client_archive) {
+void ClientsCSV::readClientsCSV(Client & client, ClientsArchive & clients_archive) {
     std::ifstream file(getPath());
 
     if (!file.is_open()) {
@@ -54,7 +54,7 @@ void ClientsCSV::readClientsCSV(Client & client, ClientsArchive & client_archive
         return;
     }
 
-    client_archive.createEmptyArchive();
+    clients_archive.createEmptyArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];
@@ -83,7 +83,7 @@ void ClientsCSV::readClientsCSV(Client & client, ClientsArchive & client_archive
         client.setIsActive(std::stoi(column[12]));
         client.setCategory(column[13][0]);
 
-        client_archive.write(client);
+        clients_archive.write(client);
     }
 
     file.close();

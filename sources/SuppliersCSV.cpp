@@ -26,16 +26,16 @@ char SuppliersCSV::getDelimiter() {
     return _delimiter;
 }
 
-void SuppliersCSV::writeSuppliersCSV(Supplier & supplier, SuppliersArchive & supplier_archive) {
+void SuppliersCSV::writeSuppliersCSV(Supplier & supplier, SuppliersArchive & suppliers_archive) {
     std::ofstream file(getPath());
 
     if (file.is_open() == false) {
         std::cerr << "Error: No se pudo abrir el archivo al exportar CSV.\n";
     } else {
-        int amount_of_suppliers = supplier_archive.getAmountOfRegisters();
+        int amount_of_suppliers = suppliers_archive.getAmountOfRegisters();
 
         for (int i = 0; i < amount_of_suppliers; i ++) {
-            supplier = supplier_archive.read(i);
+            supplier = suppliers_archive.read(i);
             file << supplier.getId() << getDelimiter() << supplier.getDescription() << getDelimiter() << supplier.getLegalId() << getDelimiter() << supplier.getAdress().getCountry() << getDelimiter() << supplier.getAdress().getState() << getDelimiter() << supplier.getAdress().getCity() << getDelimiter() << supplier.getAdress().getStreet() << getDelimiter() << supplier.getAdress().getNumber() << getDelimiter() << supplier.getAdress().getFloor() << getDelimiter() << supplier.getAdress().getLetter() << getDelimiter() << supplier.getPhone() << getDelimiter() << supplier.getEmail() << getDelimiter() << supplier.getIsActive() << getDelimiter() << supplier.getBankAccount() << "\n";
         }
 
@@ -46,7 +46,7 @@ void SuppliersCSV::writeSuppliersCSV(Supplier & supplier, SuppliersArchive & sup
     }
 }
 
-void SuppliersCSV::readSuppliersCSV(Supplier & supplier, SuppliersArchive & supplier_archive) {
+void SuppliersCSV::readSuppliersCSV(Supplier & supplier, SuppliersArchive & suppliers_archive) {
     std::ifstream file(getPath());
 
     if (!file.is_open()) {
@@ -54,7 +54,7 @@ void SuppliersCSV::readSuppliersCSV(Supplier & supplier, SuppliersArchive & supp
         return;
     }
 
-    supplier_archive.createEmptyArchive();
+    suppliers_archive.createEmptyArchive();
     std::string row;
     const int amount_of_columns = 14;
     std::string column[amount_of_columns];
@@ -83,7 +83,7 @@ void SuppliersCSV::readSuppliersCSV(Supplier & supplier, SuppliersArchive & supp
         supplier.setIsActive(std::stoi(column[12]));
         supplier.setBankAccount(std::stoi(column[13]));
 
-        supplier_archive.write(supplier);
+        suppliers_archive.write(supplier);
     }
 
     file.close();
