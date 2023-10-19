@@ -58,7 +58,17 @@ class WarehousesManager {
     /**
      * @brief Allows searching for a warehouse with an interactive menu based on different criteria, including warehouse ID and warehouse name.
      */
-    void searchWarehouse();
+    int searchWarehouse();
+
+    /**
+     * @brief Searches for a warehouse by their unique ID and displays their details.
+     */
+    int searchWarehouseById();
+
+    /**
+     * @brief Searches for a warehouse by their name and displays their details.
+     */
+    int searchWarehouseByName();
 
     /**
      * @brief Displays a list of all warehouses stored in the _warehouses_archive.
@@ -99,16 +109,6 @@ class WarehousesManager {
      * @return (int) The generated unique warehouse ID.
      */
     int generateWarehouseId();
-
-    /**
-     * @brief Searches for a warehouse by their unique ID and displays their details.
-     */
-    void searchWarehouseById();
-
-    /**
-     * @brief Searches for a warehouse by their name and displays their details.
-     */
-    void searchWarehouseByName();
 
     /**
      * @brief Exports a binary file with a buckup copy of the current _warehouses_archive.

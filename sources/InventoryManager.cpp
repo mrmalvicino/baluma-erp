@@ -471,15 +471,11 @@ void InventoryManager::setWarehousePaths(int warehouse_id) {
 }
 
 void InventoryManager::loadItemsMenu() {
-    _warehouses_manager.searchWarehouse();
+    int search_rtn = _warehouses_manager.searchWarehouse();
 
-    if (_warehouses_manager.getWarehouse().getName() != "N/A") {
+    if (search_rtn != -1) {
         setWarehousePaths(_warehouses_manager.getWarehouse().getId());
         displayItemsMenu(_warehouses_manager.getWarehouse().getName());
-    } else {
-        std::cout << "No se seleccionó ningún depósito para administrar su mercadería.\n";
-        _terminal.pause();
-        _terminal.clear();
     }
 }
 

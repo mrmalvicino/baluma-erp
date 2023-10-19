@@ -102,10 +102,11 @@ bool WarehousesManager::addWarehouse() {
 bool WarehousesManager::editWarehouse() {
      _terminal.clear();
 
-    searchWarehouse();
+    bool successful_write = false;
+    int search_rtn = searchWarehouse();
 
-    if (_warehouse.getId() == -1) {
-        return false;
+    if (search_rtn == -1) {
+        return successful_write;
     }
 
     int selection = 1;
@@ -137,14 +138,15 @@ bool WarehousesManager::editWarehouse() {
     } while (selection != 0);
 
     int index = _warehouses_archive.getIndex(_warehouse.getId());
-    bool successful_write = _warehouses_archive.overWrite(_warehouse, index);
+    successful_write = _warehouses_archive.overWrite(_warehouse, index);
 
     return successful_write;
 }
 
-void WarehousesManager::searchWarehouse() {
+int WarehousesManager::searchWarehouse() {
     _terminal.clear();
 
+    int search_rtn = 0;
     int selection = 1;
 
     _terminal.displayMenuHeader("BUSCAR DEPÓSITO");
@@ -156,15 +158,76 @@ void WarehousesManager::searchWarehouse() {
 
     switch (selection) {
         case 0:
+            search_rtn = -1;
             _terminal.clear();
             break;
         case 1:
-            searchWarehouseById();
+            search_rtn = searchWarehouseById();
             break;
         case 2:
-            searchWarehouseByName();
+            search_rtn = searchWarehouseByName();
             break;
     }
+
+    return search_rtn;
+}
+
+int WarehousesManager::searchWarehouseById() {
+    int search_rtn = 0;
+    int index;
+    int id;
+    int max_id;
+
+    max_id = getAmountOfWarehouses();
+
+    std::cout << "Ingresar ID o 0 para cancelar:\n";
+    id = _terminal.validateInt(0, max_id);
+
+    if (0 < id) {
+        index = _warehouses_archive.getIndex(id);
+        printWarehouse(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abordata por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
+}
+
+int WarehousesManager::searchWarehouseByName() {
+    int search_rtn = 0;
+    int index;
+    std::string name;
+
+    std::cout << "Ingresar nombre:\n";
+    std::cin.ignore();
+    getline(std::cin, name);
+
+    index = _warehouses_archive.getIndex(name);
+
+    while (index == -1) {
+        std::cout << "No se encontró el registro " << name << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, name);
+
+        if (name == "0") {
+            index = -2;
+        } else {
+            index = _warehouses_archive.getIndex(name); // Esta función retorna -1 si no encuentra un registro válido
+        }
+    }
+
+    if (0 <= index) {
+        printWarehouse(index);
+    } else {
+        search_rtn = -1;
+        std::cout << "Búsqueda abortada por el usuario.\n";
+    }
+
+    _terminal.pause();
+
+    return search_rtn;
 }
 
 void WarehousesManager::listWarehouses() {
@@ -272,58 +335,6 @@ int WarehousesManager::generateWarehouseId() {
     }
 
     return id;
-}
-
-void WarehousesManager::searchWarehouseById() {
-    int index;
-    int id;
-    int max_id;
-
-    max_id = getAmountOfWarehouses();
-
-    std::cout << "Ingresar ID o 0 para cancelar:\n";
-    id = _terminal.validateInt(0, max_id);
-
-    if (0 < id) {
-        index = _warehouses_archive.getIndex(id);
-        printWarehouse(index);
-    } else {
-        _warehouse.setId(-1);
-        std::cout << "Búsqueda abordata por el usuario.\n";
-    }
-
-    _terminal.pause();
-}
-
-void WarehousesManager::searchWarehouseByName() {
-    int index;
-    std::string name;
-
-    std::cout << "Ingresar nombre:\n";
-    std::cin.ignore();
-    getline(std::cin, name);
-
-    index = _warehouses_archive.getIndex(name);
-
-    while (index == -1) {
-        std::cout << "No se encontró el registro " << name << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
-        getline(std::cin, name);
-
-        if (name == "0") {
-            index = -2;
-        } else {
-            index = _warehouses_archive.getIndex(name); // Esta función retorna -1 si no encuentra un registro válido
-        }
-    }
-
-    if (0 <= index) {
-        printWarehouse(index);
-    } else {
-        _warehouse.setId(-1);
-        std::cout << "Búsqueda abortada por el usuario.\n";
-    }
-
-    _terminal.pause();
 }
 
 void WarehousesManager::exportWarehousesBackup() {
