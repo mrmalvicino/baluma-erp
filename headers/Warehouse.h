@@ -1,3 +1,10 @@
+/**
+ * @file Warehouse.h
+ * @author Franco Baez (Francobaez2309@gmail.com)
+ * @brief Represents a warehouse.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include <cstring>
 #include <string>

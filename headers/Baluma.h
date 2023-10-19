@@ -47,4 +47,9 @@ class Baluma {
      * @brief InventoryManager object with default settings.
      */
     InventoryManager _inventory_manager;
+
+    /**
+     * @brief InventoryManager object with default settings.
+     */
+    AccountsManager _accounts_manager;
 };

@@ -1,3 +1,10 @@
+/**
+ * @file WarehousesManager.h
+ * @author Franco Baez (Francobaez2309@gmail.com)
+ * @brief Manages the warehouses data from the inventory module.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include <iostream>
 #include "Terminal.h"

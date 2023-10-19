@@ -1,3 +1,10 @@
+/**
+ * @file InventoryManager.h
+ * @author Franco Baez (Francobaez2309@gmail.com), Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
+ * @brief Manages the inventory module.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include <iostream>
 #include "Terminal.h"

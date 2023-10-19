@@ -1,3 +1,10 @@
+/**
+ * @file ItemsCSV.h
+ * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
+ * @brief Represents a CSV archive of items.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include <iostream>
 #include <fstream>

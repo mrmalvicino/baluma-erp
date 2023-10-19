@@ -1,3 +1,10 @@
+/**
+ * @file Item.h
+ * @author Franco Baez (Francobaez2309@gmail.com), Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
+ * @brief Represents an existing item at a warehouse.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include "Product.h"
 #include "Date.h"
