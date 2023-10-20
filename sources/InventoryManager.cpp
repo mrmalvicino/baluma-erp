@@ -343,64 +343,6 @@ void InventoryManager::printProduct(int index) {
     _terminal.printBool(_product.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
-void InventoryManager::cinProductName(Product & product) {
-    std::string name;
-
-    std::cout << "Ingrese nombre del producto:\n";
-    std::cin.ignore();
-    getline(std::cin, name);
-
-    product.setName(name);
-}
-
-void InventoryManager::cinProductBrand(Product & product) {
-    std::string brand;
-
-    std::cout << "Ingrese marca:\n";
-    getline(std::cin, brand);
-
-    product.setBrand(brand);
-}
-
-void InventoryManager::cinProductModel(Product & product) {
-    std::string model;
-
-    std::cout << "Ingrese modelo:\n";
-    getline(std::cin, model);
-
-    product.setModel(model);
-}
-
-void InventoryManager::cinProductDescription(Product & product) {
-    std::string description;
-
-    std::cout << "Ingrese descripcion:\n";
-    getline(std::cin, description);
-
-    product.setDescription(description);
-}
-
-void InventoryManager::cinProductPrice(Product & product) {
-    double price;
-
-    std::cout << "Ingrese valor unitario:\n";
-    std::cin >> price;
-
-    product.setPrice(price);
-}
-
-void InventoryManager::cinProductIsActive(Product & product) {
-    if (product.getIsActive()) {
-        product.setIsActive(false);
-        std::cout << "El producto ha sido dado de baja.\n";
-        _terminal.pause();
-    } else {
-        product.setIsActive(true);
-        std::cout << "El producto ha sido reincorporado.\n";
-        _terminal.pause();
-    }
-}
-
 int InventoryManager::generateProductId() {
     int id = 1;
 
@@ -546,11 +488,11 @@ bool InventoryManager::addItem() {
     _terminal.clear();
     _terminal.displayMenuHeader("AGREGAR EXISTENCIA");
 
-    cinItemName(_item);
-    cinItemBrand(_item);
-    cinItemModel(_item);
-    cinItemDescription(_item);
-    cinItemPrice(_item);
+    cinProductName(_item);
+    cinProductBrand(_item);
+    cinProductModel(_item);
+    cinProductDescription(_item);
+    cinProductPrice(_item);
     cinItemStock(_item);
     cinItemIncome(_item);
 
@@ -759,81 +701,6 @@ void InventoryManager::printItem(int index) {
     _terminal.printBool(_item.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
 
-void InventoryManager::cinItemName(Item & item) {
-    std::string name;
-
-    std::cout << "Ingrese nombre del producto:\n";
-    std::cin.ignore();
-    getline(std::cin, name);
-
-    item.setName(name);
-}
-
-void InventoryManager::cinItemBrand(Item & item) {
-    std::string brand;
-
-    std::cout << "Ingrese marca:\n";
-    getline(std::cin, brand);
-
-    item.setBrand(brand);
-}
-
-void InventoryManager::cinItemModel(Item & item) {
-    std::string model;
-
-    std::cout << "Ingrese modelo:\n";
-    getline(std::cin, model);
-
-    item.setModel(model);
-}
-
-void InventoryManager::cinItemDescription(Item & item) {
-    std::string description;
-
-    std::cout << "Ingrese descripcion:\n";
-    getline(std::cin, description);
-
-    item.setDescription(description);
-}
-
-void InventoryManager::cinItemPrice(Item & item) {
-    double price;
-
-    std::cout << "Ingrese valor unitario:\n";
-    std::cin >> price;
-
-    item.setPrice(price);
-}
-
-void InventoryManager::cinItemStock(Item & item) {
-    int stock;
-
-    std::cout << "Ingrese el stock:\n";
-    stock = _terminal.validateInt(0);
-
-    item.setStock(stock);
-}
-
-void InventoryManager::cinItemIncome(Item & item) {
-    Date date;
-    int day, month, year;
-
-    std::cout << "Ingrese dia de ingreso:\n";
-    day = _terminal.validateInt(1, 31);
-
-    std::cout << "Ingrese mes de ingreso:\n";
-    month = _terminal.validateInt(1,12);
-
-    std::cout << "Ingrese año de ingreso:\n";
-    year = _terminal.validateInt(1900,2023);
-
-    date.setDay(day);
-    date.setMonth(month);
-    date.setYear(year);
-
-    item.setIncome(date);
-}
-
 void InventoryManager::exportItemsBackup() {
      int amount_of_items = _items_archive.getAmountOfRegisters();
 
@@ -1001,4 +868,91 @@ void InventoryManager::showInventory() {
 
 void InventoryManager::exportInventoryCSV() {
     return;
+}
+
+void InventoryManager::cinProductName(Product & product) {
+    std::string name;
+
+    std::cout << "Ingrese nombre del producto:\n";
+    std::cin.ignore();
+    getline(std::cin, name);
+
+    product.setName(name);
+}
+
+void InventoryManager::cinProductBrand(Product & product) {
+    std::string brand;
+
+    std::cout << "Ingrese marca:\n";
+    getline(std::cin, brand);
+
+    product.setBrand(brand);
+}
+
+void InventoryManager::cinProductModel(Product & product) {
+    std::string model;
+
+    std::cout << "Ingrese modelo:\n";
+    getline(std::cin, model);
+
+    product.setModel(model);
+}
+
+void InventoryManager::cinProductDescription(Product & product) {
+    std::string description;
+
+    std::cout << "Ingrese descripcion:\n";
+    getline(std::cin, description);
+
+    product.setDescription(description);
+}
+
+void InventoryManager::cinProductPrice(Product & product) {
+    double price;
+
+    std::cout << "Ingrese valor unitario:\n";
+    std::cin >> price;
+
+    product.setPrice(price);
+}
+
+void InventoryManager::cinProductIsActive(Product & product) {
+    if (product.getIsActive()) {
+        product.setIsActive(false);
+        std::cout << "El producto ha sido dado de baja.\n";
+        _terminal.pause();
+    } else {
+        product.setIsActive(true);
+        std::cout << "El producto ha sido reincorporado.\n";
+        _terminal.pause();
+    }
+}
+
+void InventoryManager::cinItemStock(Item & item) {
+    int stock;
+
+    std::cout << "Ingrese el stock:\n";
+    stock = _terminal.validateInt(0);
+
+    item.setStock(stock);
+}
+
+void InventoryManager::cinItemIncome(Item & item) {
+    Date date;
+    int day, month, year;
+
+    std::cout << "Ingrese dia de ingreso:\n";
+    day = _terminal.validateInt(1, 31);
+
+    std::cout << "Ingrese mes de ingreso:\n";
+    month = _terminal.validateInt(1,12);
+
+    std::cout << "Ingrese año de ingreso:\n";
+    year = _terminal.validateInt(1900,2023);
+
+    date.setDay(day);
+    date.setMonth(month);
+    date.setYear(year);
+
+    item.setIncome(date);
 }

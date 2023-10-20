@@ -19,6 +19,9 @@
 class InventoryManager {
     public:
 
+    /**
+     * @brief Displays the inventory menu.
+     */
     void displayMainMenu();
 
     /**
@@ -78,42 +81,6 @@ class InventoryManager {
      * @param index (int) The index of the product record to print.
      */
     void printProduct(int index);
-
-    /**
-     * @brief Prompts the user to enter the name of a product.
-     * @param product (Product &) A reference to the Product object where the data will be stored.
-     */
-    void cinProductName(Product & product);
-
-    /**
-     * @brief Prompts the user to enter the brand of a product.
-     * @param product (Product &) A reference to the Product object where the data will be stored.
-     */
-    void cinProductBrand(Product & product);
-
-    /**
-     * @brief Prompts the user to enter the model of a product.
-     * @param product (Product &) A reference to the Product object where the data will be stored.
-     */
-    void cinProductModel(Product & product);
-
-    /**
-     * @brief Prompts the user to enter the description of a product.
-     * @param product (Product &) A reference to the Product object where the data will be stored.
-     */
-    void cinProductDescription(Product & product);
-
-    /**
-     * @brief Prompts the user to enter the price of a product.
-     * @param product (Product &) A reference to the Product object where the data will be stored.
-     */
-    void cinProductPrice(Product & product);
-
-    /**
-     * @brief Prompts the user to enter the status of a product.
-     * @param product (Product &) A reference to the Product object where the data will be stored.
-     */
-    void cinProductIsActive(Product & product);
 
     /**
      * @brief Generates a unique product ID based on the current number of product records.
@@ -195,20 +162,6 @@ class InventoryManager {
      */
     void printItem(int index);
 
-    void cinItemName(Item & item);
-
-    void cinItemBrand(Item & item);
-
-    void cinItemModel(Item & item);
-
-    void cinItemDescription(Item & item);
-
-    void cinItemPrice(Item & item);
-
-    void cinItemStock(Item & item);
-
-    void cinItemIncome(Item & item);
-
     /**
      * @brief Exports a binary file with a backup copy of the current _items_archive.
      */
@@ -255,6 +208,54 @@ class InventoryManager {
      * @brief Exports a complete inventory report in CSV format.
      */
     void exportInventoryCSV();
+
+    /**
+     * @brief Prompts the user to enter the name of a product.
+     * @param product (Product &) A reference to the Product object where the data will be stored.
+     */
+    void cinProductName(Product & product);
+
+    /**
+     * @brief Prompts the user to enter the brand of a product.
+     * @param product (Product &) A reference to the Product object where the data will be stored.
+     */
+    void cinProductBrand(Product & product);
+
+    /**
+     * @brief Prompts the user to enter the model of a product.
+     * @param product (Product &) A reference to the Product object where the data will be stored.
+     */
+    void cinProductModel(Product & product);
+
+    /**
+     * @brief Prompts the user to enter the description of a product.
+     * @param product (Product &) A reference to the Product object where the data will be stored.
+     */
+    void cinProductDescription(Product & product);
+
+    /**
+     * @brief Prompts the user to enter the price of a product.
+     * @param product (Product &) A reference to the Product object where the data will be stored.
+     */
+    void cinProductPrice(Product & product);
+
+    /**
+     * @brief Prompts the user to enter the status of a product.
+     * @param product (Product &) A reference to the Product object where the data will be stored.
+     */
+    void cinProductIsActive(Product & product);
+
+    /**
+     * @brief Prompts the user to enter the stock of an item.
+     * @param item (Item &) A reference to the Item object where the data will be stored.
+     */
+    void cinItemStock(Item & item);
+
+    /**
+     * @brief Prompts the user to enter the income date of an item.
+     * @param item (Item &) A reference to the Item object where the data will be stored.
+     */
+    void cinItemIncome(Item & item);
 
     private:
 
