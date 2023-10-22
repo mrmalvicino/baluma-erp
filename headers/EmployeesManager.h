@@ -47,6 +47,8 @@ class EmployeesManager
 
         void importEmployeeBackup();
 
+        bool calculateSeniority();
+
 
 
     private:

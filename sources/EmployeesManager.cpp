@@ -17,12 +17,13 @@ void EmployeesManager::displayMenu()
         std::cout << "(3) BUSCAR EMPLEADO\n";
         std::cout << "(4) LISTAR EMPLEADOS\n";
         std::cout << "(5) LISTAR EMPLEADOS DADOS DE BAJA\n";
+        std::cout << "(6) CALCULAR ANTIGÜEDAD DE UN EMPLEADO\n";
         _terminal.printLine();
-        std::cout << "(6) EXPORTAR BACKUP\n";
-        std::cout << "(7) IMPORTAR BACKUP\n";
+        std::cout << "(7) EXPORTAR BACKUP\n";
+        std::cout << "(8) IMPORTAR BACKUP\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 7);
+        selection = _terminal.validateInt(0, 8);
 
         switch (selection)
         {
@@ -41,10 +42,15 @@ void EmployeesManager::displayMenu()
         case 5:
             listEmployees(false);
             break;
+        
         case 6:
+            calculateSeniority();
+            break;
+
+        case 7:
             exportEmployeeBackup();
             break;
-        case 7:
+        case 8:
             importEmployeeBackup();
             break;
         }
@@ -535,4 +541,26 @@ void EmployeesManager::importEmployeeBackup()
             _terminal.pause();
         }
     }
+}
+
+bool EmployeesManager::calculateSeniority()
+{
+    Date actual;
+    int seniority = 0;
+
+    int search_rtn = searchEmployee();
+    _terminal.clear();
+
+    if(search_rtn == -1)
+    {
+        return false;
+    }
+
+    seniority = actual.getYear() - _employee.getAdmission().getYear();
+
+    std::cout << "Antigüedad de " << _employee.getDescription() << ": " << seniority << " anios.\n";
+    _terminal.pause();
+    _terminal.clear();
+
+    return true;
 }
