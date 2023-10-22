@@ -12,6 +12,7 @@
 #include "InventoryManager.h"
 #include "WarehousesManager.h"
 #include "AccountsManager.h"
+#include "EmployeesManager.h"
 
 class Baluma {
     public:
@@ -52,4 +53,9 @@ class Baluma {
      * @brief InventoryManager object with default settings.
      */
     AccountsManager _accounts_manager;
+
+    /**
+    *@brief EmployeesManager object with default settings.
+    */
+    EmployeesManager _employees_manager;
 };

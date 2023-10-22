@@ -4,7 +4,7 @@
  * @brief Represents a date with day, month, and year components.
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  */
-
+#pragma once
 #include <string>
 #include <ctime>
 
@@ -112,3 +112,4 @@ class Date {
      */
     void decreaseDay();
 };
+

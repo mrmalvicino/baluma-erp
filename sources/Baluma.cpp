@@ -47,7 +47,7 @@ void Baluma::run() {
                 
                 break;
             case 8:
-                
+                _employees_manager.displayMenu();
                 break;
             case 9:
                 about();
