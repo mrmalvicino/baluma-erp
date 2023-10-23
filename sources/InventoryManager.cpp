@@ -90,9 +90,11 @@ bool InventoryManager::addProduct() {
 
     _product.setId(generateProductId());
 
-    cinProductName(_product);
+    cinProductName(_product, true);
     cinProductBrand(_product);
     cinProductModel(_product);
+    cinProductDescription(_product);
+    cinProductPrice(_product);
     cinProductIsActive(_product);
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
@@ -144,16 +146,16 @@ bool InventoryManager::editProduct() {
 
         switch (selection) {
             case 1:
-                cinProductName(_product);
+                cinProductName(_product, true);
                 break;
             case 2:
-                cinProductBrand(_product);
+                cinProductBrand(_product, true);
                 break;
             case 3:
-                cinProductModel(_product);
+                cinProductModel(_product, true);
                 break;
             case 4:
-                cinProductDescription(_product);
+                cinProductDescription(_product, true);
                 break;
             case 5:
                 cinProductPrice(_product);
@@ -488,7 +490,7 @@ bool InventoryManager::addItem() {
     _terminal.clear();
     _terminal.displayMenuHeader("AGREGAR EXISTENCIA");
 
-    cinProductName(_item);
+    cinProductName(_item, true);
     cinProductBrand(_item);
     cinProductModel(_item);
     cinProductDescription(_item);
@@ -870,18 +872,25 @@ void InventoryManager::exportInventoryCSV() {
     return;
 }
 
-void InventoryManager::cinProductName(Product & product) {
+void InventoryManager::cinProductName(Product & product, bool cin_ignore) {
     std::string name;
 
+    if (cin_ignore == true) {
+        std::cin.ignore();
+    }
+
     std::cout << "Ingrese nombre del producto:\n";
-    std::cin.ignore();
     getline(std::cin, name);
 
     product.setName(name);
 }
 
-void InventoryManager::cinProductBrand(Product & product) {
+void InventoryManager::cinProductBrand(Product & product, bool cin_ignore) {
     std::string brand;
+
+    if (cin_ignore == true) {
+        std::cin.ignore();
+    }
 
     std::cout << "Ingrese marca:\n";
     getline(std::cin, brand);
@@ -889,8 +898,12 @@ void InventoryManager::cinProductBrand(Product & product) {
     product.setBrand(brand);
 }
 
-void InventoryManager::cinProductModel(Product & product) {
+void InventoryManager::cinProductModel(Product & product, bool cin_ignore) {
     std::string model;
+
+    if (cin_ignore == true) {
+        std::cin.ignore();
+    }
 
     std::cout << "Ingrese modelo:\n";
     getline(std::cin, model);
@@ -898,8 +911,12 @@ void InventoryManager::cinProductModel(Product & product) {
     product.setModel(model);
 }
 
-void InventoryManager::cinProductDescription(Product & product) {
+void InventoryManager::cinProductDescription(Product & product, bool cin_ignore) {
     std::string description;
+
+    if (cin_ignore == true) {
+        std::cin.ignore();
+    }
 
     std::cout << "Ingrese descripcion:\n";
     getline(std::cin, description);
@@ -948,7 +965,7 @@ void InventoryManager::cinItemIncome(Item & item) {
     month = _terminal.validateInt(1,12);
 
     std::cout << "Ingrese año de ingreso:\n";
-    year = _terminal.validateInt(1900,2023);
+    year = _terminal.validateInt(0);
 
     date.setDay(day);
     date.setMonth(month);

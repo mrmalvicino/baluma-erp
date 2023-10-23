@@ -213,25 +213,25 @@ class InventoryManager {
      * @brief Prompts the user to enter the name of a product.
      * @param product (Product &) A reference to the Product object where the data will be stored.
      */
-    void cinProductName(Product & product);
+    void cinProductName(Product & product, bool cin_ignore = false);
 
     /**
      * @brief Prompts the user to enter the brand of a product.
      * @param product (Product &) A reference to the Product object where the data will be stored.
      */
-    void cinProductBrand(Product & product);
+    void cinProductBrand(Product & product, bool cin_ignore = false);
 
     /**
      * @brief Prompts the user to enter the model of a product.
      * @param product (Product &) A reference to the Product object where the data will be stored.
      */
-    void cinProductModel(Product & product);
+    void cinProductModel(Product & product, bool cin_ignore = false);
 
     /**
      * @brief Prompts the user to enter the description of a product.
      * @param product (Product &) A reference to the Product object where the data will be stored.
      */
-    void cinProductDescription(Product & product);
+    void cinProductDescription(Product & product, bool cin_ignore = false);
 
     /**
      * @brief Prompts the user to enter the price of a product.
