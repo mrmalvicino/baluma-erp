@@ -31,10 +31,7 @@ int main() {
 }
 
 /*
-BUG 1
-Al agregar la misma existencia en un mismo deposito, se duplica el registro en vez de moificarse el existente.
-
-BUGS 2 Y 3 (Maxi: listo)
+BUGS 1, 2 Y 3 (Maxi: listo)
 
 BUG 4
 En el método searchItemById() hay un bug de validacion. Puede haber 10 productos y por lo tanto 10 ids pero el archivo de existencias _items_archive solo contar con los ids 1,2,3 y ,6 (por ejemplo) porque el deposito ese solo tiene esos productos.

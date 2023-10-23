@@ -504,7 +504,14 @@ bool InventoryManager::addItem() {
     if (user_wants_to_save == true) {
         generateItemId();
         synchronizeProduct();
-        successful_write = _items_archive.write(_item);
+
+        int item_index = _items_archive.getIndex(_item);
+
+        if (item_index == -1) {
+            successful_write = _items_archive.write(_item);
+        } else {
+            successful_write = _items_archive.overWrite(_item, item_index);
+        }
 
         if (successful_write == true) {
             std::cout << "Registro guardado correctamente.\n";
@@ -777,11 +784,11 @@ void InventoryManager::generateItemId() {
     int amount_of_products = _products_archive.getAmountOfRegisters();
     int product_index = productIndex();
 
-    if(amount_of_products != 0) { // Si la lista no es vacía, determinar si el nuevo item ya existe
+    if(amount_of_products != 0) { // Si hay al menos 1 producto, determinar si el nuevo item ya existe como producto
         if (product_index != -1) {
             id = product_index + 1; // Si existe, el id es la ubicación del item en la lista de productos + 1
         } else {
-            id = amount_of_products + 1; // Si no existe, agregar item a la lista con nuevo id
+            id = amount_of_products + 1; // Si no existe, agregar producto a la lista con nuevo id
         }
     } // Si la lista es vacía, el nuevo item va a ser el primero en la lista de productos
 
@@ -946,10 +953,10 @@ void InventoryManager::cinProductIsActive(Product & product) {
 }
 
 void InventoryManager::cinItemStock(Item & item) {
-    int stock;
+    int stock = item.getStock();
 
-    std::cout << "Ingrese el stock:\n";
-    stock = _terminal.validateInt(0);
+    std::cout << "Cantidad de unidades:\n";
+    stock += _terminal.validateInt(0);
 
     item.setStock(stock);
 }
