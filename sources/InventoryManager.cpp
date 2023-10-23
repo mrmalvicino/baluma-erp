@@ -234,12 +234,9 @@ int InventoryManager::searchProductById() {
     int search_rtn = 0;
     int index;
     int id;
-    int max_id;
-
-    max_id = _products_archive.getAmountOfRegisters();
 
     std::cout << "Ingresar ID o 0 para cancelar:\n";
-    id = _terminal.validateInt(0, max_id);
+    id = _terminal.validateInt(0, getAmountOfProducts());
 
     if (0 < id) {
         index = _products_archive.getIndex(id);
@@ -602,11 +599,17 @@ int InventoryManager::searchItemById() {
     int id;
 
     std::cout << "Ingresar ID o 0 para cancelar:\n";
-    id = _terminal.validateInt(0);
+    id = _terminal.validateInt(0, getAmountOfProducts());
 
     if (0 < id) {
         index = _items_archive.getIndex(id);
-        printItem(index);
+
+        if (_items_archive.read(index).getName() != "N/A") {
+            printItem(index);
+        } else {
+            search_rtn = -1;
+            std::cout << "No hay existencias del producto en este depósito.\n";
+        }
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";

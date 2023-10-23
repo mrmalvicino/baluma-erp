@@ -31,11 +31,7 @@ int main() {
 }
 
 /*
-BUGS 1, 2 Y 3 (Maxi: listo)
-
-BUG 4
-En el método searchItemById() hay un bug de validacion. Puede haber 10 productos y por lo tanto 10 ids pero el archivo de existencias _items_archive solo contar con los ids 1,2,3 y ,6 (por ejemplo) porque el deposito ese solo tiene esos productos.
-Habria que agregar una validacion para que si el id ingresado no es uno que hay en el depo que no se rompa todo
+BUGS 1, 2, 3 y 4(Maxi: listo)
 
 IMPLEMENTACIÓN 1 (Maxi: listo)
 
