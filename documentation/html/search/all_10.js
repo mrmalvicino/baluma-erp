@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['terminal_0',['terminal',['../index.html#run_sec',1,'Run from terminal'],['../class_terminal.html',1,'Terminal'],['../class_terminal.html#aa448509b5aa1ece53c3d86385655be0e',1,'Terminal::Terminal()']]],
-  ['terminal_2ecpp_1',['Terminal.cpp',['../_terminal_8cpp.html',1,'']]],
-  ['terminal_2eh_2',['Terminal.h',['../_terminal_8h.html',1,'']]],
-  ['time_3',['time',['../class_time.html#a4245e409c7347d1d671858962c2ca3b5',1,'Time::Time()'],['../class_time.html',1,'Time'],['../class_time.html#ae2436e7cc209f805cbb91d96daa538c9',1,'Time::Time()']]],
-  ['time_2ecpp_4',['Time.cpp',['../_time_8cpp.html',1,'']]],
-  ['time_2eh_5',['Time.h',['../_time_8h.html',1,'']]],
-  ['tostring_6',['tostring',['../class_date_time.html#ae7a5a8238da8576e3b2755a200e76df1',1,'DateTime::toString()'],['../class_time.html#a2f1107e001bb30d5c750c10e9afb8d85',1,'Time::toString()'],['../class_date.html#afc8db375619a48b87cd267e801cc2230',1,'Date::toString()']]]
+  ['validatebool_0',['validateBool',['../class_terminal.html#ac53e012f91edda397ba2c85deb6603a0',1,'Terminal']]],
+  ['validatechar_1',['validateChar',['../class_terminal.html#a71e3f70511415e59ddc208afe6e94656',1,'Terminal']]],
+  ['validateint_2',['validateint',['../class_terminal.html#a9e02efe5fd617f840db1b754455df71c',1,'Terminal::validateInt()'],['../class_terminal.html#a99f92eb12ec028d5eb1b1bf17ea2e7c5',1,'Terminal::validateInt(int min)'],['../class_terminal.html#a75ebbf6141556f4554f98c0a7245129e',1,'Terminal::validateInt(int min, int max)']]],
+  ['validatelongint_3',['validatelongint',['../class_terminal.html#a163fec03a9a56fb290c66fb26d048b42',1,'Terminal::validateLongInt()'],['../class_terminal.html#a185d0f3bc76504431045496130cbcd5c',1,'Terminal::validateLongInt(int min)'],['../class_terminal.html#a82f42c97ccb882280df5e47cfdbd0984',1,'Terminal::validateLongInt(int min, int max)']]]
 ];

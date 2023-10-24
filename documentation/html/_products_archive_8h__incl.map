@@ -1,0 +1,13 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/ProductsArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/ProductsArchive.h">
+<area shape="rect" id="Node000001" title="Represents an archive of products." alt="" coords="27,5,231,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,109,77,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,63,65,100,62,97,100,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,109,157,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
+<area shape="rect" id="Node000004" href="$_product_8h.html" title="Represents a product." alt="" coords="181,109,258,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="159,59,198,97,195,100,155,63"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="152,183,205,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="215,136,195,171,190,168,211,134"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="230,183,290,208"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="229,134,248,168,243,171,224,136"/>
+</map>

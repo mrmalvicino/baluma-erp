@@ -1,0 +1,22 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/ItemsArchive.cpp" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/ItemsArchive.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="29,5,229,61"/>
+<area shape="rect" id="Node000002" href="$_items_archive_8h.html" title="Represents an archive of items." alt="" coords="43,109,215,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,183,77,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="116,137,69,175,65,171,112,133"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="101,183,157,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="132,135,132,168,126,168,126,135"/>
+<area shape="rect" id="Node000005" href="$_item_8h.html" title="Represents an existing item at a warehouse." alt="" coords="181,183,240,208"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="145,133,188,171,184,175,141,137"/>
+<area shape="rect" id="Node000006" href="$_product_8h.html" title="Represents a product." alt="" coords="125,256,202,282"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="205,210,182,245,177,242,200,207"/>
+<area shape="rect" id="Node000009" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="227,256,287,282"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="220,207,243,242,239,245,216,210"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="186,330,240,356"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="174,281,199,316,194,319,170,284"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="102,330,162,356"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="161,283,145,318,141,315,156,281"/>
+<area shape="poly" id="edge9_Node000009_Node000007" title=" " alt="" coords="252,284,230,319,226,316,247,281"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="264,330,317,356"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="265,281,281,315,276,318,260,283"/>
+</map>

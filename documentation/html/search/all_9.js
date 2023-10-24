@@ -1,5 +1,28 @@
 var searchData=
 [
-  ['journalentry_2ecpp_0',['JournalEntry.cpp',['../_journal_entry_8cpp.html',1,'']]],
-  ['journalentry_2eh_1',['JournalEntry.h',['../_journal_entry_8h.html',1,'']]]
+  ['licencia_0',['Licencia',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html#autotoc_md2',1,'']]],
+  ['license_1',['License',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html#autotoc_md9',1,'']]],
+  ['listaccounts_2',['listAccounts',['../class_accounts_manager.html#aee2a3d965cf8c728304f575e7f8b02e0',1,'AccountsManager']]],
+  ['listclients_3',['listClients',['../class_clients_manager.html#a0c53926ca98fa838bc1712feefe1cbd2',1,'ClientsManager']]],
+  ['listclientsaccounts_4',['listClientsAccounts',['../class_accounts_manager.html#afdc41d84303962fd4f2b03d93b82b087',1,'AccountsManager']]],
+  ['listclientsmenu_5',['listClientsMenu',['../class_clients_manager.html#a6b7ae01b6df3732b7c5b8f1d2b7bab8d',1,'ClientsManager']]],
+  ['listemployees_6',['listEmployees',['../class_employees_manager.html#a9df536976971f946b8f5c88d2a17413d',1,'EmployeesManager']]],
+  ['listitems_7',['listItems',['../class_inventory_manager.html#a5f3d2b625a350f4408ccbc4478d2502d',1,'InventoryManager']]],
+  ['listitemsmenu_8',['listItemsMenu',['../class_inventory_manager.html#a8c637264c2e533261580d2c1d9c81da4',1,'InventoryManager']]],
+  ['listmenuaccounts_9',['listMenuAccounts',['../class_accounts_manager.html#aab3f073ab6c54ddb96100e198e1945b6',1,'AccountsManager']]],
+  ['listproducts_10',['listProducts',['../class_inventory_manager.html#a23b521c4c2e2a715e48089c6a8de502f',1,'InventoryManager']]],
+  ['listproductsmenu_11',['listProductsMenu',['../class_inventory_manager.html#accfc2404a9930cfd3f4101c3a6753cfe',1,'InventoryManager']]],
+  ['listsuppliers_12',['listSuppliers',['../class_suppliers_manager.html#ac0db342e0717bcce152f18c8b349196f',1,'SuppliersManager']]],
+  ['listsuppliersaccounts_13',['listSuppliersAccounts',['../class_accounts_manager.html#aead868d93144970a24b98c8a74d9dc02',1,'AccountsManager']]],
+  ['listsuppliersmenu_14',['listSuppliersMenu',['../class_suppliers_manager.html#a0f968c08397497e4583aa2edf1938fa1',1,'SuppliersManager']]],
+  ['listtransactions_15',['listTransactions',['../class_transactions_manager.html#ad8736683a2f06cfbf18e1ceba362d083',1,'TransactionsManager']]],
+  ['listvariusaccounts_16',['listVariusAccounts',['../class_accounts_manager.html#a26ae9b274c3b28a1010a0ca46e70d23e',1,'AccountsManager']]],
+  ['listwarehouses_17',['listWarehouses',['../class_warehouses_manager.html#a5520e0782d090df18597128559f6e511',1,'WarehousesManager']]],
+  ['listwarehousesmenu_18',['listWarehousesMenu',['../class_warehouses_manager.html#a26add317516f1e4e8d2760e25df2fcc1',1,'WarehousesManager']]],
+  ['loadclient_19',['loadClient',['../class_clients_manager.html#a569bdaa1603511c71d50f89b9e0a2feb',1,'ClientsManager']]],
+  ['loadclients_20',['loadClients',['../class_transactions_manager.html#a62f29ff028cc1beaff4142a8b9f999c3',1,'TransactionsManager']]],
+  ['loaditem_21',['loadItem',['../class_inventory_manager.html#a63dcf737c68598e23a86389c456b9f46',1,'InventoryManager']]],
+  ['loaditemsmenu_22',['loadItemsMenu',['../class_inventory_manager.html#a27ee62b27aeee319d06d069391c8464e',1,'InventoryManager']]],
+  ['loadproduct_23',['loadProduct',['../class_inventory_manager.html#a02c1a65f6478c7947fbceb690854a1fd',1,'InventoryManager']]],
+  ['loadsupplier_24',['loadSupplier',['../class_suppliers_manager.html#a80da94e1da252096269f11a28d8a0a3b',1,'SuppliersManager']]]
 ];

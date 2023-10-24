@@ -1,0 +1,20 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/TransactionsArchive.cpp" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/TransactionsArchive.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,247,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="8,109,79,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,63,67,100,63,96,98,59"/>
+<area shape="rect" id="Node000003" href="$_transactions_archive_8h.html" title=" " alt="" coords="103,109,317,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,59,190,96,186,100,150,63"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="130,183,186,208"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="204,136,177,172,173,169,199,133"/>
+<area shape="rect" id="Node000005" href="$_transaction_8h.html" title=" " alt="" coords="211,183,311,208"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="221,133,246,169,241,172,216,136"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="163,256,223,282"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="251,210,216,247,212,244,248,207"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="234,330,287,356"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="263,209,263,315,258,315,258,209"/>
+<area shape="rect" id="Node000008" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="299,256,359,282"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="274,207,309,244,305,247,270,210"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="319,284,284,321,280,317,316,280"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="311,330,365,356"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="333,282,337,315,332,316,328,283"/>
+</map>

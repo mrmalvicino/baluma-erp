@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['write_0',['write',['../class_client_archive.html#aaa597aa2cc35793bb5a1baf0ec870ce4',1,'ClientArchive::write()'],['../class_item_archive.html#a06d63ec58739055a231eae41528d0486',1,'ItemArchive::write()'],['../class_supplier_archive.html#ac4c7772a9244c6832f1f05267aedbd43',1,'SupplierArchive::write()']]],
-  ['writeclientscsv_1',['writeClientsCSV',['../class_client_c_s_v.html#ab8c3c3de998edb196006468fa6f62054',1,'ClientCSV']]],
-  ['writeitemscsv_2',['writeItemsCSV',['../class_item_c_s_v.html#a560c237a4aa5bbd068c2f104a0f7f3be',1,'ItemCSV']]],
-  ['writesupplierscsv_3',['writeSuppliersCSV',['../class_supplier_c_s_v.html#a1b51fd3ba07789c3a66236074b8bc83d',1,'SupplierCSV']]]
+  ['validatebool_0',['validateBool',['../class_terminal.html#ac53e012f91edda397ba2c85deb6603a0',1,'Terminal']]],
+  ['validatechar_1',['validateChar',['../class_terminal.html#a71e3f70511415e59ddc208afe6e94656',1,'Terminal']]],
+  ['validateint_2',['validateint',['../class_terminal.html#a9e02efe5fd617f840db1b754455df71c',1,'Terminal::validateInt()'],['../class_terminal.html#a99f92eb12ec028d5eb1b1bf17ea2e7c5',1,'Terminal::validateInt(int min)'],['../class_terminal.html#a75ebbf6141556f4554f98c0a7245129e',1,'Terminal::validateInt(int min, int max)']]],
+  ['validatelongint_3',['validatelongint',['../class_terminal.html#a163fec03a9a56fb290c66fb26d048b42',1,'Terminal::validateLongInt()'],['../class_terminal.html#a185d0f3bc76504431045496130cbcd5c',1,'Terminal::validateLongInt(int min)'],['../class_terminal.html#a82f42c97ccb882280df5e47cfdbd0984',1,'Terminal::validateLongInt(int min, int max)']]]
 ];

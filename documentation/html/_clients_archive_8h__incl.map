@@ -1,0 +1,17 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/ClientsArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/ClientsArchive.h">
+<area shape="rect" id="Node000001" title="Manages a client archive, allowing storage and retrieval of client records in a binary file." alt="" coords="32,5,226,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,109,77,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,63,65,100,62,97,100,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,109,157,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
+<area shape="rect" id="Node000004" href="$_client_8h.html" title="Represents a client of an organization." alt="" coords="181,109,248,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,59,194,96,190,100,154,63"/>
+<area shape="rect" id="Node000005" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="151,183,278,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="217,135,217,168,212,168,212,135"/>
+<area shape="rect" id="Node000006" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="178,256,251,282"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="217,209,217,241,212,241,212,209"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="148,330,201,356"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="210,284,191,318,186,316,205,281"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="226,330,286,356"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="223,281,244,316,239,318,219,284"/>
+</map>

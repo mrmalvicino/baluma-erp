@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['descripcion_0',['descripcion',['../class_asiento_contable.html#a84ee9304b3a9c03d96fbf0402733dd9f',1,'AsientoContable']]]
+  ['balance_0',['balance',['../class_account.html#a6e41f403b4813738ba835377f212de33',1,'Account']]]
 ];

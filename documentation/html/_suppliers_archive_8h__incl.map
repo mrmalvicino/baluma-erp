@@ -1,0 +1,15 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/SuppliersArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/SuppliersArchive.h">
+<area shape="rect" id="Node000001" title="Manages a supplier archive, allowing storage and retrieval of supplier records in a binary file." alt="" coords="5,5,212,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="35,109,91,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,62,79,97,74,94,92,60"/>
+<area shape="rect" id="Node000003" href="$_supplier_8h.html" title="Represents a supplier of an organization." alt="" coords="116,109,194,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,60,144,94,139,97,121,63"/>
+<area shape="rect" id="Node000004" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="92,183,219,208"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="158,135,158,168,153,168,153,135"/>
+<area shape="rect" id="Node000005" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="119,256,192,282"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="158,209,158,241,153,241,153,209"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="89,330,142,356"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="151,284,131,318,127,316,146,281"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="166,330,227,356"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="164,281,184,316,180,318,160,284"/>
+</map>

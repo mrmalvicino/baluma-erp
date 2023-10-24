@@ -1,0 +1,17 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/WarehousesArchive.cpp" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/WarehousesArchive.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,244,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="6,109,78,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,63,65,100,61,96,97,59"/>
+<area shape="rect" id="Node000003" href="$_warehouses_archive_8h.html" title="Represents an archive of warehouses." alt="" coords="102,109,312,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,59,188,96,184,100,148,63"/>
+<area shape="rect" id="Node000004" href="$_warehouse_8h.html" title="Represents a warehouse." alt="" coords="159,183,256,208"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="210,135,210,168,205,168,205,135"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="136,330,196,356"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="195,211,176,231,160,257,156,287,160,315,155,316,151,287,155,255,171,228,191,207"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="238,330,291,356"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="222,207,241,228,258,255,266,286,268,315,263,315,260,286,253,257,237,231,218,210"/>
+<area shape="rect" id="Node000007" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="171,256,244,282"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="210,209,210,241,205,241,205,209"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="203,284,182,318,178,316,198,281"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="219,281,248,317,244,320,215,284"/>
+</map>

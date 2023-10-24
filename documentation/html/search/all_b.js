@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]]
+  ['overwrite_0',['overwrite',['../class_accounts_archive.html#ab9408eb15dd0cf910cc1acdabaf1329e',1,'AccountsArchive::overWrite()'],['../class_clients_archive.html#aff65efafdf61ea02940b84ed212ca34b',1,'ClientsArchive::overWrite()'],['../class_employees_archive.html#ac9c5d1fadb751e0b3951aa0c68ef8c9a',1,'EmployeesArchive::overWrite()'],['../class_items_archive.html#af7b7e7fe57208c91346d95a614e43303',1,'ItemsArchive::overWrite()'],['../class_products_archive.html#aa859ddddf2866334fd3bc8ee38763037',1,'ProductsArchive::overWrite()'],['../class_suppliers_archive.html#a165cd70627d9b4e193e50b3c433c1703',1,'SuppliersArchive::overWrite()'],['../class_transactions_archive.html#a3e5224430acb5d44ba2883c220aa535f',1,'TransactionsArchive::overWrite()'],['../class_warehouses_archive.html#a13b9b491b9f05b10f8727dfc3a8dfec3',1,'WarehousesArchive::overWrite()']]]
 ];

@@ -1,0 +1,16 @@
+<map id="ClientsManager" name="ClientsManager">
+<area shape="rect" id="Node000001" title=" " alt="" coords="120,286,232,312"/>
+<area shape="rect" id="Node000002" href="$class_terminal.html" title=" " alt="" coords="22,94,92,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="36,132,23,149,12,169,8,188,13,207,36,234,64,256,96,272,127,283,125,288,94,277,62,260,32,238,8,210,3,188,7,167,18,146,32,129"/>
+<area shape="rect" id="Node000007" href="$class_clients_c_s_v.html" title=" " alt="" coords="80,183,170,208"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="78,130,118,181,114,184,73,133"/>
+<area shape="rect" id="Node000003" href="$class_client.html" title=" " alt="" coords="200,183,255,208"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,223,203,264,188,287,183,284,199,261,216,221"/>
+<area shape="rect" id="Node000004" href="$class_business_partner.html" title=" " alt="" coords="169,94,286,120"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="230,134,230,182,225,182,225,134"/>
+<area shape="rect" id="Node000005" href="$class_adress.html" title=" " alt="" coords="197,5,259,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="230,46,230,94,225,94,225,46"/>
+<area shape="rect" id="Node000006" href="$class_clients_archive.html" title=" " alt="" coords="280,183,386,208"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="315,221,291,244,264,265,215,288,212,283,261,260,288,240,311,218"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="122,223,121,243,126,261,136,274,150,284,147,288,133,278,122,264,116,243,116,223"/>
+</map>

@@ -25,8 +25,8 @@ class InventoryManager {
     void displayMainMenu();
 
     /**
-     * @brief Gets the amount of registers recorded in the products archive.
-     * @return int 
+     * @brief Updates the _amount_of_products attribute and returns it's value.
+     * @return (int) Returns the amount of registers recorded in the current ProductsArchive object.
      */
     int getAmountOfProducts();
 

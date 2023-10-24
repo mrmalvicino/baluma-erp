@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['pause_0',['pause',['../class_terminal.html#acd7ce5961dc4e088cb0c60ba4b640040',1,'Terminal']]],
-  ['person_1',['person',['../class_person.html',1,'Person'],['../class_person.html#a0397c6f89fafc12e738923f612bc41a3',1,'Person::Person()'],['../class_person.html#a647073e1ab27edad25b9f4fa5010443c',1,'Person::Person(std::string first_name, std::string last_name)']]],
-  ['person_2ecpp_2',['Person.cpp',['../_person_8cpp.html',1,'']]],
-  ['person_2eh_3',['Person.h',['../_person_8h.html',1,'']]],
-  ['políticas_20de_20contribución_4',['Políticas de contribución',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html#autotoc_md4',1,'']]],
-  ['policies_5',['Contibution policies',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html#autotoc_md11',1,'']]],
-  ['printbackoption_6',['printBackOption',['../class_terminal.html#abeeebf43abf3c172ed49811b6b871321',1,'Terminal']]],
-  ['printbool_7',['printBool',['../class_terminal.html#a85d2ffab1f2121808d62f123cbe885eb',1,'Terminal']]],
-  ['printclient_8',['printClient',['../class_client_manager.html#abcf2ccb963ec19a98e290238293a4d43',1,'ClientManager']]],
-  ['printitem_9',['printItem',['../class_item_manager.html#a59dc61b2b33d060711f8964585298bba',1,'ItemManager']]],
-  ['printline_10',['printLine',['../class_terminal.html#abad54d5652e12b220aee4c649fb9af82',1,'Terminal']]],
-  ['printsupplier_11',['printSupplier',['../class_supplier_manager.html#aec7dcd1408621c3562386bef50ca9d3e',1,'SupplierManager']]]
+  ['read_0',['read',['../class_transactions_archive.html#af7992995cfda26e83548cc3bf6531601',1,'TransactionsArchive::read()'],['../class_warehouses_archive.html#ac0ba39395aaee31337306cf5295c53dd',1,'WarehousesArchive::read()'],['../class_accounts_archive.html#a6d615bcbd82365e81fcc65c81dec29ba',1,'AccountsArchive::read()'],['../class_clients_archive.html#ad8d76a55b1fb0e4b820dbbc3cbd6b6b3',1,'ClientsArchive::read()'],['../class_employees_archive.html#a34d93622e6775f468343b9b0d47ce13b',1,'EmployeesArchive::read()'],['../class_items_archive.html#a9c2e6559986afe4548d48f0fd316fdfa',1,'ItemsArchive::read()'],['../class_products_archive.html#a3ffd2938d5e3ddf20f81a16368c680d7',1,'ProductsArchive::read()'],['../class_suppliers_archive.html#a1f8bcce1634238deb49d94426469789c',1,'SuppliersArchive::read()']]],
+  ['readclientscsv_1',['readClientsCSV',['../class_clients_c_s_v.html#af0005d04e11cbbc829372ba9268c2f00',1,'ClientsCSV']]],
+  ['readitemscsv_2',['readItemsCSV',['../class_items_c_s_v.html#a9534958c03c7f5af5f2ff13b68eb3abb',1,'ItemsCSV']]],
+  ['readme_2desp_2emd_3',['README-ESP.md',['../_r_e_a_d_m_e-_e_s_p_8md.html',1,'']]],
+  ['readme_2emd_4',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['readsupplierscsv_5',['readSuppliersCSV',['../class_suppliers_c_s_v.html#a44fdcad925ddcf21cda8f1430bbd236c',1,'SuppliersCSV']]],
+  ['readwarehousescsv_6',['readWarehousesCSV',['../class_warehouses_c_s_v.html#aa3cc2039e671d4be902e523686de3919',1,'WarehousesCSV']]],
+  ['remove_7',['remove',['../class_account.html#a96485243fd991b29c3c835b90c4a084f',1,'Account']]],
+  ['run_8',['run',['../class_baluma.html#aabd471e1bc5ad07a09fb805c3556f2a2',1,'Baluma']]],
+  ['run_20from_20terminal_9',['Run from terminal',['../index.html#run_sec',1,'']]]
 ];

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['terminal_0',['Terminal',['../class_terminal.html',1,'']]],
-  ['time_1',['Time',['../class_time.html',1,'']]]
+  ['supplier_0',['Supplier',['../class_supplier.html',1,'']]],
+  ['suppliersarchive_1',['SuppliersArchive',['../class_suppliers_archive.html',1,'']]],
+  ['supplierscsv_2',['SuppliersCSV',['../class_suppliers_c_s_v.html',1,'']]],
+  ['suppliersmanager_3',['SuppliersManager',['../class_suppliers_manager.html',1,'']]]
 ];

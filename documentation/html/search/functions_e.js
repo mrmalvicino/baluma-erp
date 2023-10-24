@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['validatebool_0',['validateBool',['../class_terminal.html#ac53e012f91edda397ba2c85deb6603a0',1,'Terminal']]],
-  ['validatechar_1',['validateChar',['../class_terminal.html#a71e3f70511415e59ddc208afe6e94656',1,'Terminal']]],
-  ['validateint_2',['validateint',['../class_terminal.html#a9e02efe5fd617f840db1b754455df71c',1,'Terminal::validateInt()'],['../class_terminal.html#a99f92eb12ec028d5eb1b1bf17ea2e7c5',1,'Terminal::validateInt(int min)'],['../class_terminal.html#a75ebbf6141556f4554f98c0a7245129e',1,'Terminal::validateInt(int min, int max)']]],
-  ['validatelongint_3',['validatelongint',['../class_terminal.html#a163fec03a9a56fb290c66fb26d048b42',1,'Terminal::validateLongInt()'],['../class_terminal.html#a185d0f3bc76504431045496130cbcd5c',1,'Terminal::validateLongInt(int min)'],['../class_terminal.html#a82f42c97ccb882280df5e47cfdbd0984',1,'Terminal::validateLongInt(int min, int max)']]]
+  ['terminal_0',['Terminal',['../class_terminal.html#aa448509b5aa1ece53c3d86385655be0e',1,'Terminal']]],
+  ['time_1',['time',['../class_time.html#a4245e409c7347d1d671858962c2ca3b5',1,'Time::Time()'],['../class_time.html#ae2436e7cc209f805cbb91d96daa538c9',1,'Time::Time(int second, int minute, int hour)']]],
+  ['tostring_2',['tostring',['../class_date.html#afc8db375619a48b87cd267e801cc2230',1,'Date::toString()'],['../class_date_time.html#ae7a5a8238da8576e3b2755a200e76df1',1,'DateTime::toString()'],['../class_item.html#abe1a089d1dcb6a9d7a1d1febe03a19d6',1,'Item::toString()'],['../class_product.html#a258ebc43bb0df0d4bef505c8b8495855',1,'Product::toString()'],['../class_time.html#a2f1107e001bb30d5c750c10e9afb8d85',1,'Time::toString()']]],
+  ['transaction_3',['transaction',['../class_transaction.html#ab47005b855d38bc324bb79fd023baa13',1,'Transaction::Transaction()'],['../class_transaction.html#aab45e04cd05e1c09cf5e4d3724afb675',1,'Transaction::Transaction(int id, int accountNumber, int transactionId, double debit, double credit, const std::string &amp;description)']]],
+  ['transactionsarchive_4',['transactionsarchive',['../class_transactions_archive.html#a2d9151922b54e8178f5e844926dbc367',1,'TransactionsArchive::TransactionsArchive()'],['../class_transactions_archive.html#aa5511c505c87883fe6afc68cc774efc1',1,'TransactionsArchive::TransactionsArchive(std::string path)']]],
+  ['transactionsmanager_5',['TransactionsManager',['../class_transactions_manager.html#a9f95acbbe378747dada5a6ef5358e0ff',1,'TransactionsManager']]]
 ];

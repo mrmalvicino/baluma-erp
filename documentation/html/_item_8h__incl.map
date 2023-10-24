@@ -1,12 +1,14 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/Item.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/Item.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,171,61"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="31,183,84,208"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,63,57,85,48,110,46,140,51,168,46,169,41,140,43,108,53,83,66,60"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="58,109,118,135"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="91,61,91,94,85,94,85,61"/>
-<area shape="rect" id="Node000004" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="142,109,202,135"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="116,59,152,96,148,100,112,63"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="154,137,91,177,88,172,151,133"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="145,183,199,208"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="175,135,175,168,169,168,169,135"/>
+<area shape="rect" id="Node000001" title="Represents an existing item at a warehouse." alt="" coords="32,5,197,61"/>
+<area shape="rect" id="Node000002" href="$_product_8h.html" title="Represents a product." alt="" coords="29,109,106,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,63,83,97,79,94,97,60"/>
+<area shape="rect" id="Node000005" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="131,109,191,135"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="131,60,150,94,145,97,126,63"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="90,183,144,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="78,133,102,169,98,172,73,136"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,183,66,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="65,136,49,170,44,168,60,134"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="156,136,134,171,130,169,151,133"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="168,183,221,208"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="169,134,185,168,180,170,164,136"/>
 </map>

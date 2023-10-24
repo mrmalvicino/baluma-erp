@@ -1,0 +1,11 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/Warehouse.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/Warehouse.h">
+<area shape="rect" id="Node000001" title="Represents a warehouse." alt="" coords="5,5,179,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="21,183,81,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,63,56,85,45,110,42,140,46,168,41,169,37,140,40,108,51,83,66,60"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="123,183,176,208"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,60,131,83,143,108,150,139,152,167,147,168,144,139,137,110,126,85,112,63"/>
+<area shape="rect" id="Node000004" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="55,109,129,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="95,61,95,94,89,94,89,61"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="87,136,67,171,63,168,83,134"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="104,133,133,169,129,173,99,137"/>
+</map>

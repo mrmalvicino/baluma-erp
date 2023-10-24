@@ -1,5 +1,7 @@
 <map id="Item" name="Item">
-<area shape="rect" id="Node000001" title=" " alt="" coords="6,94,54,120"/>
-<area shape="rect" id="Node000002" href="$class_date.html" title=" " alt="" coords="5,5,55,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="33,46,33,94,27,94,27,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="55,94,102,120"/>
+<area shape="rect" id="Node000002" href="$class_product.html" title=" " alt="" coords="5,5,72,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,43,75,93,71,95,48,45"/>
+<area shape="rect" id="Node000003" href="$class_date.html" title=" " alt="" coords="95,5,145,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,45,87,95,82,92,106,43"/>
 </map>

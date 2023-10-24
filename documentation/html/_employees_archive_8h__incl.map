@@ -1,0 +1,22 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/EmployeesArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/EmployeesArchive.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="20,5,238,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,109,77,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,63,65,100,62,97,100,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,109,157,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
+<area shape="rect" id="Node000004" href="$_employee_8h.html" title=" " alt="" coords="181,109,272,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,59,204,97,200,101,157,63"/>
+<area shape="rect" id="Node000005" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="138,183,198,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="219,137,189,173,185,169,215,133"/>
+<area shape="rect" id="Node000008" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="221,183,349,208"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="238,133,268,169,264,173,234,137"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="142,330,196,356"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="167,209,162,242,161,282,166,315,161,316,156,282,157,242,162,209"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="170,256,224,282"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="175,208,189,241,184,243,170,210"/>
+<area shape="rect" id="Node000009" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="248,256,322,282"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="288,209,288,241,282,241,282,209"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="267,285,202,324,199,320,264,280"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="255,330,315,356"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="288,282,288,315,282,315,282,282"/>
+</map>

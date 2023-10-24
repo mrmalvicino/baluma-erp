@@ -1,0 +1,34 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/ClientsCSV.cpp" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/sources/ClientsCSV.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="210,5,399,61"/>
+<area shape="rect" id="Node000002" href="$_clients_c_s_v_8h.html" title="Manages a client archive file, allowing storage and retrieval of client records in a CSV file." alt="" coords="224,109,385,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="307,61,307,94,302,94,302,61"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="305,256,376,282"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="310,134,336,241,331,242,305,136"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="145,183,210,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="284,138,213,177,210,173,281,133"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="234,183,302,208"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="301,136,283,170,278,168,296,134"/>
+<area shape="rect" id="Node000006" href="$_terminal_8h.html" title="Utility class designed to facilitate common text&#45;based interactions in a terminal or console environm..." alt="" coords="40,183,121,208"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="267,138,133,180,131,175,265,133"/>
+<area shape="rect" id="Node000009" href="$_client_8h.html" title="Represents a client of an organization." alt="" coords="494,256,560,282"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="386,125,418,132,451,143,482,159,509,181,518,195,525,210,530,241,525,242,520,212,514,197,505,184,479,163,449,148,417,137,385,131"/>
+<area shape="rect" id="Node000014" href="$_clients_archive_8h.html" title="Manages a client archive, allowing storage and retrieval of client records in a binary file." alt="" coords="378,183,495,208"/>
+<area shape="poly" id="edge14_Node000002_Node000014" title=" " alt="" coords="328,133,403,173,400,178,325,138"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="122,206,291,252,290,257,121,211"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="94,256,154,282"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="90,207,111,242,107,245,85,210"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="5,256,70,282"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="75,210,54,245,50,242,71,207"/>
+<area shape="rect" id="Node000010" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="463,330,591,356"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="530,282,530,315,524,315,524,282"/>
+<area shape="rect" id="Node000011" href="$_adress_8h.html" title="Represents an address with various components such as country, state, city, street,..." alt="" coords="490,404,564,429"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="530,356,530,389,524,389,524,356"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="460,477,514,503"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="523,431,503,466,498,463,518,428"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="538,477,598,503"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="536,428,556,463,552,466,531,431"/>
+<area shape="poly" id="edge15_Node000014_Node000003" title=" " alt="" coords="421,211,369,250,366,245,418,207"/>
+<area shape="poly" id="edge17_Node000014_Node000009" title=" " alt="" coords="453,207,502,245,499,249,450,211"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="408,256,464,282"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="439,209,439,241,434,241,434,209"/>
+</map>

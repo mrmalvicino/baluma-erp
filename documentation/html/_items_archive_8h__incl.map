@@ -1,0 +1,20 @@
+<map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/ItemsArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/ItemsArchive.h">
+<area shape="rect" id="Node000001" title="Represents an archive of items." alt="" coords="36,5,222,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,109,77,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,63,65,100,62,97,100,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,109,157,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
+<area shape="rect" id="Node000004" href="$_item_8h.html" title="Represents an existing item at a warehouse." alt="" coords="181,109,240,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,59,191,96,187,100,152,63"/>
+<area shape="rect" id="Node000005" href="$_product_8h.html" title="Represents a product." alt="" coords="125,183,202,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="205,136,182,171,177,168,200,133"/>
+<area shape="rect" id="Node000008" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="227,183,287,208"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="220,133,243,168,239,171,216,136"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="186,256,240,282"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="174,207,199,242,194,246,170,210"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="102,256,162,282"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="161,210,145,244,141,242,156,207"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="252,210,230,245,226,242,247,207"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="264,256,317,282"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="265,207,281,242,276,244,260,210"/>
+</map>

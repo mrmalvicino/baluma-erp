@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['pause_0',['pause',['../class_terminal.html#acd7ce5961dc4e088cb0c60ba4b640040',1,'Terminal']]],
-  ['person_1',['person',['../class_person.html#a0397c6f89fafc12e738923f612bc41a3',1,'Person::Person()'],['../class_person.html#a647073e1ab27edad25b9f4fa5010443c',1,'Person::Person(std::string first_name, std::string last_name)']]],
-  ['printbackoption_2',['printBackOption',['../class_terminal.html#abeeebf43abf3c172ed49811b6b871321',1,'Terminal']]],
-  ['printbool_3',['printBool',['../class_terminal.html#a85d2ffab1f2121808d62f123cbe885eb',1,'Terminal']]],
-  ['printclient_4',['printClient',['../class_client_manager.html#abcf2ccb963ec19a98e290238293a4d43',1,'ClientManager']]],
-  ['printitem_5',['printItem',['../class_item_manager.html#a59dc61b2b33d060711f8964585298bba',1,'ItemManager']]],
-  ['printline_6',['printLine',['../class_terminal.html#abad54d5652e12b220aee4c649fb9af82',1,'Terminal']]],
-  ['printsupplier_7',['printSupplier',['../class_supplier_manager.html#aec7dcd1408621c3562386bef50ca9d3e',1,'SupplierManager']]]
+  ['overwrite_0',['overwrite',['../class_accounts_archive.html#ab9408eb15dd0cf910cc1acdabaf1329e',1,'AccountsArchive::overWrite()'],['../class_clients_archive.html#aff65efafdf61ea02940b84ed212ca34b',1,'ClientsArchive::overWrite()'],['../class_employees_archive.html#ac9c5d1fadb751e0b3951aa0c68ef8c9a',1,'EmployeesArchive::overWrite()'],['../class_items_archive.html#af7b7e7fe57208c91346d95a614e43303',1,'ItemsArchive::overWrite()'],['../class_products_archive.html#aa859ddddf2866334fd3bc8ee38763037',1,'ProductsArchive::overWrite()'],['../class_suppliers_archive.html#a165cd70627d9b4e193e50b3c433c1703',1,'SuppliersArchive::overWrite()'],['../class_transactions_archive.html#a3e5224430acb5d44ba2883c220aa535f',1,'TransactionsArchive::overWrite()'],['../class_warehouses_archive.html#a13b9b491b9f05b10f8727dfc3a8dfec3',1,'WarehousesArchive::overWrite()']]]
 ];

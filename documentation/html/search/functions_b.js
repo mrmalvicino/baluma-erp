@@ -1,8 +1,19 @@
 var searchData=
 [
-  ['read_0',['read',['../class_client_archive.html#ad21623c3ca0096f87f19c5dcf0f68896',1,'ClientArchive::read()'],['../class_item_archive.html#a312015118ee90feaf37d84ac74294149',1,'ItemArchive::read()'],['../class_supplier_archive.html#a35d38b66b9fae860732d85c3a338263b',1,'SupplierArchive::read()']]],
-  ['readclientscsv_1',['readClientsCSV',['../class_client_c_s_v.html#a08d64c0e870a187f6409817967a39d58',1,'ClientCSV']]],
-  ['readitemscsv_2',['readItemsCSV',['../class_item_c_s_v.html#a2308d905adbb2c68986f27245ab9c5aa',1,'ItemCSV']]],
-  ['readsupplierscsv_3',['readSuppliersCSV',['../class_supplier_c_s_v.html#ac11c4d8c37c5774538c6d0f2ed76fad9',1,'SupplierCSV']]],
-  ['run_4',['run',['../class_baluma.html#aabd471e1bc5ad07a09fb805c3556f2a2',1,'Baluma']]]
+  ['pause_0',['pause',['../class_terminal.html#acd7ce5961dc4e088cb0c60ba4b640040',1,'Terminal']]],
+  ['printaccount_1',['printAccount',['../class_accounts_manager.html#aa2705a226d4057cb17f50ce5438ff5c5',1,'AccountsManager']]],
+  ['printbackoption_2',['printBackOption',['../class_terminal.html#abeeebf43abf3c172ed49811b6b871321',1,'Terminal']]],
+  ['printbool_3',['printBool',['../class_terminal.html#a85d2ffab1f2121808d62f123cbe885eb',1,'Terminal']]],
+  ['printclient_4',['printClient',['../class_clients_manager.html#a46575f2a03e60295b4fd20f8f9b7ac77',1,'ClientsManager']]],
+  ['printemployee_5',['printEmployee',['../class_employees_manager.html#a884220681611c849f8a1b0e7c020cbb5',1,'EmployeesManager']]],
+  ['printitem_6',['printItem',['../class_inventory_manager.html#a5605b9c63595979faec0bba765037536',1,'InventoryManager']]],
+  ['printline_7',['printLine',['../class_terminal.html#abad54d5652e12b220aee4c649fb9af82',1,'Terminal']]],
+  ['printmatrix_8',['printMatrix',['../class_array.html#aa30f4aa49223abcd752c8643e969c49c',1,'Array']]],
+  ['printproduct_9',['printProduct',['../class_inventory_manager.html#a96e5418284621fb075ce6e7793ea7b93',1,'InventoryManager']]],
+  ['printsupplier_10',['printSupplier',['../class_suppliers_manager.html#adc997a092dffb1d1a987ffeb5257e557',1,'SuppliersManager']]],
+  ['printtransaction_11',['printTransaction',['../class_transactions_manager.html#a24bbd0491ba86e57476af7a37a6f0736',1,'TransactionsManager']]],
+  ['printwarehouse_12',['printWarehouse',['../class_warehouses_manager.html#a6992700fc318c262f6e37310060fd58d',1,'WarehousesManager']]],
+  ['product_13',['product',['../class_product.html#a847c1d85e67ce387166a597579a55135',1,'Product::Product()'],['../class_product.html#ab78c84d9ba1a369c5c818b693a654a7c',1,'Product::Product(int id, const std::string &amp;name, const std::string &amp;brand, const std::string &amp;model, const std::string &amp;description, double price, bool is_active)']]],
+  ['productindex_14',['productIndex',['../class_inventory_manager.html#a7b8bfe7207eb47eb3c2556761854b6b9',1,'InventoryManager']]],
+  ['productsarchive_15',['productsarchive',['../class_products_archive.html#aaa8742e5c29b8938716c1b57b38b2224',1,'ProductsArchive::ProductsArchive()'],['../class_products_archive.html#a8fee4290cb62368b31dad7f25c760a10',1,'ProductsArchive::ProductsArchive(const std::string &amp;path)']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['nombredecuenta_0',['nombreDeCuenta',['../classcuenta_contable.html#a80046d235b98678ea9480d71faec64c1',1,'cuentaContable']]],
-  ['numerodecuenta_1',['numeroDeCuenta',['../classcuenta_contable.html#a885904beff66ab6a49e264354c233ab2',1,'cuentaContable']]]
+  ['debit_0',['debit',['../class_transaction.html#a47db9e1df686e98d1df7108e8b554fa8',1,'Transaction']]],
+  ['description_1',['description',['../class_transaction.html#a333c46e96c95917f2d6ff2fe6c115b52',1,'Transaction']]],
+  ['docdate_2',['docDate',['../class_transaction.html#a55e8d09fca283d3905d494073ddd31da',1,'Transaction']]]
 ];
