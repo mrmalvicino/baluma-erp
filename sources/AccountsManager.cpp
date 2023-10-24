@@ -15,7 +15,9 @@ void AccountsManager::displayMenu() {
         std::cout << "(3) BUSCAR CUENTA\n";
         std::cout << "(4) LISTAR CUENTAS\n";
         _terminal.displayMenuFooter();
-        selection = _terminal.validateInt(0, 4);
+        std::cout << "(5) EXPORTAR BACKUP\n";
+        std::cout << "(6) IMPORTAR BACKUP\n";
+        selection = _terminal.validateInt(0, 6);
 
         switch (selection) {
             case 1:
@@ -29,8 +31,14 @@ void AccountsManager::displayMenu() {
             case 3:
                 searchAccount();
                 break;
-            case 4:
-                listAccounts();
+
+            case 4:listMenuAccounts();
+                break;
+
+            case 5:exportAccountsBackup();
+                break;
+
+            case 6:importAccountsBackup();
                 break;
         }
     } while (selection != 0);
@@ -46,10 +54,12 @@ bool AccountsManager::addAccount() {
     _Account.setId(generateAccountId());
 
     cinAccountNumber(_Account);
-    cinAccountActive(_Account);
-    cinAccountPassive(_Account); 
     cinAccountName(_Account);
-    cinAccountConcept(_Account);  
+    //cinAccountConcept(_Account);
+    cinAccountType(_Account);  
+    cinCreateDate(_Account);  
+
+    generateTypeId();
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
@@ -89,32 +99,33 @@ bool AccountsManager::editAccount() {
         _terminal.centerAndPrint(_Account.getAccountName());
         std::cout << "\n";
         std::cout << "(1) EDITAR NUMERO\n";
-        std::cout << "(2) EDITAR ACTIVO\n";
-        std::cout << "(3) EDITAR PASIVO\n";
-        std::cout << "(4) EDITAR NOMBRE\n";
-        std::cout << "(5) EDITAR CONCEPTO\n";
-        std::cout << "(6) DAR DE BAJA\n";
+        //std::cout << "(2) EDITAR ACTIVO\n";
+        //std::cout << "(3) EDITAR PASIVO\n";
+        std::cout << "(2) EDITAR NOMBRE\n";
+        std::cout << "(3) EDITAR CONCEPTO\n";
+        std::cout << "(4) DAR DE BAJA\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 6);
+        selection = _terminal.validateInt(0, 4);
 
         switch (selection) {
             case 1:
                 cinAccountNumber(_Account);
                 break;
-            case 2:
+            /*case 2:
                 cinAccountActive(_Account);
                 break;
             case 3:
                 cinAccountPassive(_Account);
                 break;
-            case 4:
+            */
+            case 2:
                 cinAccountName(_Account);
                 break;
-            case 5:
+            case 3:
                 cinAccountConcept(_Account);
                 break;
-            case 6:
+            case 4:
                 cinAccountIsActive(_Account);
                 break;
         }
@@ -142,8 +153,43 @@ void AccountsManager::searchAccount() {
         case 1:
             searchAccountById();
             break;
+
         case 2:
             searchAccountByName();
+            break;
+            
+    }
+}
+
+void AccountsManager::listMenuAccounts() {
+    _terminal.clear();
+
+    int selection;
+
+    _terminal.displayMenuHeader("LISTAR CUENTAS");
+    std::cout << "(1) LISTAR TODAS LAS CUENTAS\n";
+    std::cout << "(2) LISTAR CUENTAS DE PROVEEDORES\n";
+    std::cout << "(3) LISTAR CUENTAS DE CLIENTES\n";
+    std::cout << "(4) LISTAR CUENTAS VARIAS\n";
+    _terminal.displayMenuFooter();
+
+    selection = _terminal.validateInt(0, 4);
+
+    switch (selection) {
+        case 1:
+            listAccounts();
+            break;
+
+        case 2:
+            listSuppliersAccounts();
+            break;
+        
+        case 3:
+            listClientsAccounts();
+            break;
+
+        case 4:
+            listVariusAccounts();
             break;
     }
 }
@@ -163,14 +209,79 @@ void AccountsManager::listAccounts() {
     _terminal.clear();
 }
 
+
+void AccountsManager::listSuppliersAccounts() {
+    Account Account;
+    _terminal.clear();
+
+    int amount_of_Accounts = _Account_archive.getAmountOfRegisters();
+
+    _terminal.displayMenuHeader("LISTADO DE CUENTAS DE PROVEEDORES");
+
+    for (int i = 0; i < amount_of_Accounts; i ++) {
+        if(_Account_archive.getAccountType(i)==1){
+        printAccount(i);
+        }
+    }
+
+    _terminal.pause();
+    _terminal.clear();
+}
+
+void AccountsManager::listClientsAccounts() {
+    Account Account;
+    _terminal.clear();
+
+    int amount_of_Accounts = _Account_archive.getAmountOfRegisters();
+
+    _terminal.displayMenuHeader("LISTADO DE CUENTAS DE CLIENTES");
+
+    for (int i = 0; i < amount_of_Accounts; i ++) {
+        if(_Account_archive.getAccountType(i)==2){
+        printAccount(i);
+        }
+    }
+
+    _terminal.pause();
+    _terminal.clear();
+}
+
+void AccountsManager::listVariusAccounts() {
+    Account Account;
+    _terminal.clear();
+
+    int amount_of_Accounts = _Account_archive.getAmountOfRegisters();
+
+    _terminal.displayMenuHeader("LISTADO DE CUENTAS VARIOS");
+
+    for (int i = 0; i < amount_of_Accounts; i ++) {
+        if(_Account_archive.getAccountType(i)==3){
+        printAccount(i);
+        }
+    }
+
+    _terminal.pause();
+    _terminal.clear();
+}
+
+
 void AccountsManager::printAccount(int index) {
     _Account = _Account_archive.read(index);
     _terminal.displayMenuHeader(_Account.getAccountName());
     std::cout << "NUMERO: " << _Account.getAccountNumber()<<"\n";
-    std::cout << "ACTIVO: " << _Account.getActive()<<"\n";
-    std::cout << "PASIVO: " << _Account.getPassive()<<"\n";
-    std::cout << "BALANCE: " << _Account.getBalance()<<"\n";
+    //std::cout << "ACTIVO: " << _Account.getActive()<<"\n";
+    //std::cout << "PASIVO: " << _Account.getPassive()<<"\n";
+    std::cout << "FECHA DE CREACION: " << _Account.getCreateDate().toString() << "\n";
+    std::cout << "BALANCE: $" << _Account.getBalance()<<"\n";
     std::cout << "CONCEPTO: " << _Account.getConcept()<<"\n";
+                            if (_Account.getType() == 1) {
+                                std::cout << "TIPO: PROVEEDOR" << "\n";
+                        } else if (_Account.getType() == 2) {
+                                std::cout << "TIPO: CLIENTE" << "\n";
+                        } else if (_Account.getType() == 3) {
+                                std::cout << "TIPO: VARIOS" << "\n";
+                        }
+    std::cout << "TIPO DE ID (PRUEBA): " << _Account.getTypeId()<<"\n";
     _terminal.printBool(_Account.getIsActive(), "ESTADO: Activa\n\n", "ESTADO: Dada de baja\n\n");
 }
 
@@ -198,8 +309,8 @@ void AccountsManager::cinAccountPassive(Account & Account) {
 
 void AccountsManager::cinAccountName(Account & Account) {
     std::string name;
-    std::cin.ignore();
     std::cout << "Ingresar nombre:\n";
+    std::cin.ignore();
     getline(std::cin, name);
     Account.setAccountName(name);
 }
@@ -224,6 +335,40 @@ void AccountsManager::cinAccountConcept(Account & Account) {
     Account.setConcept(concept);
 }
 
+void AccountsManager::cinAccountType(Account & Account) {
+    int type;
+    std::cout << "Ingresar tipo de cuenta(1: Proveedor, 2: Cliente, 3: Varios):\n";
+    type = _terminal.validateInt(1,3);
+    Account.setType(type);
+}
+
+void AccountsManager::cinAccountTypeId(Account & Account) {
+    int typeId;
+    std::cout << "Ingresar ID de socio de negocios:\n";
+    typeId = _terminal.validateInt(1);
+    Account.setTypeId(typeId);
+}
+
+void AccountsManager::cinCreateDate(Account & account) {
+    Date date;
+    int day, month, year;
+
+    std::cout << "Ingrese dia de creación:\n";
+    day = _terminal.validateInt(1, 31);
+
+    std::cout << "Ingrese mes de creación:\n";
+    month = _terminal.validateInt(1,12);
+
+    std::cout << "Ingrese año de creación:\n";
+    year = _terminal.validateInt(1900,2023);
+
+    date.setDay(day);
+    date.setMonth(month);
+    date.setYear(year);
+
+    account.setCreateDate(date);
+}
+
 int AccountsManager::generateAccountId() {
     int id = 1;
 
@@ -233,6 +378,18 @@ int AccountsManager::generateAccountId() {
 
     return id;
 }
+
+/*
+int AccountsManager::generateTypeId(){
+    _clientManager
+    for(int i=0;i<5;i++){
+        cliente acutual = ItemsManager.read();
+        if(clienteactual.getDescription() == _Account.getAccountName() ){
+            //_Account.setTypeId(clienteactual.getId);
+        } else //crear el cliente 
+    }
+}
+*/
 
 void AccountsManager::searchAccountById() {
     int index;
@@ -340,8 +497,8 @@ void AccountsManager::importAccountsBackup() {
         }
     }
 }
-/*
-void AccountsManager::exportAccountsCSV() {
+
+/*void AccountsManager::exportAccountsCSV() {
     _Account_csv.writeAccountsCSV(_Account, _Account_archive);
 }
  

@@ -5,6 +5,7 @@ using namespace std;
 #include <iostream>
 
 Transaction::Transaction(){
+    setId(1);
     setAccountNumber(0);
     setTransactionId(1);
     setDebit(0);
@@ -12,7 +13,8 @@ Transaction::Transaction(){
     setDescription("N/A");
 }
 
-Transaction::Transaction(int accountNumber, int transactionId, double debit, double credit,const std::string & description){
+Transaction::Transaction(int id, int accountNumber, int transactionId, double debit, double credit,const std::string & description){
+    setId(id);
     setAccountNumber(accountNumber);
     setTransactionId(transactionId);
     setDebit(debit);
@@ -40,6 +42,22 @@ void Transaction::setDescription(const std::string &_description){
     strcpy(description, _description.c_str());
 }
 
+void Transaction::setId(int _id) {
+    id = _id;
+}
+
+void Transaction::setDocDate(const Date & _docDate){
+    docDate = _docDate;
+}
+
+Date Transaction::getDocDate() const{
+    return docDate;
+}
+
+int Transaction::getId() const {
+    return id;
+}
+
 int Transaction::getAccountNumber(){
     return accountNumber;
 }
@@ -53,7 +71,7 @@ double Transaction::getDebit(){
 }
 
 double Transaction::getCredit(){
-    return 	credit;
+    return credit;
 }
 
 std::string Transaction::getDescription(){

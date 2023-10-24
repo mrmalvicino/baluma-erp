@@ -12,6 +12,7 @@ class AccountsArchive {
         bool overWrite(Account & reg, int index);
         Account read(int index);
         int getAccountNumber(int number);
+        int getAccountType(int number);
         int getIndex(int id);
         int getIndex(std::string & name);
         int getAmountOfRegisters();
@@ -19,5 +20,4 @@ class AccountsArchive {
 
     private:
         std::string _path;
-
 };

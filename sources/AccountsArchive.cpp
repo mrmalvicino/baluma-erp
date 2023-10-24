@@ -72,14 +72,21 @@
             return i;
         }
 
+        int AccountsArchive::getAccountType(int id){
+            int type;
+            Account reg;
+            reg = read(id);
+            type = reg.getType();
+            return type;
+        }
+
         int AccountsArchive::getAmountOfRegisters(){
              FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
             if (file_pointer == NULL) {
-            std::cerr << "Error: No se pudo abrir el archivo.\n";
-            return 1;
+            //std::cerr << "Error: No se pudo abrir el archivo.\n";
+            return 0;
             }
-
             fseek(file_pointer, 0, SEEK_END);
             int bytes = ftell(file_pointer);
             fclose(file_pointer);
@@ -98,6 +105,10 @@
         reg = read(i);
     }
 
+    if (i == getAmountOfRegisters()) {
+        i = -1;
+    }
+
     return i;
         }
 
@@ -111,9 +122,9 @@
         reg = read(i);
     }
 
-    /*if (i == getAmountOfRegisters()) {
+    if (i == getAmountOfRegisters()) {
         i = -1;
-    }*/
+    }
 
     return i;
     }

@@ -12,9 +12,11 @@ Account::Account() {
     setPassive(0);
     setActive(0);
     setIsActive(true);
+    setType(0);
+    setTypeId(0);
 }
 
-Account::Account(int id,int accountNumber,const std::string & concept,const std::string & accountName, double balance, double passive, double active, bool isActive){
+Account::Account(int id,int type,int typeId,int accountNumber,const std::string & concept,const std::string & accountName, double balance, double passive, double active, bool isActive){
     setId(id);
     setAccountNumber(accountNumber);
     setConcept(concept);
@@ -23,6 +25,8 @@ Account::Account(int id,int accountNumber,const std::string & concept,const std:
     setPassive(passive);
     setActive(active);
     setIsActive(isActive);
+    setType(type);
+    setTypeId(typeId);
 }
 
 void Account::setId(int _id) {
@@ -55,7 +59,23 @@ void Account::setIsActive(bool _isActive){
     isActive=_isActive;
 }
 
-int Account::getId() {
+void Account::setType(int _type) {
+    type = _type;
+}
+
+void Account::setTypeId(int _TypeId) {
+    typeId = _TypeId;
+}
+
+void Account::setCreateDate(const Date & _createDate) {
+    createDate = _createDate;
+}
+
+Date Account::getCreateDate() const {
+    return createDate;
+}
+
+int Account::getId() const {
     return id;
 }
 
@@ -85,6 +105,14 @@ int Account::getAccountNumber(){
 
 bool Account::getIsActive(){
     return isActive;
+}
+
+int Account::getType() {
+    return type;
+}
+
+int Account::getTypeId() {
+    return typeId;
 }
 
 void Account::deposit(double amount){
