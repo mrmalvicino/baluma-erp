@@ -69,7 +69,7 @@ void InventoryManager::displayProductsMenu() {
                 searchProduct();
                 break;
             case 4:
-                listProducts();
+                listProductsMenu();
                 break;
             case 5:
                 exportProductsBackup();
@@ -240,7 +240,8 @@ int InventoryManager::searchProductById() {
 
     if (0 < id) {
         index = _products_archive.getIndex(id);
-        printProduct(index);
+        loadProduct(index);
+        printProduct();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -304,7 +305,8 @@ int InventoryManager::searchProductByNBM() {
     }
 
     if (0 <= index) {
-        printProduct(index);
+        loadProduct(index);
+        printProduct();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -315,7 +317,36 @@ int InventoryManager::searchProductByNBM() {
     return search_rtn;
 }
 
-void InventoryManager::listProducts() {
+void InventoryManager::listProductsMenu() {
+    _terminal.clear();
+
+    int selection = 1;
+
+    _terminal.displayMenuHeader("LISTAR PRODUCTOS");
+    std::cout << "(1) LISTAR TODOS LOS REGISTROS\n";
+    std::cout << "(2) LISTAR SOLO ACTIVOS\n";
+    std::cout << "(3) LISTAR SOLO DADOS DE BAJA\n";
+    _terminal.displayMenuFooter();
+
+    selection = _terminal.validateInt(0, 3);
+
+    switch (selection) {
+        case 0:
+            _terminal.clear();
+            break;
+        case 1:
+            listProducts(true, true);
+            break;
+        case 2:
+            listProducts(true, false);
+            break;
+        case 3:
+            listProducts(false, true);
+            break;
+    }
+}
+
+void InventoryManager::listProducts(bool list_actives, bool list_inactives) {
     _terminal.clear();
 
     int amount_of_products = _products_archive.getAmountOfRegisters();
@@ -323,15 +354,22 @@ void InventoryManager::listProducts() {
     _terminal.displayMenuHeader("LISTADO DE PRODUCTOS");
 
     for (int i = 0; i < amount_of_products; i ++) {
-        printProduct(i);
+        loadProduct(i);
+
+        if ( (_product.getIsActive() == true && list_actives == true) || (_product.getIsActive() == false && list_inactives == true) ) {
+            printProduct();
+        }
     }
 
     _terminal.pause();
     _terminal.clear();
 }
 
-void InventoryManager::printProduct(int index) {
+void InventoryManager::loadProduct(int index) {
     _product = _products_archive.read(index);
+}
+
+void InventoryManager::printProduct() {
     _terminal.displayMenuHeader(_product.toString());
     std::cout << "# ID: " << _product.getId() << "\n";
     std::cout << "Nombre: " << _product.getName() << "\n";
@@ -462,7 +500,7 @@ void InventoryManager::displayItemsMenu(std::string warehouse_name) {
                 searchItem();
                 break;
             case 4:
-                listItems();
+                listItemsMenu();
                 break;
             case 5:
                 exportItemsBackup();
@@ -603,9 +641,10 @@ int InventoryManager::searchItemById() {
 
     if (0 < id) {
         index = _items_archive.getIndex(id);
+        loadItem(index);
 
-        if (_items_archive.read(index).getName() != "N/A") {
-            printItem(index);
+        if (_item.getName() != "N/A") {
+            printItem();
         } else {
             search_rtn = -1;
             std::cout << "No hay existencias del producto en este depósito.\n";
@@ -673,7 +712,8 @@ int InventoryManager::searchItemByNBM() {
     }
 
     if (0 <= index) {
-        printItem(index);
+        loadItem(index);
+        printItem();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -684,7 +724,36 @@ int InventoryManager::searchItemByNBM() {
     return search_rtn;
 }
 
-void InventoryManager::listItems() {
+void InventoryManager::listItemsMenu() {
+    _terminal.clear();
+
+    int selection = 1;
+
+    _terminal.displayMenuHeader("LISTAR EXISTENCIAS");
+    std::cout << "(1) LISTAR TODOS LOS REGISTROS\n";
+    std::cout << "(2) LISTAR SOLO ACTIVOS\n";
+    std::cout << "(3) LISTAR SOLO DADOS DE BAJA\n";
+    _terminal.displayMenuFooter();
+
+    selection = _terminal.validateInt(0, 3);
+
+    switch (selection) {
+        case 0:
+            _terminal.clear();
+            break;
+        case 1:
+            listItems(true, true);
+            break;
+        case 2:
+            listItems(true, false);
+            break;
+        case 3:
+            listItems(false, true);
+            break;
+    }
+}
+
+void InventoryManager::listItems(bool list_actives, bool list_inactives) {
     _terminal.clear();
 
     int amount_of_items = _items_archive.getAmountOfRegisters();
@@ -692,15 +761,22 @@ void InventoryManager::listItems() {
     _terminal.displayMenuHeader("EXISTENCIAS EN DEPÓSITO");
 
     for (int i = 0; i < amount_of_items; i ++) {
-        printItem(i);
+        loadItem(i);
+
+        if ( (_item.getIsActive() == true && list_actives == true) || (_item.getIsActive() == false && list_inactives == true) ) {
+            printItem();
+        }
     }
 
     _terminal.pause();
     _terminal.clear();
 }
 
-void InventoryManager::printItem(int index) {
+void InventoryManager::loadItem(int index) {
     _item = _items_archive.read(index);
+}
+
+void InventoryManager::printItem() {
     _terminal.displayMenuHeader(_item.toString());
     std::cout << "# ID: " << _item.getId() << "\n";
     std::cout << "Rubro: " << _item.getName() << "\n";

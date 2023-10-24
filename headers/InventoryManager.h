@@ -72,15 +72,27 @@ class InventoryManager {
     int searchProductByNBM();
 
     /**
-     * @brief Displays a list of all products stored in the ProductsArchive object.
+     * @brief Displays a menu with listing options.
      */
-    void listProducts();
+    void listProductsMenu();
 
     /**
-     * @brief Prints detailed information about a product for a given index in the archive.
-     * @param index (int) The index of the product record to print.
+     * @brief Displays a list of all products stored in the ProductsArchive object.
+     * @param list_actives (bool) If true, active products will be printed.
+     * @param list_inactives (bool) If true, inactive products will be printed.
      */
-    void printProduct(int index);
+    void listProducts(bool list_actives = true, bool list_inactives = true);
+
+    /**
+     * @brief Reads a register from the _products_archive.
+     * @param index (int) The index of the product record to read.
+     */
+    void loadProduct(int index);
+
+    /**
+     * @brief Prints detailed information about the current _product.
+     */
+    void printProduct();
 
     /**
      * @brief Generates a unique product ID based on the current number of product records.
@@ -152,15 +164,27 @@ class InventoryManager {
     int searchItemByNBM();
 
     /**
-     * @brief Displays a list of all items stored in the ItemsArchive object.
+     * @brief Displays a menu with listing options.
      */
-    void listItems();
+    void listItemsMenu();
 
     /**
-     * @brief Prints detailed information about an item for a given index in the archive.
-     * @param index (int) The index of the item record to print.
+     * @brief Displays a list of all items stored in the ItemsArchive object.
+     * @param list_actives (bool) If true, active items will be printed.
+     * @param list_inactives (bool) If true, inactive items will be printed.
      */
-    void printItem(int index);
+    void listItems(bool list_actives = true, bool list_inactives = true);
+
+    /**
+     * @brief Reads a register from the _items_archive.
+     * @param index (int) The index of the item record to read.
+     */
+    void loadItem(int index);
+
+    /**
+     * @brief Prints detailed information about the current _item.
+     */
+    void printItem();
 
     /**
      * @brief Exports a binary file with a backup copy of the current _items_archive.
