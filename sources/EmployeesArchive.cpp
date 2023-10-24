@@ -94,7 +94,7 @@ int EmployeesArchive::getIndex(std::string &description)
         reg = read(i);
     }
 
-    if(i == getAmountOfRegisters() + 1)
+    if(i == getAmountOfRegisters())
     {
         i = -1;
     }
