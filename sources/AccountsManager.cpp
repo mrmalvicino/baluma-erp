@@ -59,7 +59,7 @@ bool AccountsManager::addAccount() {
     cinAccountType(_Account);  
     cinCreateDate(_Account);  
 
-    generateTypeId();
+    //generateTypeId();
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
