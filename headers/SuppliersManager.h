@@ -56,15 +56,27 @@ class SuppliersManager {
     int searchSupplierByDescription();
 
     /**
-     * @brief Displays a list of all suppliers stored in the supplier archive.
+     * @brief Displays a menu with listing options.
      */
-    void listSuppliers();
+    void listSuppliersMenu();
 
     /**
-     * @brief Prints detailed information about a supplier for a given index in the archive.
-     * @param index (int) The index of the supplier record to print.
+     * @brief Displays a list of all suppliers stored in the supplier archive.
+     * @param list_actives (bool) If true, active suppliers will be printed.
+     * @param list_inactives (bool) If true, inactive suppliers will be printed.
      */
-    void printSupplier(int index);
+    void listSuppliers(bool list_actives = true, bool list_inactives = true);
+
+    /**
+     * @brief Reads a register from the _suppliers_archive.
+     * @param index (int) The index of the supplier record to read.
+     */
+    void loadSupplier(int index);
+
+    /**
+     * @brief Prints detailed information about the current _supplier.
+     */
+    void printSupplier();
 
     /**
      * @brief Prompts the user to enter the name of a supplier.

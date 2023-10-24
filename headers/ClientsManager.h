@@ -56,15 +56,27 @@ class ClientsManager {
     int searchClientByDescription();
 
     /**
-     * @brief Displays a list of all clients stored in the client archive.
+     * @brief Displays a menu with listing options.
      */
-    void listClients();
+    void listClientsMenu();
 
     /**
-     * @brief Prints detailed information about a client for a given index in the archive.
-     * @param index (int) The index of the client record to print.
+     * @brief Displays a list of all clients stored in the client archive.
+     * @param list_actives (bool) If true, active clients will be printed.
+     * @param list_inactives (bool) If true, inactive clients will be printed.
      */
-    void printClient(int index);
+    void listClients(bool list_actives = true, bool list_inactives = true);
+
+    /**
+     * @brief Reads a register from the _clients_archive.
+     * @param index (int) The index of the client record to read.
+     */
+    void loadClient(int index);
+
+    /**
+     * @brief Prints detailed information about the current _client.
+     */
+    void printClient();
 
     /**
      * @brief Prompts the user to enter the name of a client.

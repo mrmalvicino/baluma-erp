@@ -34,7 +34,7 @@ void SuppliersManager::displayMenu() {
                 searchSupplier();
                 break;
             case 4:
-                listSuppliers();
+                listSuppliersMenu();
                 break;
             case 5:
                 exportSuppliersBackup();
@@ -189,7 +189,8 @@ int SuppliersManager::searchSupplierById() {
 
     if (0 < id) {
         index = _suppliers_archive.getIndex(id);
-        printSupplier(index);
+        loadSupplier(index);
+        printSupplier();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -223,7 +224,8 @@ int SuppliersManager::searchSupplierByDescription() {
     }
 
     if (0 <= index) {
-        printSupplier(index);
+        loadSupplier(index);
+        printSupplier();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -234,7 +236,36 @@ int SuppliersManager::searchSupplierByDescription() {
     return search_rtn;
 }
 
-void SuppliersManager::listSuppliers() {
+void SuppliersManager::listSuppliersMenu() {
+    _terminal.clear();
+
+    int selection = 1;
+
+    _terminal.displayMenuHeader("LISTAR PROVEEDORES");
+    std::cout << "(1) LISTAR TODOS LOS REGISTROS\n";
+    std::cout << "(2) LISTAR SOLO ACTIVOS\n";
+    std::cout << "(3) LISTAR SOLO DADOS DE BAJA\n";
+    _terminal.displayMenuFooter();
+
+    selection = _terminal.validateInt(0, 3);
+
+    switch (selection) {
+        case 0:
+            _terminal.clear();
+            break;
+        case 1:
+            listSuppliers(true, true);
+            break;
+        case 2:
+            listSuppliers(true, false);
+            break;
+        case 3:
+            listSuppliers(false, true);
+            break;
+    }
+}
+
+void SuppliersManager::listSuppliers(bool list_actives, bool list_inactives) {
     _terminal.clear();
 
     int amount_of_suppliers = _suppliers_archive.getAmountOfRegisters();
@@ -242,15 +273,22 @@ void SuppliersManager::listSuppliers() {
     _terminal.displayMenuHeader("LISTADO DE PROVEEDORES");
 
     for (int i = 0; i < amount_of_suppliers; i ++) {
-        printSupplier(i);
+        loadSupplier(i);
+
+        if ( (_supplier.getIsActive() == true && list_actives == true) || (_supplier.getIsActive() == false && list_inactives == true) ) {
+            printSupplier();
+        }
     }
 
     _terminal.pause();
     _terminal.clear();
 }
 
-void SuppliersManager::printSupplier(int index) {
+void SuppliersManager::loadSupplier(int index) {
     _supplier = _suppliers_archive.read(index);
+}
+
+void SuppliersManager::printSupplier() {
     _terminal.displayMenuHeader(_supplier.getDescription());
     std::cout << "# ID: " << _supplier.getId() << "\n";
     std::cout << "CUIL/CUIT: " << _supplier.getLegalId() << "\n";

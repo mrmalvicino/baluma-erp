@@ -34,7 +34,7 @@ void ClientsManager::displayMenu() {
                 searchClient();
                 break;
             case 4:
-                listClients();
+                listClientsMenu();
                 break;
             case 5:
                 exportClientsBackup();
@@ -189,7 +189,8 @@ int ClientsManager::searchClientById() {
 
     if (0 < id) {
         index = _clients_archive.getIndex(id);
-        printClient(index);
+        loadClient(index);
+        printClient();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -223,7 +224,8 @@ int ClientsManager::searchClientByDescription() {
     }
 
     if (0 <= index) {
-        printClient(index);
+        loadClient(index);
+        printClient();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -234,7 +236,36 @@ int ClientsManager::searchClientByDescription() {
     return search_rtn;
 }
 
-void ClientsManager::listClients() {
+void ClientsManager::listClientsMenu() {
+    _terminal.clear();
+
+    int selection = 1;
+
+    _terminal.displayMenuHeader("LISTAR CLIENTES");
+    std::cout << "(1) LISTAR TODOS LOS REGISTROS\n";
+    std::cout << "(2) LISTAR SOLO ACTIVOS\n";
+    std::cout << "(3) LISTAR SOLO DADOS DE BAJA\n";
+    _terminal.displayMenuFooter();
+
+    selection = _terminal.validateInt(0, 3);
+
+    switch (selection) {
+        case 0:
+            _terminal.clear();
+            break;
+        case 1:
+            listClients(true, true);
+            break;
+        case 2:
+            listClients(true, false);
+            break;
+        case 3:
+            listClients(false, true);
+            break;
+    }
+}
+
+void ClientsManager::listClients(bool list_actives, bool list_inactives) {
     _terminal.clear();
 
     int amount_of_clients = _clients_archive.getAmountOfRegisters();
@@ -242,15 +273,22 @@ void ClientsManager::listClients() {
     _terminal.displayMenuHeader("LISTADO DE CLIENTES");
 
     for (int i = 0; i < amount_of_clients; i ++) {
-        printClient(i);
+        loadClient(i);
+
+        if ( (_client.getIsActive() == true && list_actives == true) || (_client.getIsActive() == false && list_inactives == true) ) {
+            printClient();
+        }
     }
 
     _terminal.pause();
     _terminal.clear();
 }
 
-void ClientsManager::printClient(int index) {
+void ClientsManager::loadClient(int index) {
     _client = _clients_archive.read(index);
+}
+
+void ClientsManager::printClient() {
     _terminal.displayMenuHeader(_client.getDescription());
     std::cout << "# ID: " << _client.getId() << "\n";
     std::cout << "CUIL/CUIT: " << _client.getLegalId() << "\n";

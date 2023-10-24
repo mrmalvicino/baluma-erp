@@ -47,7 +47,7 @@ void WarehousesManager::displayMenu() {
                 searchWarehouse();
                 break;
             case 4:
-                listWarehouses();
+                listWarehousesMenu();
                 break;
             case 5:
                 exportWarehousesBackup();
@@ -185,7 +185,8 @@ int WarehousesManager::searchWarehouseById() {
 
     if (0 < id) {
         index = _warehouses_archive.getIndex(id);
-        printWarehouse(index);
+        loadWarehouse(index);
+        printWarehouse();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abordata por el usuario.\n";
@@ -219,7 +220,8 @@ int WarehousesManager::searchWarehouseByName() {
     }
 
     if (0 <= index) {
-        printWarehouse(index);
+        loadWarehouse(index);
+        printWarehouse();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -230,17 +232,54 @@ int WarehousesManager::searchWarehouseByName() {
     return search_rtn;
 }
 
-void WarehousesManager::listWarehouses() {
+void WarehousesManager::listWarehousesMenu() {
+    _terminal.clear();
+
+    int selection = 1;
+
+    _terminal.displayMenuHeader("LISTAR DEPÓSITOS");
+    std::cout << "(1) LISTAR TODOS LOS REGISTROS\n";
+    std::cout << "(2) LISTAR SOLO ACTIVOS\n";
+    std::cout << "(3) LISTAR SOLO DADOS DE BAJA\n";
+    _terminal.displayMenuFooter();
+
+    selection = _terminal.validateInt(0, 3);
+
+    switch (selection) {
+        case 0:
+            _terminal.clear();
+            break;
+        case 1:
+            listWarehouses(true, true);
+            break;
+        case 2:
+            listWarehouses(true, false);
+            break;
+        case 3:
+            listWarehouses(false, true);
+            break;
+    }
+}
+
+void WarehousesManager::listWarehouses(bool list_actives, bool list_inactives) {
      _terminal.clear();
 
     _terminal.displayMenuHeader("LISTADO DE DEPÓSITOS");
 
     for (int i = 0; i < getAmountOfWarehouses(); i ++) {
-        printWarehouse(i);
+        loadWarehouse(i);
+
+        if ( (_warehouse.getIsActive() == true && list_actives == true) || (_warehouse.getIsActive() == false && list_inactives == true) ) {
+            printWarehouse();
+        }
     }
 
     _terminal.pause();
     _terminal.clear();
+}
+
+void WarehousesManager::loadWarehouse(int index) {
+    _warehouse = _warehouses_archive.read(index);
 }
 
 void WarehousesManager::printWarehouse() {
@@ -255,11 +294,6 @@ void WarehousesManager::printWarehouse() {
     std::cout << "Piso: " << _warehouse.getAdress().getFloor() << "\n";
     std::cout << "Departamento: " << _warehouse.getAdress().getLetter() << "\n";
     _terminal.printBool(_warehouse.getIsActive(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
-}
-
-void WarehousesManager::printWarehouse(int index) {
-    _warehouse = _warehouses_archive.read(index);
-    printWarehouse();
 }
 
 void WarehousesManager::cinWarehouseName(Warehouse & warehouse) {

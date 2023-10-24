@@ -74,20 +74,27 @@ class WarehousesManager {
     int searchWarehouseByName();
 
     /**
-     * @brief Displays a list of all warehouses stored in the _warehouses_archive.
+     * @brief Displays a menu with listing options.
      */
-    void listWarehouses();
+    void listWarehousesMenu();
+
+    /**
+     * @brief Displays a list of all warehouses stored in the _warehouses_archive.
+     * @param list_actives (bool) If true, active warehouses will be printed.
+     * @param list_inactives (bool) If true, inactive warehouses will be printed.
+     */
+    void listWarehouses(bool list_actives = true, bool list_inactives = true);
+
+    /**
+     * @brief Reads a register from the _warehouses_archive.
+     * @param index (int) The index of the warehouse record to read.
+     */
+    void loadWarehouse(int index);
 
     /**
      * @brief Prints detailed information about the current _warehouse.
      */
     void printWarehouse();
-
-    /**
-     * @brief Read a certain _warehouse from the _warehouses_archive and calls the printWarehouse() method.
-     * @param index (int) Index of the _warehouse that is going to be printed.
-     */
-    void printWarehouse(int index);
 
     /**
      * @brief Prompts the user to enter the name of a warehouse.
