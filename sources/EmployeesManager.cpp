@@ -73,7 +73,7 @@ bool EmployeesManager::addEmployee()
     cinEmployeeAdress(_employee);
     cinEmployeePhone(_employee);
     cinEmployeeEmail(_employee);
-    cinEmployeeTitle(_employee);
+    cinEmployeeTitle(_employee, false);
     cinEmployeeAdmission(_employee);
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
@@ -152,7 +152,7 @@ bool EmployeesManager::editEmployee()
             break;
 
         case 6:
-            cinEmployeeTitle(_employee);
+            cinEmployeeTitle(_employee, true);
             break;
 
         case 7:
@@ -442,11 +442,15 @@ void EmployeesManager::cinEmployeeIsActive(Employee &employee)
     }
 }
 
-void EmployeesManager::cinEmployeeTitle(Employee &employee)
+void EmployeesManager::cinEmployeeTitle(Employee &employee, bool cin_ignore)
 {
     std::string title;
 
     std::cout << "Ingrese el cargo del empleado:\n";
+    if(cin_ignore)
+    {
+        std::cin.ignore();
+    }
     getline(std::cin, title);
 
     employee.setTitle(title);

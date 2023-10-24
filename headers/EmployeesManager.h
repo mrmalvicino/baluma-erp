@@ -37,7 +37,7 @@ class EmployeesManager
 
         void cinEmployeeIsActive(Employee & employee);
 
-        void cinEmployeeTitle(Employee & employee);
+        void cinEmployeeTitle(Employee & employee, bool cin_ignore);
 
         void cinEmployeeAdmission(Employee & employee);
 
