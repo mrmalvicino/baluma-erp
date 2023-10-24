@@ -938,15 +938,16 @@ void InventoryManager::showInventory() {
 
     for (int i = 0; i < amount_of_products; i ++) {
         _product = _products_archive.read(i);
-        std::cout << _terminal.fill(_product.toString());
+        std::cout << _terminal.fill(_product.toString(), 35) << "$" << _product.getPrice() << "\n";
+        std::cout << _product.getDescription() << "\n";
 
         for (int j = 0; j < amount_of_warehouses; j ++) {
             _warehouses_manager.setWarehouse(j);
-            std::cout << "\tStock " << _warehouses_manager.getWarehouse().getName() << ": " << quantities_matrix[i][j] << "\t";
+            std::cout << "\tStock " << _warehouses_manager.getWarehouse().getName() << ": " << quantities_matrix[i][j] << "\n";
             total_stock += quantities_matrix[i][j];
         }
 
-        std::cout << "Stock total: " << total_stock << "\n";
+        std::cout << "\tStock total: " << total_stock << "\n\n";
         total_stock = 0;
     }
 
@@ -955,7 +956,58 @@ void InventoryManager::showInventory() {
 }
 
 void InventoryManager::exportInventoryCSV() {
-    return;
+    _terminal.clear();
+
+    int amount_of_warehouses = _warehouses_manager.getAmountOfWarehouses();
+    int amount_of_products = getAmountOfProducts();
+    int amount_of_items;
+
+    int ** quantities_matrix = _array.allocateMatrix(amount_of_products, amount_of_warehouses);
+
+    for (int i = 0; i < amount_of_warehouses; i ++) {
+        _warehouses_manager.setWarehouse(i);
+        setWarehousePaths(_warehouses_manager.getWarehouse().getId());
+        amount_of_items = getAmountOfItems();
+
+        for (int j = 0; j < amount_of_items; j ++) {
+            for (int k = 0; k < amount_of_products; k ++) {
+                _item = _items_archive.read(j);
+                _product = _products_archive.read(k);
+
+                if (_product.getId() == _item.getId()) {
+                    quantities_matrix[k][i] = _item.getStock();
+                }
+            }
+        }
+    }
+
+    int total_stock = 0;
+
+    std::ofstream file("registers/inventory.csv");
+
+    if (file.is_open() == false) {
+        std::cerr << "Error: No se pudo abrir el archivo al exportar CSV.\n";
+        return;
+    }
+
+    for (int i = 0; i < amount_of_products; i ++) {
+        _product = _products_archive.read(i);
+        file << _product.getId() << "," << _product.getName() << "," << _product.getBrand() << "," << _product.getModel() << "," << _product.getDescription() << "," << _product.getPrice() << "," << _product.getIsActive() << ",";
+
+        for (int j = 0; j < amount_of_warehouses; j ++) {
+            _warehouses_manager.setWarehouse(j);
+            file << quantities_matrix[i][j] << ",";
+            total_stock += quantities_matrix[i][j];
+        }
+
+        file << total_stock << "\n";
+        total_stock = 0;
+    }
+
+    _array.deleteMatrix(quantities_matrix, amount_of_products);
+    file.close();
+    std::cout << "CSV exportado correctamente.\n";
+    _terminal.pause();
 }
 
 void InventoryManager::cinProductName(Product & product, bool cin_ignore) {

@@ -86,12 +86,6 @@ class WarehousesManager {
     void listWarehouses(bool list_actives = true, bool list_inactives = true);
 
     /**
-     * @brief Reads a register from the _warehouses_archive.
-     * @param index (int) The index of the warehouse record to read.
-     */
-    void loadWarehouse(int index);
-
-    /**
      * @brief Prints detailed information about the current _warehouse.
      */
     void printWarehouse();

@@ -29,17 +29,3 @@ int main() {
 
     return 0;
 }
-
-/*
-BUGS 1, 2, 3 y 4(Maxi: listo)
-
-IMPLEMENTACIÓN 1 (Maxi: listo)
-
-IMPLEMENTACION 2
-Habría que hacer un submenú para listar, que en vez de listar todos los registros ofrezca la posibilidad de ver o bien todos o solo los activos, o los inactivos.
-
-IMPLEMENTACION 3
-me falta terminar el CSV  para informe de inventario, es rápido pero quiero antes revisar lo otro
-
-IMPLEMENTACIÓN 4 (Maxi: listo)
-*/

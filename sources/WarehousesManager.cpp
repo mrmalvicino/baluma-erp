@@ -185,7 +185,7 @@ int WarehousesManager::searchWarehouseById() {
 
     if (0 < id) {
         index = _warehouses_archive.getIndex(id);
-        loadWarehouse(index);
+        setWarehouse(index);
         printWarehouse();
     } else {
         search_rtn = -1;
@@ -220,7 +220,7 @@ int WarehousesManager::searchWarehouseByName() {
     }
 
     if (0 <= index) {
-        loadWarehouse(index);
+        setWarehouse(index);
         printWarehouse();
     } else {
         search_rtn = -1;
@@ -267,7 +267,7 @@ void WarehousesManager::listWarehouses(bool list_actives, bool list_inactives) {
     _terminal.displayMenuHeader("LISTADO DE DEPÓSITOS");
 
     for (int i = 0; i < getAmountOfWarehouses(); i ++) {
-        loadWarehouse(i);
+        setWarehouse(i);
 
         if ( (_warehouse.getIsActive() == true && list_actives == true) || (_warehouse.getIsActive() == false && list_inactives == true) ) {
             printWarehouse();
@@ -276,10 +276,6 @@ void WarehousesManager::listWarehouses(bool list_actives, bool list_inactives) {
 
     _terminal.pause();
     _terminal.clear();
-}
-
-void WarehousesManager::loadWarehouse(int index) {
-    _warehouse = _warehouses_archive.read(index);
 }
 
 void WarehousesManager::printWarehouse() {
