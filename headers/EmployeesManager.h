@@ -53,6 +53,10 @@ class EmployeesManager
 
     private:
         Terminal _terminal;
+
         Employee _employee;
+
         EmployeesArchive _employees_archive;
+
+        EmployeesArchive _employees_backup;
 };

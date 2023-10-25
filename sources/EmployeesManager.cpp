@@ -2,7 +2,7 @@
 
 EmployeesManager::EmployeesManager()
 {
-    _employees_archive.setPath("registers/employees.h");
+    _employees_backup.setPath("registers/employees.bkp");
 }
 
 void EmployeesManager::displayMenu()
@@ -496,11 +496,11 @@ void EmployeesManager::exportEmployeeBackup()
             employees_array[i] = _employees_archive.read(i);
         }
 
-        _employees_archive.createEmptyArchive();
+        _employees_backup.createEmptyArchive();
 
         for(int i = 0; i < amount_of_employees; i++)
         {
-            _employees_archive.write(employees_array[i]);
+            _employees_backup.write(employees_array[i]);
         }
 
         delete [] employees_array;
@@ -519,7 +519,7 @@ void EmployeesManager::importEmployeeBackup()
         std::cout << "Importación abortada por el usuario.\n";
     } else {
 
-        int amount_of_employees = _employees_archive.getAmountOfRegisters();
+        int amount_of_employees = _employees_backup.getAmountOfRegisters();
 
         Employee * employees_array = new Employee[amount_of_employees];
 
@@ -530,7 +530,7 @@ void EmployeesManager::importEmployeeBackup()
 
             for(int i = 0; i < amount_of_employees; i++)
             {
-                employees_array[i] = _employees_archive.read(i);
+                employees_array[i] = _employees_backup.read(i);
             }
 
             _employees_archive.createEmptyArchive();
