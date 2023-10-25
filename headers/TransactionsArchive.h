@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <cstdio>
 #include "Transaction.h"
 
@@ -7,11 +8,11 @@ class TransactionsArchive {
 
     TransactionsArchive();
 
-    TransactionsArchive(std::string path);
+    TransactionsArchive(const std::string & path);
 
-    void setPath(std::string path);
+    void setPath(const std::string & path);
 
-    std::string getPath();
+    std::string getPath() const;
 
     bool write(Transaction & reg);
 
@@ -19,11 +20,9 @@ class TransactionsArchive {
 
     Transaction read(int index);
 
-    int getAccountNumber(int number);
-
     int getIndex(int id);
 
-    int getIndex(std::string & description);
+    int getIndex(std::string & name);
 
     int getAmountOfRegisters();
 

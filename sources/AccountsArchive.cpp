@@ -1,18 +1,19 @@
+#include <iostream>
 #include "../headers/AccountsArchive.h"
 
 AccountsArchive::AccountsArchive() {
     setPath("registers/accounts.dat");
 }
 
-AccountsArchive::AccountsArchive(std::string path) {
+AccountsArchive::AccountsArchive(const std::string & path) {
     setPath(path);
 }
 
-void AccountsArchive::setPath(std::string path) {
-    _path=path;
+void AccountsArchive::setPath(const std::string & path) {
+    _path = path;
 }
 
-std::string AccountsArchive::getPath() {
+std::string AccountsArchive::getPath() const {
     return _path;
 }
 
@@ -20,7 +21,7 @@ bool AccountsArchive::write(Account & reg) {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
 
     if (file_pointer == NULL) {
-        std::cerr << "Error: No se pudo abrir el archivo.\n";
+        std::cerr << "Erorr: No se pudo abrir el archivo.\n";
         return 0;
     }
 
@@ -31,11 +32,11 @@ bool AccountsArchive::write(Account & reg) {
 }
 
 bool AccountsArchive::overWrite(Account & reg, int index) {
-        FILE * file_pointer = fopen(getPath().c_str(), "rb+");
+    FILE * file_pointer = fopen(getPath().c_str(), "rb+");
 
     if (file_pointer == NULL) {
-        std::cerr << "Error: No se pudo abrir el archivo.\n";
-    return 0;
+        std::cerr << "Erorr: No se pudo abrir el archivo.\n";
+        return 0;
     }
 
     fseek(file_pointer, sizeof(Account) * index, 0);
@@ -50,8 +51,9 @@ Account AccountsArchive::read(int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
 
     if (file_pointer == NULL) {
-    std::cerr << "Error: No se pudo abrir el archivo.\n";
-    return reg;
+        std::cerr << "Error:No se pudo abrir el archivo.\n";
+        reg.setId(-1);
+        return reg;
     }
 
     fseek(file_pointer, sizeof(Account) * index, 0);
@@ -61,65 +63,25 @@ Account AccountsArchive::read(int index) {
     return reg;
 }
 
-int AccountsArchive::getAccountNumber(int id) {
-    int i = 0;
-    Account reg;
-    reg = read(i);
-
-    while (reg.getAccountNumber() != id && i < getAmountOfRegisters()) {
-    i ++;
-    reg = read(i);
-    }
-
-    return i;
-}
-
-int AccountsArchive::getAccountType(int id) {
-    int type;
-    Account reg;
-    reg = read(id);
-    type = reg.getType();
-    return type;
-}
-
-int AccountsArchive::getAmountOfRegisters() {
-        FILE * file_pointer = fopen(getPath().c_str(), "rb");
-
-    if (file_pointer == NULL) {
-    //std::cerr << "Error: No se pudo abrir el archivo.\n";
-    return 0;
-    }
-    fseek(file_pointer, 0, SEEK_END);
-    int bytes = ftell(file_pointer);
-    fclose(file_pointer);
-    int total_accounts = bytes / sizeof(Account);
-
-    return total_accounts;
-}
-
 int AccountsArchive::getIndex(int id) {
     int i = 0;
     Account reg;
     reg = read(i);
 
     while (reg.getId() != id && i < getAmountOfRegisters()) {
-        i ++;
+        i++;
         reg = read(i);
     }
 
-    if (i == getAmountOfRegisters()) {
-        i = -1;
-    }
-
     return i;
-    }
+}
 
-int AccountsArchive::getIndex(std::string & name) {
+int AccountsArchive::getIndex(std::string & account_name) {
     int i = 0;
     Account reg;
     reg = read(i);
 
-    while (reg.getAccountName() != name && i < getAmountOfRegisters()) {
+    while (reg.getAccountName() != account_name && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
     }
@@ -129,6 +91,21 @@ int AccountsArchive::getIndex(std::string & name) {
     }
 
     return i;
+}
+
+int AccountsArchive::getAmountOfRegisters() {
+    FILE * file_pointer = fopen(getPath().c_str(), "rb");
+
+    if (file_pointer == NULL) {
+        return 0;
+    }
+
+    fseek(file_pointer, 0, SEEK_END);
+    int bytes = ftell(file_pointer);
+    fclose(file_pointer);
+    int total_stores = bytes / sizeof(Account);
+
+    return total_stores;
 }
 
 void AccountsArchive::createEmptyArchive() {

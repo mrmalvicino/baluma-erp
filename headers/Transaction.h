@@ -9,48 +9,37 @@ class Transaction{
 
     Transaction();
 
-    Transaction(int id, int accountNumber, int transactionId, double debit, double credit,const std::string & description);
+    Transaction(int id, int account_id, double debit, double credit,const std::string & description);
 
-    void setAccountNumber(int _accountNumber);
-
-
-    void setTransactionId(int _transactionId);
-
-    void setDebit(double _debit);
-
-    void setCredit(double _credit);
-
-    void setDescription(const std::string &_description);
-
-    void setId(int _id);
-
-    void setDocDate(const Date & _docDate);
-
-    Date getDocDate() const;
+    void setId(int id);
 
     int getId() const;
 
-    int getAccountNumber();
+    void setAccountId(int account_id);
 
-    int getTransactionId();
+    int getAccountId();
+
+    void setDebit(double debit);
 
     double getDebit();
 
+    void setCredit(double credit);
+
     double getCredit();
+
+    void setDescription(const std::string & description);
 
     std::string getDescription();
 
-    void cinTransaction();
+    void setCreationDate(const Date & creation_date);
 
-    void coutTransaction();
+    Date getCreationDate() const;
 
     private:
 
     int _id;
 
-    int _account_number;
-
-    int _transaction_id;
+    int _account_id;
 
     double _debit;
 

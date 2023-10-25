@@ -8,21 +8,17 @@ class AccountsArchive {
 
     AccountsArchive();
 
-    AccountsArchive(std::string path);
+    AccountsArchive(const std::string & path);
 
-    void setPath(std::string path);
+    void setPath(const std::string & path);
 
-    std::string getPath();
+    std::string getPath() const;
 
     bool write(Account & reg);
 
     bool overWrite(Account & reg, int index);
 
     Account read(int index);
-
-    int getAccountNumber(int number);
-
-    int getAccountType(int number);
 
     int getIndex(int id);
 
