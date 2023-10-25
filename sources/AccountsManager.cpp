@@ -9,7 +9,7 @@ void AccountsManager::displayMenu() {
 
     do {
         _terminal.clear();
-        _terminal.displayMenuHeader("ACCOUNTES");
+        _terminal.displayMenuHeader("CUENTAS");
         std::cout << "(1) AGREGAR ACCOUNTE\n";
         std::cout << "(2) EDITAR ACCOUNTE\n";
         std::cout << "(3) BUSCAR ACCOUNTE\n";
@@ -57,7 +57,7 @@ bool AccountsManager::addAccount() {
 
     cinAccountName(_account);
     cinAccountConcept(_account);
-    cinAccountBalance(_account);
+    //cinAccountBalance(_account);
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
@@ -94,39 +94,31 @@ bool AccountsManager::editAccount() {
     do {
         _terminal.clear();
         _terminal.displayMenuHeader("EDITAR CUENTA");
-        _terminal.centerAndPrint(_account.getDescription());
+        _terminal.centerAndPrint(_account.getName());
         std::cout << "\n";
         std::cout << "(1) EDITAR NOMBRE\n";
         std::cout << "(2) EDITAR CONCEPTO\n";
         std::cout << "(3) EDITAR TIPO\n";
         std::cout << "(4) EDITAR ID DEL TIPO\n";
-        std::cout << "(5) EDITAR E-MAIL\n";
-        std::cout << "(6) EDITAR CATEGORÍA\n";
-        std::cout << "(7) DAR DE BAJA O REINCORPORAR\n";
+        std::cout << "(5) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 7);
+        selection = _terminal.validateInt(0, 5);
 
         switch (selection) {
             case 1:
-                cinAccountDescription(_account);
+                cinAccountName(_account);
                 break;
             case 2:
-                cinAccountLegalId(_account);
-                break;
-            case 3:
-                cinAccountAdress(_account);
-                break;
-            case 4:
-                cinAccountPhone(_account);
-                break;
-            case 5:
                 cinAccountConcept(_account);
                 break;
-            case 6:
-                cinAccountCategory(_account);
+            case 3:
+                //cinAccountType(_account);
                 break;
-            case 7:
+            case 4:
+                //cinAccountTypeId(_account);
+                break;
+            case 5:
                 cinAccountStatus(_account);
                 break;
         }
@@ -144,7 +136,7 @@ int AccountsManager::searchAccount() {
     int search_rtn = 0;
     int selection = 1;
 
-    _terminal.displayMenuHeader("BUSCAR ACCOUNTE");
+    _terminal.displayMenuHeader("BUSCAR CUENTA");
     std::cout << "(1) BUSCAR POR ID\n";
     std::cout << "(2) BUSCAR POR NOMBRE\n";
     _terminal.displayMenuFooter();
@@ -160,7 +152,7 @@ int AccountsManager::searchAccount() {
             search_rtn = searchAccountById();
             break;
         case 2:
-            search_rtn = searchAccountByDescription();
+            search_rtn = searchAccountByName();
             break;
     }
 
@@ -192,25 +184,25 @@ int AccountsManager::searchAccountById() {
     return search_rtn;
 }
 
-int AccountsManager::searchAccountByDescription() {
+int AccountsManager::searchAccountByName() {
     int search_rtn = 0;
     int index;
-    std::string description;
+    std::string name;
 
     std::cout << "Ingresar nombre:\n";
     std::cin.ignore();
-    getline(std::cin, description);
+    getline(std::cin, name);
 
-    index = _accounts_archive.getIndex(description);
+    index = _accounts_archive.getIndex(name);
 
     while (index == -1) {
-        std::cout << "No se encontró el registro " << description << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
-        getline(std::cin, description);
+        std::cout << "No se encontró el registro " << name << ". Ingrese el nombre nuevamente o ingrese 0 para cancelar.\n";
+        getline(std::cin, name);
 
-        if (description == "0") {
+        if (name == "0") {
             index = -2;
         } else {
-            index = _accounts_archive.getIndex(description); // Esta función retorna -1 si no encuentra un registro válido
+            index = _accounts_archive.getIndex(name); // Esta función retorna -1 si no encuentra un registro válido
         }
     }
 
@@ -232,7 +224,7 @@ void AccountsManager::listAccountsMenu() {
 
     int selection = 1;
 
-    _terminal.displayMenuHeader("LISTAR ACCOUNTES");
+    _terminal.displayMenuHeader("LISTAR CUENTAS");
     std::cout << "(1) LISTAR TODOS LOS REGISTROS\n";
     std::cout << "(2) LISTAR SOLO ACTIVOS\n";
     std::cout << "(3) LISTAR SOLO DADOS DE BAJA\n";
@@ -261,7 +253,7 @@ void AccountsManager::listAccounts(bool list_actives, bool list_inactives) {
 
     int amount_of_accounts = _accounts_archive.getAmountOfRegisters();
 
-    _terminal.displayMenuHeader("LISTADO DE ACCOUNTES");
+    _terminal.displayMenuHeader("LISTADO DE CUENTAS");
 
     for (int i = 0; i < amount_of_accounts; i ++) {
         loadAccount(i);
@@ -355,7 +347,7 @@ void AccountsManager::exportAccountsBackup() {
 }
 
 void AccountsManager::importAccountsBackup() {
-    std::cout << "¿Desea reemplazar los accountes actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
+    std::cout << "¿Desea reemplazar los cuentas actuales por aquellos que haya en el archivo de respaldo? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";

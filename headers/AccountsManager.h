@@ -27,7 +27,7 @@ class AccountsManager {
 
     int searchAccountById();
 
-    int searchAccountByDescription();
+    int searchAccountByName();
 
     void listAccountsMenu();
 
@@ -40,14 +40,6 @@ class AccountsManager {
     void cinAccountName(Account & account);
 
     void cinAccountConcept(Account & account);
-
-    void cinAccountBalance(Account & account);
-
-    void cinAccountType(Account & account);
-
-    void cinAccountTypeId(Account & account);
-
-    void cinAccountCreationDate(Account & account);
 
     void cinAccountStatus(Account & account);
 

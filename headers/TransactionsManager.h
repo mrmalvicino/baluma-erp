@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include "Terminal.h"
 #include "Transaction.h"
@@ -41,3 +42,4 @@ class TransactionsManager {
 
     SuppliersManager _suppliers_manager;
 };
+*/

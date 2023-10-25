@@ -1,3 +1,4 @@
+/*
 #include "../headers/TransactionsManager.h"
 
 TransactionsManager::TransactionsManager() {
@@ -100,3 +101,4 @@ void TransactionsManager::cinCreationDate(Transaction & transaction) {
 
     transaction.setDocDate(date);
 }
+*/

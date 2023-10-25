@@ -81,7 +81,7 @@ int AccountsArchive::getIndex(std::string & account_name) {
     Account reg;
     reg = read(i);
 
-    while (reg.getAccountName() != account_name && i < getAmountOfRegisters()) {
+    while (reg.getName() != account_name && i < getAmountOfRegisters()) {
         i ++;
         reg = read(i);
     }
