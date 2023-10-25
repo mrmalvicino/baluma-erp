@@ -1,10 +1,6 @@
-#include<cstring>
-using namespace std;
-#include <string>
 #include "../headers/Transaction.h"
-#include <iostream>
 
-Transaction::Transaction(){
+Transaction::Transaction() {
     setId(1);
     setAccountNumber(0);
     setTransactionId(1);
@@ -13,82 +9,82 @@ Transaction::Transaction(){
     setDescription("N/A");
 }
 
-Transaction::Transaction(int id, int accountNumber, int transactionId, double debit, double credit,const std::string & description){
+Transaction::Transaction(int id, int account_number, int transaction_id, double debit, double credit,const std::string & description) {
     setId(id);
-    setAccountNumber(accountNumber);
-    setTransactionId(transactionId);
+    setAccountNumber(account_number);
+    setTransactionId(transaction_id);
     setDebit(debit);
     setCredit(credit);
     setDescription(description);
 }
 
-void Transaction::setAccountNumber(int _accountNumber) {
-    accountNumber = _accountNumber;
+void Transaction::setAccountNumber(int account_number) {
+    _account_number = account_number;
 }
 
-void Transaction::setTransactionId(int _transactionId){
-    transactionId = _transactionId;
+void Transaction::setTransactionId(int transaction_id) {
+    _transaction_id = transaction_id;
 }
 
-void Transaction::setDebit(double _debit){
-    debit=_debit;
+void Transaction::setDebit(double debit) {
+    _debit = debit;
 }
 
-void Transaction::setCredit(double _credit){
-    credit=_credit;
+void Transaction::setCredit(double credit) {
+    _credit = credit;
 }
 
-void Transaction::setDescription(const std::string &_description){
-    strcpy(description, _description.c_str());
+void Transaction::setDescription(const std::string & description) {
+    strcpy(_description, description.c_str());
 }
 
-void Transaction::setId(int _id) {
-    id = _id;
+void Transaction::setId(int id) {
+    _id = id;
 }
 
-void Transaction::setDocDate(const Date & _docDate){
-    docDate = _docDate;
+void Transaction::setDocDate(const Date & creation_date) {
+    _creation_date = creation_date;
 }
 
 Date Transaction::getDocDate() const{
-    return docDate;
+    return _creation_date;
 }
 
 int Transaction::getId() const {
-    return id;
+    return _id;
 }
 
-int Transaction::getAccountNumber(){
-    return accountNumber;
+int Transaction::getAccountNumber() {
+    return _account_number;
 }
 
-int Transaction::getTransactionId(){
-    return transactionId;
+int Transaction::getTransactionId() {
+    return _transaction_id;
 }
 
-double Transaction::getDebit(){
-    return debit;
+double Transaction::getDebit() {
+    return _debit;
 }
 
-double Transaction::getCredit(){
-    return credit;
+double Transaction::getCredit() {
+    return _credit;
 }
 
-std::string Transaction::getDescription(){
-    return description;
+std::string Transaction::getDescription() {
+    return _description;
 }
 
-void Transaction::cinTransaction(){
-    cout<<"INGRESAR DEBITO: "<<endl;
-    cin>>debit;
-    cout<<"INGRESAR CREDITO: "<<endl;
-    cin>>credit;
-    cout<<"INGRESAR DESCRIPCION: "<<endl;
-    cin>>description;
+void Transaction::cinTransaction() {
+    std::cout << "INGRESAR DEBITO:\n";
+    std::cin >> _debit;
+    std::cout << "INGRESAR CREDITO:\n";
+    std::cin >> _credit;
+    std::cout << "INGRESAR DESCRIPCION:\n";
+    std::cin >> _description;
 }
 
-void Transaction::coutTransaction(){
-    cout<<"DEBITO: "<<debit<<"\n";
-    cout<<"CREDITO: "<<credit<<"\n";
-    cout<<"DESCRIPCION: "<<description<<"\n";
+void Transaction::coutTransaction() {
+    std::cout << "DEBITO: " << _debit << "\n";
+    std::cout << "CREDITO: " << _credit << "\n";
+    std::cout << "DESCRIPCION: " << _description << "\n";
 }

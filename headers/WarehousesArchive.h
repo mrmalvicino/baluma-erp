@@ -8,8 +8,7 @@
 #pragma once
 #include "Warehouse.h"
 
-class WarehousesArchive
-{
+class WarehousesArchive {
     public:
 
     /**
@@ -21,13 +20,13 @@ class WarehousesArchive
      * @brief Constructs a new WarehousesArchive object.
      * @param path (std::string) Path where the file will be saved.
      */
-    WarehousesArchive(const std::string &path);
+    WarehousesArchive(const std::string & path);
 
     /**
      * @brief Sets the _path attribute.
      * @param path (std::string) Path where the file will be saved.
      */
-    void setPath(const std::string &path);
+    void setPath(const std::string & path);
 
     /**
      * @brief Gets the _path attribute.
@@ -41,7 +40,7 @@ class WarehousesArchive
      * @return (bool) Returns true if the write operation was successful, false otherwise.
      * @note The file is opened in binary append mode ("ab") to ensure that new records are appended to the end of the file without overwriting existing data. If the file cannot be opened, an error message is printed to standard error.
      */
-    bool write(Warehouse &reg);
+    bool write(Warehouse & reg);
 
     /**
      * @brief Overwrites a warehouse record at the specified index in the archive file.
@@ -50,7 +49,7 @@ class WarehousesArchive
      * @return (bool) Returns true if the write operation was successful, false otherwise.
      * @note The file is opened in binary read-write mode ("rb+") to allow modification of existing records without affecting other parts of the file. If the file cannot be opened, an error message is printed to standard error.
      */
-    bool overWrite(Warehouse &reg, int index);
+    bool overWrite(Warehouse & reg, int index);
 
     /**
      * @brief Reads a warehouse record from the archive file at a given index.
@@ -72,7 +71,7 @@ class WarehousesArchive
      * @param description (std::string) The description of the warehouse record to search for.
      * @return (int) The index of the matching warehouse record or -1 in case the input does not match any record.
      */
-    int getIndex(std::string &name);
+    int getIndex(std::string & name);
 
     /**
      * @brief Retrieves the total number of warehouse records stored in the archive file.

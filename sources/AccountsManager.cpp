@@ -219,7 +219,7 @@ void AccountsManager::listSuppliersAccounts() {
     _terminal.displayMenuHeader("LISTADO DE CUENTAS DE PROVEEDORES");
 
     for (int i = 0; i < amount_of_Accounts; i ++) {
-        if(_Account_archive.getAccountType(i)==1){
+        if(_Account_archive.getAccountType(i)==1) {
         printAccount(i);
         }
     }
@@ -237,7 +237,7 @@ void AccountsManager::listClientsAccounts() {
     _terminal.displayMenuHeader("LISTADO DE CUENTAS DE CLIENTES");
 
     for (int i = 0; i < amount_of_Accounts; i ++) {
-        if(_Account_archive.getAccountType(i)==2){
+        if(_Account_archive.getAccountType(i)==2) {
         printAccount(i);
         }
     }
@@ -255,7 +255,7 @@ void AccountsManager::listVariusAccounts() {
     _terminal.displayMenuHeader("LISTADO DE CUENTAS VARIOS");
 
     for (int i = 0; i < amount_of_Accounts; i ++) {
-        if(_Account_archive.getAccountType(i)==3){
+        if(_Account_archive.getAccountType(i)==3) {
         printAccount(i);
         }
     }
@@ -380,11 +380,11 @@ int AccountsManager::generateAccountId() {
 }
 
 /*
-int AccountsManager::generateTypeId(){
+int AccountsManager::generateTypeId() {
     _clientManager
-    for(int i=0;i<5;i++){
+    for(int i=0;i<5;i++) {
         cliente acutual = ItemsManager.read();
-        if(clienteactual.getDescription() == _Account.getAccountName() ){
+        if(clienteactual.getDescription() == _Account.getAccountName() ) {
             //_Account.setTypeId(clienteactual.getId);
         } else //crear el cliente 
     }

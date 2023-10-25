@@ -1,10 +1,10 @@
 #include "../headers/TransactionsManager.h"
 
-TransactionsManager::TransactionsManager(){
-    _Transaction_backup.setPath("registers/Transaction.bkp");
+TransactionsManager::TransactionsManager() {
+    _transactions_backup.setPath("registers/transactions.bkp");
 }
 
-void TransactionsManager::displayMenu(){
+void TransactionsManager::displayMenu() {
 int selection = 1;
 
     do {
@@ -40,7 +40,7 @@ int selection = 1;
 
 void TransactionsManager::loadClients() {
     
-    _client_manager.searchClient();
+    _clients_manager.searchClient();
     
     int selection = 1;
 
@@ -55,10 +55,10 @@ void TransactionsManager::loadClients() {
 
         switch (selection) {
             case 1:
-                cinCreateDate(_Transaction);
+                cinCreationDate(_transaction);
                 break;
             case 2:
-                std::cout << "FECHA DE DOCUMENTO: " << _Transaction.getDocDate().toString() << "\n";
+                std::cout << "FECHA DE DOCUMENTO: " << _transaction.getDocDate().toString() << "\n";
                 break;
             case 3:
                 std::cout << "EN PROCESO\n";
@@ -71,14 +71,14 @@ void TransactionsManager::loadClients() {
 int TransactionsManager::generateTransactionId() {
     int id = 1;
 
-    if(_Transaction_archive.getAmountOfRegisters() != 0) {
-        id = _Transaction_archive.getAmountOfRegisters() + 1;
+    if(_transactions_archive.getAmountOfRegisters() != 0) {
+        id = _transactions_archive.getAmountOfRegisters() + 1;
     }
 
     return id;
 }
 
-void TransactionsManager::cinCreateDate(Transaction & _transaction) {
+void TransactionsManager::cinCreationDate(Transaction & transaction) {
     Date date;
     int day, month, year;
 
@@ -98,47 +98,5 @@ void TransactionsManager::cinCreateDate(Transaction & _transaction) {
     date.setMonth(month);
     date.setYear(year);
 
-    _transaction.setDocDate(date);
+    transaction.setDocDate(date);
 }
-
-/*
-void searchTransaction(){
-
-}
-void listTransactions(){
-
-}
-void printTransaction(int index){
-
-}
-void cinTransactionAccountNumber(Transaction & Transaction){
-
-}
-void cinTransactionNumber(Transaction & Transaction){
-
-}
-void cinTransactionDebit(Transaction & Transaction){
-
-}
-void cinTransactionCredit(Transaction & Transaction){
-
-}
-void cinTransactionDescription(Transaction & Transaction){
-
-}
-int generateTransactionId(){
-
-}
-void searchTransactionById(){
-
-}
-void searchTransactionByDescription(){
-
-}
-void exportTransactionsBackup(){
-
-}
-void importTransactionsBackup(){
-    
-}
-*/

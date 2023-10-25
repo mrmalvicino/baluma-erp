@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../headers/TransactionsArchive.h"
 
 TransactionsArchive::TransactionsArchive() {
@@ -17,7 +16,7 @@ std::string TransactionsArchive::getPath() {
     return _path;
 }
 
-bool TransactionsArchive::write(Transaction & reg){
+bool TransactionsArchive::write(Transaction & reg) {
     FILE * file_pointer = fopen(getPath().c_str(), "ab");
      if (file_pointer == NULL) {
         std::cerr << "Error: No se pudo abrir el archivo.\n";
@@ -28,7 +27,7 @@ bool TransactionsArchive::write(Transaction & reg){
         return successful_write;
 }
 
-bool TransactionsArchive::overWrite(Transaction & reg, int index){
+bool TransactionsArchive::overWrite(Transaction & reg, int index) {
     FILE * file_pointer = fopen(getPath().c_str(), "rb+");
      if (file_pointer == NULL) {
         std::cerr << "Error: No se pudo abrir el archivo.\n";
@@ -40,7 +39,7 @@ bool TransactionsArchive::overWrite(Transaction & reg, int index){
         return successful_write;
 }
 
-Transaction TransactionsArchive::read(int index){
+Transaction TransactionsArchive::read(int index) {
     Transaction reg;
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
      if (file_pointer == NULL) {
@@ -53,7 +52,7 @@ Transaction TransactionsArchive::read(int index){
         return reg;
 }
 
-int TransactionsArchive::getAccountNumber(int id){
+int TransactionsArchive::getAccountNumber(int id) {
     int i = 0;
     Transaction reg;
     reg = read(i);
@@ -64,7 +63,7 @@ int TransactionsArchive::getAccountNumber(int id){
             return i;
 }
 
-int TransactionsArchive::getAmountOfRegisters(){
+int TransactionsArchive::getAmountOfRegisters() {
     FILE * file_pointer = fopen(getPath().c_str(), "rb");
         if (file_pointer == NULL) {
             return 0;

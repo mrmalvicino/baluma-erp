@@ -4,7 +4,7 @@
  * This document contains the information necessary to either use the compiled software or contribute developing the software.
  * 
  * \section run_sec Run from terminal
- * Navigate using the @c cd command to reach the software's directory and then run one of the following commands depending on your OS.
+ * Navigate using the @c cd command to reach the software's directory (tipically /baluma-erp) and then run one of the following commands depending on your OS.
  * 
  * Windows users:
  * @code{.shell}
@@ -20,8 +20,6 @@
  */
 
 #include "headers/Baluma.h"
-
-using namespace std;
 
 int main() {
     Baluma baluma;
