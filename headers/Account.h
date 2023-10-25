@@ -15,9 +15,9 @@ class Account {
 
     int getId()const;
 
-    void setAccountName(const std::string & account_name);
+    void setName(const std::string & name);
 
-    std::string getAccountName();
+    std::string getName();
 
     void setConcept(const std::string & concept);
 
@@ -59,7 +59,7 @@ class Account {
 
     int _id;
 
-    char _account_name[30];
+    char _name[30];
 
     char _concept[60];
 

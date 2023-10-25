@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-#include "Date.h"
+#include "DateTime.h"
 
 class Transaction{
     public:
@@ -31,9 +31,9 @@ class Transaction{
 
     std::string getDescription();
 
-    void setCreationDate(const Date & creation_date);
+    void setDateTime(const DateTime & creation_date);
 
-    Date getCreationDate() const;
+    DateTime getDateTime() const;
 
     private:
 
@@ -47,5 +47,5 @@ class Transaction{
 
     char _description[30];
 
-    Date _creation_date;
+    DateTime _date_time;
 };

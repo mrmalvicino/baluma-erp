@@ -56,10 +56,10 @@ std::string Transaction::getDescription() {
     return _description;
 }
 
-void Transaction::setCreationDate(const Date & creation_date) {
-    _creation_date = creation_date;
+void Transaction::setDateTime(const DateTime & date_time) {
+    _date_time = date_time;
 }
 
-Date Transaction::getCreationDate() const {
-    return _creation_date;
+DateTime Transaction::getDateTime() const {
+    return _date_time;
 }

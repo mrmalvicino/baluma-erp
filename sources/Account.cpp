@@ -2,7 +2,7 @@
 
 Account::Account() {
     setId(1);
-    setAccountName("N/A");
+    setName("N/A");
     setConcept("N/A");
     setPassive(0);
     setActive(0);
@@ -12,9 +12,9 @@ Account::Account() {
     setStatus(true);
 }
 
-Account::Account(int id, const std::string & accountName, const std::string & concept, double passive, double active, double balance, int type, int type_id, bool status) {
+Account::Account(int id, const std::string & name, const std::string & concept, double passive, double active, double balance, int type, int type_id, bool status) {
     setId(id);
-    setAccountName(accountName);
+    setName(name);
     setConcept(concept);
     setPassive(passive);
     setActive(active);
@@ -32,12 +32,12 @@ int Account::getId() const {
     return _id;
 }
 
-void Account::setAccountName(const std::string & account_name) {
-    strcpy(_account_name, account_name.c_str());
+void Account::setName(const std::string & name) {
+    strcpy(_name, name.c_str());
 }
 
-std::string Account::getAccountName() {
-    return _account_name;
+std::string Account::getName() {
+    return _name;
 }
 
 void Account::setConcept(const std::string & concept) {

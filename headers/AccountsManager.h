@@ -1,60 +1,57 @@
+/**
+ * @file AccountsManager.h
+ * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
+ * @brief Manages the account module.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
+#include <iostream>
 #include "Terminal.h"
+#include "DateTime.h"
 #include "Account.h"
 #include "AccountsArchive.h"
-#include "ClientsManager.h"
-#include "SuppliersManager.h"
 
 class AccountsManager {
     public:
 
     AccountsManager();
 
-    void displayMenu(); 
+    void displayMenu();
 
     bool addAccount();
 
     bool editAccount();
 
-    void searchAccount();
+    int searchAccount();
 
-    void listMenuAccounts();
+    int searchAccountById();
 
-    void listAccounts();
+    int searchAccountByDescription();
 
-    void listSuppliersAccounts();
+    void listAccountsMenu();
 
-    void listClientsAccounts();
+    void listAccounts(bool list_actives = true, bool list_inactives = true);
 
-    void listVariusAccounts();
+    void loadAccount(int index);
 
-    void printAccount(int index); 
+    void printAccount();
 
-    void cinAccountNumber(Account & Account);
+    void cinAccountName(Account & account);
 
-    void cinAccountActive(Account & Account);
+    void cinAccountConcept(Account & account);
 
-    void cinAccountPassive(Account & Account); 
+    void cinAccountBalance(Account & account);
 
-    void cinAccountName(Account & Account);
+    void cinAccountType(Account & account);
 
-    void cinAccountType(Account & Account);
+    void cinAccountTypeId(Account & account);
 
-    void cinAccountTypeId(Account & Account);
+    void cinAccountCreationDate(Account & account);
 
-    void cinAccountConcept(Account & Account);  
-
-    void cinAccountIsActive(Account & Account);
-
-    void cinCreateDate(Account & account);  
+    void cinAccountStatus(Account & account);
 
     int generateAccountId();
-
-    int generateTypeId();
-
-    void searchAccountById();
-
-    void searchAccountByName();
 
     void exportAccountsBackup();
 
@@ -64,13 +61,9 @@ class AccountsManager {
 
     Terminal _terminal;
 
-    Account _Account;
+    Account _account;
 
-    ClientsManager _clientManager;
+    AccountsArchive _accounts_archive;
 
-    SuppliersManager _supplierManager;
-
-    AccountsArchive _Account_archive;
-
-    AccountsArchive _Account_backup;
+    AccountsArchive _accounts_backup;
 };
