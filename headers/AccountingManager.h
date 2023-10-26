@@ -12,7 +12,7 @@ class AccountingManager {
 
     void displayMainMenu();
 
-    bool addTransaction(int sign);
+    bool addTransaction();
 
     void loadTransaction(int index);
 

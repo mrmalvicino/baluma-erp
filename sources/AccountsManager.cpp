@@ -55,7 +55,7 @@ bool AccountsManager::addAccount() {
 
     // Aca hay que pedir tipo (1 clientes, 2 proveedores, 3 varios) y mandar a buscar cliente o proveedor en caso que sea tipo 1 o 2 para fetchiar el id del tipo
 
-    cinAccountName(_account, true);
+    cinAccountName(_account, true); // el nombre se deberia generar automaticamente concatenando el tipo con el id del tipo? EJ clientes3
     cinAccountConcept(_account);
     cinAccountBalance(_account);
 

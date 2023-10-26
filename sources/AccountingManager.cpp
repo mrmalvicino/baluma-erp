@@ -12,56 +12,59 @@ void AccountingManager::displayMainMenu() {
         _terminal.clear();
         _terminal.displayMenuHeader("CONTABILIDAD");
         std::cout << "(1) ADMINISTRAR CUENTAS\n";
-        std::cout << "(2) REGISTRAR COMPRA\n";
-        std::cout << "(3) REGISTRAR VENTA\n";
-        std::cout << "(4) MOSTRAR LIBRO DIARIO\n";
-        std::cout << "(5) EXPORTAR LIBRO DIARIO A CSV\n";
+        std::cout << "(2) NUEVO ASIENTO\n";
+        std::cout << "(3) MOSTRAR LIBRO DIARIO\n";
+        std::cout << "(4) EXPORTAR LIBRO DIARIO A CSV\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 5);
+        selection = _terminal.validateInt(0, 4);
 
         switch (selection) {
             case 1:
                 _accounts_manager.displayMenu();
                 break;
             case 2:
-                addTransaction(-1);
+                addTransaction();
                 break;
             case 3:
-                addTransaction(+1);
-                break;
-            case 4:
                 showJournal();
                 break;
-            case 5:
+            case 4:
                 exportTransactionsCSV();
                 break;
         }
     } while (selection != 0);
 }
 
-bool AccountingManager::addTransaction(int sign) {
+bool AccountingManager::addTransaction() {
     bool successful_write;
     bool user_wants_to_save;
-    int absolute_value;
+    int value;
 
     _terminal.clear();
-    _terminal.displayMenuHeader("NUEVA TRANSACCIÓN");
+    _terminal.displayMenuHeader("NUEVO ASIENTO");
 
+    //agregar balance del libro diario a partir del ultimo saldo
     _transaction.setDebit(0);
     _transaction.setCredit(0);
     _transaction.setId(generateTransactionId());
 
-    cinAccountId(_transaction);
+    cinAccountId(_transaction); // Validar que el ingreso sea solo de numeros de ID existentes
     cinTransactionDescription(_transaction, true);
 
-    std::cout << "Ingresar importe:\n";
-    absolute_value = _terminal.validateDouble(0);
+    // si el tipo de la cuenta es
+    //                              1 - cliente ---> va al haber
+    //                              2 - proveedor ---> va al debe
+    //                              3 - banco ---> puede ir al debe o al haber segun sea deposito o retiro
+    //                              4 - gs gr ---> debe
 
-    if (0 < sign) {
-        _transaction.setCredit(_transaction.getCredit() + absolute_value);
+    std::cout << "Ingresar importe:\n";
+    value = _terminal.validateDouble();
+
+    if (0 < value) { // con qué lo hago, con un switch? (segun el tipo de cuenta)
+        _transaction.setCredit(_transaction.getCredit() + value);
     } else {
-        _transaction.setDebit(_transaction.getDebit() + absolute_value);
+        _transaction.setDebit(_transaction.getDebit() + value);
     }
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
@@ -71,6 +74,7 @@ bool AccountingManager::addTransaction(int sign) {
         successful_write = _transactions_archive.write(_transaction);
         if (successful_write == true) {
             std::cout << "Registro guardado correctamente.\n";
+            // actualizar activo y pasivo de la cuenta en cuestion
         } else {
             std::cout << "Error de escritura.\n";
         }
