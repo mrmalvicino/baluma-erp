@@ -5,6 +5,7 @@
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  */
 
+#pragma once
 #include <string>
 #include <ctime>
 
