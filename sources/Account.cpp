@@ -7,8 +7,8 @@ Account::Account() {
     setPassive(0);
     setActive(0);
     setBalance(0);
-    setType(1);
-    setTypeId(-1);
+    setType(0);
+    setTypeId(0);
     setStatus(true);
 }
 

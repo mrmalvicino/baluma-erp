@@ -48,6 +48,8 @@ bool AccountingManager::addTransaction(int sign) {
     _terminal.clear();
     _terminal.displayMenuHeader("NUEVA TRANSACCIÓN");
 
+    _transaction.setDebit(0);
+    _transaction.setCredit(0);
     _transaction.setId(generateTransactionId());
 
     cinAccountId(_transaction);
@@ -88,14 +90,21 @@ void AccountingManager::loadTransaction(int index) {
 }
 
 void AccountingManager::printTransaction() {
-    std::cout << _transaction.getId() << "\t" << _transaction.getDateTime().toString() << "\t" << _transaction.getAccountId() << "\t" << _transaction.getDescription() << "\t" << _transaction.getDebit() << "\t" << _transaction.getCredit();
+    std::cout << _transaction.getId() << "\t" << _transaction.getDateTime().toString() << "\t" << _transaction.getAccountId() << "\t" << _terminal.fill(_transaction.getDescription(), 30) << "\t" << _transaction.getDebit() << "\t" << _transaction.getCredit();
 }
 
 void AccountingManager::showJournal() {
+    _terminal.clear();
+    std::cout << "# ID\t" << _terminal.fill("Fecha y hora", 18) << "\t# Cta.\t" << _terminal.fill("Descripción", 30) << "\tDebe\tHaber\n";
+
     for (int i = 0; i < getAmountOfTransactions(); i ++) {
         loadTransaction(i);
         printTransaction();
+        std::cout << "\n";
     }
+
+    _terminal.pause();
+    _terminal.clear();
 }
 
 int AccountingManager::generateTransactionId() {
