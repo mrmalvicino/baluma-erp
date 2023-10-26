@@ -8,9 +8,33 @@
 class AccountingManager {
     public:
 
-    AccountingManager();
+    int getAmountOfTransactions();
+
+    void displayMainMenu();
+
+    bool addTransaction(int sign);
+
+    void loadTransaction(int index);
+
+    void printTransaction();
+
+    void showJournal();
+
+    int generateTransactionId();
+
+    void exportTransactionsBackup();
+
+    void importTransactionsBackup();
+
+    void exportTransactionsCSV();
+
+    void cinAccountId(Transaction & transaction);
+
+    void cinTransactionDescription(Transaction & transaction, bool cin_ignore = false);
 
     private:
+
+    int _amount_of_transactions;
 
     Terminal _terminal;
 

@@ -243,6 +243,60 @@ long long int Terminal::validateLongInt(int min, int max) {
     return rtn;
 }
 
+double Terminal::validateDouble() {
+    double rtn;
+    
+    while (true) {
+        if (std::cin >> rtn) {
+            break;
+        } else {
+            std::cin.clear();
+            cleanBuffer();
+            std::cout << "Error de validación: Ingrese un número.\n";
+        }
+    }
+
+    return rtn;
+}
+
+double Terminal::validateDouble(int min) {
+    double rtn;
+    
+    while (true) {
+        if (std::cin >> rtn && min <= rtn) {
+            break;
+        } else {
+            std::cin.clear();
+            cleanBuffer();
+            std::cout << "Error de validación: Ingrese un número mayor o igual a " << min << ".\n";
+        }
+    }
+
+    return rtn;
+}
+
+double Terminal::validateDouble(int min, int max) {
+    double rtn;
+    
+    while (true) {
+        if (std::cin >> rtn && min <= rtn && rtn <= max) {
+            break;
+        } else {
+            std::cin.clear();
+            cleanBuffer();
+            if (min < max) {
+                std::cout << "Error de validación: Ingrese un número mayor (o igual) a " << min << " y menor (o igual) a " << max << ".\n";
+            } else if (min == max) {
+                std::cout << "Error de validación: El único ingreso válido es " << min << ".\n";
+            } else {
+                std::cout << "Error de validación: Los extremos están definidos de manera que no haya ingresos válidos.\n";
+            }
+        }
+    }
+
+    return rtn;
+}
+
 char Terminal::validateChar() {
     char rtn;
     

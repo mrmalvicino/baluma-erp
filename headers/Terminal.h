@@ -136,6 +136,27 @@ class Terminal {
     long long int validateLongInt(int min, int max);
 
     /**
+     * @brief Requests and validates an input from the user interactively. Ensures that the entered value is a double.
+     * @return (int) Returns the value entered by the user.
+     */
+    double validateDouble();
+
+    /**
+     * @brief Requests and validates an integer input from the user interactively. Ensures that the entered value is a double and that it is greater than or equal to a given minimum.
+     * @param min (int) The minimum allowable value (inclusive) that the user can input.
+     * @return (int) Returns a value entered by the user that is greater than or equal to the specified minimum value.
+     */
+    double validateDouble(int min);
+
+    /**
+     * @brief Requests and validates a double input from the user interactively. Ensures that the entered value is both a double and falls within the given minimum and maximum boundaries.
+     * @param min (int) The minimum allowable value (inclusive) that the user can input.
+     * @param max (int) The maximum allowable value (inclusive) that the user can input.
+     * @return (int) Returns a value entered by the user that falls within the specified range [min, max].
+     */
+    double validateDouble(int min, int max);
+
+    /**
      * @brief Requests and validates a character input from the user. Ensures that the entered value is a character.
      * @return (char) Returns the character value entered by the user.
      */

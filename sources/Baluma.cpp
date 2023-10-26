@@ -14,15 +14,13 @@ void Baluma::run() {
         std::cout << "(2) PROVEEDORES\n";
         std::cout << "(3) INVENTARIO\n";
         std::cout << "(4) CONTABILIDAD\n";
-        std::cout << "(5) VENTAS\n";
-        std::cout << "(6) COMPRAS\n";
-        std::cout << "(7) PRESUPUESTOS\n";
-        std::cout << "(8) RECURSOS HUMANOS\n";
+        std::cout << "(5) RECURSOS HUMANOS\n";
+        std::cout << "(6) PRESUPUESTOS\n";
         _terminal.printLine();
-        std::cout << "(9) ACERCA DE BALUMA ERP\n";
+        std::cout << "(7) ACERCA DE BALUMA ERP\n";
         std::cout << "(0) SALIR\n";
 
-        std::cin >> selection;
+        selection = _terminal.validateInt(0, 7);
 
         switch (selection) {
             case 1:
@@ -35,21 +33,15 @@ void Baluma::run() {
                 _inventory_manager.displayMainMenu();
                 break;
             case 4:
-                
+                _accounting_manager.displayMainMenu();
                 break;
             case 5:
-                
+                _employees_manager.displayMenu();
                 break;
             case 6:
                 
                 break;
             case 7:
-                
-                break;
-            case 8:
-                _employees_manager.displayMenu();
-                break;
-            case 9:
                 about();
                 break;
         }

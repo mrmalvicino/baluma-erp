@@ -9,9 +9,9 @@
 #include "Terminal.h"
 #include "ClientsManager.h"
 #include "SuppliersManager.h"
-#include "InventoryManager.h"
 #include "WarehousesManager.h"
-#include "AccountsManager.h"
+#include "InventoryManager.h"
+#include "AccountingManager.h"
 #include "EmployeesManager.h"
 
 class Baluma {
@@ -50,9 +50,9 @@ class Baluma {
     InventoryManager _inventory_manager;
 
     /**
-     * @brief InventoryManager object with default settings.
+     * @brief AccountingManager object with default settings.
      */
-    AccountsManager _accounts_manager;
+    AccountingManager _accounting_manager;
 
     /**
     *@brief EmployeesManager object with default settings.

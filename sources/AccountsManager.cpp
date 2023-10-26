@@ -287,7 +287,7 @@ void AccountsManager::printAccount() {
 int AccountsManager::generateAccountId() {
     int id = 1;
 
-    if(_accounts_archive.getAmountOfRegisters() != 0) {
+    if (_accounts_archive.getAmountOfRegisters() != 0) {
         id = _accounts_archive.getAmountOfRegisters() + 1;
     }
 
