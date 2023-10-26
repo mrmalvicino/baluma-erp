@@ -12,10 +12,8 @@ void AccountingManager::displayMainMenu() {
         _terminal.clear();
         _terminal.displayMenuHeader("CONTABILIDAD");
         std::cout << "(1) ADMINISTRAR CUENTAS\n";
-        _terminal.printLine();
         std::cout << "(2) REGISTRAR COMPRA\n";
         std::cout << "(3) REGISTRAR VENTA\n";
-        _terminal.printLine();
         std::cout << "(4) MOSTRAR LIBRO DIARIO\n";
         std::cout << "(5) EXPORTAR LIBRO DIARIO A CSV\n";
         _terminal.displayMenuFooter();
@@ -55,6 +53,7 @@ bool AccountingManager::addTransaction(int sign) {
     cinAccountId(_transaction);
     cinTransactionDescription(_transaction, true);
 
+    std::cout << "Ingresar importe:\n";
     absolute_value = _terminal.validateDouble(0);
 
     if (0 < sign) {
