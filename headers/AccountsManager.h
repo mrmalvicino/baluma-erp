@@ -37,17 +37,23 @@ class AccountsManager {
 
     void printAccount();
 
-    void cinAccountName(Account & account);
-
-    void cinAccountConcept(Account & account);
-
-    void cinAccountStatus(Account & account);
-
     int generateAccountId();
 
     void exportAccountsBackup();
 
     void importAccountsBackup();
+
+    void cinAccountName(Account & account, bool cin_ignore = false);
+
+    void cinAccountConcept(Account & account, bool cin_ignore = false);
+
+    void cinAccountBalance(Account & account);
+
+    void cinAccountType(Account & account);
+
+    void cinAccountTypeId(Account & account);
+
+    void cinAccountStatus(Account & account);
 
     private:
 
