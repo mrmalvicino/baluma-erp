@@ -5,10 +5,10 @@
 #include "SuppliersManager.h"
 #include "AccountsManager.h"
 
-class TransactionsManager {
+class AccountingManager {
     public:
 
-    TransactionsManager();
+    AccountingManager();
 
     private:
 

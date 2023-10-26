@@ -1,10 +1,3 @@
-/**
- * @file AccountsManager.h
- * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
- * @brief Manages the account module.
- * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
- */
-
 #pragma once
 #include <iostream>
 #include "Terminal.h"
