@@ -12,7 +12,7 @@ void AccountingManager::displayMainMenu() {
         _terminal.clear();
         _terminal.displayMenuHeader("CONTABILIDAD");
         std::cout << "(1) ADMINISTRAR CUENTAS\n";
-        std::cout << "(2) NUEVO ASIENTO\n";
+        std::cout << "(2) NUEVO MOVIMIENTO\n";
         std::cout << "(3) MOSTRAR LIBRO DIARIO\n";
         std::cout << "(4) EXPORTAR LIBRO DIARIO A CSV\n";
         _terminal.displayMenuFooter();
@@ -42,7 +42,7 @@ bool AccountingManager::addTransaction() {
     int value;
 
     _terminal.clear();
-    _terminal.displayMenuHeader("NUEVO ASIENTO");
+    _terminal.displayMenuHeader("NUEVO MOVIMIENTO");
 
     //agregar balance del libro diario a partir del ultimo saldo
     _transaction.setDebit(0);
@@ -55,8 +55,9 @@ bool AccountingManager::addTransaction() {
     // si el tipo de la cuenta es
     //                              1 - cliente ---> va al haber
     //                              2 - proveedor ---> va al debe
-    //                              3 - banco ---> puede ir al debe o al haber segun sea deposito o retiro
-    //                              4 - gs gr ---> debe
+    //                              3 - caja ---> puede ir al debe o al haber
+    //                              4 - banco ---> puede ir al debe o al haber segun sea deposito o retiro
+    //                              5 - gs gr ---> debe
 
     std::cout << "Ingresar importe:\n";
     value = _terminal.validateDouble();
@@ -64,6 +65,7 @@ bool AccountingManager::addTransaction() {
     if (0 < value) { // con qué lo hago, con un switch? (segun el tipo de cuenta)
         _transaction.setCredit(_transaction.getCredit() + value);
     } else {
+        value = - value;
         _transaction.setDebit(_transaction.getDebit() + value);
     }
 
@@ -94,7 +96,12 @@ void AccountingManager::loadTransaction(int index) {
 }
 
 void AccountingManager::printTransaction() {
-    std::cout << _transaction.getId() << "\t" << _transaction.getDateTime().toString() << "\t" << _transaction.getAccountId() << "\t" << _terminal.fill(_transaction.getDescription(), 30) << "\t" << _transaction.getDebit() << "\t" << _transaction.getCredit();
+    std::cout << _transaction.getId() << "\t";
+    std::cout << _transaction.getDateTime().toString() << "\t";
+    std::cout << _transaction.getAccountId() << "\t";
+    std::cout << _terminal.fill(_transaction.getDescription(), 30) << "\t";
+    std::cout << _transaction.getDebit() << "\t";
+    std::cout << _transaction.getCredit();
 }
 
 void AccountingManager::showJournal() {
