@@ -22,12 +22,6 @@ class AccountingManager {
 
     int generateTransactionId();
 
-    void exportTransactionsBackup();
-
-    void importTransactionsBackup();
-
-    void exportTransactionsCSV();
-
     void cinAccountId(Transaction & transaction);
 
     void cinTransactionDescription(Transaction & transaction, bool cin_ignore = false);

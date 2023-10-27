@@ -12,9 +12,10 @@ void AccountingManager::displayMainMenu() {
         _terminal.clear();
         _terminal.displayMenuHeader("CONTABILIDAD");
         std::cout << "(1) ADMINISTRAR CUENTAS\n";
-        std::cout << "(2) NUEVO MOVIMIENTO\n";
-        std::cout << "(3) MOSTRAR LIBRO DIARIO\n";
-        std::cout << "(4) EXPORTAR LIBRO DIARIO A CSV\n";
+        std::cout << "(2) MOSTRAR LIBRO DIARIO\n";
+        _terminal.printLine();
+        std::cout << "(3) REGISTRAR COMPRA\n";
+        std::cout << "(4) REGISTRAR VENTA\n";
         _terminal.displayMenuFooter();
 
         selection = _terminal.validateInt(0, 4);
@@ -24,13 +25,10 @@ void AccountingManager::displayMainMenu() {
                 _accounts_manager.displayMenu();
                 break;
             case 2:
-                addTransaction();
-                break;
-            case 3:
                 showJournal();
                 break;
-            case 4:
-                exportTransactionsCSV();
+            case 3:
+                addTransaction();
                 break;
         }
     } while (selection != 0);
@@ -126,18 +124,6 @@ int AccountingManager::generateTransactionId() {
     }
 
     return id;
-}
-
-void AccountingManager::exportTransactionsBackup() {
-    
-}
-
-void AccountingManager::importTransactionsBackup() {
-    
-}
-
-void AccountingManager::exportTransactionsCSV() {
-    
 }
 
 void AccountingManager::cinAccountId(Transaction & transaction) {
