@@ -782,7 +782,7 @@ void InventoryManager::printItem() {
     std::cout << "Rubro: " << _item.getName() << "\n";
     std::cout << "Marca: " << _item.getBrand() << "\n";
     std::cout << "Modelo: " << _item.getModel() << "\n";
-    std::cout << "Descripcion: " << _item.getDescription() << "\n";
+    std::cout << "Descripción: " << _item.getDescription() << "\n";
     std::cout << "Precio unitario: " << _item.getPrice() << "\n";
     std::cout << "Stock: " << _item.getStock() << "\n";
     std::cout << "Fecha de ingreso: " << _item.getIncome().toString() << "\n";
@@ -1056,7 +1056,7 @@ void InventoryManager::cinProductDescription(Product & product, bool cin_ignore)
         std::cin.ignore();
     }
 
-    std::cout << "Ingrese descripcion:\n";
+    std::cout << "Ingrese descripción:\n";
     getline(std::cin, description);
 
     product.setDescription(description);

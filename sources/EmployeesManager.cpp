@@ -334,7 +334,7 @@ void EmployeesManager::printEmployee(int index)
     std::cout << "Calle: " << _employee.getAdress().getStreet() << "\n";
     std::cout << "Número: " << _employee.getAdress().getNumber() << "\n";
     std::cout << "Piso: " << _employee.getAdress().getFloor() << " " << _employee.getAdress().getLetter() << "\n";
-    std::cout << "Telefono: " << _employee.getPhone() << "\n";
+    std::cout << "Teléfono: " << _employee.getPhone() << "\n";
     std::cout << "E-mail: " << _employee.getEmail() << "\n";
     std::cout << "Puesto: " << _employee.getTitle() << "\n";
     std::cout << "Fecha de alta: " << _employee.getAdmission().toString() << "\n";
@@ -412,7 +412,7 @@ void EmployeesManager::cinEmployeePhone(Employee &employee)
 {
     int phone;
 
-    std::cout << "Ingrese el numero de telefo:\n";
+    std::cout << "Ingrese el número de teléfono:\n";
     std::cin >> phone;
 
     employee.setPhone(phone);
@@ -422,7 +422,7 @@ void EmployeesManager::cinEmployeeEmail(Employee &employee)
 {
     std::string email;
 
-    std::cout << "Ingrese el email:\n";
+    std::cout << "Ingrese el e-mail:\n";
     std::cin.ignore();
     getline(std::cin, email);
 
@@ -462,9 +462,9 @@ void EmployeesManager::cinEmployeeAdmission(Employee &employee)
 
     std::cout << "Ingrese la fecha de alta.\n";
 
-    std::cout << "DIA: ";  std::cin >> d;
-    std::cout << "MES: ";  std::cin >> m;
-    std::cout << "ANIO: "; std::cin >> a;
+    std::cout << "Día: ";  std::cin >> d;
+    std::cout << "Mes: ";  std::cin >> m;
+    std::cout << "Año: "; std::cin >> a;
 
     Date date(d,m,a);
     employee.setAdmission(date);
@@ -562,7 +562,7 @@ bool EmployeesManager::calculateSeniority()
 
     seniority = actual.getYear() - _employee.getAdmission().getYear();
 
-    std::cout << "Antigüedad de " << _employee.getDescription() << ": " << seniority << " anios.\n";
+    std::cout << "Antigüedad de " << _employee.getDescription() << ": " << seniority << " años.\n";
     _terminal.pause();
     _terminal.clear();
 

@@ -294,7 +294,7 @@ void ClientsManager::printClient() {
     std::cout << "CUIL/CUIT: " << _client.getLegalId() << "\n";
     std::cout << "País: " << _client.getAdress().getCountry() << "\n";
     std::cout << "Provincia: " << _client.getAdress().getState() << "\n";
-    std::cout << "Ciduad: " << _client.getAdress().getCity() << "\n";
+    std::cout << "Ciudad: " << _client.getAdress().getCity() << "\n";
     std::cout << "Calle: " << _client.getAdress().getStreet() << "\n";
     std::cout << "Número: " << _client.getAdress().getNumber() << "\n";
     std::cout << "Piso: " << _client.getAdress().getFloor() << "\n";

@@ -189,7 +189,7 @@ int WarehousesManager::searchWarehouseById() {
         printWarehouse();
     } else {
         search_rtn = -1;
-        std::cout << "Búsqueda abordata por el usuario.\n";
+        std::cout << "Búsqueda abortada por el usuario.\n";
     }
 
     _terminal.pause();
@@ -284,7 +284,7 @@ void WarehousesManager::printWarehouse() {
     std::cout << "# ID: " << _warehouse.getId() << "\n";
     std::cout << "País: " << _warehouse.getAdress().getCountry() << "\n";
     std::cout << "Provincia: " << _warehouse.getAdress().getState() << "\n";
-    std::cout << "Ciduad: " << _warehouse.getAdress().getCity() << "\n";
+    std::cout << "Ciudad: " << _warehouse.getAdress().getCity() << "\n";
     std::cout << "Calle: " << _warehouse.getAdress().getStreet() << "\n";
     std::cout << "Número: " <<_warehouse.getAdress().getNumber() << "\n";
     std::cout << "Piso: " << _warehouse.getAdress().getFloor() << "\n";
@@ -423,7 +423,7 @@ void WarehousesManager::exportWarehousesCSV() {
 }
 
 void WarehousesManager::importWarehousesCSV() {
-    std::cout << "¿Desea reemplazar los warehousees actuales por aquellos que haya en el archivo CSV? [S/N]\n";
+    std::cout << "¿Desea reemplazar los warehouses actuales por aquellos que haya en el archivo CSV? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";

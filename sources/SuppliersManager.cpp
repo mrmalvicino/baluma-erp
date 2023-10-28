@@ -294,7 +294,7 @@ void SuppliersManager::printSupplier() {
     std::cout << "CUIL/CUIT: " << _supplier.getLegalId() << "\n";
     std::cout << "País: " << _supplier.getAdress().getCountry() << "\n";
     std::cout << "Provincia: " << _supplier.getAdress().getState() << "\n";
-    std::cout << "Ciduad: " << _supplier.getAdress().getCity() << "\n";
+    std::cout << "Ciudad: " << _supplier.getAdress().getCity() << "\n";
     std::cout << "Calle: " << _supplier.getAdress().getStreet() << "\n";
     std::cout << "Número: " << _supplier.getAdress().getNumber() << "\n";
     std::cout << "Piso: " << _supplier.getAdress().getFloor() << "\n";
