@@ -41,6 +41,14 @@ int InventoryManager::getAmountOfProducts(){
     return _amount_of_products;
 }
 
+double InventoryManager::getItemPrice() {
+    return _item.getPrice();
+}
+
+int InventoryManager::getItemStock() {
+    return _item.getStock();
+}
+
 void InventoryManager::displayProductsMenu() {
     int selection = 1;
 
@@ -459,12 +467,15 @@ void InventoryManager::setWarehousePaths(int warehouse_id) {
         _items_csv.setPath(csv_path);
 }
 
-void InventoryManager::loadItemsMenu() {
+void InventoryManager::loadItemsMenu(bool display_items_menu) {
     int search_rtn = _warehouses_manager.searchWarehouse();
 
     if (search_rtn != -1) {
         setWarehousePaths(_warehouses_manager.getWarehouse().getId());
-        displayItemsMenu(_warehouses_manager.getWarehouse().getName());
+
+        if (display_items_menu) {
+            displayItemsMenu(_warehouses_manager.getWarehouse().getName());
+        }
     }
 }
 
@@ -530,8 +541,8 @@ bool InventoryManager::addItem() {
     cinProductModel(_item);
     cinProductDescription(_item);
     cinProductPrice(_item);
-    cinItemStock(_item);
-    cinItemIncome(_item);
+    cinItemStock();
+    cinItemIncome();
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
@@ -588,10 +599,10 @@ bool InventoryManager::editItem() {
 
         switch (selection) {
             case 1:
-                cinItemStock(_item);
+                cinItemStock();
                 break;
             case 2:
-                cinItemIncome(_item);
+                cinItemIncome();
                 break;
         }
     } while (selection != 0);
@@ -1083,16 +1094,22 @@ void InventoryManager::cinProductIsActive(Product & product) {
     }
 }
 
-void InventoryManager::cinItemStock(Item & item) {
-    int stock = item.getStock();
+void InventoryManager::cinItemStock(bool is_sale) {
+    int stock = _item.getStock();
 
     std::cout << "Cantidad de unidades:\n";
-    stock += _terminal.validateInt(0);
+    int amount = _terminal.validateInt(0);
 
-    item.setStock(stock);
+    if (is_sale == false) {
+        stock += amount;
+    } else {
+        stock -= amount;
+    }
+
+    _item.setStock(stock);
 }
 
-void InventoryManager::cinItemIncome(Item & item) {
+void InventoryManager::cinItemIncome() {
     Date date;
     int day, month, year;
 
@@ -1109,5 +1126,5 @@ void InventoryManager::cinItemIncome(Item & item) {
     date.setMonth(month);
     date.setYear(year);
 
-    item.setIncome(date);
+    _item.setIncome(date);
 }

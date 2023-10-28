@@ -38,64 +38,58 @@ void AccountingManager::displayMainMenu() {
 }
 
 bool AccountingManager::buy() {
-
-}
-
-bool AccountingManager::sell() {
-
-}
-
-bool AccountingManager::addTransaction() {
     bool successful_write;
-    bool user_wants_to_save;
-    int value;
 
-    _terminal.clear();
-    _terminal.displayMenuHeader("NUEVO MOVIMIENTO");
+    int initial_stock = _inventory_manager.getItemStock();
 
-    //agregar balance del libro diario a partir del ultimo saldo
-    _transaction.setDebit(0);
-    _transaction.setCredit(0);
-    _transaction.setId(generateTransactionId());
+    _inventory_manager.loadItemsMenu(false); // Carga el _warehouse
+    int search_rtn = _inventory_manager.searchItem(); // Carga el _item
 
-    cinAccountId(_transaction); // Validar que el ingreso sea solo de numeros de ID existentes
-    cinTransactionDescription(_transaction, true);
-
-    // si el tipo de la cuenta es
-    //                              1 - cliente ---> va al haber
-    //                              2 - proveedor ---> va al debe
-    //                              3 - caja ---> puede ir al debe o al haber
-    //                              4 - banco ---> puede ir al debe o al haber segun sea deposito o retiro
-    //                              5 - gs gr ---> debe
-
-    std::cout << "Ingresar importe:\n";
-    value = _terminal.validateDouble();
-
-    if (0 < value) { // con qué lo hago, con un switch? (segun el tipo de cuenta)
-        _transaction.setCredit(_transaction.getCredit() + value);
-    } else {
-        value = - value;
-        _transaction.setDebit(_transaction.getDebit() + value);
+    if (search_rtn == -1) {
+        return false;
     }
 
-    std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
-    user_wants_to_save = _terminal.validateBool();
+    _terminal.clear();
+    _inventory_manager.cinItemStock(false); // Modifica el stock del _item
 
-    if (user_wants_to_save == true) {
-        successful_write = _transactions_archive.write(_transaction);
-        if (successful_write == true) {
-            std::cout << "Registro guardado correctamente.\n";
-            // actualizar activo y pasivo de la cuenta en cuestion
-        } else {
-            std::cout << "Error de escritura.\n";
-        }
+    int final_stock = _inventory_manager.getItemStock();
+    int amount = final_stock - initial_stock; // Determina la cantidad ingresada por el usuario
+
+    double value = _inventory_manager.getItemPrice();
+
+    _account.setType(2);
+    _account.setPassive(_account.getPassive() + amount * value); // Actualiza pasivo de proveedores
+
+    _account.setType(3);
+    _account.setPassive(_account.getPassive() - amount * value); // Actualiza pasivo de caja
+
+    successful_write = _accounts_manager.updateAccount();
+
+    if (successful_write == false) {
+        std::cout << "Error de escritura en el archivo de cuentas.\n";
+        return false;
+    }
+
+    _transaction.setId(generateTransactionId()); // Agrega transaccion al libro diario
+    _transaction.setAccountId(_account.getId());
+    _transaction.setDebit(_transaction.getDebit() + value);
+    cinTransactionDescription(_transaction, true);
+
+    successful_write = _transactions_archive.write(_transaction);
+
+    if (successful_write == true) {
+        std::cout << "Registro guardado correctamente.\n";
     } else {
-        successful_write = false;
-        std::cout << "Registro descartado por usuario.\n";
+        std::cout << "Error de escritura en el archivo de transacciones.\n";
     }
 
     _terminal.pause();
-    _terminal.clear();
+
+    return successful_write;
+}
+
+bool AccountingManager::sell() {
+    bool successful_write = false;
 
     return successful_write;
 }

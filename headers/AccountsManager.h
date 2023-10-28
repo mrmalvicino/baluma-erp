@@ -16,6 +16,8 @@ class AccountsManager {
 
     bool editAccount();
 
+    bool updateAccount();
+
     int searchAccount();
 
     int searchAccountById();

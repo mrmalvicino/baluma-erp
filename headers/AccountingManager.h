@@ -3,6 +3,7 @@
 #include "TransactionsArchive.h"
 #include "ClientsManager.h"
 #include "SuppliersManager.h"
+#include "InventoryManager.h"
 #include "AccountsManager.h"
 
 class AccountingManager {
@@ -15,8 +16,6 @@ class AccountingManager {
     bool buy();
 
     bool sell();
-
-    bool addTransaction();
 
     void loadTransaction(int index);
 
@@ -51,6 +50,8 @@ class AccountingManager {
     ClientsManager _clients_manager;
 
     SuppliersManager _suppliers_manager;
+
+    InventoryManager _inventory_manager;
 
     AccountsManager _accounts_manager;
 };

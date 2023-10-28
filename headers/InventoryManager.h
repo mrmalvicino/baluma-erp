@@ -31,6 +31,18 @@ class InventoryManager {
     int getAmountOfProducts();
 
     /**
+     * @brief Gets the price of the current _item.
+     * @return (double) Price attribute of the current _item.
+     */
+    double getItemPrice();
+
+    /**
+     * @brief Gets the stock of the current _item.
+     * @return (int) Stock attribute of the current _item.
+     */
+    int getItemStock();
+
+    /**
      * @brief Displays the products menu.
      */
     void displayProductsMenu();
@@ -124,8 +136,9 @@ class InventoryManager {
 
     /**
      * @brief Prompts the user for keyboard input to set the warehouse for which the item menu will be loaded. Then , calls the setWarehousePaths() and displayItemsMenu() methods if the user input is valid.
+     * @param display_items_menu (bool) If true, the items menu will shown.
      */
-    void loadItemsMenu();
+    void loadItemsMenu(bool display_items_menu = true);
 
     /**
      * @brief Displays a menu to manage stock items in a specific warehouse.
@@ -271,15 +284,14 @@ class InventoryManager {
 
     /**
      * @brief Prompts the user to enter the stock of an item.
-     * @param item (Item &) A reference to the Item object where the data will be stored.
+     * @param is_sale (is_sale) If true, the stock attribute of an _item will decrease instead of increasing. Determines whether if a transaction is a sale or a purchase. Used only from the AccountingManager class.
      */
-    void cinItemStock(Item & item);
+    void cinItemStock(bool is_sale = false);
 
     /**
      * @brief Prompts the user to enter the income date of an item.
-     * @param item (Item &) A reference to the Item object where the data will be stored.
      */
-    void cinItemIncome(Item & item);
+    void cinItemIncome();
 
     private:
 

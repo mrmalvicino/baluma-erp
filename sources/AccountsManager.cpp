@@ -124,6 +124,12 @@ bool AccountsManager::editAccount() {
         }
     } while (selection != 0);
 
+    bool successful_write = updateAccount();
+
+    return successful_write;
+}
+
+bool AccountsManager::updateAccount() {
     int index = _accounts_archive.getIndex(_account.getId());
     bool successful_write = _accounts_archive.overWrite(_account, index);
 
