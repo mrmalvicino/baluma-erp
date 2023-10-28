@@ -28,10 +28,21 @@ void AccountingManager::displayMainMenu() {
                 showJournal();
                 break;
             case 3:
-                addTransaction();
+                buy();
+                break;
+            case 4:
+                sell();
                 break;
         }
     } while (selection != 0);
+}
+
+bool AccountingManager::buy() {
+
+}
+
+bool AccountingManager::sell() {
+
 }
 
 bool AccountingManager::addTransaction() {

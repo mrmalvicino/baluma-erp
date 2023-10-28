@@ -12,6 +12,10 @@ class AccountingManager {
 
     void displayMainMenu();
 
+    bool buy();
+
+    bool sell();
+
     bool addTransaction();
 
     void loadTransaction(int index);

@@ -423,7 +423,7 @@ void WarehousesManager::exportWarehousesCSV() {
 }
 
 void WarehousesManager::importWarehousesCSV() {
-    std::cout << "¿Desea reemplazar los warehouses actuales por aquellos que haya en el archivo CSV? [S/N]\n";
+    std::cout << "¿Desea reemplazar los depósitos actuales por aquellos que haya en el archivo CSV? [S/N]\n";
 
     if (_terminal.validateBool() == false) {
         std::cout << "Importación abortada por el usuario.\n";
