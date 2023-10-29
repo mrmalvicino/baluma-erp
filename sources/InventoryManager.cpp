@@ -1128,3 +1128,9 @@ void InventoryManager::cinItemIncome() {
 
     _item.setIncome(date);
 }
+bool InventoryManager::updateItem()
+{
+    int index = _items_archive.getIndex(_item.getId());
+    bool successful_write = _items_archive.overWrite(_item, index);
+    return successful_write;
+}

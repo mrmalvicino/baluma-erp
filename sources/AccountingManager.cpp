@@ -50,9 +50,12 @@ bool AccountingManager::buy() {
 
     _terminal.clear();
     _inventory_manager.cinItemStock(false); // Modifica el stock del _item
+    successful_write = _inventory_manager.updateItem(); // Actualiza el _item en el archivo
+
     int final_stock = _inventory_manager.getItemStock();
     int amount = final_stock - initial_stock; // Determina la cantidad ingresada por el usuario
-
+    std::cout << amount << std::endl;
+    _terminal.pause();
     double value = _inventory_manager.getItemPrice();
     std::cout << "TOTAL: "<<value * amount<<".\n";
 
@@ -103,9 +106,10 @@ bool AccountingManager::sell() {
     }
 
     _terminal.clear();
-    _inventory_manager.cinItemStock(false); // Modifica el stock del _item
+    _inventory_manager.cinItemStock(true); // Modifica el stock del _item
+    successful_write = _inventory_manager.updateItem(); // Actualiza el _item en el archivo
     int final_stock = _inventory_manager.getItemStock();
-    int amount = final_stock - initial_stock; // Determina la cantidad ingresada por el usuario
+    int amount = initial_stock - final_stock; // Determina la cantidad ingresada por el usuario
 
     double value = _inventory_manager.getItemPrice();
     std::cout << "TOTAL: "<<value * amount<<".\n";

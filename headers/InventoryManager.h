@@ -293,6 +293,8 @@ class InventoryManager {
      */
     void cinItemIncome();
 
+    bool updateItem();
+
     private:
 
     /**
