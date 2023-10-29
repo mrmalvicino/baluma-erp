@@ -1,6 +1,6 @@
 /**
  * @file InventoryManager.h
- * @author Franco Baez (Francobaez2309@gmail.com), Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
+ * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
  * @brief Manages the inventory module.
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  */
@@ -137,8 +137,9 @@ class InventoryManager {
     /**
      * @brief Prompts the user for keyboard input to set the warehouse for which the item menu will be loaded. Then , calls the setWarehousePaths() and displayItemsMenu() methods if the user input is valid.
      * @param display_items_menu (bool) If true, the items menu will shown.
+     * @return (int) Returns 0 if the search of the warehouse was successful and -1 otherwise.
      */
-    void loadItemsMenu(bool display_items_menu = true);
+    int loadItemsMenu(bool display_items_menu = true);
 
     /**
      * @brief Displays a menu to manage stock items in a specific warehouse.
@@ -293,6 +294,10 @@ class InventoryManager {
      */
     void cinItemIncome();
 
+    /**
+     * @brief Rewrites the _item record of the current item's _id with the current attributes.
+     * @return (bool) Returns true if the item record is successfully updated. Otherwise, returns false.
+     */
     bool updateItem();
 
     private:

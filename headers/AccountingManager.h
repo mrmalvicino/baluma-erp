@@ -25,8 +25,6 @@ class AccountingManager {
 
     int generateTransactionId();
 
-    void cinAccountId(Transaction & transaction);
-
     void cinTransactionDescription(Transaction & transaction, bool cin_ignore = false);
 
     private:

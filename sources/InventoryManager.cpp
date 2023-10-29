@@ -467,7 +467,7 @@ void InventoryManager::setWarehousePaths(int warehouse_id) {
         _items_csv.setPath(csv_path);
 }
 
-void InventoryManager::loadItemsMenu(bool display_items_menu) {
+int InventoryManager::loadItemsMenu(bool display_items_menu) {
     int search_rtn = _warehouses_manager.searchWarehouse();
 
     if (search_rtn != -1) {
@@ -477,6 +477,8 @@ void InventoryManager::loadItemsMenu(bool display_items_menu) {
             displayItemsMenu(_warehouses_manager.getWarehouse().getName());
         }
     }
+
+    return search_rtn;
 }
 
 void InventoryManager::displayItemsMenu(std::string warehouse_name) {
@@ -1128,9 +1130,10 @@ void InventoryManager::cinItemIncome() {
 
     _item.setIncome(date);
 }
-bool InventoryManager::updateItem()
-{
+
+bool InventoryManager::updateItem() {
     int index = _items_archive.getIndex(_item.getId());
     bool successful_write = _items_archive.overWrite(_item, index);
+
     return successful_write;
 }

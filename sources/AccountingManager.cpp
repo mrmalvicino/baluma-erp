@@ -1,6 +1,6 @@
 #include "../headers/AccountingManager.h"
 
-int AccountingManager::getAmountOfTransactions(){
+int AccountingManager::getAmountOfTransactions() {
     _amount_of_transactions = _transactions_archive.getAmountOfRegisters();
     return _amount_of_transactions;
 }
@@ -42,24 +42,30 @@ bool AccountingManager::buy() {
     bool successful_write_item;
     bool successful_write_acoount;
     bool successful_write_transaction;
+    int search_rtn = 0;
 
-    _inventory_manager.loadItemsMenu(false); // Carga el _warehouse
-    int search_rtn = _inventory_manager.searchItem(); // Carga el _item
-    int initial_stock = _inventory_manager.getItemStock();
+    search_rtn = _inventory_manager.loadItemsMenu(false); // Usuario selecciona en qué _warehouse se va a stockiar el item a comprar
 
     if (search_rtn == -1) {
         return false;
     }
 
+    search_rtn = _inventory_manager.searchItem(); // Usuario selecciona qué _item se va a comprar
+
+    if (search_rtn == -1) {
+        return false;
+    }
+
+    int initial_stock = _inventory_manager.getItemStock();
+
     _terminal.clear();
-    _inventory_manager.cinItemStock(false); // Modifica el stock del _item
+    _inventory_manager.cinItemStock(false); // Usuario ingresa cantidad y se modifica el stock del _item
 
     int final_stock = _inventory_manager.getItemStock();
     int amount = final_stock - initial_stock; // Determina la cantidad ingresada por el usuario
-    std::cout << amount << std::endl;
+
     _terminal.pause();
     double value = _inventory_manager.getItemPrice();
-    std::cout << "TOTAL: "<<value * amount<<".\n";
 
     Transaction transaction;
     transaction.setId(generateTransactionId()); // Agrega transaccion al libro diario
@@ -70,27 +76,24 @@ bool AccountingManager::buy() {
     std::cout << "Desea grabar la compra [S/N]?\n";
     bool user_choice = _terminal.validateBool();
 
-    if(user_choice == true)
-    {
+    if(user_choice == true) {
         successful_write_item = _inventory_manager.updateItem(); // Actualiza stock del item
 
         _accounts_manager.loadAccount(1);
-        _accounts_manager.updateCredit( amount * value); // Actualiza pasivo de proveedores
+        _accounts_manager.updateCredit(amount * value); // Actualiza pasivo de proveedores
         successful_write_acoount = _accounts_manager.updateAccount();
     
         _accounts_manager.loadAccount(2);
         _accounts_manager.updateCredit(amount * value); // Actualiza pasivo de caja
         successful_write_acoount = _accounts_manager.updateAccount();
 
-        successful_write_transaction = _transactions_archive.write(transaction); // Guarda la Transaccion creada.
+        successful_write_transaction = _transactions_archive.write(transaction); // Guarda la Transaccion creada
 
-        if(successful_write_item && successful_write_acoount && successful_write_transaction) // Verifica que hayan podido escribirse los cambios
-        {
+        if(successful_write_item && successful_write_acoount && successful_write_transaction) { // Verifica que hayan podido escribirse los cambios
             std::cout << "Compra Registrada.\n";
             successful_changes = true;
         } else {
-
-            std::cerr << "Error de grabado\n";
+            std::cerr << "Error de grabado.\n";
         }
     } else
     {
@@ -135,8 +138,7 @@ bool AccountingManager::sell() {
     std::cout << "Desea grabar la compra [S/N]?\n";
     bool user_choice = _terminal.validateBool();
 
-    if(user_choice == true)
-    {
+    if(user_choice == true) {
         successful_write_item = _inventory_manager.updateItem(); // Actualiza stock del item
 
         _accounts_manager.loadAccount(0);
@@ -147,18 +149,15 @@ bool AccountingManager::sell() {
         _accounts_manager.updateDebit(amount * value); // Actualiza pasivo de caja
         successful_write_acoount = _accounts_manager.updateAccount();
 
-        successful_write_transaction = _transactions_archive.write(transaction); // Guarda la Transaccion creada.
+        successful_write_transaction = _transactions_archive.write(transaction); // Guarda la Transaccion creada
 
-        if(successful_write_item && successful_write_acoount && successful_write_transaction) // Verifica que hayan podido escribirse los cambios
-        {
+        if(successful_write_item && successful_write_acoount && successful_write_transaction) { // Verifica que hayan podido escribirse los cambios
             std::cout << "Compra Registrada.\n";
             successful_changes = true;
         } else {
-
             std::cerr << "Error de grabado\n";
         }
-    } else
-    {
+    } else {
         std::cout << "Compra abortada por el usuario.\n";
     }
 
@@ -202,15 +201,6 @@ int AccountingManager::generateTransactionId() {
     }
 
     return id;
-}
-
-void AccountingManager::cinAccountId(Transaction & transaction) {
-    int account_id;
-
-    std::cout << "Ingresar el número de cuenta:\n";
-    std::cin >> account_id;
-
-    transaction.setAccountId(account_id);
 }
 
 void AccountingManager::cinTransactionDescription(Transaction & transaction, bool cin_ignore) {

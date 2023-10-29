@@ -11,6 +11,8 @@ class Transaction{
 
     Transaction(int id, int account_id, double debit, double credit,const std::string & description);
 
+    void reset();
+
     void setId(int id);
 
     int getId() const;

@@ -81,6 +81,11 @@ class DateTime {
      */
     std::string toString();
 
+    /**
+     * @brief Sets the date and time to the values that the clock has when the method is called.
+     */
+    void setCurrentDateTime();
+
     private:
 
     /**

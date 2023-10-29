@@ -1,6 +1,8 @@
 #include "../headers/DateTime.h"
 
-DateTime::DateTime() {}
+DateTime::DateTime() {
+
+}
 
 DateTime::DateTime(const Date & date, const Time & time) {
     setDate(date);
@@ -46,4 +48,9 @@ void DateTime::setTime(int second, int minute, int hour) {
 
 std::string DateTime::toString() {
     return _date.toString() + " " + _time.toString();
+}
+
+void DateTime::setCurrentDateTime() {
+    _date.setCurrentDate();
+    _time.setCurrentTime();
 }

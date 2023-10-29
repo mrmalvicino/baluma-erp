@@ -1,11 +1,7 @@
 #include "../headers/Transaction.h"
 
 Transaction::Transaction() {
-    setId(1);
-    setAccountId(1);
-    setDebit(0);
-    setCredit(0);
-    setDescription("N/A");
+    reset();
 }
 
 Transaction::Transaction(int id, int account_id, double debit, double credit,const std::string & description) {
@@ -14,6 +10,15 @@ Transaction::Transaction(int id, int account_id, double debit, double credit,con
     setDebit(debit);
     setCredit(credit);
     setDescription(description);
+}
+
+void Transaction::reset() {
+    setId(0);
+    setAccountId(0);
+    setDebit(0);
+    setCredit(0);
+    setDescription("N/A");
+    _date_time.setCurrentDateTime();
 }
 
 void Transaction::setId(int id) {

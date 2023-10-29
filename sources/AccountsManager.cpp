@@ -420,20 +420,20 @@ void AccountsManager::cinAccountStatus(Account & account) {
     }
 }
 
-void AccountsManager::updateCredit(double passive){
+void AccountsManager::updateCredit(double passive) {
    double actual = _account.getPassive();
     _account.setPassive(actual + passive);
 }
 
-double AccountsManager::getCredit(){
+double AccountsManager::getCredit() {
     return _account.getPassive();
 }
 
-void AccountsManager::updateDebit(double active){
+void AccountsManager::updateDebit(double active) {
     double actual = _account.getActive();
     _account.setActive(actual + active);
 }
 
-double AccountsManager::getDebit(){
+double AccountsManager::getDebit() {
     return _account.getActive();
 }
