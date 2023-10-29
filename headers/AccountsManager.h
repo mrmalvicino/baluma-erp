@@ -32,6 +32,14 @@ class AccountsManager {
 
     void printAccount();
 
+    void updateCredit(double passive);
+
+    double getCredit();
+
+    void updateDebit(double active);
+
+    double getDebit();
+
     int generateAccountId();
 
     void exportAccountsBackup();

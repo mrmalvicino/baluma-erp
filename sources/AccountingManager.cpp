@@ -40,10 +40,9 @@ void AccountingManager::displayMainMenu() {
 bool AccountingManager::buy() {
     bool successful_write;
 
-    int initial_stock = _inventory_manager.getItemStock();
-
     _inventory_manager.loadItemsMenu(false); // Carga el _warehouse
     int search_rtn = _inventory_manager.searchItem(); // Carga el _item
+    int initial_stock = _inventory_manager.getItemStock();
 
     if (search_rtn == -1) {
         return false;
@@ -51,37 +50,41 @@ bool AccountingManager::buy() {
 
     _terminal.clear();
     _inventory_manager.cinItemStock(false); // Modifica el stock del _item
-
     int final_stock = _inventory_manager.getItemStock();
     int amount = final_stock - initial_stock; // Determina la cantidad ingresada por el usuario
 
     double value = _inventory_manager.getItemPrice();
+    std::cout << "TOTAL: "<<value * amount<<".\n";
 
-    _account.setType(2);
-    _account.setPassive(_account.getPassive() + amount * value); // Actualiza pasivo de proveedores
 
-    _account.setType(3);
-    _account.setPassive(_account.getPassive() - amount * value); // Actualiza pasivo de caja
-
+    _accounts_manager.loadAccount(1);
+    _accounts_manager.updateCredit( amount * value); // Actualiza pasivo de proveedores
     successful_write = _accounts_manager.updateAccount();
+    
+    _accounts_manager.loadAccount(2);
+    _accounts_manager.updateCredit(amount * value); // Actualiza pasivo de caja
+    successful_write = _accounts_manager.updateAccount();
+   
 
     if (successful_write == false) {
         std::cout << "Error de escritura en el archivo de cuentas.\n";
         return false;
     }
 
-    _transaction.setId(generateTransactionId()); // Agrega transaccion al libro diario
-    _transaction.setAccountId(_account.getId());
-    _transaction.setDebit(_transaction.getDebit() + value);
-    cinTransactionDescription(_transaction, true);
+    Transaction transaction;
+    transaction.setId(generateTransactionId()); // Agrega transaccion al libro diario
+    transaction.setAccountId(2);
+    transaction.setDebit(value * amount);
+    cinTransactionDescription(transaction, true);
 
-    successful_write = _transactions_archive.write(_transaction);
+    successful_write = _transactions_archive.write(transaction);
 
     if (successful_write == true) {
         std::cout << "Registro guardado correctamente.\n";
     } else {
         std::cout << "Error de escritura en el archivo de transacciones.\n";
     }
+   
 
     _terminal.pause();
 
@@ -89,7 +92,56 @@ bool AccountingManager::buy() {
 }
 
 bool AccountingManager::sell() {
-    bool successful_write = false;
+   bool successful_write;
+
+    _inventory_manager.loadItemsMenu(false); // Carga el _warehouse
+    int search_rtn = _inventory_manager.searchItem(); // Carga el _item
+    int initial_stock = _inventory_manager.getItemStock();
+
+    if (search_rtn == -1) {
+        return false;
+    }
+
+    _terminal.clear();
+    _inventory_manager.cinItemStock(false); // Modifica el stock del _item
+    int final_stock = _inventory_manager.getItemStock();
+    int amount = final_stock - initial_stock; // Determina la cantidad ingresada por el usuario
+
+    double value = _inventory_manager.getItemPrice();
+    std::cout << "TOTAL: "<<value * amount<<".\n";
+
+
+    _accounts_manager.loadAccount(0);
+    _accounts_manager.updateDebit( amount * value); // Actualiza pasivo de proveedores
+    successful_write = _accounts_manager.updateAccount();
+    
+    _accounts_manager.loadAccount(2);
+    _accounts_manager.updateDebit(amount * value); // Actualiza pasivo de caja
+    successful_write = _accounts_manager.updateAccount();
+   
+
+    if (successful_write == false) {
+        std::cout << "Error de escritura en el archivo de cuentas.\n";
+        return false;
+    }
+
+    Transaction transaction; 
+
+    transaction.setId(generateTransactionId()); // Agrega transaccion al libro diario
+    transaction.setAccountId(1);
+    transaction.setCredit(value * amount);
+    cinTransactionDescription(transaction, true);
+
+    successful_write = _transactions_archive.write(transaction);
+
+    if (successful_write == true) {
+        std::cout << "Registro guardado correctamente.\n";
+    } else {
+        std::cout << "Error de escritura en el archivo de transacciones.\n";
+    }
+   
+
+    _terminal.pause();
 
     return successful_write;
 }

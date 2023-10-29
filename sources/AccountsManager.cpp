@@ -384,7 +384,7 @@ void AccountsManager::cinAccountConcept(Account & account, bool cin_ignore) {
 void AccountsManager::cinAccountBalance(Account & account) {
     double balance;
 
-    std::cout << "Ingresar resultado del balance:\n";
+    std::cout << "Ingresar saldo inicial:\n";
     std::cin >> balance;
 
     account.setBalance(balance);
@@ -418,4 +418,22 @@ void AccountsManager::cinAccountStatus(Account & account) {
         std::cout << "El cuenta ha sido reincorporado.\n";
         _terminal.pause();
     }
+}
+
+void AccountsManager::updateCredit(double passive){
+   double actual = _account.getPassive();
+    _account.setPassive(actual + passive);
+}
+
+double AccountsManager::getCredit(){
+    return _account.getPassive();
+}
+
+void AccountsManager::updateDebit(double active){
+    double actual = _account.getActive();
+    _account.setActive(actual + active);
+}
+
+double AccountsManager::getDebit(){
+    return _account.getActive();
 }
