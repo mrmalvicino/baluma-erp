@@ -4,13 +4,29 @@
 
 ![Baluma ERP](/images/baluma-erp.png?raw=true "Baluma ERP")
 
-&nbsp; The different modules of Baluma ERP interact with each other through a user role interface that defines the processes of the different sectors of the company. Baluma ERP allows generating reports to analyze and visualize data from the different modules, being the solution to maximize the productivity of a company.
+&nbsp; The different Baluma ERP modules interact with each other, allowing users to track traceability in the processes of the different sectors of the company. Baluma ERP allows generating reports to analyze and visualize data from the different modules, being the solution to maximize the productivity of a company.
 
 ## Features
 
-&nbsp; Baluma ERP is made up of 8 modules. The Customers and Suppliers modules are responsible for managing business partners data. The Inventory module is responsible for managing the data of the products and the warehouses where they are located. The Accounting module is responsible of recording transactions in accounting accounts. The Purchases and Sales modules are used to generate transactions. Quotations can be generated and exported from the Budget module. The Human Resources module is used to manage employees user roles. The following is a screenshot of the main menu.
+&nbsp; Baluma ERP is made up of 5 modules. The Business Partners module is responsible for managing the company's customer and supplier data. The Inventory module is responsible for managing the data of the products and the warehouses where they are located. The Accounting module is responsible for recording transactions in accounting accounts and keeping a record in the journal. The Human Resources module is used to manage the company's employees. And from the Budgets module you can make and export quotes.
+
+&nbsp; The following is a screenshot of the main menu.
 
 ![Baluma ERP](/images/screenshot-menu.png?raw=true "Baluma ERP")
+
+&nbsp; In the following screenshot you can see the clients manager menu. Suppliers and employees managers also provide these functionalities along with others that are specific to each sector.
+
+![Baluma ERP](/images/screenshot-crud.png?raw=true "Baluma ERP")
+
+&nbsp; The following screenshot shows an example with fictitious data of the products and stock report that is generated from the Inventory module.
+
+![Baluma ERP](/images/screenshot-stock.png?raw=true "Baluma ERP")
+
+&nbsp; The following screenshot shows an example with fictitious data of some transactions recorded in the journal.
+
+![Baluma ERP](/images/screenshot-journal.png?raw=true "Baluma ERP")
+
+Visit the [change log](https://github.com/mrmalvicino/baluma-erp/changelog.md) for more details.
 
 ## License
 

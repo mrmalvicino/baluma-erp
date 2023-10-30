@@ -4,13 +4,29 @@
 
 ![Baluma ERP](/images/baluma-erp-esp.png?raw=true "Baluma ERP")
 
-&nbsp; Los distintos módulos de Baluma ERP interactuan entre sí mediante una interfaz de roles de usuario que delimitan los procesos de los distintos sectores de la empresa. Baluma ERP permite generar informes para analizar y visualizar datos de los distintos módulos, siendo la solución para maximizar la productividad de una empresa.
+&nbsp; Los distintos módulos de Baluma ERP interactuan entre sí, permitiendo a los usuarios hacer un seguimiento de la trazabilidad en los procesos de los distintos sectores de la empresa. Baluma ERP permite generar informes para analizar y visualizar datos de los distintos módulos, siendo la solución para maximizar la productividad de una empresa.
 
 ## Características
 
-&nbsp; Baluma ERP está compuesto por 8 módulos. Los módulos Clientes y Proveedores se encargan de administrar los datos de los socios de negocios. El módulo Inventario se encarga de gestionar los datos de los productos y los depósitos en donde se encuentran. El módulo Contabilidad se encarga de registrar las transacciones en cuentas contables. Los módulos Compras y Ventas sirven para generar las transacciones. Desde el módulo Presupuesto se pueden realizar y exportar cotizaciones. El módulo Recursos Humanos sirve para gestionar los roles de usuario de los empleados. La siguiente es una captura de pantalla del menú principal.
+&nbsp; Baluma ERP está compuesto por 5 módulos. El módulo Socios de negocios se encarga de administrar los datos de los clientes y los proveedores de la empresa. El módulo Inventario se encarga de gestionar los datos de los productos y los depósitos en donde se encuentran. El módulo Contabilidad se encarga de registrar las transacciones en cuentas contables y llevar un registro en el libro diario. El módulo Recursos Humanos sirve para gestionar los empleados de la empresa. Y desde el módulo Presupuestos se pueden realizar y exportar cotizaciones.
+
+&nbsp; La siguiente es una captura de pantalla del menú principal.
 
 ![Baluma ERP](/images/screenshot-menu.png?raw=true "Baluma ERP")
+
+&nbsp; En la siguiente captura se observa el menú del gestor de clientes. Los gestores de proveedores y empleados también brindan estas funcionalidades junto con otras que son propias de cada sector.
+
+![Baluma ERP](/images/screenshot-crud.png?raw=true "Baluma ERP")
+
+&nbsp; La siguiente captura muestra un ejemplo con datos ficticios del informe de productos y existencias que se genera desde el módulo Inventario.
+
+![Baluma ERP](/images/screenshot-stock.png?raw=true "Baluma ERP")
+
+&nbsp; En la siguiente captura se observa un ejemplo con datos ficticios de algunas transacciones registradas en el libro diario.
+
+![Baluma ERP](/images/screenshot-journal.png?raw=true "Baluma ERP")
+
+Visitar el [reporte de cambios](https://github.com/mrmalvicino/baluma-erp/changelog.md) para más detalles.
 
 ## Licencia
 
