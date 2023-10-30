@@ -23,6 +23,11 @@ class Baluma {
     void run();
 
     /**
+     * @brief Displays the business partners menu.
+     */
+    void businessPartnersMenu();
+
+    /**
      * @brief Prints information about the software.
      */
     void about();

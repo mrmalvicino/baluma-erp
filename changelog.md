@@ -53,3 +53,5 @@ _Desarrollado por: Franco Baez, Lucio Luque_
 - Se propone implementar el menu de listado en el módulo de empleados para unificar la funcionalidad y que tenga la misma interfaz en todo el programa.
 
 - Un empleado en realidad no es un socio de negocio, sino una persona o recurso humano. Para mayor facilidad se heredó desde BusinessPartner pero habría que crear una clase Person para heredar Employee.
+
+- Se podría hacer que la rutina checkAccounts() se genere periódicamente y no solo al inicio, por si el archivo de cuentas es borrado.
