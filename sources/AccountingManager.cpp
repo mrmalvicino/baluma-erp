@@ -75,7 +75,7 @@ bool AccountingManager::buy() {
     _transaction.setId(generateTransactionId());
     _transaction.setAccountId(_suppliers_acc_id);
     _transaction.setDebit(value * amount);
-    cinTransactionDescription(_transaction, true);
+    cinTransactionDescription(true);
 
     std::cout << "¿Desea agregar la compra con los datos ingresados? [S/N]\n";
     bool user_wants_to_save = _terminal.validateBool();
@@ -144,7 +144,7 @@ bool AccountingManager::sell() {
     _transaction.setId(generateTransactionId());
     _transaction.setAccountId(_clients_acc_id);
     _transaction.setCredit(value * amount);
-    cinTransactionDescription(_transaction, true);
+    cinTransactionDescription(true);
 
     std::cout << "Desea grabar la compra [S/N]?\n";
     bool user_wants_to_save = _terminal.validateBool();
@@ -273,7 +273,7 @@ void AccountingManager::checkAccounts() {
     }
 }
 
-void AccountingManager::cinTransactionDescription(Transaction & transaction, bool cin_ignore) {
+void AccountingManager::cinTransactionDescription(bool cin_ignore) {
     std::string description;
 
     if (cin_ignore == true) {
@@ -283,5 +283,5 @@ void AccountingManager::cinTransactionDescription(Transaction & transaction, boo
     std::cout << "Ingresar descripción de la transacción:\n";
     getline(std::cin, description);
 
-    transaction.setDescription(description);
+    _transaction.setDescription(description);
 }
