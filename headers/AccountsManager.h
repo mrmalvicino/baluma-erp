@@ -10,6 +10,14 @@ class AccountsManager {
 
     AccountsManager();
 
+    void updatePassive(double passive);
+
+    double getPassive();
+
+    void updateActive(double active);
+
+    double getActive();
+
     void displayMenu();
 
     bool addAccount();
@@ -32,31 +40,23 @@ class AccountsManager {
 
     void printAccount();
 
-    void updateCredit(double passive);
-
-    double getCredit();
-
-    void updateDebit(double active);
-
-    double getDebit();
-
     int generateAccountId();
 
     void exportAccountsBackup();
 
     void importAccountsBackup();
 
-    void cinAccountName(Account & account, bool cin_ignore = false);
+    void cinAccountName(bool cin_ignore = false);
 
-    void cinAccountConcept(Account & account, bool cin_ignore = false);
+    void cinAccountConcept(bool cin_ignore = false);
 
-    void cinAccountBalance(Account & account);
+    void cinAccountBalance();
 
-    void cinAccountType(Account & account);
+    void cinAccountType();
 
-    void cinAccountTypeId(Account & account);
+    void cinAccountTypeId();
 
-    void cinAccountStatus(Account & account);
+    void cinAccountStatus();
 
     private:
 

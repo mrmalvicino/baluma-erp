@@ -4,6 +4,22 @@ AccountsManager::AccountsManager() {
     _accounts_backup.setPath("registers/accounts.bkp");
 }
 
+void AccountsManager::updatePassive(double passive) {
+    _account.setPassive(_account.getPassive() + passive);
+}
+
+double AccountsManager::getPassive() {
+    return _account.getPassive();
+}
+
+void AccountsManager::updateActive(double active) {
+    _account.setActive(_account.getActive() + active);
+}
+
+double AccountsManager::getActive() {
+    return _account.getActive();
+}
+
 void AccountsManager::displayMenu() {
     int selection = 1;
 
@@ -53,11 +69,9 @@ bool AccountsManager::addAccount() {
 
     _account.setId(generateAccountId());
 
-    // Aca hay que pedir tipo (1 clientes, 2 proveedores, 3 varios) y mandar a buscar cliente o proveedor en caso que sea tipo 1 o 2 para fetchiar el id del tipo
-
-    cinAccountName(_account, true); // el nombre se deberia generar automaticamente concatenando el tipo con el id del tipo? EJ clientes3
-    cinAccountConcept(_account);
-    cinAccountBalance(_account);
+    cinAccountName(true);
+    cinAccountConcept();
+    cinAccountBalance();
 
     std::cout << "¿Desea guardar un nuevo registro con los datos ingresados? [S/N]\n";
     user_wants_to_save = _terminal.validateBool();
@@ -107,19 +121,19 @@ bool AccountsManager::editAccount() {
 
         switch (selection) {
             case 1:
-                cinAccountName(_account, true);
+                cinAccountName(true);
                 break;
             case 2:
-                cinAccountConcept(_account, true);
+                cinAccountConcept(true);
                 break;
             case 3:
-                cinAccountType(_account);
+                cinAccountType();
                 break;
             case 4:
-                cinAccountTypeId(_account);
+                cinAccountTypeId();
                 break;
             case 5:
-                cinAccountStatus(_account);
+                cinAccountStatus();
                 break;
         }
     } while (selection != 0);
@@ -355,7 +369,7 @@ void AccountsManager::importAccountsBackup() {
     }
 }
 
-void AccountsManager::cinAccountName(Account & account, bool cin_ignore) {
+void AccountsManager::cinAccountName(bool cin_ignore) {
     std::string name;
 
     if (cin_ignore == true) {
@@ -365,10 +379,10 @@ void AccountsManager::cinAccountName(Account & account, bool cin_ignore) {
     std::cout << "Ingresar nombre de la cuenta:\n";
     getline(std::cin, name);
 
-    account.setName(name);
+    _account.setName(name);
 }
 
-void AccountsManager::cinAccountConcept(Account & account, bool cin_ignore) {
+void AccountsManager::cinAccountConcept(bool cin_ignore) {
     std::string concept;
 
     if (cin_ignore == true) {
@@ -378,62 +392,44 @@ void AccountsManager::cinAccountConcept(Account & account, bool cin_ignore) {
     std::cout << "Ingresar concepto:\n";
     getline(std::cin, concept);
 
-    account.setConcept(concept);
+    _account.setConcept(concept);
 }
 
-void AccountsManager::cinAccountBalance(Account & account) {
+void AccountsManager::cinAccountBalance() {
     double balance;
 
     std::cout << "Ingresar saldo inicial:\n";
     std::cin >> balance;
 
-    account.setBalance(balance);
+    _account.setBalance(balance);
 }
 
-void AccountsManager::cinAccountType(Account & account) {
+void AccountsManager::cinAccountType() {
     int type;
 
     std::cout << "Ingresar tipo de cuenta:\n";
     std::cin >> type;
 
-    account.setType(type);
+    _account.setType(type);
 }
 
-void AccountsManager::cinAccountTypeId(Account & account) {
+void AccountsManager::cinAccountTypeId() {
     int type_id;
 
     std::cout << "Ingresar #ID del tipo de cuenta:\n";
     std::cin >> type_id;
 
-    account.setTypeId(type_id);
+    _account.setTypeId(type_id);
 }
 
-void AccountsManager::cinAccountStatus(Account & account) {
-    if (account.getStatus()) {
-        account.setStatus(false);
+void AccountsManager::cinAccountStatus() {
+    if (_account.getStatus()) {
+        _account.setStatus(false);
         std::cout << "El cuenta ha sido dado de baja.\n";
         _terminal.pause();
     } else {
-        account.setStatus(true);
+        _account.setStatus(true);
         std::cout << "El cuenta ha sido reincorporado.\n";
         _terminal.pause();
     }
-}
-
-void AccountsManager::updateCredit(double passive) {
-   double actual = _account.getPassive();
-    _account.setPassive(actual + passive);
-}
-
-double AccountsManager::getCredit() {
-    return _account.getPassive();
-}
-
-void AccountsManager::updateDebit(double active) {
-    double actual = _account.getActive();
-    _account.setActive(actual + active);
-}
-
-double AccountsManager::getDebit() {
-    return _account.getActive();
 }

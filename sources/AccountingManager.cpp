@@ -81,12 +81,12 @@ bool AccountingManager::buy() {
 
         // Actualiza pasivo de proveedores
         _accounts_manager.loadAccount(1);
-        _accounts_manager.updateCredit(amount * value);
+        _accounts_manager.updatePassive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
         // Actualiza pasivo de caja
         _accounts_manager.loadAccount(2);
-        _accounts_manager.updateCredit(amount * value);
+        _accounts_manager.updatePassive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
         successful_write_transaction = _transactions_archive.write(_transaction); // Agrega transaccion al libro diario
@@ -150,12 +150,12 @@ bool AccountingManager::sell() {
 
         // Actualiza pasivo de clientes
         _accounts_manager.loadAccount(0);
-        _accounts_manager.updateDebit( amount * value);
+        _accounts_manager.updateActive( amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
         // Actualiza pasivo de caja
         _accounts_manager.loadAccount(2);
-        _accounts_manager.updateDebit(amount * value);
+        _accounts_manager.updateActive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
         successful_write_transaction = _transactions_archive.write(_transaction); // Agrega transaccion al libro diario

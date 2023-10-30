@@ -49,6 +49,7 @@ std::string Account::getConcept() {
 }
 
 void Account::setPassive(double passive) {
+    _balance -= passive;
     _passive = passive;
 }
 
@@ -57,6 +58,7 @@ double Account::getPassive() {
 }
 
 void Account::setActive(double active) {
+    _balance += active;
     _active = active;
 }
 
@@ -69,7 +71,6 @@ void Account::setBalance(double balance) {
 }
 
 double Account::getBalance() {
-    _balance = _active - _passive;
     return _balance;
 }
 
