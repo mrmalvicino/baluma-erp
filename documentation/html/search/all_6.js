@@ -1,6 +1,25 @@
 var searchData=
 [
-  ['features_0',['Features',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html#autotoc_md8',1,'']]],
-  ['fill_1',['fill',['../class_terminal.html#a74c2bf9f3af94628debfe8d0468ac197',1,'Terminal']]],
-  ['from_20terminal_2',['Run from terminal',['../index.html#run_sec',1,'']]]
+  ['date_0',['date',['../class_date.html',1,'Date'],['../class_date.html#ab1ad19969fa570605a6b0cd32b0da822',1,'Date::Date(int day, int month, int year)'],['../class_date.html#a4e59ed4ba66eec61c27460c5d09fa1bd',1,'Date::Date()']]],
+  ['date_2ecpp_1',['Date.cpp',['../_date_8cpp.html',1,'']]],
+  ['date_2eh_2',['Date.h',['../_date_8h.html',1,'']]],
+  ['datetime_3',['datetime',['../class_date_time.html#a441be26f8869a84a597ab5a86567c5fd',1,'DateTime::DateTime()'],['../class_date_time.html',1,'DateTime'],['../class_date_time.html#a3ccfb87f7a2e9683b91964e32d907161',1,'DateTime::DateTime()'],['../class_date_time.html#a23df43b1de38676070aee377933de8eb',1,'DateTime::DateTime(int day, int month, int year, int second, int minute, int hour)']]],
+  ['datetime_2ecpp_4',['DateTime.cpp',['../_date_time_8cpp.html',1,'']]],
+  ['datetime_2eh_5',['DateTime.h',['../_date_time_8h.html',1,'']]],
+  ['de_20cambios_6',['Reporte de cambios',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2changelog.html',1,'']]],
+  ['de_20contribución_7',['Políticas de contribución',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html#autotoc_md12',1,'']]],
+  ['de_20negocios_8',['Socios de negocios',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2changelog.html#autotoc_md2',1,'']]],
+  ['decreaseday_9',['decreaseDay',['../class_date.html#a2e27fa6eca851ac668fd9a45012445c7',1,'Date']]],
+  ['deletematrix_10',['deleteMatrix',['../class_array.html#a305e8a1d586fc6002e3af5c3a7b3356f',1,'Array']]],
+  ['deletevector_11',['deleteVector',['../class_array.html#af72f679f88e1a53b0de5f119499e3b98',1,'Array']]],
+  ['descarga_12',['Descarga',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html#autotoc_md13',1,'']]],
+  ['displayitemsmenu_13',['displayItemsMenu',['../class_inventory_manager.html#ab1aabacea3d1775c15370d57beacdaf2',1,'InventoryManager']]],
+  ['displaymainmenu_14',['displaymainmenu',['../class_inventory_manager.html#ac6eef179187b5b35b586e2475af30f17',1,'InventoryManager::displayMainMenu()'],['../class_accounting_manager.html#a7cd259cfc0b8c900f442548065b05aec',1,'AccountingManager::displayMainMenu()']]],
+  ['displaymenu_15',['displaymenu',['../class_warehouses_manager.html#a40cc48e810944795cf3f3278bcff4e37',1,'WarehousesManager::displayMenu()'],['../class_clients_manager.html#a0dc648295dded0f0fc88ca733c295f8b',1,'ClientsManager::displayMenu()'],['../class_employees_manager.html#af51186dd19b0eb56621892b6d46a29c5',1,'EmployeesManager::displayMenu()'],['../class_accounts_manager.html#aeb89e94f1d2b3a442feb79742aa77ff7',1,'AccountsManager::displayMenu()'],['../class_suppliers_manager.html#a394ed25ecbbaff29f81e2bb3a077c0bd',1,'SuppliersManager::displayMenu()']]],
+  ['displaymenufooter_16',['displayMenuFooter',['../class_terminal.html#a6342e7da66a22b04e915674b6120a14d',1,'Terminal']]],
+  ['displaymenuheader_17',['displayMenuHeader',['../class_terminal.html#ab48bb0f04fa2023578e05ba9efe3f1a2',1,'Terminal']]],
+  ['displayproductsmenu_18',['displayProductsMenu',['../class_inventory_manager.html#a28d37d959dca20424ad47fe7e5d097dd',1,'InventoryManager']]],
+  ['documentación_19',['Documentación',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html#autotoc_md11',1,'']]],
+  ['documentation_20',['documentation',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html#autotoc_md18',1,'Documentation'],['../index.html',1,'Software documentation']]],
+  ['download_21',['Download',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html#autotoc_md20',1,'']]]
 ];

@@ -51,3 +51,5 @@ _Desarrollado por: Franco Baez, Lucio Luque_
 - Se propone que los métodos cin que no lo requieran no reciban por referencia los objetos, sino que modifiquen directamente el atributo. Esto no es posible para los cin de Item y Producto ya que es necesario diferenciar qué atributo se está modificando. Pero el resto se podría simplificar para mayor legibilidad y eficiencia.
 
 - Se propone implementar el menu de listado en el módulo de empleados para unificar la funcionalidad y que tenga la misma interfaz en todo el programa.
+
+- Un empleado en realidad no es un socio de negocio, sino una persona o recurso humano. Para mayor facilidad se heredó desde BusinessPartner pero habría que crear una clase Person para heredar Employee.

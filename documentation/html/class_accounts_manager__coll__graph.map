@@ -1,36 +1,11 @@
 <map id="AccountsManager" name="AccountsManager">
-<area shape="rect" id="Node000001" title=" " alt="" coords="644,390,771,416"/>
-<area shape="rect" id="Node000002" href="$class_terminal.html" title=" " alt="" coords="622,94,692,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="707,109,778,118,859,132,930,152,956,165,973,181,984,200,988,218,987,236,980,254,956,285,920,314,877,339,831,361,748,392,746,387,829,356,874,335,917,310,952,282,976,251,981,235,983,219,979,202,969,184,953,170,928,157,857,137,777,123,706,115"/>
-<area shape="rect" id="Node000005" href="$class_clients_manager.html" title=" " alt="" coords="651,286,764,312"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="661,134,664,169,672,208,687,251,703,285,699,287,682,253,666,209,659,170,655,135"/>
-<area shape="rect" id="Node000010" href="$class_clients_c_s_v.html" title=" " alt="" coords="869,183,959,208"/>
-<area shape="poly" id="edge11_Node000010_Node000002" title=" " alt="" coords="707,122,879,180,877,185,705,127"/>
-<area shape="rect" id="Node000011" href="$class_suppliers_manager.html" title=" " alt="" coords="305,286,430,312"/>
-<area shape="poly" id="edge13_Node000011_Node000002" title=" " alt="" coords="642,133,582,211,534,264,509,277,483,286,431,297,430,292,482,281,507,272,531,260,578,207,637,130"/>
-<area shape="rect" id="Node000014" href="$class_suppliers_c_s_v.html" title=" " alt="" coords="320,183,423,208"/>
-<area shape="poly" id="edge18_Node000014_Node000002" title=" " alt="" coords="607,117,544,128,477,146,431,165,393,184,391,180,429,160,475,141,543,123,606,112"/>
-<area shape="rect" id="Node000003" href="$class_account.html" title=" " alt="" coords="103,286,173,312"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,311,296,337,423,363,540,381,644,393,644,398,540,386,423,369,295,342,187,316"/>
-<area shape="rect" id="Node000004" href="$class_date.html" title=" " alt="" coords="5,183,55,208"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="31,223,34,243,43,261,55,272,71,281,104,291,102,296,68,286,52,277,39,264,29,245,26,224"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="710,327,710,390,705,390,705,327"/>
-<area shape="rect" id="Node000006" href="$class_client.html" title=" " alt="" coords="448,183,503,208"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="509,214,597,260,664,283,662,288,595,265,506,219"/>
-<area shape="rect" id="Node000007" href="$class_business_partner.html" title=" " alt="" coords="321,94,438,120"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="419,125,442,142,459,161,471,181,467,184,455,165,439,146,416,129"/>
-<area shape="rect" id="Node000012" href="$class_supplier.html" title=" " alt="" coords="228,183,296,208"/>
-<area shape="poly" id="edge15_Node000012_Node000007" title=" " alt="" coords="353,131,280,184,277,180,350,126"/>
-<area shape="rect" id="Node000008" href="$class_adress.html" title=" " alt="" coords="348,5,411,31"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="382,46,382,94,377,94,377,46"/>
-<area shape="rect" id="Node000009" href="$class_clients_archive.html" title=" " alt="" coords="738,183,845,208"/>
-<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="774,221,763,234,719,287,715,284,759,231,770,218"/>
-<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="899,222,879,247,861,265,813,285,765,296,764,291,811,280,858,260,875,244,895,219"/>
-<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="423,314,667,387,666,392,421,319"/>
-<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="278,220,292,241,309,260,343,284,340,288,306,264,287,244,273,223"/>
-<area shape="rect" id="Node000013" href="$class_suppliers_archive.html" title=" " alt="" coords="78,183,198,208"/>
-<area shape="poly" id="edge16_Node000011_Node000013" title=" " alt="" coords="146,222,155,243,169,260,191,271,225,279,304,290,304,296,224,285,190,276,166,264,150,245,141,224"/>
-<area shape="poly" id="edge17_Node000011_Node000014" title=" " alt="" coords="372,223,371,232,370,286,365,286,366,232,366,223"/>
-<area shape="rect" id="Node000015" href="$class_accounts_archive.html" title=" " alt="" coords="1034,286,1154,312"/>
-<area shape="poly" id="edge19_Node000001_Node000015" title=" " alt="" coords="1076,325,1049,349,1016,368,971,381,906,390,771,401,771,396,906,385,969,376,1014,364,1046,344,1072,321"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="71,198,197,223"/>
+<area shape="rect" id="Node000002" href="$class_terminal.html" title=" " alt="" coords="5,94,76,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,133,60,153,73,172,89,185,106,195,103,199,86,189,70,175,56,156,46,135"/>
+<area shape="rect" id="Node000003" href="$class_account.html" title=" " alt="" coords="99,94,169,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,135,137,197,131,197,131,135"/>
+<area shape="rect" id="Node000004" href="$class_date.html" title=" " alt="" coords="109,5,159,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="137,46,137,94,131,94,131,46"/>
+<area shape="rect" id="Node000005" href="$class_accounts_archive.html" title=" " alt="" coords="192,94,313,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="238,133,198,176,161,199,158,195,195,172,234,130"/>
 </map>

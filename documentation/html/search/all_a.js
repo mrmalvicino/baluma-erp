@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['moveaccount_2',['moveAccount',['../class_account.html#a5ff64cfded961b7e643ba78b61921f65',1,'Account']]]
+  ['humanos_0',['Recursos humanos',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2changelog.html#autotoc_md5',1,'']]]
 ];

@@ -1,6 +1,6 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/EmployeesArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/EmployeesArchive.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="311,5,529,61"/>
-<area shape="rect" id="Node000002" href="$_employees_manager_8h.html" title=" " alt="" coords="184,109,406,165"/>
+<area shape="rect" id="Node000001" title="Manages a employee archive, allowing storage and retrieval of employee records in a binary file." alt="" coords="311,5,529,61"/>
+<area shape="rect" id="Node000002" href="$_employees_manager_8h.html" title="Manages the employee module." alt="" coords="184,109,406,165"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="377,73,330,110,327,106,373,69"/>
 <area shape="rect" id="Node000007" href="$_employees_archive_8cpp.html" title=" " alt="" coords="430,109,661,165"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="467,69,513,106,510,110,463,73"/>

@@ -1,15 +1,15 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/AccountsManager.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/AccountsManager.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="398,5,610,61"/>
-<area shape="rect" id="Node000002" href="$_baluma_8h.html" title="Generic enterprise resource planning software." alt="" coords="195,109,360,165"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="431,70,339,111,337,106,429,65"/>
-<area shape="rect" id="Node000005" href="$_transactions_manager_8h.html" title=" " alt="" coords="388,109,620,165"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="507,76,507,108,501,108,501,76"/>
-<area shape="rect" id="Node000007" href="$_accounts_manager_8cpp.html" title=" " alt="" coords="644,109,871,165"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="586,64,690,106,688,111,584,69"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html" title=" " alt="" coords="5,213,171,268"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="215,174,140,214,138,210,213,170"/>
-<area shape="rect" id="Node000004" href="$_baluma_8cpp.html" title=" " alt="" coords="194,213,361,268"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="280,180,280,212,275,212,275,180"/>
-<area shape="rect" id="Node000006" href="$_transactions_manager_8cpp.html" title=" " alt="" coords="385,213,631,268"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="508,179,510,212,504,212,503,180"/>
+<area shape="rect" id="Node000001" title="Manages the accounts of the accounting module." alt="" coords="313,5,525,61"/>
+<area shape="rect" id="Node000002" href="$_accounting_manager_8h.html" title="Manages the accounting module." alt="" coords="184,109,406,165"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="376,73,330,110,326,106,372,69"/>
+<area shape="rect" id="Node000007" href="$_accounts_manager_8cpp.html" title=" " alt="" coords="430,109,656,165"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="465,69,511,106,508,110,461,73"/>
+<area shape="rect" id="Node000003" href="$_baluma_8h.html" title="Generic enterprise resource planning software." alt="" coords="100,213,265,268"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,177,215,214,211,210,252,173"/>
+<area shape="rect" id="Node000006" href="$_accounting_manager_8cpp.html" title=" " alt="" coords="290,213,526,268"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="338,173,379,210,376,214,334,177"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title=" " alt="" coords="5,316,171,372"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="149,281,115,318,111,314,145,278"/>
+<area shape="rect" id="Node000005" href="$_baluma_8cpp.html" title=" " alt="" coords="194,316,361,372"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="220,278,254,314,250,318,216,281"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/Employee.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/Employee.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="11,5,177,61"/>
+<area shape="rect" id="Node000001" title="Represents a Employee of an organization." alt="" coords="11,5,177,61"/>
 <area shape="rect" id="Node000002" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="5,109,66,135"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,63,54,98,50,95,74,60"/>
 <area shape="rect" id="Node000005" href="$_business_partner_8h.html" title="Represents a business partner of an organization." alt="" coords="89,109,217,135"/>

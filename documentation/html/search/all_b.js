@@ -1,4 +1,29 @@
 var searchData=
 [
-  ['overwrite_0',['overwrite',['../class_accounts_archive.html#ab9408eb15dd0cf910cc1acdabaf1329e',1,'AccountsArchive::overWrite()'],['../class_clients_archive.html#aff65efafdf61ea02940b84ed212ca34b',1,'ClientsArchive::overWrite()'],['../class_employees_archive.html#ac9c5d1fadb751e0b3951aa0c68ef8c9a',1,'EmployeesArchive::overWrite()'],['../class_items_archive.html#af7b7e7fe57208c91346d95a614e43303',1,'ItemsArchive::overWrite()'],['../class_products_archive.html#aa859ddddf2866334fd3bc8ee38763037',1,'ProductsArchive::overWrite()'],['../class_suppliers_archive.html#a165cd70627d9b4e193e50b3c433c1703',1,'SuppliersArchive::overWrite()'],['../class_transactions_archive.html#a3e5224430acb5d44ba2883c220aa535f',1,'TransactionsArchive::overWrite()'],['../class_warehouses_archive.html#a13b9b491b9f05b10f8727dfc3a8dfec3',1,'WarehousesArchive::overWrite()']]]
+  ['importaccountsbackup_0',['importAccountsBackup',['../class_accounts_manager.html#af6edbf79d87e3e038b690d19f07b8691',1,'AccountsManager']]],
+  ['importclientsbackup_1',['importClientsBackup',['../class_clients_manager.html#a1ab052182e73cdf2bb63751011e840f7',1,'ClientsManager']]],
+  ['importclientscsv_2',['importClientsCSV',['../class_clients_manager.html#a1c599f1389b3c3412c78661a15c2883e',1,'ClientsManager']]],
+  ['importemployeebackup_3',['importEmployeeBackup',['../class_employees_manager.html#ac8ea32b76c4ce36a1ce7debfa66868ca',1,'EmployeesManager']]],
+  ['importitemsbackup_4',['importItemsBackup',['../class_inventory_manager.html#ab48a9ef5da8f78cf7614c344f8a1c126',1,'InventoryManager']]],
+  ['importitemscsv_5',['importItemsCSV',['../class_inventory_manager.html#a8f4e24d4f58d4c86d4c70093ebcaeffc',1,'InventoryManager']]],
+  ['importproductsbackup_6',['importProductsBackup',['../class_inventory_manager.html#a9f42d86f6e146f26fc29fb4554ece88d',1,'InventoryManager']]],
+  ['importsuppliersbackup_7',['importSuppliersBackup',['../class_suppliers_manager.html#a15e5f5f1a7a97226bf8934c556605a86',1,'SuppliersManager']]],
+  ['importsupplierscsv_8',['importSuppliersCSV',['../class_suppliers_manager.html#a4153a3abfd2847ef594b2307e06538ec',1,'SuppliersManager']]],
+  ['importwarehousesbackup_9',['importWarehousesBackup',['../class_warehouses_manager.html#a8069344a478873ce4f1518e55d88b9f6',1,'WarehousesManager']]],
+  ['importwarehousescsv_10',['importWarehousesCSV',['../class_warehouses_manager.html#ad7d12a68f9a84bddfe22aaa5bff43fa5',1,'WarehousesManager']]],
+  ['increaseday_11',['increaseDay',['../class_date.html#ab80501a7460e3e13c86fa5934fccd39d',1,'Date']]],
+  ['introduction_12',['Introduction',['../index.html#intro_sec',1,'']]],
+  ['inventario_13',['Inventario',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2changelog.html#autotoc_md3',1,'']]],
+  ['inventorymanager_14',['InventoryManager',['../class_inventory_manager.html',1,'']]],
+  ['inventorymanager_2ecpp_15',['InventoryManager.cpp',['../_inventory_manager_8cpp.html',1,'']]],
+  ['inventorymanager_2eh_16',['InventoryManager.h',['../_inventory_manager_8h.html',1,'']]],
+  ['item_17',['item',['../class_item.html#a7a7dd70c4496342d7f838be1d293456b',1,'Item::Item(int id, const std::string &amp;name, const std::string &amp;brand, const std::string &amp;model, const std::string &amp;description, double price, bool is_active, int stock)'],['../class_item.html#a297720c02984eab37332ae795d22189d',1,'Item::Item()'],['../class_item.html',1,'Item']]],
+  ['item_2ecpp_18',['Item.cpp',['../_item_8cpp.html',1,'']]],
+  ['item_2eh_19',['Item.h',['../_item_8h.html',1,'']]],
+  ['itemsarchive_20',['itemsarchive',['../class_items_archive.html',1,'ItemsArchive'],['../class_items_archive.html#a7e5888caf6095f52f0f4ccdff435ea0b',1,'ItemsArchive::ItemsArchive(const std::string &amp;path)'],['../class_items_archive.html#a39504d734596b41d5e73d4a4359b4b2d',1,'ItemsArchive::ItemsArchive()']]],
+  ['itemsarchive_2ecpp_21',['ItemsArchive.cpp',['../_items_archive_8cpp.html',1,'']]],
+  ['itemsarchive_2eh_22',['ItemsArchive.h',['../_items_archive_8h.html',1,'']]],
+  ['itemscsv_23',['itemscsv',['../class_items_c_s_v.html#a328d145beacaf3f507d7e7b000447ccb',1,'ItemsCSV::ItemsCSV()'],['../class_items_c_s_v.html#ac55d8856855b0a74dccfed1522ded85b',1,'ItemsCSV::ItemsCSV(std::string path, char delimiter)'],['../class_items_c_s_v.html',1,'ItemsCSV']]],
+  ['itemscsv_2ecpp_24',['ItemsCSV.cpp',['../_items_c_s_v_8cpp.html',1,'']]],
+  ['itemscsv_2eh_25',['ItemsCSV.h',['../_items_c_s_v_8h.html',1,'']]]
 ];

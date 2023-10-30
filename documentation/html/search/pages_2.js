@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['erp_0',['erp',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html',1,'Baluma ERP'],['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html',1,'Baluma ERP']]]
+  ['de_20cambios_0',['Reporte de cambios',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2changelog.html',1,'']]],
+  ['documentation_1',['Software documentation',['../index.html',1,'']]]
 ];

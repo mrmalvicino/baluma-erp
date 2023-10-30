@@ -1,8 +1,8 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/EmployeesManager.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/EmployeesManager.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="100,5,323,61"/>
+<area shape="rect" id="Node000001" title="Manages the employee module." alt="" coords="100,5,323,61"/>
 <area shape="rect" id="Node000002" href="$_terminal_8h.html" title="Utility class designed to facilitate common text&#45;based interactions in a terminal or console environm..." alt="" coords="103,109,184,135"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,63,164,99,160,95,188,60"/>
-<area shape="rect" id="Node000006" href="$_employees_archive_8h.html" title=" " alt="" coords="220,109,361,135"/>
+<area shape="rect" id="Node000006" href="$_employees_archive_8h.html" title="Manages a employee archive, allowing storage and retrieval of employee records in a binary file." alt="" coords="220,109,361,135"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="238,59,271,96,267,100,234,63"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="179,183,250,208"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="157,133,194,170,190,174,153,137"/>
@@ -13,7 +13,7 @@
 <area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="279,137,239,174,236,170,275,133"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="274,183,330,208"/>
 <area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="295,134,300,168,295,168,290,135"/>
-<area shape="rect" id="Node000008" href="$_employee_8h.html" title=" " alt="" coords="354,183,445,208"/>
+<area shape="rect" id="Node000008" href="$_employee_8h.html" title="Represents a Employee of an organization." alt="" coords="354,183,445,208"/>
 <area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="310,133,370,172,368,177,307,137"/>
 <area shape="rect" id="Node000009" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="311,256,371,282"/>
 <area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="392,210,362,246,358,243,388,207"/>

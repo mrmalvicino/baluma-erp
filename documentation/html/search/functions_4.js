@@ -20,7 +20,6 @@ var searchData=
   ['exportproductsbackup_17',['exportProductsBackup',['../class_inventory_manager.html#a93ebb33f27c29e2d8a89fd6e65614d49',1,'InventoryManager']]],
   ['exportsuppliersbackup_18',['exportSuppliersBackup',['../class_suppliers_manager.html#a1aa0430758ac3ddef7779f33c13c4da0',1,'SuppliersManager']]],
   ['exportsupplierscsv_19',['exportSuppliersCSV',['../class_suppliers_manager.html#a9b1c6347c130db8b0536494a430a8816',1,'SuppliersManager']]],
-  ['exporttransactionsbackup_20',['exportTransactionsBackup',['../class_transactions_manager.html#a6cff95afafe9a319ff1c5faf3937e020',1,'TransactionsManager']]],
-  ['exportwarehousesbackup_21',['exportWarehousesBackup',['../class_warehouses_manager.html#a4d01262756b89fedadf7ee088abcadce',1,'WarehousesManager']]],
-  ['exportwarehousescsv_22',['exportWarehousesCSV',['../class_warehouses_manager.html#a2e10ecc6dace22951bec0c5366132362',1,'WarehousesManager']]]
+  ['exportwarehousesbackup_20',['exportWarehousesBackup',['../class_warehouses_manager.html#a4d01262756b89fedadf7ee088abcadce',1,'WarehousesManager']]],
+  ['exportwarehousescsv_21',['exportWarehousesCSV',['../class_warehouses_manager.html#a2e10ecc6dace22951bec0c5366132362',1,'WarehousesManager']]]
 ];

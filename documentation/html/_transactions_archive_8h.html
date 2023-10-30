@@ -80,27 +80,40 @@ $(function() {
   <div class="headertitle"><div class="title">TransactionsArchive.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstdio&gt;</code><br />
+
+<p>Represents an accounting journal.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cstdio&gt;</code><br />
 <code>#include &quot;<a class="el" href="_transaction_8h_source.html">Transaction.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for TransactionsArchive.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_transactions_archive_8h__incl.png" border="0" usemap="#a_2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2headers_2_transactions_archive_8h" alt=""/></div>
 <map name="a_2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2headers_2_transactions_archive_8h" id="a_2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2headers_2_transactions_archive_8h">
-<area shape="rect" title=" " alt="" coords="5,5,233,61"/>
-<area shape="rect" title=" " alt="" coords="40,109,97,135"/>
-<area shape="poly" title=" " alt="" coords="106,63,85,97,80,95,101,60"/>
-<area shape="rect" href="_transaction_8h.html" title=" " alt="" coords="121,109,221,135"/>
-<area shape="poly" title=" " alt="" coords="137,60,158,95,154,97,133,63"/>
-<area shape="rect" title=" " alt="" coords="73,183,133,208"/>
-<area shape="poly" title=" " alt="" coords="162,137,126,174,122,170,158,133"/>
-<area shape="rect" title=" " alt="" coords="144,256,198,282"/>
-<area shape="poly" title=" " alt="" coords="174,135,174,241,168,241,168,135"/>
-<area shape="rect" href="_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="209,183,269,208"/>
-<area shape="poly" title=" " alt="" coords="184,133,220,170,216,174,180,137"/>
-<area shape="poly" title=" " alt="" coords="230,210,194,247,190,244,226,207"/>
-<area shape="rect" title=" " alt="" coords="222,256,275,282"/>
-<area shape="poly" title=" " alt="" coords="243,208,248,241,242,242,238,209"/>
+<area shape="rect" title="Represents an accounting journal." alt="" coords="17,5,244,61"/>
+<area shape="rect" title=" " alt="" coords="5,183,77,208"/>
+<area shape="poly" title=" " alt="" coords="105,63,86,85,70,110,57,140,49,169,44,167,52,138,65,108,82,82,101,60"/>
+<area shape="rect" title=" " alt="" coords="205,109,261,135"/>
+<area shape="poly" title=" " alt="" coords="164,59,209,97,206,101,161,63"/>
+<area shape="rect" href="_transaction_8h.html" title="Represents a transaction." alt="" coords="80,109,181,135"/>
+<area shape="poly" title=" " alt="" coords="133,61,133,94,128,94,128,61"/>
+<area shape="poly" title=" " alt="" coords="117,137,69,176,65,171,114,133"/>
+<area shape="rect" title=" " alt="" coords="100,183,161,208"/>
+<area shape="poly" title=" " alt="" coords="133,135,133,168,128,168,128,135"/>
+<area shape="rect" title=" " alt="" coords="240,330,293,356"/>
+<area shape="poly" title=" " alt="" coords="142,134,175,181,201,231,226,281,251,317,246,320,221,283,196,234,171,184,138,137"/>
+<area shape="rect" href="_date_time_8h.html" title="Represents a combined date and time object." alt="" coords="236,183,326,208"/>
+<area shape="poly" title=" " alt="" coords="157,133,244,174,241,178,155,138"/>
+<area shape="rect" href="_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="322,256,382,282"/>
+<area shape="poly" title=" " alt="" coords="295,207,331,244,328,247,291,210"/>
+<area shape="rect" href="_time_8h.html" title="Represents a time of day with hours, minutes, and seconds." alt="" coords="236,256,297,282"/>
+<area shape="poly" title=" " alt="" coords="281,209,274,242,269,241,276,208"/>
+<area shape="poly" title=" " alt="" coords="339,285,293,323,290,318,335,280"/>
+<area shape="rect" title=" " alt="" coords="321,330,374,356"/>
+<area shape="poly" title=" " alt="" coords="354,282,352,315,346,315,348,282"/>
+<area shape="poly" title=" " alt="" coords="269,282,269,315,264,315,264,282"/>
+<area shape="poly" title=" " alt="" coords="282,281,325,318,321,322,278,285"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -108,13 +121,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_transactions_archive_8h__dep__incl.png" border="0" usemap="#a_2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2headers_2_transactions_archive_8hdep" alt=""/></div>
 <map name="a_2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2headers_2_transactions_archive_8hdep" id="a_2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2headers_2_transactions_archive_8hdep">
-<area shape="rect" title=" " alt="" coords="146,5,373,61"/>
-<area shape="rect" href="_transactions_manager_8h.html" title=" " alt="" coords="12,109,245,165"/>
-<area shape="poly" title=" " alt="" coords="214,72,165,110,162,106,211,68"/>
-<area shape="rect" href="_transactions_archive_8cpp.html" title=" " alt="" coords="269,109,511,165"/>
-<area shape="poly" title=" " alt="" coords="307,68,356,106,353,110,304,72"/>
-<area shape="rect" href="_transactions_manager_8cpp.html" title=" " alt="" coords="5,213,252,268"/>
-<area shape="poly" title=" " alt="" coords="131,180,131,212,126,212,126,180"/>
+<area shape="rect" title="Represents an accounting journal." alt="" coords="309,5,536,61"/>
+<area shape="rect" href="_accounting_manager_8h.html" title="Manages the accounting module." alt="" coords="184,109,406,165"/>
+<area shape="poly" title=" " alt="" coords="379,72,331,110,327,106,376,68"/>
+<area shape="rect" href="_transactions_archive_8cpp.html" title=" " alt="" coords="430,109,671,165"/>
+<area shape="poly" title=" " alt="" coords="470,68,518,106,515,110,466,72"/>
+<area shape="rect" href="_baluma_8h.html" title="Generic enterprise resource planning software." alt="" coords="100,213,265,268"/>
+<area shape="poly" title=" " alt="" coords="256,177,215,214,211,210,252,173"/>
+<area shape="rect" href="_accounting_manager_8cpp.html" title=" " alt="" coords="290,213,526,268"/>
+<area shape="poly" title=" " alt="" coords="338,173,379,210,376,214,334,177"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="5,316,171,372"/>
+<area shape="poly" title=" " alt="" coords="149,281,115,318,111,314,145,278"/>
+<area shape="rect" href="_baluma_8cpp.html" title=" " alt="" coords="194,316,361,372"/>
+<area shape="poly" title=" " alt="" coords="220,278,254,314,250,318,216,281"/>
 </map>
 </div>
 </div>
@@ -125,7 +144,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transactions_archive.html">TransactionsArchive</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents an accounting journal. </p>
+<dl class="section author"><dt>Author</dt><dd>Lucio Luque (<a href="#" onclick="location.href='mai'+'lto:'+'luc'+'ho'+'luq'+'ue'+'98@'+'gm'+'ail'+'.c'+'om'; return false;">lucho<span class="obfuscator">.nosp@m.</span>luqu<span class="obfuscator">.nosp@m.</span>e98@g<span class="obfuscator">.nosp@m.</span>mail<span class="obfuscator">.nosp@m.</span>.com</a>) </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <a href="https://fsf.org/">https://fsf.org/</a> </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

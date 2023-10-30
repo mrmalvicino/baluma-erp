@@ -5,6 +5,6 @@ var searchData=
   ['readitemscsv_2',['readItemsCSV',['../class_items_c_s_v.html#a9534958c03c7f5af5f2ff13b68eb3abb',1,'ItemsCSV']]],
   ['readsupplierscsv_3',['readSuppliersCSV',['../class_suppliers_c_s_v.html#a44fdcad925ddcf21cda8f1430bbd236c',1,'SuppliersCSV']]],
   ['readwarehousescsv_4',['readWarehousesCSV',['../class_warehouses_c_s_v.html#aa3cc2039e671d4be902e523686de3919',1,'WarehousesCSV']]],
-  ['remove_5',['remove',['../class_account.html#a96485243fd991b29c3c835b90c4a084f',1,'Account']]],
+  ['reset_5',['reset',['../class_transaction.html#a5b0f71e77ad90faeefb115ddbde41397',1,'Transaction']]],
   ['run_6',['run',['../class_baluma.html#aabd471e1bc5ad07a09fb805c3556f2a2',1,'Baluma']]]
 ];

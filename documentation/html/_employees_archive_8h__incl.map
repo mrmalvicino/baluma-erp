@@ -1,10 +1,10 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/EmployeesArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/EmployeesArchive.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="20,5,238,61"/>
+<area shape="rect" id="Node000001" title="Manages a employee archive, allowing storage and retrieval of employee records in a binary file." alt="" coords="20,5,238,61"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,109,77,135"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,63,65,100,62,97,100,59"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="101,109,157,135"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
-<area shape="rect" id="Node000004" href="$_employee_8h.html" title=" " alt="" coords="181,109,272,135"/>
+<area shape="rect" id="Node000004" href="$_employee_8h.html" title="Represents a Employee of an organization." alt="" coords="181,109,272,135"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,59,204,97,200,101,157,63"/>
 <area shape="rect" id="Node000005" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="138,183,198,208"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="219,137,189,173,185,169,215,133"/>

@@ -1,16 +1,25 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/TransactionsArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/TransactionsArchive.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,233,61"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="40,109,97,135"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,63,85,97,80,95,101,60"/>
-<area shape="rect" id="Node000003" href="$_transaction_8h.html" title=" " alt="" coords="121,109,221,135"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,60,158,95,154,97,133,63"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="73,183,133,208"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="162,137,126,174,122,170,158,133"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="144,256,198,282"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="174,135,174,241,168,241,168,135"/>
-<area shape="rect" id="Node000006" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="209,183,269,208"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="184,133,220,170,216,174,180,137"/>
-<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="230,210,194,247,190,244,226,207"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="222,256,275,282"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="243,208,248,241,242,242,238,209"/>
+<area shape="rect" id="Node000001" title="Represents an accounting journal." alt="" coords="17,5,244,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,183,77,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,63,86,85,70,110,57,140,49,169,44,167,52,138,65,108,82,82,101,60"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="205,109,261,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,59,209,97,206,101,161,63"/>
+<area shape="rect" id="Node000004" href="$_transaction_8h.html" title="Represents a transaction." alt="" coords="80,109,181,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,61,133,94,128,94,128,61"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="117,137,69,176,65,171,114,133"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="100,183,161,208"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="133,135,133,168,128,168,128,135"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="240,330,293,356"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="142,134,175,181,201,231,226,281,251,317,246,320,221,283,196,234,171,184,138,137"/>
+<area shape="rect" id="Node000007" href="$_date_time_8h.html" title="Represents a combined date and time object." alt="" coords="236,183,326,208"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="157,133,244,174,241,178,155,138"/>
+<area shape="rect" id="Node000008" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="322,256,382,282"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="295,207,331,244,328,247,291,210"/>
+<area shape="rect" id="Node000010" href="$_time_8h.html" title="Represents a time of day with hours, minutes, and seconds." alt="" coords="236,256,297,282"/>
+<area shape="poly" id="edge11_Node000007_Node000010" title=" " alt="" coords="281,209,274,242,269,241,276,208"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="339,285,293,323,290,318,335,280"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="321,330,374,356"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="354,282,352,315,346,315,348,282"/>
+<area shape="poly" id="edge12_Node000010_Node000006" title=" " alt="" coords="269,282,269,315,264,315,264,282"/>
+<area shape="poly" id="edge13_Node000010_Node000009" title=" " alt="" coords="282,281,325,318,321,322,278,285"/>
 </map>

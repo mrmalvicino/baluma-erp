@@ -1,7 +1,26 @@
 var searchData=
 [
-  ['validatebool_0',['validateBool',['../class_terminal.html#ac53e012f91edda397ba2c85deb6603a0',1,'Terminal']]],
-  ['validatechar_1',['validateChar',['../class_terminal.html#a71e3f70511415e59ddc208afe6e94656',1,'Terminal']]],
-  ['validateint_2',['validateint',['../class_terminal.html#a9e02efe5fd617f840db1b754455df71c',1,'Terminal::validateInt()'],['../class_terminal.html#a99f92eb12ec028d5eb1b1bf17ea2e7c5',1,'Terminal::validateInt(int min)'],['../class_terminal.html#a75ebbf6141556f4554f98c0a7245129e',1,'Terminal::validateInt(int min, int max)']]],
-  ['validatelongint_3',['validatelongint',['../class_terminal.html#a163fec03a9a56fb290c66fb26d048b42',1,'Terminal::validateLongInt()'],['../class_terminal.html#a185d0f3bc76504431045496130cbcd5c',1,'Terminal::validateLongInt(int min)'],['../class_terminal.html#a82f42c97ccb882280df5e47cfdbd0984',1,'Terminal::validateLongInt(int min, int max)']]]
+  ['pause_0',['pause',['../class_terminal.html#acd7ce5961dc4e088cb0c60ba4b640040',1,'Terminal']]],
+  ['políticas_20de_20contribución_1',['Políticas de contribución',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e-_e_s_p.html#autotoc_md12',1,'']]],
+  ['policies_2',['Contibution policies',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2_r_e_a_d_m_e.html#autotoc_md19',1,'']]],
+  ['presupuestos_3',['Presupuestos',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2changelog.html#autotoc_md6',1,'']]],
+  ['printaccount_4',['printAccount',['../class_accounts_manager.html#a00ac0402ed0103d03a8397d570605fcd',1,'AccountsManager']]],
+  ['printbackoption_5',['printBackOption',['../class_terminal.html#abeeebf43abf3c172ed49811b6b871321',1,'Terminal']]],
+  ['printbool_6',['printBool',['../class_terminal.html#a85d2ffab1f2121808d62f123cbe885eb',1,'Terminal']]],
+  ['printclient_7',['printClient',['../class_clients_manager.html#a46575f2a03e60295b4fd20f8f9b7ac77',1,'ClientsManager']]],
+  ['printemployee_8',['printEmployee',['../class_employees_manager.html#a884220681611c849f8a1b0e7c020cbb5',1,'EmployeesManager']]],
+  ['printitem_9',['printItem',['../class_inventory_manager.html#a5605b9c63595979faec0bba765037536',1,'InventoryManager']]],
+  ['printline_10',['printLine',['../class_terminal.html#abad54d5652e12b220aee4c649fb9af82',1,'Terminal']]],
+  ['printmatrix_11',['printMatrix',['../class_array.html#aa30f4aa49223abcd752c8643e969c49c',1,'Array']]],
+  ['printproduct_12',['printProduct',['../class_inventory_manager.html#a96e5418284621fb075ce6e7793ea7b93',1,'InventoryManager']]],
+  ['printsupplier_13',['printSupplier',['../class_suppliers_manager.html#adc997a092dffb1d1a987ffeb5257e557',1,'SuppliersManager']]],
+  ['printtransaction_14',['printTransaction',['../class_accounting_manager.html#ad21c36f717ce0edcd0f6000bd301c4cd',1,'AccountingManager']]],
+  ['printwarehouse_15',['printWarehouse',['../class_warehouses_manager.html#a6992700fc318c262f6e37310060fd58d',1,'WarehousesManager']]],
+  ['product_16',['product',['../class_product.html',1,'Product'],['../class_product.html#a847c1d85e67ce387166a597579a55135',1,'Product::Product()'],['../class_product.html#ab78c84d9ba1a369c5c818b693a654a7c',1,'Product::Product(int id, const std::string &amp;name, const std::string &amp;brand, const std::string &amp;model, const std::string &amp;description, double price, bool is_active)']]],
+  ['product_2ecpp_17',['Product.cpp',['../_product_8cpp.html',1,'']]],
+  ['product_2eh_18',['Product.h',['../_product_8h.html',1,'']]],
+  ['productindex_19',['productIndex',['../class_inventory_manager.html#a7b8bfe7207eb47eb3c2556761854b6b9',1,'InventoryManager']]],
+  ['productsarchive_20',['productsarchive',['../class_products_archive.html#aaa8742e5c29b8938716c1b57b38b2224',1,'ProductsArchive::ProductsArchive()'],['../class_products_archive.html#a8fee4290cb62368b31dad7f25c760a10',1,'ProductsArchive::ProductsArchive(const std::string &amp;path)'],['../class_products_archive.html',1,'ProductsArchive']]],
+  ['productsarchive_2ecpp_21',['ProductsArchive.cpp',['../_products_archive_8cpp.html',1,'']]],
+  ['productsarchive_2eh_22',['ProductsArchive.h',['../_products_archive_8h.html',1,'']]]
 ];

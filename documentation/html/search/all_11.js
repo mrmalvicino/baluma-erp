@@ -1,20 +1,15 @@
 var searchData=
 [
-  ['warehouse_0',['warehouse',['../class_warehouse.html',1,'Warehouse'],['../class_warehouse.html#af8d6c7e60cb3be65b35702b400e8fad7',1,'Warehouse::Warehouse()']]],
-  ['warehouse_2ecpp_1',['Warehouse.cpp',['../_warehouse_8cpp.html',1,'']]],
-  ['warehouse_2eh_2',['Warehouse.h',['../_warehouse_8h.html',1,'']]],
-  ['warehousesarchive_3',['warehousesarchive',['../class_warehouses_archive.html#a89cce444fecd031dbd5d2724451829fc',1,'WarehousesArchive::WarehousesArchive()'],['../class_warehouses_archive.html#a48208654f84f68caeb5f0880201a25cc',1,'WarehousesArchive::WarehousesArchive(const std::string &amp;path)'],['../class_warehouses_archive.html',1,'WarehousesArchive']]],
-  ['warehousesarchive_2ecpp_4',['WarehousesArchive.cpp',['../_warehouses_archive_8cpp.html',1,'']]],
-  ['warehousesarchive_2eh_5',['WarehousesArchive.h',['../_warehouses_archive_8h.html',1,'']]],
-  ['warehousescsv_6',['warehousescsv',['../class_warehouses_c_s_v.html#a45f4695db2f1ec353dcde03aa33fdcfd',1,'WarehousesCSV::WarehousesCSV()'],['../class_warehouses_c_s_v.html',1,'WarehousesCSV'],['../class_warehouses_c_s_v.html#a0a79aeef24fc1b32008bb771a96f3879',1,'WarehousesCSV::WarehousesCSV()']]],
-  ['warehousescsv_2ecpp_7',['WarehousesCSV.cpp',['../_warehouses_c_s_v_8cpp.html',1,'']]],
-  ['warehousescsv_2eh_8',['WarehousesCSV.h',['../_warehouses_c_s_v_8h.html',1,'']]],
-  ['warehousesmanager_9',['warehousesmanager',['../class_warehouses_manager.html',1,'WarehousesManager'],['../class_warehouses_manager.html#af832ae2a437c7c3486fa2b826ea85959',1,'WarehousesManager::WarehousesManager()']]],
-  ['warehousesmanager_2ecpp_10',['WarehousesManager.cpp',['../_warehouses_manager_8cpp.html',1,'']]],
-  ['warehousesmanager_2eh_11',['WarehousesManager.h',['../_warehouses_manager_8h.html',1,'']]],
-  ['write_12',['write',['../class_accounts_archive.html#a42f45321d91f5dd1b66d7ea0966c3739',1,'AccountsArchive::write()'],['../class_clients_archive.html#a75626ced1d0774a202f7a25988036d8e',1,'ClientsArchive::write()'],['../class_employees_archive.html#a5920e6869c3ad424edbb6c2cd478a571',1,'EmployeesArchive::write()'],['../class_items_archive.html#a79b3ab0ee8758e8db905ecd37a8d9f78',1,'ItemsArchive::write()'],['../class_products_archive.html#a4028ab2e55ecceecc18524433c4b2b09',1,'ProductsArchive::write()'],['../class_suppliers_archive.html#ad9e31bd23bac9406bf7a82c49ab83bd0',1,'SuppliersArchive::write()'],['../class_transactions_archive.html#abeb4fa21355b31f2af0331d2ecd09f48',1,'TransactionsArchive::write()'],['../class_warehouses_archive.html#a7bb43c883a8f29498ca25fdf40519e7f',1,'WarehousesArchive::write()']]],
-  ['writeclientscsv_13',['writeClientsCSV',['../class_clients_c_s_v.html#ad276cc259d2267d0efcb5291e4160dbc',1,'ClientsCSV']]],
-  ['writeitemscsv_14',['writeItemsCSV',['../class_items_c_s_v.html#ab6f1be8a1e8789161be62fbfe34320a8',1,'ItemsCSV']]],
-  ['writesupplierscsv_15',['writeSuppliersCSV',['../class_suppliers_c_s_v.html#a47f16232be75d6e1b2c960a1609d7005',1,'SuppliersCSV']]],
-  ['writewarehousescsv_16',['writeWarehousesCSV',['../class_warehouses_c_s_v.html#acf1d14a0dc564f541b9774ee3f4a8a7b',1,'WarehousesCSV']]]
+  ['read_0',['read',['../class_warehouses_archive.html#ac0ba39395aaee31337306cf5295c53dd',1,'WarehousesArchive::read()'],['../class_transactions_archive.html#af7992995cfda26e83548cc3bf6531601',1,'TransactionsArchive::read()'],['../class_accounts_archive.html#a6d615bcbd82365e81fcc65c81dec29ba',1,'AccountsArchive::read()'],['../class_clients_archive.html#ad8d76a55b1fb0e4b820dbbc3cbd6b6b3',1,'ClientsArchive::read()'],['../class_employees_archive.html#a34d93622e6775f468343b9b0d47ce13b',1,'EmployeesArchive::read()'],['../class_items_archive.html#a9c2e6559986afe4548d48f0fd316fdfa',1,'ItemsArchive::read()'],['../class_products_archive.html#a3ffd2938d5e3ddf20f81a16368c680d7',1,'ProductsArchive::read()'],['../class_suppliers_archive.html#a1f8bcce1634238deb49d94426469789c',1,'SuppliersArchive::read()']]],
+  ['readclientscsv_1',['readClientsCSV',['../class_clients_c_s_v.html#af0005d04e11cbbc829372ba9268c2f00',1,'ClientsCSV']]],
+  ['readitemscsv_2',['readItemsCSV',['../class_items_c_s_v.html#a9534958c03c7f5af5f2ff13b68eb3abb',1,'ItemsCSV']]],
+  ['readme_2desp_2emd_3',['README-ESP.md',['../_r_e_a_d_m_e-_e_s_p_8md.html',1,'']]],
+  ['readme_2emd_4',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['readsupplierscsv_5',['readSuppliersCSV',['../class_suppliers_c_s_v.html#a44fdcad925ddcf21cda8f1430bbd236c',1,'SuppliersCSV']]],
+  ['readwarehousescsv_6',['readWarehousesCSV',['../class_warehouses_c_s_v.html#aa3cc2039e671d4be902e523686de3919',1,'WarehousesCSV']]],
+  ['recursos_20humanos_7',['Recursos humanos',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2changelog.html#autotoc_md5',1,'']]],
+  ['reporte_20de_20cambios_8',['Reporte de cambios',['../md__2_users_2mrmalvicino_2_desktop_2_git_hub_2baluma-erp_2changelog.html',1,'']]],
+  ['reset_9',['reset',['../class_transaction.html#a5b0f71e77ad90faeefb115ddbde41397',1,'Transaction']]],
+  ['run_10',['run',['../class_baluma.html#aabd471e1bc5ad07a09fb805c3556f2a2',1,'Baluma']]],
+  ['run_20from_20terminal_11',['Run from terminal',['../index.html#run_sec',1,'']]]
 ];

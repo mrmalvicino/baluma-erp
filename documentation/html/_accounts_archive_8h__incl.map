@@ -1,16 +1,20 @@
 <map id="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/AccountsArchive.h" name="/Users/mrmalvicino/Desktop/GitHub/baluma&#45;erp/headers/AccountsArchive.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,213,61"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="36,109,92,135"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,62,79,97,74,94,93,60"/>
-<area shape="rect" id="Node000003" href="$_account_8h.html" title=" " alt="" coords="116,109,196,135"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,60,145,94,140,97,121,63"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="58,183,118,208"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,137,111,174,107,170,143,133"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="129,256,182,282"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="158,135,158,241,153,241,153,135"/>
-<area shape="rect" id="Node000006" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="194,183,254,208"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="169,133,204,170,200,174,165,137"/>
-<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="214,210,179,247,175,244,211,207"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="206,256,260,282"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="228,208,232,241,227,242,223,209"/>
+<area shape="rect" id="Node000001" title="Represents the archive of accounts." alt="" coords="25,5,233,61"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,109,77,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,63,65,100,62,97,100,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,109,157,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,61,132,94,126,94,126,61"/>
+<area shape="rect" id="Node000004" href="$_account_8h.html" title="Represents an accounting account." alt="" coords="181,109,261,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="159,59,199,97,196,100,156,63"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="90,183,150,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="205,137,150,176,147,172,202,133"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="198,256,252,282"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="221,136,216,168,216,208,221,242,216,242,210,209,211,168,216,135"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="225,183,284,208"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="229,134,245,168,240,170,224,136"/>
+<area shape="rect" id="Node000008" href="$_date_8h.html" title="Represents a date with day, month, and year components." alt="" coords="308,183,369,208"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="242,133,308,172,305,177,240,137"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="321,211,258,250,255,246,318,207"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="312,256,365,282"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="341,209,341,241,336,241,336,209"/>
 </map>
