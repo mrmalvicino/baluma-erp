@@ -127,12 +127,12 @@ class ClientsManager {
     int generateClientId();
 
     /**
-     * @brief Exports a binary file with a buckup copy of the current _clients_archive.
+     * @brief Exports a binary file with a backup copy of the current _clients_archive.
      */
     void exportClientsBackup();
 
     /**
-     * @brief Imports a buckup copy by overwriting the current _clients_archive.
+     * @brief Imports a backup copy by overwriting the current _clients_archive.
      */
     void importClientsBackup();
 

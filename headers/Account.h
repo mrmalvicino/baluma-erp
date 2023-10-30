@@ -70,26 +70,26 @@ class Account {
 
     /**
      * @brief Sets the _passive of the account.
-     * @param passive (double) Liabilities of the accounts.
+     * @param passive (double) Liabilities of the account.
      */
     void setPassive(double passive);
 
     /**
      * @brief Gets the _passive of the account.
-     * @return (double) Liabilities of the accounts.
+     * @return (double) Liabilities of the account.
      */
     double getPassive();
 
     /**
      * @brief Sets the _active of the account.
-     * @param active (double) Assets of the accounts.
+     * @param active (double) Assets of the account.
      */
     void setActive(double active);
 
     /**
      * @brief Gets the _active of the account.
      * 
-     * @return (double) Assets of the accounts.
+     * @return (double) Assets of the account.
      */
     double getActive();
 
@@ -159,12 +159,12 @@ class Account {
     char _concept[60];
 
     /**
-     * @brief Liabilities of the accounts.
+     * @brief Liabilities of the account.
      */
     double _passive;
 
     /**
-     * @brief Assets of the accounts.
+     * @brief Assets of the account.
      */
     double _active;
 
