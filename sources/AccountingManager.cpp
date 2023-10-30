@@ -245,19 +245,27 @@ void AccountingManager::checkAccounts() {
         }
     }
 
+    int new_id;
+
     if (_cash_acc_id == 0) {
         std::cout << "Ingresar saldo inicial de la caja:\n";
         double initial_balance = _terminal.validateDouble(0);
 
-        successful_write =_accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Caja", 1, initial_balance);
+        new_id = _accounts_manager.generateAccountId();
+        successful_write = _accounts_manager.addAccount(new_id, "Caja", 1, initial_balance);
+        _cash_acc_id = new_id;
     }
 
     if (_clients_acc_id == 0) {
-        successful_write = _accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Clientes", 2, 0);
+        new_id = _accounts_manager.generateAccountId();
+        successful_write = _accounts_manager.addAccount(new_id, "Clientes", 2, 0);
+        _clients_acc_id = new_id;
     }
 
     if (_suppliers_acc_id == 0) {
-        successful_write = _accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Proveedores", 3, 0);
+        new_id = _accounts_manager.generateAccountId();
+        successful_write = _accounts_manager.addAccount(new_id, "Proveedores", 3, 0);
+        _suppliers_acc_id = new_id;
     }
 
     if (successful_write == false) {

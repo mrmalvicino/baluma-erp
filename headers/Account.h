@@ -67,8 +67,6 @@ class Account {
 
     int _type;
 
-    int _type_id; // SACAR Y REDEFINIR CUENTAS
-
     Date _creation_date;
 
     bool _status;
