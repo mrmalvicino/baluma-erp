@@ -1,5 +1,9 @@
 #include "../headers/AccountingManager.h"
 
+AccountingManager::AccountingManager() {
+    checkAccounts();
+}
+
 int AccountingManager::getAmountOfTransactions() {
     _amount_of_transactions = _transactions_archive.getAmountOfRegisters();
     return _amount_of_transactions;
@@ -69,7 +73,7 @@ bool AccountingManager::buy() {
     // Carga los datos en el objeto _transaction
     _transaction.reset();
     _transaction.setId(generateTransactionId());
-    _transaction.setAccountId(2);
+    _transaction.setAccountId(_suppliers_acc_id);
     _transaction.setDebit(value * amount);
     cinTransactionDescription(_transaction, true);
 
@@ -80,12 +84,12 @@ bool AccountingManager::buy() {
         successful_write_item = _inventory_manager.updateItem(); // Actualiza stock del item
 
         // Actualiza pasivo de proveedores
-        _accounts_manager.loadAccount(1);
+        _accounts_manager.loadAccount(_suppliers_acc_id);
         _accounts_manager.updatePassive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
         // Actualiza pasivo de caja
-        _accounts_manager.loadAccount(2);
+        _accounts_manager.loadAccount(_cash_acc_id);
         _accounts_manager.updatePassive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
@@ -138,7 +142,7 @@ bool AccountingManager::sell() {
     // Carga los datos en el objeto _transaction
     _transaction.reset();
     _transaction.setId(generateTransactionId());
-    _transaction.setAccountId(1);
+    _transaction.setAccountId(_clients_acc_id);
     _transaction.setCredit(value * amount);
     cinTransactionDescription(_transaction, true);
 
@@ -149,12 +153,12 @@ bool AccountingManager::sell() {
         successful_write_item = _inventory_manager.updateItem(); // Actualiza stock del item
 
         // Actualiza pasivo de clientes
-        _accounts_manager.loadAccount(0);
+        _accounts_manager.loadAccount(_clients_acc_id);
         _accounts_manager.updateActive( amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
         // Actualiza pasivo de caja
-        _accounts_manager.loadAccount(2);
+        _accounts_manager.loadAccount(_cash_acc_id);
         _accounts_manager.updateActive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
@@ -210,6 +214,52 @@ int AccountingManager::generateTransactionId() {
     }
 
     return id;
+}
+
+void AccountingManager::checkAccounts() {
+    bool successful_write = true;
+    int type;
+    int id;
+
+    _cash_acc_id = 0;
+    _clients_acc_id = 0;
+    _suppliers_acc_id = 0;
+
+    for (int i = 0; i < _accounts_manager.getAmountOfAccounts(); i ++) {
+        _accounts_manager.loadAccount(i);
+        type = _accounts_manager.getAccountType();
+        id = _accounts_manager.getAccountId();
+
+        if (type == 1 || type == 2 || type == 3) {
+            switch (type) {
+            case 1:
+                _cash_acc_id = id;
+                break;
+            case 2:
+                _clients_acc_id = id;
+                break;
+            case 3:
+                _suppliers_acc_id = id;
+                break;
+            }
+        }
+    }
+
+    if (_cash_acc_id == 0) {
+        successful_write =_accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Caja", 1);
+    }
+
+    if (_clients_acc_id == 0) {
+        successful_write = _accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Clientes", 2);
+    }
+
+    if (_suppliers_acc_id == 0) {
+        successful_write = _accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Proveedores", 3);
+    }
+
+    if (successful_write == false) {
+        std::cout << "No se pudieron crear las cuentas esenciales. Por favor crear cuentas de tipo 1, 2 y 3 para contabilizar la caja, los clientes y los proveedores respectivamente.\n";
+    }
 }
 
 void AccountingManager::cinTransactionDescription(Transaction & transaction, bool cin_ignore) {

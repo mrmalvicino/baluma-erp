@@ -9,7 +9,7 @@ class Account {
 
     Account();
 
-    Account(int id, const std::string & accountName, const std::string & concept, double passive, double active, double balance, int type, int type_id, bool status);
+    Account(int id, const std::string & accountName, const std::string & concept, double passive, double active, double balance, int type, bool status);
 
     void setId(int id);
 
@@ -39,10 +39,6 @@ class Account {
 
     int getType();
 
-    void setTypeId(int type_id);
-
-    int getTypeId();
-
     void setCreationDate(const Date & creation_date);
 
     Date getCreationDate() const;
@@ -71,7 +67,7 @@ class Account {
 
     int _type;
 
-    int _type_id;
+    int _type_id; // SACAR Y REDEFINIR CUENTAS
 
     Date _creation_date;
 

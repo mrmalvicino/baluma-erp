@@ -4,6 +4,19 @@ AccountsManager::AccountsManager() {
     _accounts_backup.setPath("registers/accounts.bkp");
 }
 
+int AccountsManager::getAmountOfAccounts() {
+    _amount_of_accounts = _accounts_archive.getAmountOfRegisters();
+    return _amount_of_accounts;
+}
+
+int AccountsManager::getAccountType() {
+    return _account.getType();
+}
+
+int AccountsManager::getAccountId() {
+    return _account.getId();
+}
+
 void AccountsManager::updatePassive(double passive) {
     _account.setPassive(_account.getPassive() + passive);
 }
@@ -94,6 +107,16 @@ bool AccountsManager::addAccount() {
     return successful_write;
 }
 
+bool AccountsManager::addAccount(int id, std::string name, int type) {
+    _account.setId(id);
+    _account.setName(name);
+    _account.setType(type);
+
+    bool successful_write = _accounts_archive.write(_account);
+
+    return successful_write;
+}
+
 bool AccountsManager::editAccount() {
     _terminal.clear();
 
@@ -113,11 +136,10 @@ bool AccountsManager::editAccount() {
         std::cout << "(1) EDITAR NOMBRE\n";
         std::cout << "(2) EDITAR CONCEPTO\n";
         std::cout << "(3) EDITAR TIPO\n";
-        std::cout << "(4) EDITAR ID DEL TIPO\n";
-        std::cout << "(5) DAR DE BAJA O REINCORPORAR\n";
+        std::cout << "(4) DAR DE BAJA O REINCORPORAR\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 5);
+        selection = _terminal.validateInt(0, 4);
 
         switch (selection) {
             case 1:
@@ -130,9 +152,6 @@ bool AccountsManager::editAccount() {
                 cinAccountType();
                 break;
             case 4:
-                cinAccountTypeId();
-                break;
-            case 5:
                 cinAccountStatus();
                 break;
         }
@@ -299,7 +318,6 @@ void AccountsManager::printAccount() {
     std::cout << "Activo: " << _account.getActive() << "\n";
     std::cout << "Balance: " << _account.getBalance() << "\n";
     std::cout << "Tipo: " << _account.getType() << "\n";
-    std::cout << "#ID del tipo: " << _account.getTypeId() << "\n";
     std::cout << "Fecha de creación: " << _account.getCreationDate().toString() << "\n";
     _terminal.printBool(_account.getStatus(), "Estado: Activo\n\n", "Estado: Dado de baja\n\n");
 }
@@ -411,15 +429,6 @@ void AccountsManager::cinAccountType() {
     std::cin >> type;
 
     _account.setType(type);
-}
-
-void AccountsManager::cinAccountTypeId() {
-    int type_id;
-
-    std::cout << "Ingresar #ID del tipo de cuenta:\n";
-    std::cin >> type_id;
-
-    _account.setTypeId(type_id);
 }
 
 void AccountsManager::cinAccountStatus() {

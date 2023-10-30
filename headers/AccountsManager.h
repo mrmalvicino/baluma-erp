@@ -10,6 +10,12 @@ class AccountsManager {
 
     AccountsManager();
 
+    int getAmountOfAccounts();
+
+    int getAccountType();
+
+    int getAccountId();
+
     void updatePassive(double passive);
 
     double getPassive();
@@ -21,6 +27,8 @@ class AccountsManager {
     void displayMenu();
 
     bool addAccount();
+
+    bool addAccount(int id, std::string name, int type);
 
     bool editAccount();
 
@@ -54,11 +62,11 @@ class AccountsManager {
 
     void cinAccountType();
 
-    void cinAccountTypeId();
-
     void cinAccountStatus();
 
     private:
+
+    int _amount_of_accounts;
 
     Terminal _terminal;
 

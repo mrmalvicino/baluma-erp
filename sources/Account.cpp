@@ -8,11 +8,10 @@ Account::Account() {
     setActive(0);
     setBalance(0);
     setType(0);
-    setTypeId(0);
     setStatus(true);
 }
 
-Account::Account(int id, const std::string & name, const std::string & concept, double passive, double active, double balance, int type, int type_id, bool status) {
+Account::Account(int id, const std::string & name, const std::string & concept, double passive, double active, double balance, int type, bool status) {
     setId(id);
     setName(name);
     setConcept(concept);
@@ -20,7 +19,6 @@ Account::Account(int id, const std::string & name, const std::string & concept, 
     setActive(active);
     setBalance(balance);
     setType(type);
-    setTypeId(type_id);
     setStatus(status);
 }
 
@@ -80,14 +78,6 @@ void Account::setType(int type) {
 
 int Account::getType() {
     return _type;
-}
-
-void Account::setTypeId(int type_id) {
-    _type_id = type_id;
-}
-
-int Account::getTypeId() {
-    return _type_id;
 }
 
 void Account::setCreationDate(const Date & creation_date) {

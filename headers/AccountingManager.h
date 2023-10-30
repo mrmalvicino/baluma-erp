@@ -9,6 +9,8 @@
 class AccountingManager {
     public:
 
+    AccountingManager();
+
     int getAmountOfTransactions();
 
     void displayMainMenu();
@@ -25,11 +27,19 @@ class AccountingManager {
 
     int generateTransactionId();
 
+    void checkAccounts();
+
     void cinTransactionDescription(Transaction & transaction, bool cin_ignore = false);
 
     private:
 
     int _amount_of_transactions;
+
+    int _cash_acc_id;
+
+    int _clients_acc_id;
+
+    int _suppliers_acc_id;
 
     Terminal _terminal;
 
