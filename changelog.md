@@ -45,3 +45,9 @@ _Desarrollado por: Franco Baez, Lucio Luque_
 ### Presupuestos
 
 &nbsp; Se llega a la conclusión de que para generar presupuestos en formato PDF de manera eficiente es necesario implementar herramientas que utilizan otras tecnologías, como por ejemplo Net Core en Visual Studio.
+
+### General
+
+- Se propone que los métodos cin que no lo requieran no reciban por referencia los objetos, sino que modifiquen directamente el atributo. Esto no es posible para los cin de Item y Producto ya que es necesario diferenciar qué atributo se está modificando. Pero el resto se podría simplificar para mayor legibilidad y eficiencia.
+
+- Se propone implementar el menu de listado en el módulo de empleados para unificar la funcionalidad y que tenga la misma interfaz en todo el programa.
