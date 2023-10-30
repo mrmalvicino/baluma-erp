@@ -4,14 +4,6 @@ Transaction::Transaction() {
     reset();
 }
 
-Transaction::Transaction(int id, int account_id, double debit, double credit,const std::string & description) {
-    setId(id);
-    setAccountId(account_id);
-    setDebit(debit);
-    setCredit(credit);
-    setDescription(description);
-}
-
 void Transaction::reset() {
     setId(0);
     setAccountId(0);

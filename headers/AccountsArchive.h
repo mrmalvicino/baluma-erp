@@ -1,7 +1,7 @@
 /**
- * @file Account.h
+ * @file AccountsArchive.h
  * @author Lucio Luque (lucholuque98@gmail.com)
- * @brief Represents an accounting account.
+ * @brief Represents the archive of accounts.
  * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  */
 
