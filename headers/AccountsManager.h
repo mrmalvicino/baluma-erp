@@ -1,3 +1,10 @@
+/**
+ * @file Account.h
+ * @author Lucio Luque (lucholuque98@gmail.com), Maximiliano Raúl Malvicino (mrmalvicino@gmail.com)
+ * @brief Represents an accounting account.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include <iostream>
 #include "Terminal.h"

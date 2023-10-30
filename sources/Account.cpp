@@ -11,8 +11,7 @@ Account::Account() {
     setStatus(true);
 }
 
-Account::Account(int id, const std::string & name, const std::string & concept, double passive, double active, double balance, int type, bool status) {
-    setId(id);
+Account::Account(const std::string & name, const std::string & concept, double passive, double active, double balance, int type, bool status) {
     setName(name);
     setConcept(concept);
     setPassive(passive);
@@ -94,12 +93,4 @@ void Account::setStatus(bool status) {
 
 bool Account::getStatus() {
     return _status;
-}
-
-void Account::deposit(double amount) {
-    _balance += amount;
-}
-
-void Account::remove(double amount) {
-    _balance -= amount;
 }

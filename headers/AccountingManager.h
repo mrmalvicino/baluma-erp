@@ -1,3 +1,10 @@
+/**
+ * @file AccountingManager.h
+ * @author Maximiliano Raúl Malvicino (mrmalvicino@gmail.com), Lucio Luque (lucholuque98@gmail.com), Franco Baez (Francobaez2309@gmail.com)
+ * @brief Manages the accounting module.
+ * @copyright GNU General Public License. Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ */
+
 #pragma once
 #include "Terminal.h"
 #include "TransactionsArchive.h"
