@@ -28,7 +28,7 @@ class AccountsManager {
 
     bool addAccount();
 
-    bool addAccount(int id, std::string name, int type);
+    bool addAccount(int id, std::string name, int type, double initial_balance);
 
     bool editAccount();
 

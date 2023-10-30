@@ -107,10 +107,11 @@ bool AccountsManager::addAccount() {
     return successful_write;
 }
 
-bool AccountsManager::addAccount(int id, std::string name, int type) {
+bool AccountsManager::addAccount(int id, std::string name, int type, double initial_balance) {
     _account.setId(id);
     _account.setName(name);
     _account.setType(type);
+    _account.setBalance(initial_balance);
 
     bool successful_write = _accounts_archive.write(_account);
 

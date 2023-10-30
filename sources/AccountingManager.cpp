@@ -84,12 +84,12 @@ bool AccountingManager::buy() {
         successful_write_item = _inventory_manager.updateItem(); // Actualiza stock del item
 
         // Actualiza pasivo de proveedores
-        _accounts_manager.loadAccount(_suppliers_acc_id);
+        _accounts_manager.loadAccount(_suppliers_acc_id - 1);
         _accounts_manager.updatePassive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
         // Actualiza pasivo de caja
-        _accounts_manager.loadAccount(_cash_acc_id);
+        _accounts_manager.loadAccount(_cash_acc_id - 1);
         _accounts_manager.updatePassive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
@@ -153,12 +153,12 @@ bool AccountingManager::sell() {
         successful_write_item = _inventory_manager.updateItem(); // Actualiza stock del item
 
         // Actualiza pasivo de clientes
-        _accounts_manager.loadAccount(_clients_acc_id);
+        _accounts_manager.loadAccount(_clients_acc_id - 1);
         _accounts_manager.updateActive( amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
         // Actualiza pasivo de caja
-        _accounts_manager.loadAccount(_cash_acc_id);
+        _accounts_manager.loadAccount(_cash_acc_id - 1);
         _accounts_manager.updateActive(amount * value);
         successful_write_account = _accounts_manager.updateAccount();
 
@@ -246,15 +246,18 @@ void AccountingManager::checkAccounts() {
     }
 
     if (_cash_acc_id == 0) {
-        successful_write =_accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Caja", 1);
+        std::cout << "Ingresar saldo inicial de la caja:\n";
+        double initial_balance = _terminal.validateDouble(0);
+
+        successful_write =_accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Caja", 1, initial_balance);
     }
 
     if (_clients_acc_id == 0) {
-        successful_write = _accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Clientes", 2);
+        successful_write = _accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Clientes", 2, 0);
     }
 
     if (_suppliers_acc_id == 0) {
-        successful_write = _accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Proveedores", 3);
+        successful_write = _accounts_manager.addAccount(_accounts_manager.generateAccountId(), "Proveedores", 3, 0);
     }
 
     if (successful_write == false) {
