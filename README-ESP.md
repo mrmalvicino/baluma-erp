@@ -26,7 +26,7 @@
 
 ![Baluma ERP](/images/screenshot-journal.png?raw=true "Baluma ERP")
 
-Visitar el [reporte de cambios](https://github.com/mrmalvicino/baluma-erp/changelog.md) para más detalles.
+Visitar el [reporte de cambios](https://github.com/mrmalvicino/baluma-erp/blob/main/changelog.md) para más detalles.
 
 ## Licencia
 
