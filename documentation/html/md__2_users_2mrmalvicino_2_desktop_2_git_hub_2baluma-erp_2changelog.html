@@ -22,7 +22,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="baluma-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Baluma ERP<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">Baluma ERP<span id="projectnumber">&#160;1.0.0</span>
    </div>
    <div id="projectbrief">Generic enterprise resource planning software.</div>
   </td>
@@ -113,7 +113,9 @@ Presupuestos</h2>
 General</h2>
 <ul>
 <li>Se propone que los métodos cin que no lo requieran no reciban por referencia los objetos, sino que modifiquen directamente el atributo. Esto no es posible para los cin de <a class="el" href="class_item.html">Item</a> y Producto ya que es necesario diferenciar qué atributo se está modificando. Pero el resto se podría simplificar para mayor legibilidad y eficiencia.</li>
-<li>Se propone implementar el menu de listado en el módulo de empleados para unificar la funcionalidad y que tenga la misma interfaz en todo el programa. </li>
+<li>Se propone implementar el menu de listado en el módulo de empleados para unificar la funcionalidad y que tenga la misma interfaz en todo el programa.</li>
+<li>Un empleado en realidad no es un socio de negocio, sino una persona o recurso humano. Para mayor facilidad se heredó desde <a class="el" href="class_business_partner.html">BusinessPartner</a> pero habría que crear una clase Person para heredar <a class="el" href="class_employee.html">Employee</a>.</li>
+<li>Se podría hacer que la rutina checkAccounts() se genere periódicamente y no solo al inicio, por si el archivo de cuentas es borrado. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
