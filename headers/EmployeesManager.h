@@ -28,6 +28,12 @@ class EmployeesManager
      * @return (bool) Returns true if the new employee record is successfully added and otherwise, returns false.
      */
     bool addEmployee();
+
+    /**
+     * @brief Reads a register from the _employees_archive.
+     * @param index (int) The index of the account record to read.
+     */
+    void loadEmployee(int index);
     
     /**
      * @brief Allows editing an existing employee's details interactively.
@@ -58,17 +64,23 @@ class EmployeesManager
      * @return (int) Returns 0 if the search was successful or -1 is the search was aborted.
      */
     int searchEmployeeByDNI();
+
+    /**
+     * @brief Displays a menu with listing options.
+     */
+    void listEmployeesMenu();
     
     /**
-     * @brief Displays a list of all employees stored in the employee archive.
-     * @param active (bool) If true, active employees will be printed and if false, inactive employees will be printed 
+     * @brief Displays a list of all accounts stored in the account archive.
+     * @param list_actives (bool) If true, active accounts will be printed.
+     * @param list_inactives (bool) If true, inactive accounts will be printed.
      */
-    void listEmployees(bool active);
+    void listEmployees(bool list_actives, bool list_inactives);
     
     /**
      * @brief Prints detailed information about the current _employee.
      */
-    void printEmployee(int index);
+    void printEmployee();
     
     /**
      * @brief Prompts the user to enter the name of a employee.
@@ -133,11 +145,6 @@ class EmployeesManager
      * @brief Imports a backup copy by overwriting the current _employees_archive.
      */
     void importEmployeeBackup();
-    
-    /**
-     * @brief Calculate the employee's seniority and displays the result.
-     */
-    bool calculateSeniority();
 
     private:
 

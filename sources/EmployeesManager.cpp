@@ -15,15 +15,13 @@ void EmployeesManager::displayMenu()
         std::cout << "(1) INCORPORAR EMPLEADO\n";
         std::cout << "(2) EDITAR EMPLEADO\n";
         std::cout << "(3) BUSCAR EMPLEADO\n";
-        std::cout << "(4) LISTAR EMPLEADOS\n";
-        std::cout << "(5) LISTAR EMPLEADOS DADOS DE BAJA\n";
-        std::cout << "(6) CALCULAR ANTIGÜEDAD DE UN EMPLEADO\n";
+        std::cout << "(4) VER LISTADO\n";
         _terminal.printLine();
-        std::cout << "(7) EXPORTAR BACKUP\n";
-        std::cout << "(8) IMPORTAR BACKUP\n";
+        std::cout << "(6) EXPORTAR BACKUP\n";
+        std::cout << "(7) IMPORTAR BACKUP\n";
         _terminal.displayMenuFooter();
 
-        selection = _terminal.validateInt(0, 8);
+        selection = _terminal.validateInt(0, 6);
 
         switch (selection)
         {
@@ -37,20 +35,12 @@ void EmployeesManager::displayMenu()
             searchEmployee();
             break;
         case 4:
-            listEmployees(true);
+            listEmployeesMenu();
             break;
         case 5:
-            listEmployees(false);
-            break;
-        
-        case 6:
-            calculateSeniority();
-            break;
-
-        case 7:
             exportEmployeeBackup();
             break;
-        case 8:
+        case 6:
             importEmployeeBackup();
             break;
         }
@@ -97,6 +87,11 @@ bool EmployeesManager::addEmployee()
     _terminal.clear();
 
     return successful_write;
+}
+
+void EmployeesManager::loadEmployee(int index)
+{
+    _employee = _employees_archive.read(index);
 }
 
 bool EmployeesManager::editEmployee()
@@ -222,7 +217,8 @@ int EmployeesManager::searchEmployeeById()
     if(0 < id)
     {
         index = _employees_archive.getIndex(id);
-        printEmployee(index);
+        loadEmployee(index);
+        printEmployee();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -260,7 +256,8 @@ int EmployeesManager::searchEmployeeByName()
 
     if(0 <= index)
     {
-        printEmployee(index);
+        loadEmployee(index);
+        printEmployee();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -283,7 +280,8 @@ int EmployeesManager::searchEmployeeByDNI()
     if(0 < legal_id)
     {
         index = _employees_archive.getIndex(legal_id);
-        printEmployee(index);
+        loadEmployee(index);
+        printEmployee();
     } else {
         search_rtn = -1;
         std::cout << "Búsqueda abortada por el usuario.\n";
@@ -294,7 +292,41 @@ int EmployeesManager::searchEmployeeByDNI()
     return search_rtn;
 }
 
-void EmployeesManager::listEmployees(bool active)
+void EmployeesManager::listEmployeesMenu()
+{
+     _terminal.clear();
+
+    int selection = 1;
+
+    while (selection != 0)
+    {
+        _terminal.displayMenuHeader("LISTAR EMPLEADOS");
+        std::cout << "(1) LISTAR TODOS LOS REGISTROS\n";
+        std::cout << "(2) LISTAR SOLO ACTIVOS\n";
+        std::cout << "(3) LISTAR SOLO DADOS DE BAJA\n";
+        _terminal.displayMenuFooter();
+
+        selection = _terminal.validateInt(0, 3);
+
+        switch (selection) {
+            case 0:
+             _terminal.clear();
+             break;
+            case 1:
+             listEmployees(true, true);
+             break;
+            case 2:
+             listEmployees(true, false);
+             break;
+            case 3:
+             listEmployees(false, true);
+             break;
+    }
+    }
+    
+
+}
+void EmployeesManager::listEmployees(bool list_actives, bool list_inactives)
 {
     _terminal.clear();
 
@@ -302,19 +334,11 @@ void EmployeesManager::listEmployees(bool active)
 
     for(int i = 0; i < amount_of_employees; i++)
     {
-        _employee = _employees_archive.read(i);
-        if(active == true)
+        loadEmployee(i);
+
+        if((_employee.getIsActive() == true && list_actives == true) || (_employee.getIsActive() == false && list_inactives == true) )
         {
-            if(_employee.getIsActive() == true)
-            {
-                printEmployee(i);
-            }
-        } else
-        {
-            if(_employee.getIsActive() == false)
-            {
-                printEmployee(i);
-            }
+            printEmployee();
         }
     }
 
@@ -322,9 +346,8 @@ void EmployeesManager::listEmployees(bool active)
     _terminal.clear();
 }
 
-void EmployeesManager::printEmployee(int index)
+void EmployeesManager::printEmployee()
 {
-    _employee = _employees_archive.read(index);
     _terminal.displayMenuHeader(_employee.getDescription());
     std::cout << "# ID: " << _employee.getId() << "\n";
     std::cout << "DNI: " << _employee.getLegalId() << "\n";
@@ -547,24 +570,3 @@ void EmployeesManager::importEmployeeBackup()
     }
 }
 
-bool EmployeesManager::calculateSeniority()
-{
-    Date actual;
-    int seniority = 0;
-
-    int search_rtn = searchEmployee();
-    _terminal.clear();
-
-    if(search_rtn == -1)
-    {
-        return false;
-    }
-
-    seniority = actual.getYear() - _employee.getAdmission().getYear();
-
-    std::cout << "Antigüedad de " << _employee.getDescription() << ": " << seniority << " años.\n";
-    _terminal.pause();
-    _terminal.clear();
-
-    return true;
-}
