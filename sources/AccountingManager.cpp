@@ -146,7 +146,7 @@ bool AccountingManager::sell() {
     _transaction.setCredit(value * amount);
     cinTransactionDescription(true);
 
-    std::cout << "Desea grabar la compra [S/N]?\n";
+    std::cout << "Desea grabar la venta [S/N]?\n";
     bool user_wants_to_save = _terminal.validateBool();
 
     if(user_wants_to_save == true) {
