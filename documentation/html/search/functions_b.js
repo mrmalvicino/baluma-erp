@@ -5,7 +5,7 @@ var searchData=
   ['printbackoption_2',['printBackOption',['../class_terminal.html#abeeebf43abf3c172ed49811b6b871321',1,'Terminal']]],
   ['printbool_3',['printBool',['../class_terminal.html#a85d2ffab1f2121808d62f123cbe885eb',1,'Terminal']]],
   ['printclient_4',['printClient',['../class_clients_manager.html#a46575f2a03e60295b4fd20f8f9b7ac77',1,'ClientsManager']]],
-  ['printemployee_5',['printEmployee',['../class_employees_manager.html#a884220681611c849f8a1b0e7c020cbb5',1,'EmployeesManager']]],
+  ['printemployee_5',['printEmployee',['../class_employees_manager.html#ab0137894d2e4ac9aeb175aaf9be9f10f',1,'EmployeesManager']]],
   ['printitem_6',['printItem',['../class_inventory_manager.html#a5605b9c63595979faec0bba765037536',1,'InventoryManager']]],
   ['printline_7',['printLine',['../class_terminal.html#abad54d5652e12b220aee4c649fb9af82',1,'Terminal']]],
   ['printmatrix_8',['printMatrix',['../class_array.html#aa30f4aa49223abcd752c8643e969c49c',1,'Array']]],

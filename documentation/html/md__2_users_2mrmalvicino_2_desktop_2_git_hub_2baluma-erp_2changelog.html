@@ -22,7 +22,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="baluma-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Baluma ERP<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">Baluma ERP<span id="projectnumber">&#160;1.0.1</span>
    </div>
    <div id="projectbrief">Generic enterprise resource planning software.</div>
   </td>
@@ -76,7 +76,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> &#160; Este documento contiene información referida a los avances en el desarrollo de <a class="el" href="class_baluma.html">Baluma</a> ERP. Para cada versión del mismo se muestran las modificaciones realizadas, brevemente explicadas en el módulo afectado. También se describen implementaciones propuestas a futuro. El versionado semántico se lleva a cabo considerando la siguiente <a href="https://semver.org">documentación</a>.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Versión 1.0.0</h1>
+Versión 1.0.1</h1>
 <p>&#160; La primera versión de <a class="el" href="class_baluma.html">Baluma</a> ERP fue desarrollada en un lapso de 2 meses entre 3 personas, habiéndose invertido aproximadamente 300 horas netas en total. Incorpora 4 de los 5 módulos propuestos:</p>
 <ul>
 <li>[x] Socios de negocios</li>
@@ -110,12 +110,26 @@ Recursos humanos</h2>
 Presupuestos</h2>
 <p>&#160; Se llega a la conclusión de que para generar presupuestos en formato PDF de manera eficiente es necesario implementar herramientas que utilizan otras tecnologías, como por ejemplo Net Core en Visual Studio.</p>
 <h2><a class="anchor" id="autotoc_md7"></a>
-General</h2>
+Implementaciones pendientes</h2>
 <ul>
 <li>Se propone que los métodos cin que no lo requieran no reciban por referencia los objetos, sino que modifiquen directamente el atributo. Esto no es posible para los cin de <a class="el" href="class_item.html">Item</a> y Producto ya que es necesario diferenciar qué atributo se está modificando. Pero el resto se podría simplificar para mayor legibilidad y eficiencia.</li>
 <li>Se propone implementar el menu de listado en el módulo de empleados para unificar la funcionalidad y que tenga la misma interfaz en todo el programa.</li>
 <li>Un empleado en realidad no es un socio de negocio, sino una persona o recurso humano. Para mayor facilidad se heredó desde <a class="el" href="class_business_partner.html">BusinessPartner</a> pero habría que crear una clase Person para heredar <a class="el" href="class_employee.html">Employee</a>.</li>
-<li>Se podría hacer que la rutina checkAccounts() se genere periódicamente y no solo al inicio, por si el archivo de cuentas es borrado. </li>
+<li>Se podría hacer que la rutina checkAccounts() se genere periódicamente y no solo al inicio, por si el archivo de cuentas es borrado.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Bugs pendientes</h2>
+<ul>
+<li>Al agregar una existencia que ya existe como producto, por algún motivo la suma del stock no se realiza correctamente. Pareciera que el stock siempre pasa a ser 73.</li>
+<li>Hay problemas con el balance de las cuentas, ya que las transacciones solo afectan el pasivo y el activo. Una posible solución es generar dinámicamente el balance para que no haya que ocuparse del pasivo.</li>
+<li>Es posible vender más existencias de las que hay.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Log</h1>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Cambios de v1.0.0 a v1.0.1</h2>
+<ul>
+<li>Módulo Contabilidad: Typo en confirmación de venta. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

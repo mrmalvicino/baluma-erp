@@ -2,7 +2,7 @@
 
 &nbsp; Este documento contiene información referida a los avances en el desarrollo de Baluma ERP. Para cada versión del mismo se muestran las modificaciones realizadas, brevemente explicadas en el módulo afectado. También se describen implementaciones propuestas a futuro. El versionado semántico se lleva a cabo considerando la siguiente [documentación](https://semver.org).
 
-## Versión 1.0.0
+## Versión 1.0.1
 
 &nbsp; La primera versión de Baluma ERP fue desarrollada en un lapso de 2 meses entre 3 personas, habiéndose invertido aproximadamente 300 horas netas en total. Incorpora 4 de los 5 módulos propuestos:
 
@@ -46,7 +46,7 @@ _Desarrollado por: Franco Baez, Lucio Luque_
 
 &nbsp; Se llega a la conclusión de que para generar presupuestos en formato PDF de manera eficiente es necesario implementar herramientas que utilizan otras tecnologías, como por ejemplo Net Core en Visual Studio.
 
-### General
+### Implementaciones pendientes
 
 - Se propone que los métodos cin que no lo requieran no reciban por referencia los objetos, sino que modifiquen directamente el atributo. Esto no es posible para los cin de Item y Producto ya que es necesario diferenciar qué atributo se está modificando. Pero el resto se podría simplificar para mayor legibilidad y eficiencia.
 
@@ -55,3 +55,17 @@ _Desarrollado por: Franco Baez, Lucio Luque_
 - Un empleado en realidad no es un socio de negocio, sino una persona o recurso humano. Para mayor facilidad se heredó desde BusinessPartner pero habría que crear una clase Person para heredar Employee.
 
 - Se podría hacer que la rutina checkAccounts() se genere periódicamente y no solo al inicio, por si el archivo de cuentas es borrado.
+
+### Bugs pendientes
+
+- Al agregar una existencia que ya existe como producto, por algún motivo la suma del stock no se realiza correctamente. Pareciera que el stock siempre pasa a ser 73.
+
+- Hay problemas con el balance de las cuentas, ya que las transacciones solo afectan el pasivo y el activo. Una posible solución es generar dinámicamente el balance para que no haya que ocuparse del pasivo.
+
+- Es posible vender más existencias de las que hay.
+
+## Log
+
+### Cambios de v1.0.0 a v1.0.1
+
+- Módulo Contabilidad: Typo en confirmación de venta.

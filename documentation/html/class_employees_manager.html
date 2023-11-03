@@ -22,7 +22,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="baluma-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Baluma ERP<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">Baluma ERP<span id="projectnumber">&#160;1.0.1</span>
    </div>
    <div id="projectbrief">Generic enterprise resource planning software.</div>
   </td>
@@ -112,6 +112,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f3b1502e0330c58a5b11cae1b22a6bc" id="r_a0f3b1502e0330c58a5b11cae1b22a6bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#a0f3b1502e0330c58a5b11cae1b22a6bc">addEmployee</a> ()</td></tr>
 <tr class="memdesc:a0f3b1502e0330c58a5b11cae1b22a6bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new employee to the employee archive by prompting the user for inputs to collect various details of the employee, such as description, legal ID, address, phone, email, and category.  <br /></td></tr>
 <tr class="separator:a0f3b1502e0330c58a5b11cae1b22a6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a500ec6a0d340112bc6aa34415195a848" id="r_a500ec6a0d340112bc6aa34415195a848"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#a500ec6a0d340112bc6aa34415195a848">loadEmployee</a> (int index)</td></tr>
+<tr class="memdesc:a500ec6a0d340112bc6aa34415195a848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a register from the _employees_archive.  <br /></td></tr>
+<tr class="separator:a500ec6a0d340112bc6aa34415195a848"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5229e221491efa9f2edadcade68e0d1c" id="r_a5229e221491efa9f2edadcade68e0d1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#a5229e221491efa9f2edadcade68e0d1c">editEmployee</a> ()</td></tr>
 <tr class="memdesc:a5229e221491efa9f2edadcade68e0d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows editing an existing employee's details interactively.  <br /></td></tr>
 <tr class="separator:a5229e221491efa9f2edadcade68e0d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,12 +130,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7bee3aa5b16df689437409f0217c5898" id="r_a7bee3aa5b16df689437409f0217c5898"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#a7bee3aa5b16df689437409f0217c5898">searchEmployeeByDNI</a> ()</td></tr>
 <tr class="memdesc:a7bee3aa5b16df689437409f0217c5898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for a employee by their name and displays their details.  <br /></td></tr>
 <tr class="separator:a7bee3aa5b16df689437409f0217c5898"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9df536976971f946b8f5c88d2a17413d" id="r_a9df536976971f946b8f5c88d2a17413d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#a9df536976971f946b8f5c88d2a17413d">listEmployees</a> (bool active)</td></tr>
-<tr class="memdesc:a9df536976971f946b8f5c88d2a17413d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a list of all employees stored in the employee archive.  <br /></td></tr>
-<tr class="separator:a9df536976971f946b8f5c88d2a17413d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a884220681611c849f8a1b0e7c020cbb5" id="r_a884220681611c849f8a1b0e7c020cbb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#a884220681611c849f8a1b0e7c020cbb5">printEmployee</a> (int index)</td></tr>
-<tr class="memdesc:a884220681611c849f8a1b0e7c020cbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints detailed information about the current _employee.  <br /></td></tr>
-<tr class="separator:a884220681611c849f8a1b0e7c020cbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac86b080672a3d4a440f5c41f9f88cec2" id="r_ac86b080672a3d4a440f5c41f9f88cec2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#ac86b080672a3d4a440f5c41f9f88cec2">listEmployeesMenu</a> ()</td></tr>
+<tr class="memdesc:ac86b080672a3d4a440f5c41f9f88cec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a menu with listing options.  <br /></td></tr>
+<tr class="separator:ac86b080672a3d4a440f5c41f9f88cec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab92a9651e0fc9d9f91b3eaefc9e0b45a" id="r_ab92a9651e0fc9d9f91b3eaefc9e0b45a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#ab92a9651e0fc9d9f91b3eaefc9e0b45a">listEmployees</a> (bool list_actives, bool list_inactives)</td></tr>
+<tr class="memdesc:ab92a9651e0fc9d9f91b3eaefc9e0b45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a list of all accounts stored in the account archive.  <br /></td></tr>
+<tr class="separator:ab92a9651e0fc9d9f91b3eaefc9e0b45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0137894d2e4ac9aeb175aaf9be9f10f" id="r_ab0137894d2e4ac9aeb175aaf9be9f10f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#ab0137894d2e4ac9aeb175aaf9be9f10f">printEmployee</a> ()</td></tr>
+<tr class="memdesc:ab0137894d2e4ac9aeb175aaf9be9f10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints detailed information about the current _employee.  <br /></td></tr>
+<tr class="separator:ab0137894d2e4ac9aeb175aaf9be9f10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5647148e8a83a88a21cae4146a7ca82b" id="r_a5647148e8a83a88a21cae4146a7ca82b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#a5647148e8a83a88a21cae4146a7ca82b">cinEmployeeName</a> (<a class="el" href="class_employee.html">Employee</a> &amp;employee)</td></tr>
 <tr class="memdesc:a5647148e8a83a88a21cae4146a7ca82b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prompts the user to enter the name of a employee.  <br /></td></tr>
 <tr class="separator:a5647148e8a83a88a21cae4146a7ca82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,9 +172,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac8ea32b76c4ce36a1ce7debfa66868ca" id="r_ac8ea32b76c4ce36a1ce7debfa66868ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#ac8ea32b76c4ce36a1ce7debfa66868ca">importEmployeeBackup</a> ()</td></tr>
 <tr class="memdesc:ac8ea32b76c4ce36a1ce7debfa66868ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imports a backup copy by overwriting the current _employees_archive.  <br /></td></tr>
 <tr class="separator:ac8ea32b76c4ce36a1ce7debfa66868ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bfab77cf5e089a6736f6e3d361339d5" id="r_a2bfab77cf5e089a6736f6e3d361339d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_employees_manager.html#a2bfab77cf5e089a6736f6e3d361339d5">calculateSeniority</a> ()</td></tr>
-<tr class="memdesc:a2bfab77cf5e089a6736f6e3d361339d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the employee's seniority and displays the result.  <br /></td></tr>
-<tr class="separator:a2bfab77cf5e089a6736f6e3d361339d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -223,25 +226,6 @@ Private Attributes</h2></td></tr>
 
 <p>Adds a new employee to the employee archive by prompting the user for inputs to collect various details of the employee, such as description, legal ID, address, phone, email, and category. </p>
 <dl class="section return"><dt>Returns</dt><dd>(bool) Returns true if the new employee record is successfully added and otherwise, returns false. </dd></dl>
-
-</div>
-</div>
-<a id="a2bfab77cf5e089a6736f6e3d361339d5" name="a2bfab77cf5e089a6736f6e3d361339d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bfab77cf5e089a6736f6e3d361339d5">&#9670;&#160;</a></span>calculateSeniority()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool EmployeesManager::calculateSeniority </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculate the employee's seniority and displays the result. </p>
 
 </div>
 </div>
@@ -560,8 +544,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9df536976971f946b8f5c88d2a17413d" name="a9df536976971f946b8f5c88d2a17413d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9df536976971f946b8f5c88d2a17413d">&#9670;&#160;</a></span>listEmployees()</h2>
+<a id="ab92a9651e0fc9d9f91b3eaefc9e0b45a" name="ab92a9651e0fc9d9f91b3eaefc9e0b45a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab92a9651e0fc9d9f91b3eaefc9e0b45a">&#9670;&#160;</a></span>listEmployees()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -570,24 +554,80 @@ Private Attributes</h2></td></tr>
           <td class="memname">void EmployeesManager::listEmployees </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>active</em></td><td>)</td>
+          <td class="paramname"><em>list_actives</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>list_inactives</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Displays a list of all employees stored in the employee archive. </p>
+<p>Displays a list of all accounts stored in the account archive. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">active</td><td>(bool) If true, active employees will be printed and if false, inactive employees will be printed </td></tr>
+    <tr><td class="paramname">list_actives</td><td>(bool) If true, active accounts will be printed. </td></tr>
+    <tr><td class="paramname">list_inactives</td><td>(bool) If true, inactive accounts will be printed. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a884220681611c849f8a1b0e7c020cbb5" name="a884220681611c849f8a1b0e7c020cbb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a884220681611c849f8a1b0e7c020cbb5">&#9670;&#160;</a></span>printEmployee()</h2>
+<a id="ac86b080672a3d4a440f5c41f9f88cec2" name="ac86b080672a3d4a440f5c41f9f88cec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86b080672a3d4a440f5c41f9f88cec2">&#9670;&#160;</a></span>listEmployeesMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EmployeesManager::listEmployeesMenu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays a menu with listing options. </p>
+
+</div>
+</div>
+<a id="a500ec6a0d340112bc6aa34415195a848" name="a500ec6a0d340112bc6aa34415195a848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a500ec6a0d340112bc6aa34415195a848">&#9670;&#160;</a></span>loadEmployee()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EmployeesManager::loadEmployee </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads a register from the _employees_archive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>(int) The index of the account record to read. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab0137894d2e4ac9aeb175aaf9be9f10f" name="ab0137894d2e4ac9aeb175aaf9be9f10f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0137894d2e4ac9aeb175aaf9be9f10f">&#9670;&#160;</a></span>printEmployee()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -595,8 +635,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void EmployeesManager::printEmployee </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
